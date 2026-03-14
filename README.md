@@ -1,380 +1,94 @@
-Here is a **clean corrected README** using the repo name **`notuser`** instead of `notuser-hello-world`. I also simplified a few sections and removed references that could confuse deployment.
-
----
-
 # notuser
 
-Production-first boilerplate for my personal site using:
+Minimal, production-first starter for GitHub + Railway:
+- Next.js (TypeScript, App Router)
+- PostgreSQL
+- Prisma ORM (migration + seed)
 
-* Next.js (App Router) + TypeScript
-* PostgreSQL on Railway
-* Prisma ORM with migrations and seed
-* GitHub → Railway deployment pipeline
+Live deployment:
+- https://notuser-production.up.railway.app
 
-This project is adapted from the official Railway starter:
-
-`prisma/official-prisma-railway`
-
-The purpose of this repo is to establish a **working production pipeline before real development begins**.
-
----
-
-# What This App Does
-
-The app intentionally stays simple to verify infrastructure.
+## App behavior
 
 Home page shows:
+- `Hello, Udit`
+- `App is running`
+- database row count and latest message
+- form to insert a message
 
-* **Hello, Udit**
-* **App is running**
-* Database connectivity section
-* Total row count
-* Latest record text
-* Form to insert a test record
+Endpoints:
+- `/api/health`
+- `/api/db-test`
+- `/api/messages`
 
-API endpoints included:
-
-```
-/api/health
-/api/db-test
-/api/messages
-```
-
-The database contains a simple `Message` table seeded with:
-
-```
-Hello from Railway DB
-```
-
----
-
-# Environment Variables
-
-Create `.env` locally from `.env.example`.
+## Environment variables
 
 Required:
-
-```
-DATABASE_URL
-```
+- `DATABASE_URL`
 
 Optional:
+- `APP_NAME` (default: `notuser`)
 
-```
-APP_NAME=notuser
-```
+See `.env.example`.
 
----
+## Local setup
 
-# Local Setup
-
-### 1 Install dependencies
-
-```
+1. Install dependencies:
+```bash
 npm install
 ```
 
-### 2 Create env file
-
-macOS / Linux
-
-```
+2. Create env file:
+```bash
+# macOS/Linux
 cp .env.example .env
-```
 
-Windows PowerShell
-
-```
+# Windows PowerShell
 Copy-Item .env.example .env
 ```
 
-### 3 Configure database
-
-Edit `.env`:
-
-```
+3. Set values in `.env`:
+```bash
 DATABASE_URL="postgresql://..."
 APP_NAME="notuser"
 ```
 
----
-
-### 4 Generate Prisma client
-
-```
-npm run prisma:generate
-```
-
----
-
-### 5 Apply migrations
-
-```
+4. Apply committed migrations:
+```bash
 npm run migrate:deploy
 ```
 
----
-
-### 6 Seed database
-
-```
+5. Seed database:
+```bash
 npm run seed
 ```
 
----
-
-### 7 Start development server
-
-```
+6. Run app:
+```bash
 npm run dev
 ```
 
-Open:
-
-```
-http://localhost:3000
-```
-
----
-
-### Creating future migrations
-
-If the Prisma schema changes:
-
-```
-npm run migrate:dev -- --name change_name
-```
-
----
-
-# Railway Deployment
-
-This repository is intended to deploy through **GitHub → Railway integration**.
-
-## Services required
-
-Inside one Railway project create:
-
-```
-1 Web service (this repo)
-1 PostgreSQL database
-```
-
----
-
-# Deployment Steps
-
-### 1 Push repository to GitHub
-
-Repo name:
-
-```
-notuser
-```
-
-Push your local project.
-
----
-
-### 2 Create Railway project
-
-In Railway:
-
-```
-New Project
-Deploy from GitHub Repo
-```
-
-Select:
-
-```
-notuser
-```
-
----
-
-### 3 Add PostgreSQL
-
-Inside the same Railway project:
-
-```
-New → Database → PostgreSQL
-```
-
----
-
-### 4 Configure environment variables
-
-Open the web service → **Variables**
-
-Add:
-
-```
-DATABASE_URL = reference the Railway Postgres DATABASE_URL
-APP_NAME = notuser
-```
-
----
-
-### 5 Confirm build settings
-
-Railway should use:
-
-Build
-
-```
-npm run build
-```
-
-Start
-
-```
-npm run start
-```
-
----
-
-### 6 Deploy
-
-Push a commit or click **Redeploy**.
-
-Railway will:
-
-1. Install dependencies
-2. Run `prisma generate`
-3. Run `prisma migrate deploy`
-4. Build Next.js
-5. Start the app
-
----
-
-# Production Verification
-
-After deployment:
-
-### Check the app
-
-Open the Railway URL.
-
-Confirm:
-
-```
-Hello, Udit
-App is running
-```
-
----
-
-### Health endpoint
-
-```
-GET /api/health
-```
-
-Should return:
-
-```
-{ ok: true }
-```
-
----
-
-### Database endpoint
-
-```
-GET /api/db-test
-```
-
-Should return:
-
-* ok: true
-* row count
-* latest message
-
----
-
-### Insert record test
-
-On the home page:
-
-1. Enter a test message
-2. Submit
-3. Confirm:
-
-   * row count increases
-   * latest message updates
-
-Refresh the page to confirm persistence.
-
----
-
-# Why This Setup Is Reliable
-
-The build process performs:
-
-```
-prisma generate
-prisma migrate deploy
-next build
-```
-
-Runtime only runs:
-
-```
-next start
-```
-
-There are:
-
-* no hidden DB provisioning scripts
-* no runtime migrations
-* no external services required
-
-Everything is **environment-variable driven**.
-
----
-
-# Common Failure Fixes
-
-### Build fails with DB connection error
-
-Ensure the **web service** has:
-
-```
-DATABASE_URL
-```
-
-referencing the Railway Postgres service.
-
----
-
-### DB endpoints fail but site loads
-
-Confirm the variable is set on the **web service**, not just locally.
-
----
-
-### Prisma client errors
-
-Run:
-
-```
-npm run prisma:generate
-```
-
-or redeploy.
-
----
-
-### Migration conflict
-
-If deploying against an old database:
-
-```
-drop database
-```
-
-or use a fresh Railway Postgres instance.
-
----
-
+## Railway deploy
+
+1. Push this repo to GitHub.
+2. In Railway: `New Project` -> `Deploy from GitHub Repo`.
+3. Add PostgreSQL service in the same Railway project.
+4. In web service variables set:
+   - `DATABASE_URL` = reference Postgres `DATABASE_URL`
+   - `APP_NAME` = `notuser`
+5. Deploy with:
+   - Build command: `npm run build`
+   - Start command: `npm run start`
+
+Current scripts:
+- `build`: `prisma generate && next build`
+- `start`: `prisma migrate deploy && next start`
+
+This avoids build-time DB connectivity failures and runs migrations when the service starts in Railway's runtime network.
+
+## Verify production
+
+1. Open `/` and confirm headline/status render.
+2. Open `/api/health` and confirm `ok: true`.
+3. Open `/api/db-test` and confirm DB connectivity.
+4. Insert a message from `/` and verify row count/latest message update.

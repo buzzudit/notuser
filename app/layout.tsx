@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "notuser-hello-world",
+  title: "notuser",
   description: "Minimal Next.js + Prisma + PostgreSQL starter for Railway",
 };
 

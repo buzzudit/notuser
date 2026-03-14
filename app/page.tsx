@@ -1,6 +1,8 @@
 import { revalidatePath } from "next/cache";
 import prisma from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 type DbState = {
   ok: boolean;
   totalCount: number;
