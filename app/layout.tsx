@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Providers } from "@/components/site/Providers";
 
 export const metadata: Metadata = {
   title: "notuser",
-  description: "Minimal Next.js + Prisma + PostgreSQL starter for Railway",
+  description: "AI-first workspace experience for notuser.com",
 };
 
 export default function RootLayout({
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers />
+        {children}
+      </body>
     </html>
   );
 }
