@@ -1,14 +1,16 @@
 {
-  "name": "nextjs-prisma-postgres",
+  "name": "notuser-hello-world",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "prisma generate && prisma migrate deploy && next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "node scripts/create-db.mjs",
-    "setup": "node scripts/create-db.mjs --force"
+    "prisma:generate": "prisma generate",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "seed": "prisma db seed"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",
@@ -21,7 +23,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.11",
     "@types/pg": "^8.16.0",
     "@types/react": "^19",
@@ -29,7 +30,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
     "prisma": "^7.3.0",
-    "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"
   }

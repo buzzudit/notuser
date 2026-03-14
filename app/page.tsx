@@ -1,116 +1,85 @@
-"use client";
+import { revalidatePath } from "next/cache";
+import prisma from "@/lib/prisma";
 
-import { useState, useEffect } from "react";
-import { Post } from "@/app/generated/prisma/client";
+type DbState = {
+  ok: boolean;
+  totalCount: number;
+  latestMessage: string;
+  error: string | null;
+};
 
-export default function Home() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const claimUrl = process.env.NEXT_PUBLIC_CLAIM_URL;
+async function getDbState(): Promise<DbState> {
+  try {
+    const [totalCount, latest] = await Promise.all([
+      prisma.message.count(),
+      prisma.message.findFirst({
+        orderBy: { createdAt: "desc" },
+      }),
+    ]);
 
-  useEffect(() => {
-    fetch("/api/posts")
-      .then((res) => res.json())
-      .then(setPosts);
-  }, []);
+    return {
+      ok: true,
+      totalCount,
+      latestMessage: latest?.message ?? "(no records yet)",
+      error: null,
+    };
+  } catch (error) {
+    return {
+      ok: false,
+      totalCount: 0,
+      latestMessage: "N/A",
+      error: error instanceof Error ? error.message : "Unknown database error",
+    };
+  }
+}
 
-  const addPost = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!title.trim()) return;
+async function createMessage(formData: FormData) {
+  "use server";
 
-    const res = await fetch("/api/posts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, content }),
-    });
-    const newPost = await res.json();
-    setPosts([...posts, newPost]);
-    setTitle("");
-    setContent("");
-  };
+  const messageValue = formData.get("message");
+  const message = typeof messageValue === "string" ? messageValue.trim() : "";
 
-  const deletePost = async (id: number) => {
-    await fetch(`/api/posts?id=${id}`, { method: "DELETE" });
-    setPosts(posts.filter((post) => post.id !== id));
-  };
+  if (!message) return;
+
+  await prisma.message.create({
+    data: { message },
+  });
+
+  revalidatePath("/");
+}
+
+export default async function Home() {
+  const dbState = await getDbState();
 
   return (
-    <div className="p-8 max-w-2xl mx-auto">
-      <h1 className="text-3xl mb-8 text-center">
-        NextJS + Prisma ORM + Prisma Postgres
-      </h1>
+    <main className="container">
+      <h1>Hello, Udit</h1>
+      <p>App is running</p>
 
-      <form onSubmit={addPost} className="mb-8">
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-          className="w-full bg-neutral-900 p-3 border border-neutral-700 rounded mb-3"
-        />
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Content"
-          className="w-full bg-neutral-900 p-3 border border-neutral-700 rounded mb-3"
-        />
-        <button className="px-6 py-2 bg-blue-500 text-white rounded w-full hover:bg-blue-600 cursor-pointer">
-          Post
-        </button>
-      </form>
+      <section className="panel" aria-labelledby="db-section-title">
+        <h2 id="db-section-title">Database connectivity</h2>
 
-      <div className="space-y-4">
-        {posts.length === 0 ? (
-          <div className="text-center py-8 text-neutral-400">
-            <p>No posts yet. Create your first post above!</p>
-          </div>
+        {dbState.ok ? (
+          <>
+            <p>Total row count: {dbState.totalCount}</p>
+            <p>Latest record text: {dbState.latestMessage}</p>
+          </>
         ) : (
-          posts.map((post) => (
-            <article
-              key={post.id}
-              className="group relative p-6 rounded-lg bg-neutral-900/50 hover:bg-neutral-800/50 transition-colors duration-200 border border-neutral-800 hover:border-neutral-700"
-            >
-              <div className="flex justify-between items-start">
-                <div className="flex-1 pr-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    {post.title}
-                  </h3>
-                  {post.content && (
-                    <p className="text-neutral-300 text-sm leading-relaxed">
-                      {post.content}
-                    </p>
-                  )}
-                </div>
-                <button
-                  onClick={() => deletePost(post.id)}
-                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-neutral-400 hover:text-red-400 p-2 -mt-1 -mr-2"
-                  aria-label="Delete post"
-                  title="Delete post"
-                >
-                  X
-                </button>
-              </div>
-            </article>
-          ))
+          <p>Database error: {dbState.error}</p>
         )}
-      </div>
-      <footer className="mt-12 pt-6 border-t border-neutral-800">
-        <p className="text-center text-neutral-400 text-sm">
-          You can claim your database at{" "}
-          <a
-            href={claimUrl}
-            className="text-blue-400 hover:text-blue-300 transition-colors duration-200 break-all"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            create-db.prisma.io/claim
-          </a>
-        </p>
-        <p className="text-center text-neutral-500 text-xs mt-2">
-          Powered by Next.js, Prisma, and Railway
-        </p>
-      </footer>
-    </div>
+
+        <form action={createMessage} className="form">
+          <label htmlFor="message">Insert test record</label>
+          <input
+            id="message"
+            name="message"
+            type="text"
+            placeholder="Type a message"
+            required
+          />
+          <button type="submit">Add record</button>
+        </form>
+      </section>
+    </main>
   );
 }
