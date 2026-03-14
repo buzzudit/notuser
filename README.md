@@ -1,144 +1,380 @@
-# notuser-hello-world
+Here is a **clean corrected README** using the repo name **`notuser`** instead of `notuser-hello-world`. I also simplified a few sections and removed references that could confuse deployment.
 
-Production-first boilerplate for a personal site using:
-- Next.js (App Router) + TypeScript
-- PostgreSQL on Railway
-- Prisma ORM + migrations + seed
-- GitHub -> Railway deployment
+---
 
-This repo is adapted from the official Railway starter:
-- `prisma/official-prisma-railway`
+# notuser
 
-## What You Get
+Production-first boilerplate for my personal site using:
 
-- Home page with:
-  - `Hello, Udit`
-  - `App is running`
-  - DB connectivity status
-  - row count + latest record text
-  - form button to insert a test record
-- Health endpoint: `/api/health`
-- DB test endpoint: `/api/db-test`
-- Simple message API: `/api/messages`
-- Prisma migration files committed
-- Seed script that inserts `Hello from Railway DB`
+* Next.js (App Router) + TypeScript
+* PostgreSQL on Railway
+* Prisma ORM with migrations and seed
+* GitHub → Railway deployment pipeline
 
-## Environment Variables
+This project is adapted from the official Railway starter:
+
+`prisma/official-prisma-railway`
+
+The purpose of this repo is to establish a **working production pipeline before real development begins**.
+
+---
+
+# What This App Does
+
+The app intentionally stays simple to verify infrastructure.
+
+Home page shows:
+
+* **Hello, Udit**
+* **App is running**
+* Database connectivity section
+* Total row count
+* Latest record text
+* Form to insert a test record
+
+API endpoints included:
+
+```
+/api/health
+/api/db-test
+/api/messages
+```
+
+The database contains a simple `Message` table seeded with:
+
+```
+Hello from Railway DB
+```
+
+---
+
+# Environment Variables
 
 Create `.env` locally from `.env.example`.
 
 Required:
-- `DATABASE_URL` - PostgreSQL connection string
+
+```
+DATABASE_URL
+```
 
 Optional:
-- `APP_NAME` - defaults to `notuser-hello-world`
 
-## Local Setup (Zero to Running)
+```
+APP_NAME=notuser
+```
 
-1. Install deps:
-```bash
+---
+
+# Local Setup
+
+### 1 Install dependencies
+
+```
 npm install
 ```
 
-2. Create local env file:
-```bash
-# macOS/Linux
-cp .env.example .env
+### 2 Create env file
 
-# Windows (PowerShell)
+macOS / Linux
+
+```
+cp .env.example .env
+```
+
+Windows PowerShell
+
+```
 Copy-Item .env.example .env
 ```
 
-3. Put your Postgres URL in `.env`:
-```bash
+### 3 Configure database
+
+Edit `.env`:
+
+```
 DATABASE_URL="postgresql://..."
-APP_NAME="notuser-hello-world"
+APP_NAME="notuser"
 ```
 
-4. Generate Prisma client:
-```bash
+---
+
+### 4 Generate Prisma client
+
+```
 npm run prisma:generate
 ```
 
-5. Apply committed migrations (same behavior as production):
-```bash
+---
+
+### 5 Apply migrations
+
+```
 npm run migrate:deploy
 ```
 
-6. Seed DB:
-```bash
+---
+
+### 6 Seed database
+
+```
 npm run seed
 ```
 
-7. Start app:
-```bash
+---
+
+### 7 Start development server
+
+```
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open:
 
-If you later change the Prisma schema and want to create a new migration locally:
-```bash
-npm run migrate:dev -- --name your_change_name
+```
+http://localhost:3000
 ```
 
-## Railway Deployment (GitHub Integration)
+---
 
-### Services to create
+### Creating future migrations
 
-- 1 web service from this repo (`notuser-hello-world`)
-- 1 Railway Postgres service in the same project
+If the Prisma schema changes:
 
-### Step-by-step
+```
+npm run migrate:dev -- --name change_name
+```
 
-1. Create GitHub repo named `notuser-hello-world`.
-2. Push this code to `main`.
-3. In Railway, click **New Project** -> **Deploy from GitHub repo**.
-4. Select the `notuser-hello-world` repo.
-5. In the same Railway project, click **New** -> **Database** -> **PostgreSQL**.
-6. Open your web service -> **Variables**.
-7. Add:
-   - `DATABASE_URL` = reference the Postgres service `DATABASE_URL` variable
-   - `APP_NAME` = `notuser-hello-world`
-8. Confirm build/start commands:
-   - Build: `npm run build`
-   - Start: `npm run start`
-9. Trigger a deploy (push commit or click redeploy).
+---
 
-## Why This Deploy Is Reliable
+# Railway Deployment
 
-- Build command runs:
-  1. `prisma generate`
-  2. `prisma migrate deploy`
-  3. `next build`
-- Runtime only runs `next start`
-- No hidden postinstall DB provisioning
-- Everything is env-driven and explicit
+This repository is intended to deploy through **GitHub → Railway integration**.
 
-## Production Verification Checklist
+## Services required
 
-After deploy succeeds:
+Inside one Railway project create:
 
-1. Open site URL and confirm:
-   - headline shows `Hello, Udit`
-   - status shows `App is running`
-2. Confirm health endpoint:
-   - `GET /api/health` returns `ok: true`
-3. Confirm DB endpoint:
-   - `GET /api/db-test` returns `ok: true` and row count
-4. On home page, add a test message and submit.
-5. Refresh page and confirm:
-   - row count increased
-   - latest record text matches your inserted message
-6. Re-open app URL after a minute and confirm data persisted.
+```
+1 Web service (this repo)
+1 PostgreSQL database
+```
 
-## Common Failure Points and Fixes
+---
 
-- Build fails with DB connection error:
-  - Ensure web service has `DATABASE_URL` from Railway Postgres.
-- Runtime works but DB endpoints fail:
-  - Recheck `DATABASE_URL` reference was set on the web service, not locally only.
-- Prisma client errors in build:
-  - Ensure `npm run build` is used (includes `prisma generate`).
-- Migration conflicts:
-  - If reusing an old database, inspect `_prisma_migrations` and run a clean database for first deployment.
+# Deployment Steps
+
+### 1 Push repository to GitHub
+
+Repo name:
+
+```
+notuser
+```
+
+Push your local project.
+
+---
+
+### 2 Create Railway project
+
+In Railway:
+
+```
+New Project
+Deploy from GitHub Repo
+```
+
+Select:
+
+```
+notuser
+```
+
+---
+
+### 3 Add PostgreSQL
+
+Inside the same Railway project:
+
+```
+New → Database → PostgreSQL
+```
+
+---
+
+### 4 Configure environment variables
+
+Open the web service → **Variables**
+
+Add:
+
+```
+DATABASE_URL = reference the Railway Postgres DATABASE_URL
+APP_NAME = notuser
+```
+
+---
+
+### 5 Confirm build settings
+
+Railway should use:
+
+Build
+
+```
+npm run build
+```
+
+Start
+
+```
+npm run start
+```
+
+---
+
+### 6 Deploy
+
+Push a commit or click **Redeploy**.
+
+Railway will:
+
+1. Install dependencies
+2. Run `prisma generate`
+3. Run `prisma migrate deploy`
+4. Build Next.js
+5. Start the app
+
+---
+
+# Production Verification
+
+After deployment:
+
+### Check the app
+
+Open the Railway URL.
+
+Confirm:
+
+```
+Hello, Udit
+App is running
+```
+
+---
+
+### Health endpoint
+
+```
+GET /api/health
+```
+
+Should return:
+
+```
+{ ok: true }
+```
+
+---
+
+### Database endpoint
+
+```
+GET /api/db-test
+```
+
+Should return:
+
+* ok: true
+* row count
+* latest message
+
+---
+
+### Insert record test
+
+On the home page:
+
+1. Enter a test message
+2. Submit
+3. Confirm:
+
+   * row count increases
+   * latest message updates
+
+Refresh the page to confirm persistence.
+
+---
+
+# Why This Setup Is Reliable
+
+The build process performs:
+
+```
+prisma generate
+prisma migrate deploy
+next build
+```
+
+Runtime only runs:
+
+```
+next start
+```
+
+There are:
+
+* no hidden DB provisioning scripts
+* no runtime migrations
+* no external services required
+
+Everything is **environment-variable driven**.
+
+---
+
+# Common Failure Fixes
+
+### Build fails with DB connection error
+
+Ensure the **web service** has:
+
+```
+DATABASE_URL
+```
+
+referencing the Railway Postgres service.
+
+---
+
+### DB endpoints fail but site loads
+
+Confirm the variable is set on the **web service**, not just locally.
+
+---
+
+### Prisma client errors
+
+Run:
+
+```
+npm run prisma:generate
+```
+
+or redeploy.
+
+---
+
+### Migration conflict
+
+If deploying against an old database:
+
+```
+drop database
+```
+
+or use a fresh Railway Postgres instance.
+
+---
+
