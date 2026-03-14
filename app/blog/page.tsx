@@ -10,6 +10,8 @@ import {
 import { BlogGrid } from "@/components/site/BlogGrid";
 import { CallToAction } from "@/components/site/CallToAction";
 import { blogPosts } from "@/data/blog";
+import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
+import { AIInsightsPanel } from "@/components/ai/AIInsightsPanel";
 
 export default function BlogPage() {
   return (
@@ -24,7 +26,45 @@ export default function BlogPage() {
       </SectionShell>
 
       <SectionShell>
+        <AISuggestionChips
+          title="Contextual suggestions"
+          suggestions={[
+            "Show posts about trust in AI workflows",
+            "Find articles with operational playbooks",
+            "Highlight strategy-to-execution frameworks",
+            "Extract weekly implementation actions",
+          ]}
+        />
+      </SectionShell>
+
+      <SectionShell className="pt-0">
         <BlogGrid posts={blogPosts} />
+      </SectionShell>
+
+      <SectionShell className="pt-0">
+        <AIInsightsPanel
+          title="Theme insights"
+          insights={[
+            {
+              title: "Trust and legibility",
+              description:
+                "High-performing AI products expose reasoning and make correction easy.",
+              signal: "Core theme",
+            },
+            {
+              title: "Operations over prompts",
+              description:
+                "Sustainable outcomes come from workflow design, governance, and instrumentation.",
+              signal: "Execution lens",
+            },
+            {
+              title: "Narrative with metrics",
+              description:
+                "Strong product storytelling combines decision quality with measurable outcomes.",
+              signal: "Communication",
+            },
+          ]}
+        />
       </SectionShell>
 
       <SectionShell>

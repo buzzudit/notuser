@@ -6,6 +6,10 @@ import { QuoteBlock } from "@/components/site/QuoteBlock";
 import { TagList } from "@/components/site/TagList";
 import { CallToAction } from "@/components/site/CallToAction";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog";
+import { AISummaryPanel } from "@/components/ai/AISummaryPanel";
+import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
+import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
+import { AIInlineActions } from "@/components/ai/AIInlineActions";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -38,6 +42,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </p>
           <TagList tags={post.tags} className="mt-4" />
 
+          <div className="mt-6">
+            <AISummaryPanel
+              summary={post.excerpt}
+              bullets={post.sections.map((section) => section.heading)}
+            />
+          </div>
+
+          <div className="mt-6">
+            <AIInsightHighlight
+              title="Smart highlight"
+              insight={
+                post.sections[0]?.paragraphs[0] ??
+                "This article explores practical AI-first design decisions."
+              }
+              context="Use this as a quick framing before diving into the full article."
+            />
+          </div>
+
           <div className="mt-8 space-y-8">
             {post.sections.map((section) => (
               <section key={section.heading}>
@@ -62,6 +84,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
           ) : null}
+
+          <div className="mt-8">
+            <AIThinkingPrompts
+              prompts={[
+                "What assumption in this article would fail in my current context?",
+                "Which idea can be tested in the next 7 days?",
+                "Where does this strategy need human oversight?",
+              ]}
+            />
+          </div>
+
+          <div className="mt-6">
+            <AIInlineActions
+              actions={[
+                { label: "Apply this idea to my product", href: "/contact" },
+                { label: "Browse more posts", href: "/blog" },
+                { label: "See portfolio examples", href: "/portfolio" },
+              ]}
+            />
+          </div>
         </article>
       </SectionShell>
 
