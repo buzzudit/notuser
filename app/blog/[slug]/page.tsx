@@ -1,8 +1,8 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import Link from "next/link";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import { SectionShell } from "@/components/site/SectionShell";
 import { ReadingProgressBar } from "@/components/site/ReadingProgressBar";
-import { QuoteBlock } from "@/components/site/QuoteBlock";
 import { TagList } from "@/components/site/TagList";
 import { CallToAction } from "@/components/site/CallToAction";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog";
@@ -10,6 +10,7 @@ import { AISummaryPanel } from "@/components/ai/AISummaryPanel";
 import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
 import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
 import { AIInlineActions } from "@/components/ai/AIInlineActions";
+import { resolveBlogSlug } from "@/data/blog";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -21,6 +22,11 @@ export async function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
+  const resolvedSlug = resolveBlogSlug(slug);
+  if (resolvedSlug !== slug) {
+    redirect(`/blog/${resolvedSlug}`);
+  }
+
   const post = getBlogPostBySlug(slug);
   if (!post) {
     notFound();
@@ -37,6 +43,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
             {post.title}
           </h1>
+          <p className="mt-2 text-xs text-muted-foreground">
+            By {post.author} - Updated {post.updatedAt}
+          </p>
+          <div className="mt-4 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
+            <img
+              src={post.thumbnail}
+              alt={post.title}
+              className="max-h-[420px] w-full object-cover"
+            />
+          </div>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             {post.excerpt}
           </p>
@@ -75,16 +91,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
 
-          {post.quote ? (
-            <div className="mt-8">
-              <QuoteBlock
-                quote={post.quote.text}
-                author={post.quote.author}
-                role={post.quote.role}
-              />
-            </div>
-          ) : null}
-
           <div className="mt-8">
             <AIThinkingPrompts
               prompts={[
@@ -104,6 +110,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               ]}
             />
           </div>
+
+          <p className="mt-6 text-xs text-muted-foreground">
+            Source:&nbsp;
+            <Link
+              href={post.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-foreground underline"
+            >
+              Original post on notuser.com
+            </Link>
+          </p>
         </article>
       </SectionShell>
 

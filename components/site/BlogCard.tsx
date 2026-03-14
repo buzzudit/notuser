@@ -9,13 +9,21 @@ type BlogCardProps = {
 export function BlogCard({ post }: BlogCardProps) {
   return (
     <article className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40">
+      <div className="mb-4 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
+        <img
+          src={post.thumbnail}
+          alt={post.title}
+          className="h-44 w-full object-cover"
+          loading="lazy"
+        />
+      </div>
       <p className="font-mono text-[10px] uppercase tracking-wider text-primary">
         {post.category}
       </p>
       <h3 className="mt-2 text-xl font-semibold text-foreground">{post.title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
       <p className="mt-3 text-xs text-muted-foreground">
-        {post.date} - {post.readTime}
+        {post.date} - {post.readTime} - {post.author}
       </p>
       <TagList tags={post.tags} className="mt-3" />
       <Link
