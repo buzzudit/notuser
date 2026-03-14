@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { ContentCard } from "@/components/site/ContentCard";
+import { useState } from "react";
+import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import {
   SectionDescription,
@@ -10,44 +9,47 @@ import {
   SectionLabel,
   SectionShell,
 } from "@/components/site/SectionShell";
-import { circleContent } from "@/lib/site/content";
+import { PromptExamples } from "@/components/site/PromptExamples";
+import { AIWorkflowCards } from "@/components/site/AIWorkflowCards";
+import { CallToAction } from "@/components/site/CallToAction";
+import { aiWorkflowSteps, circlePrompts } from "@/data/site";
 
 export default function CirclePage() {
+  const [selectedPrompt, setSelectedPrompt] = useState("");
+
   return (
     <PageLayout>
       <SectionShell>
-        <SectionLabel>Community</SectionLabel>
-        <SectionHeading>{circleContent.headline}</SectionHeading>
-        <SectionDescription>{circleContent.description}</SectionDescription>
+        <SectionLabel>Circle</SectionLabel>
+        <SectionHeading>Prompt playground for AI-first workflows</SectionHeading>
+        <SectionDescription>
+          Explore example prompts, experiment quickly, and see a repeatable AI
+          workflow model from framing to execution.
+        </SectionDescription>
       </SectionShell>
 
-      <SectionShell className="pt-0 md:pt-0">
-        <div className="grid gap-4 md:grid-cols-3">
-          {circleContent.features.map((feature) => (
-            <ContentCard key={feature.title}>
-              <h3 className="mb-2 text-sm font-medium text-foreground">
-                {feature.title}
-              </h3>
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                {feature.description}
-              </p>
-            </ContentCard>
-          ))}
+      <SectionShell className="pt-0">
+        <SectionLabel>Prompt Examples</SectionLabel>
+        <div className="space-y-4">
+          <PromptExamples prompts={circlePrompts} onSelect={setSelectedPrompt} />
+          <AIWorkspace prefill={selectedPrompt} />
         </div>
       </SectionShell>
 
-      <SectionShell className="text-center">
-        <SectionHeading>Interested?</SectionHeading>
-        <p className="mx-auto mb-6 max-w-md text-sm text-muted-foreground">
-          The Circle is currently invite-only. Reach out to express interest or
-          request an invitation.
-        </p>
-        <Link
-          href="/contact"
-          className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-        >
-          Request access <ArrowRight size={14} />
-        </Link>
+      <SectionShell>
+        <SectionLabel>AI Workflow Steps</SectionLabel>
+        <AIWorkflowCards steps={aiWorkflowSteps} />
+      </SectionShell>
+
+      <SectionShell>
+        <CallToAction
+          title="Want custom prompts for your team?"
+          description="I can help design a workflow-specific prompt system and operating playbook."
+          primaryLabel="Request a session"
+          primaryHref="/contact"
+          secondaryLabel="View portfolio"
+          secondaryHref="/portfolio"
+        />
       </SectionShell>
     </PageLayout>
   );

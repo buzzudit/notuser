@@ -1,17 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Sparkles } from "lucide-react";
-import { promptStarters } from "@/lib/site/content";
+import { circlePrompts } from "@/data/site";
 
 interface AIWorkspaceProps {
   onSubmit?: (message: string) => void;
   compact?: boolean;
+  prefill?: string;
 }
 
-export function AIWorkspace({ onSubmit, compact = false }: AIWorkspaceProps) {
+export function AIWorkspace({
+  onSubmit,
+  compact = false,
+  prefill = "",
+}: AIWorkspaceProps) {
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    if (prefill) {
+      setInput(prefill);
+    }
+  }, [prefill]);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -52,16 +63,16 @@ export function AIWorkspace({ onSubmit, compact = false }: AIWorkspaceProps) {
 
       {!compact && (
         <div className="mt-4 flex flex-wrap gap-2">
-          {promptStarters.map((starter) => (
+          {circlePrompts.slice(0, 4).map((starter) => (
             <motion.button
-              key={starter.label}
+              key={starter}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => handleStarter(starter.label)}
+              onClick={() => handleStarter(starter)}
               className="rounded-md border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
               type="button"
             >
-              {starter.label}
+              {starter}
             </motion.button>
           ))}
         </div>

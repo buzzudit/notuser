@@ -1,24 +1,29 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { StatusIndicator } from "@/components/site/StatusIndicator";
 import {
   SectionShell,
-  SectionDescription,
   SectionHeading,
   SectionLabel,
 } from "@/components/site/SectionShell";
-import { ContentCard } from "@/components/site/ContentCard";
+import { ProjectGrid } from "@/components/site/ProjectGrid";
+import { FeatureGrid } from "@/components/site/FeatureGrid";
+import { AIWorkflowCards } from "@/components/site/AIWorkflowCards";
+import { ExperienceTimeline } from "@/components/site/ExperienceTimeline";
+import { BlogGrid } from "@/components/site/BlogGrid";
+import { CallToAction } from "@/components/site/CallToAction";
+import { ImpactStats } from "@/components/site/ImpactStats";
+import { projects } from "@/data/projects";
+import { blogPosts } from "@/data/blog";
 import {
-  blogPosts,
-  heroContent,
-  portfolioItems,
+  aiWorkflowSteps,
+  designFeatures,
+  homeHero,
   trustIndicators,
-} from "@/lib/site/content";
+} from "@/data/site";
 
 export default function HomePage() {
   return (
@@ -40,7 +45,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-4 whitespace-pre-line text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl"
           >
-            {heroContent.headline}
+            {homeHero.headline}
           </motion.h1>
 
           <motion.p
@@ -49,7 +54,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-10 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg"
           >
-            {heroContent.subheadline}
+            {homeHero.subheadline}
           </motion.p>
 
           <motion.div
@@ -84,84 +89,46 @@ export default function HomePage() {
             <SectionLabel>Portfolio</SectionLabel>
             <SectionHeading>Selected work</SectionHeading>
           </div>
-          <Link
-            href="/portfolio"
-            className="hidden items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground md:flex"
-          >
-            View all <ArrowRight size={14} />
-          </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {portfolioItems.map((item) => (
-            <ContentCard key={item.id}>
-              <div className="mb-3 h-32 rounded-md bg-secondary" />
-              <p className="mb-1 font-mono text-[10px] uppercase tracking-wider text-primary">
-                {item.category}
-              </p>
-              <h3 className="mb-1 text-sm font-medium text-foreground">
-                {item.title}
-              </h3>
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                {item.description}
-              </p>
-            </ContentCard>
-          ))}
+        <ProjectGrid projects={projects.slice(0, 3)} />
+      </SectionShell>
+
+      <SectionShell>
+        <SectionLabel>What I Design</SectionLabel>
+        <SectionHeading>AI-native product systems with operational depth</SectionHeading>
+        <FeatureGrid features={designFeatures} />
+      </SectionShell>
+
+      <SectionShell>
+        <SectionLabel>AI-First Approach</SectionLabel>
+        <SectionHeading>From strategy to reliable execution</SectionHeading>
+        <AIWorkflowCards steps={aiWorkflowSteps} />
+      </SectionShell>
+
+      <SectionShell>
+        <SectionLabel>Career Highlights</SectionLabel>
+        <SectionHeading>Design leadership across product and platform teams</SectionHeading>
+        <ImpactStats />
+        <div className="mt-8">
+          <ExperienceTimeline />
         </div>
       </SectionShell>
 
       <SectionShell>
-        <div className="mb-8 flex items-end justify-between">
-          <div>
-            <SectionLabel>Blog</SectionLabel>
-            <SectionHeading>Latest thinking</SectionHeading>
-          </div>
-          <Link
-            href="/blog"
-            className="hidden items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground md:flex"
-          >
-            View all <ArrowRight size={14} />
-          </Link>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {blogPosts.map((post) => (
-            <ContentCard key={post.id}>
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-wider text-primary">
-                {post.category}
-              </p>
-              <h3 className="mb-1 text-sm font-medium text-foreground">
-                {post.title}
-              </h3>
-              <p className="mb-3 text-xs leading-relaxed text-muted-foreground">
-                {post.excerpt}
-              </p>
-              <p className="font-mono text-[10px] text-muted-foreground">
-                {post.date} - {post.readTime}
-              </p>
-            </ContentCard>
-          ))}
-        </div>
+        <SectionLabel>Writing</SectionLabel>
+        <SectionHeading>Recent thoughts on AI, product, and execution</SectionHeading>
+        <BlogGrid posts={blogPosts.slice(0, 2)} />
       </SectionShell>
 
-      <SectionShell className="text-center">
-        <SectionLabel>Ready?</SectionLabel>
-        <SectionHeading>Let&apos;s build something together</SectionHeading>
-        <SectionDescription>
-          Start with a conversation and we can map the right path quickly.
-        </SectionDescription>
-        <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            Get in touch <ArrowRight size={14} />
-          </Link>
-          <Link
-            href="/circle"
-            className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Join the Circle
-          </Link>
-        </div>
+      <SectionShell>
+        <CallToAction
+          title="Let's build your next AI-first experience"
+          description="I partner with teams that need clarity, speed, and quality in AI product execution."
+          primaryLabel="Start a project"
+          primaryHref="/contact"
+          secondaryLabel="See the circle"
+          secondaryHref="/circle"
+        />
       </SectionShell>
     </PageLayout>
   );
