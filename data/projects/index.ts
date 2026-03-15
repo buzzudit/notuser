@@ -35,6 +35,7 @@ import { project as express_branding_tool } from "./express-branding-tool";
 import { project as free_hand_animation_tool } from "./free-hand-animation-tool";
 import { project as hungry_lion_game } from "./hungry-lion-game";
 import { project as slidemaker_app } from "./slidemaker-app";
+import { project as smart_beds_and_spaces_with_built_in_decor } from "./smart-beds-and-spaces-with-built-in-decor";
 
 import { legacyProjectSlugMap } from "../legacy-slug-maps";
 
@@ -72,6 +73,7 @@ export const projects: Project[] = [
   free_hand_animation_tool,
   hungry_lion_game,
   slidemaker_app,
+  smart_beds_and_spaces_with_built_in_decor,
 ];
 
 export function resolveProjectSlug(slug: string) {
