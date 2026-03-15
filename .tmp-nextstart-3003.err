@@ -1,0 +1,23 @@
+ ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.message.create()` invocation:
+
+
+Can't reach database server at postgres.railway.internal
+    at async i (E:\Projects\notuser\.next\server\app\api\messages\route.js:1:3726)
+    at async k (E:\Projects\notuser\.next\server\app\api\messages\route.js:1:6870) {
+  code: 'P1001',
+  meta: [Object],
+  clientVersion: '7.3.0'
+}
+Error [PrismaClientKnownRequestError]: 
+Invalid `prisma.message.findMany()` invocation:
+
+
+Can't reach database server at postgres.railway.internal
+    at async h (E:\Projects\notuser\.next\server\app\api\messages\route.js:1:3481)
+    at async k (E:\Projects\notuser\.next\server\app\api\messages\route.js:1:6870) {
+  code: 'P1001',
+  meta: [Object],
+  clientVersion: '7.3.0'
+}

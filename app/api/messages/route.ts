@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
+import { createMessage, listMessages } from "@/lib/site/messageStore";
 
 export async function GET() {
-  const messages = await prisma.message.findMany({
-    orderBy: { createdAt: "desc" },
-    take: 20,
-  });
-
-  return NextResponse.json(messages);
+  try {
+    const messages = await listMessages();
+    return NextResponse.json(messages);
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "Messages are currently unavailable." },
+      { status: 503 },
+    );
+  }
 }
 
 export async function POST(request: Request) {
@@ -21,9 +24,13 @@ export async function POST(request: Request) {
     );
   }
 
-  const created = await prisma.message.create({
-    data: { message },
-  });
-
-  return NextResponse.json(created, { status: 201 });
+  try {
+    const created = await createMessage(message);
+    return NextResponse.json(created, { status: 201 });
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "Message storage is currently unavailable." },
+      { status: 503 },
+    );
+  }
 }

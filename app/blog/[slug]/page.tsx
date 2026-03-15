@@ -22,6 +22,7 @@ import {
   getBlogThumbnailSrc,
   getRenderableBlogSections,
 } from "@/lib/site/blogFormatting";
+import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -98,7 +99,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <AISummaryPanel
             className="mt-6"
             summary={displayExcerpt}
-            bullets={renderableSections.map((section) => section.heading)}
+            bullets={renderableSections
+              .filter((section) => !section.hideHeading)
+              .map((section) => section.heading)}
             defaultExpanded
           />
 
@@ -109,28 +112,128 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="mt-8 space-y-8">
             {renderableSections.map((section) => (
               <section key={section.heading}>
-                <h2 className="font-mono text-xs uppercase tracking-widest text-primary">
-                  {section.heading}
-                </h2>
-                <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
-                  {section.blocks.map((block, blockIndex) => (
-                    block.type === "paragraph" ? (
-                      <p key={`${section.heading}-paragraph-${blockIndex}`}>{block.text}</p>
-                    ) : (
-                      <ul
-                        key={`${section.heading}-list-${blockIndex}`}
-                        className="space-y-2"
-                      >
-                        {block.items.map((item, itemIndex) => (
-                          <li key={`${section.heading}-item-${itemIndex}`} className="flex gap-2">
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )
-                  ))}
-                </div>
+                {!section.hideHeading ? (
+                  section.level === 3 ? (
+                    <h3 className="text-lg font-medium tracking-tight text-foreground">
+                      {section.heading}
+                    </h3>
+                  ) : (
+                    <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+                      {section.heading}
+                    </h2>
+                  )
+                ) : null}
+                {section.blocks.length > 0 ? (
+                  <div
+                    className={`space-y-4 text-sm leading-relaxed text-muted-foreground ${
+                      section.hideHeading ? "" : "mt-4"
+                    }`}
+                  >
+                    {section.blocks.map((block, blockIndex) => {
+                      const blockKey = `${section.heading}-block-${blockIndex}`;
+
+                      if (block.type === "paragraph") {
+                        const paragraphClassName =
+                          block.tone === "lead"
+                            ? "text-lg leading-relaxed text-foreground"
+                            : block.tone === "emphasis"
+                              ? "text-base italic leading-relaxed text-foreground"
+                              : undefined;
+
+                        return (
+                          <p key={blockKey} className={paragraphClassName}>
+                            {block.text}
+                          </p>
+                        );
+                      }
+
+                      if (block.type === "list") {
+                        return (
+                          <ul key={blockKey} className="space-y-2">
+                            {block.items.map((item, itemIndex) => (
+                              <li key={`${blockKey}-item-${itemIndex}`} className="flex gap-2">
+                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      }
+
+                      if (block.type === "figure") {
+                        return (
+                          <figure
+                            key={blockKey}
+                            className="overflow-hidden rounded-xl border border-border/70 bg-secondary/30"
+                          >
+                            <div
+                              className="relative"
+                              style={{ aspectRatio: block.aspectRatio ?? "16 / 9" }}
+                            >
+                              <Image
+                                src={resolveMirroredMediaSrc(block.src)}
+                                alt={block.alt}
+                                fill
+                                className="object-contain"
+                                sizes="(max-width: 768px) 100vw, 860px"
+                              />
+                            </div>
+                            {block.caption ? (
+                              <figcaption className="border-t border-border/70 px-4 py-3 text-sm text-muted-foreground">
+                                {block.caption}
+                              </figcaption>
+                            ) : null}
+                          </figure>
+                        );
+                      }
+
+                      if (block.type === "quote") {
+                        return (
+                          <blockquote
+                            key={blockKey}
+                            className="rounded-xl border border-border/70 bg-secondary/35 px-4 py-4 text-base leading-relaxed text-foreground"
+                          >
+                            {block.text}
+                          </blockquote>
+                        );
+                      }
+
+                      if (block.type === "people") {
+                        return (
+                          <ul
+                            key={blockKey}
+                            className="grid gap-3 sm:grid-cols-2"
+                            aria-label="People featured in this article"
+                          >
+                            {block.people.map((person) => (
+                              <li
+                                key={`${blockKey}-${person.name}`}
+                                className="flex items-center gap-3 rounded-xl border border-border/70 bg-secondary/30 p-4"
+                              >
+                                <Image
+                                  src={resolveMirroredMediaSrc(person.imageSrc)}
+                                  alt={person.name}
+                                  width={56}
+                                  height={56}
+                                  className="h-14 w-14 rounded-full object-cover"
+                                />
+                                <div>
+                                  <p className="text-sm font-semibold text-foreground">{person.name}</p>
+                                  <p className="text-sm text-muted-foreground">{person.role}</p>
+                                  <p className="text-sm text-muted-foreground">{person.organization}</p>
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        );
+                      }
+
+                      return (
+                        <hr key={blockKey} className="border-border/70" />
+                      );
+                    })}
+                  </div>
+                ) : null}
               </section>
             ))}
           </div>

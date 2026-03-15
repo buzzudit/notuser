@@ -18,6 +18,17 @@ export type HomeCaseStudyPreview = {
   metrics: HomeMetric[];
 };
 
+export type ContactReason = {
+  label: string;
+  title: string;
+  description: string;
+};
+
+export type ContactConversationOption = {
+  value: string;
+  label: string;
+};
+
 export const homeHero = {
   eyebrow: "Executive Portfolio",
   name: "Udit Khandelwal",
@@ -330,17 +341,53 @@ export const aiWorkflowSteps = [
   },
 ];
 
-export const contactReasons = [
-  "Hiring for a design leadership role in product or platform teams.",
-  "Need a UX leader to align strategy with delivery across functions.",
-  "Want to improve design quality and product usability at scale.",
-  "Looking for a partner on AI-first product design and operations.",
+export const contactReasons: ContactReason[] = [
+  {
+    label: "Hiring",
+    title: "Design leadership roles",
+    description:
+      "For teams hiring a senior design leader who can set direction, align functions, and raise product quality across complex environments.",
+  },
+  {
+    label: "Transformation",
+    title: "AI-first product and workflow work",
+    description:
+      "For organizations exploring how AI changes product strategy, operating models, decision support, and human-plus-AI workflows.",
+  },
+  {
+    label: "Portfolio",
+    title: "Case-study and portfolio deep dives",
+    description:
+      "For hiring managers and leadership teams who want to go deeper on selected work, scope, tradeoffs, and how I operated in context.",
+  },
+  {
+    label: "Advisory",
+    title: "Strategic product and design conversations",
+    description:
+      "For focused conversations on platform thinking, design systems, organizational clarity, or quality at scale.",
+  },
 ];
 
+export const contactConversationOptions: ContactConversationOption[] = [
+  { value: "design-leadership-role", label: "Design leadership role" },
+  { value: "ai-transformation", label: "AI transformation conversation" },
+  { value: "portfolio-deep-dive", label: "Portfolio deep dive" },
+  { value: "advisory-strategy", label: "Advisory or strategy discussion" },
+  { value: "other", label: "Other" },
+];
+
+export const directContact = {
+  email: "udit@notuser.com",
+  locationLabel: "Greater Boston Area",
+  locationHref:
+    "https://www.google.com/maps/place/Boston+Metropolitan+Area/@42.3122307,-71.308966,10.08z/data=!4m6!3m5!1s0x89e30b92b7c5e443:0x78ad15d3851547d6!8m2!3d42.3600709!4d-71.0588305!16zL20vMDNreHpt?entry=ttu",
+  linkedinHref: "https://www.linkedin.com/in/khandelwaludit/",
+  availability:
+    "Open to conversations about design leadership roles, AI-first product transformation, and relevant portfolio walkthroughs.",
+};
+
 export const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com" },
-  { label: "X / Twitter", href: "https://x.com" },
-  { label: "GitHub", href: "https://github.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/khandelwaludit/" },
 ];
 
 export const circlePrompts = [

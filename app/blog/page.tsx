@@ -44,10 +44,10 @@ export default function BlogPage() {
     <PageLayout>
       <SectionShell>
         <SectionLabel>Blog</SectionLabel>
-        <SectionHeading>Writing on AI product and execution</SectionHeading>
+        <SectionHeading>Writing on design leadership, systems, and AI-first execution</SectionHeading>
         <SectionDescription>
-          Real posts on designing reliable AI workflows, operating systems, and
-          high-signal product narratives.
+          Practical writing on product strategy, systems thinking, leadership, and
+          the operating questions behind modern AI and platform work.
         </SectionDescription>
 
         <div className="mt-6">
