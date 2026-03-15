@@ -15,6 +15,7 @@ import { BlogGrid } from "@/components/site/BlogGrid";
 import { ExperienceTimeline } from "@/components/site/ExperienceTimeline";
 import { ImpactStats } from "@/components/site/ImpactStats";
 import { TestimonialCard } from "@/components/site/TestimonialCard";
+import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { blogPosts } from "@/data/blog";
 import { projects } from "@/data/projects";
 import {
@@ -37,10 +38,41 @@ export default function HomePage() {
     const post = blogPosts.find((item) => item.slug === slug);
     return post ? [post] : [];
   });
+  const homeAiContext = [
+    `Profile: ${homeHero.name}`,
+    `Headline: ${homeHero.headline}`,
+    `Positioning: ${homeHero.subheadline}`,
+    `Credibility: ${homeHero.credibilityLine}`,
+    `Why hire themes: ${homeWhyUdit.map((item) => item.title).join(" | ")}`,
+    `AI leadership themes: ${homeAILeadership.focusAreas.join(" | ")}`,
+  ].join("\n");
 
   return (
     <PageLayout>
       <ExecutiveHero hero={homeHero} />
+
+      <SectionShell className="pt-0">
+        <section className="rounded-2xl border border-border bg-card p-5 md:p-6">
+          <SectionLabel>AI Briefing</SectionLabel>
+          <SectionHeading>Get a fast leadership-fit brief from this profile</SectionHeading>
+          <SectionDescription>
+            Ask for a quick summary tailored to hiring managers, recruiters, or
+            executive stakeholders reviewing design and AI transformation fit.
+          </SectionDescription>
+          <AIWorkspace
+            compact
+            className="mt-5"
+            page="home"
+            context={homeAiContext}
+            helperText="Try a prompt, then use the response to guide your next review step."
+            suggestions={[
+              "Summarize Udit's leadership fit in 5 bullets",
+              "What roles is this profile best suited for?",
+              "What makes this relevant for AI transformation?",
+            ]}
+          />
+        </section>
+      </SectionShell>
 
       <SectionShell className="border-b border-border/50 py-10 md:py-10">
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

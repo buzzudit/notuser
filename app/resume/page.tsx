@@ -12,6 +12,7 @@ import { ExperienceTimeline } from "@/components/site/ExperienceTimeline";
 import { SkillGrid } from "@/components/site/SkillGrid";
 import { ImpactStats } from "@/components/site/ImpactStats";
 import { DownloadButton } from "@/components/site/DownloadButton";
+import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { achievements, education, profile, resumeSignals } from "@/data/experience";
 
 export default function ResumePage() {
@@ -41,6 +42,24 @@ export default function ResumePage() {
             </div>
             <div className="mt-5">
               <DownloadButton href="/resume.pdf" />
+            </div>
+
+            <div className="mt-5 border-t border-border pt-5">
+              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+                AI resume helper
+              </p>
+              <AIWorkspace
+                compact
+                className="mt-3"
+                page="resume"
+                context={`Resume profile for ${profile.name}. Title: ${profile.title}. Summary: ${profile.summary}`}
+                helperText="Ask AI for a role-fit summary, interview briefing, or leadership talking points."
+                suggestions={[
+                  "Summarize this resume for a hiring manager",
+                  "Extract top leadership strengths",
+                  "Draft interview questions based on this profile",
+                ]}
+              />
             </div>
           </div>
         </div>

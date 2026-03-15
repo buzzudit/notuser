@@ -28,6 +28,9 @@
     --radius: 0.5rem;
     --surface-elevated: 0 0% 9%;
     --text-tertiary: 0 0% 38%;
+    --link: 188 100% 67%;
+    --link-hover: 188 100% 74%;
+    --link-visited: 196 72% 64%;
     --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%), hsl(28 85% 55%));
     --shadow-glow: 0 0 40px -10px hsl(38 92% 50% / 0.15);
   }
@@ -44,6 +47,25 @@
 
   body {
     @apply bg-background font-sans text-foreground;
+  }
+
+  a:not([class]),
+  a[class=""] {
+    color: hsl(var(--link));
+    text-decoration-color: hsl(var(--link) / 0.7);
+    text-underline-offset: 0.16em;
+  }
+
+  a:not([class]):visited,
+  a[class=""]:visited {
+    color: hsl(var(--link-visited));
+    text-decoration-color: hsl(var(--link-visited) / 0.7);
+  }
+
+  a:not([class]):hover,
+  a[class=""]:hover {
+    color: hsl(var(--link-hover));
+    text-decoration-color: hsl(var(--link-hover));
   }
 
   :focus-visible {

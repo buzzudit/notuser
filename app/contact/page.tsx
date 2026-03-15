@@ -12,6 +12,7 @@ import { ContactReasons } from "@/components/site/ContactReasons";
 import { ContactForm } from "@/components/site/ContactForm";
 import { SocialLinks } from "@/components/site/SocialLinks";
 import { ContentCard } from "@/components/site/ContentCard";
+import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { contactReasons, directContact, socialLinks } from "@/data/site";
 
 export default function ContactPage() {
@@ -115,6 +116,24 @@ export default function ContactPage() {
           </div>
 
           <aside className="space-y-4">
+            <ContentCard hoverable={false}>
+              <SectionLabel>AI prep</SectionLabel>
+              <p className="mb-3 text-sm leading-relaxed text-muted-foreground">
+                Draft a concise outreach note before sending your message.
+              </p>
+              <AIWorkspace
+                compact
+                page="contact"
+                context="Contact page focused on hiring conversations, design leadership roles, and AI transformation discussions."
+                helperText="Generate a draft note, then refine and send through the contact form."
+                suggestions={[
+                  "Draft a hiring manager outreach note",
+                  "Draft a recruiter intro message",
+                  "Draft an AI transformation conversation request",
+                ]}
+              />
+            </ContentCard>
+
             <ContentCard hoverable={false}>
               <SectionLabel>What helps</SectionLabel>
               <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">

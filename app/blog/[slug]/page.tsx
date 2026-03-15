@@ -7,11 +7,7 @@ import { ReadingProgressBar } from "@/components/site/ReadingProgressBar";
 import { TagList } from "@/components/site/TagList";
 import { CallToAction } from "@/components/site/CallToAction";
 import { blogPosts, getBlogPostBySlug, resolveBlogSlug } from "@/data/blog";
-import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
-import { AISummaryPanel } from "@/components/ai/AISummaryPanel";
-import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
-import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
-import { AIInlineActions } from "@/components/ai/AIInlineActions";
+import { AIWorkspace } from "@/components/site/AIWorkspace";
 import {
   formatBlogDate,
   getBlogDisplayCategory,
@@ -55,6 +51,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const firstBodyText =
     getFirstBlogBodyText(post) ||
     "This article explores practical AI-first design decisions.";
+  const aiContext = [
+    `Article title: ${post.title}`,
+    `Category: ${displayCategory}`,
+    `Author: ${post.author}`,
+    `Excerpt: ${displayExcerpt}`,
+    renderableSections.length > 0
+      ? `Section headings: ${renderableSections.map((section) => section.heading).join(", ")}`
+      : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   return (
     <PageLayout>
@@ -87,27 +94,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </p>
           <TagList tags={displayTags} className="mt-4" />
 
-          <AISuggestionChips
+          <AIWorkspace
             className="mt-6"
+            compact
+            page="blog-detail"
+            context={aiContext}
+            helperText="Ask AI to summarize this article, extract takeaways, or map ideas to your context."
             suggestions={[
-              { label: "Summarize this article" },
-              { label: "Extract key takeaways" },
-              { label: "Find related posts" },
+              "Summarize this article",
+              "Extract key takeaways",
+              "Find related posts by theme",
+              "Suggest one experiment from this article",
             ]}
           />
 
-          <AISummaryPanel
-            className="mt-6"
-            summary={displayExcerpt}
-            bullets={renderableSections
-              .filter((section) => !section.hideHeading)
-              .map((section) => section.heading)}
-            defaultExpanded
-          />
-
-          <AIInsightHighlight className="mt-6" label="Smart highlight">
-            {firstBodyText}
-          </AIInsightHighlight>
+          <div className="mt-6 rounded-lg border border-border/70 bg-secondary/25 p-4">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+              Key excerpt
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground">{firstBodyText}</p>
+          </div>
 
           <div className="mt-8 space-y-8">
             {renderableSections.map((section) => (
@@ -238,14 +244,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
 
-          <AIInlineActions
-            className="mt-8"
-            result="This post can be converted into a concrete weekly experiment with clear owners, quality checks, and a measurable outcome."
-          />
-
-          <AIThinkingPrompts
-            className="mt-8"
-            prompts={[
+          <div className="mt-8 space-y-2">
+            {[
               {
                 question: "What assumption in this article fails in my context?",
                 context:
@@ -261,8 +261,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 context:
                   "Identify decisions that require judgment, policy interpretation, or stakeholder alignment.",
               },
-            ]}
-          />
+            ].map((prompt) => (
+              <div key={prompt.question} className="rounded-lg border border-border bg-card px-4 py-3">
+                <p className="text-sm text-foreground">{prompt.question}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {prompt.context}
+                </p>
+              </div>
+            ))}
+          </div>
 
           <p className="mt-6 text-sm text-muted-foreground">
             Source:&nbsp;

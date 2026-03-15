@@ -12,8 +12,6 @@ import { CallToAction } from "@/components/site/CallToAction";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { blogPosts } from "@/data/blog";
 import { homeFeaturedWritingSlugs } from "@/data/site";
-import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
-import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
 import { getBlogLandingCollections } from "@/lib/site/blogFormatting";
 
 const blogThinkingPrompts = [
@@ -50,20 +48,17 @@ export default function BlogPage() {
           the operating questions behind modern AI and platform work.
         </SectionDescription>
 
-        <div className="mt-6">
-          <AIWorkspace compact />
-          <p className="mt-2 text-[11px] text-muted-foreground">
-            Ask AI to summarize themes, compare posts, or suggest a next read.
-          </p>
-        </div>
-
-        <AISuggestionChips
-          className="mt-4"
+        <AIWorkspace
+          compact
+          className="mt-6"
+          page="blog"
+          context="Blog landing page with writing focused on design leadership, systems thinking, and AI-first product execution."
+          helperText="Ask AI to summarize themes, compare posts, or suggest a next read."
           suggestions={[
-            { label: "Summarize all posts" },
-            { label: "Find workflow patterns" },
-            { label: "What should I read first?" },
-            { label: "Extract weekly action items" },
+            "Summarize all posts",
+            "Find workflow patterns",
+            "What should I read first?",
+            "Extract weekly action items",
           ]}
         />
       </SectionShell>
@@ -97,8 +92,18 @@ export default function BlogPage() {
       <SectionShell>
         <SectionLabel>Reflect</SectionLabel>
         <SectionHeading>Think deeper</SectionHeading>
-        <div className="mt-4 max-w-2xl">
-          <AIThinkingPrompts prompts={blogThinkingPrompts} />
+        <div className="mt-4 max-w-2xl space-y-2">
+          {blogThinkingPrompts.map((prompt) => (
+            <div
+              key={prompt.question}
+              className="rounded-lg border border-border bg-card px-4 py-3"
+            >
+              <p className="text-sm text-foreground">{prompt.question}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {prompt.context}
+              </p>
+            </div>
+          ))}
         </div>
       </SectionShell>
 

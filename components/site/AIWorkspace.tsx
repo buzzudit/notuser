@@ -1,44 +1,111 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Sparkles } from "lucide-react";
+import { AlertCircle, Loader2, Send, Sparkles } from "lucide-react";
 import { circlePrompts } from "@/data/site";
+import { ApiError, api } from "@/lib/site/api";
 
 interface AIWorkspaceProps {
   onSubmit?: (message: string) => void;
   compact?: boolean;
   prefill?: string;
+  context?: string;
+  page?: string;
+  suggestions?: string[];
+  helperText?: string;
+  autoSubmitOnPrefill?: boolean;
+  className?: string;
 }
 
 export function AIWorkspace({
   onSubmit,
   compact = false,
   prefill = "",
+  context,
+  page,
+  suggestions,
+  helperText,
+  autoSubmitOnPrefill = false,
+  className = "",
 }: AIWorkspaceProps) {
   const [input, setInput] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const lastAutoSubmittedPrefill = useRef<string>("");
+
+  const starterPrompts = useMemo(() => {
+    if (suggestions && suggestions.length > 0) {
+      return suggestions;
+    }
+
+    return compact ? [] : circlePrompts.slice(0, 4);
+  }, [compact, suggestions]);
+
+  const runPrompt = useCallback(
+    async (prompt: string) => {
+      const trimmedPrompt = prompt.trim();
+      if (!trimmedPrompt) {
+        return;
+      }
+
+      onSubmit?.(trimmedPrompt);
+      setError("");
+      setIsLoading(true);
+
+      try {
+        const response = await api.askAI({ prompt: trimmedPrompt, context, page });
+        setAnswer(response.answer);
+      } catch (requestError) {
+        if (requestError instanceof ApiError) {
+          setError(requestError.message);
+        } else {
+          setError("AI response is unavailable right now. Please try again.");
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [context, onSubmit, page],
+  );
 
   useEffect(() => {
-    if (prefill) {
-      setInput(prefill);
+    const trimmedPrefill = prefill.trim();
+    if (!trimmedPrefill) {
+      return;
     }
-  }, [prefill]);
 
-  const handleSubmit = (event: React.FormEvent) => {
+    setInput(trimmedPrefill);
+
+    if (
+      autoSubmitOnPrefill &&
+      lastAutoSubmittedPrefill.current !== trimmedPrefill &&
+      !isLoading
+    ) {
+      lastAutoSubmittedPrefill.current = trimmedPrefill;
+      void runPrompt(trimmedPrefill);
+    }
+  }, [autoSubmitOnPrefill, isLoading, prefill, runPrompt]);
+
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!input.trim()) return;
+    const trimmedInput = input.trim();
+    if (!trimmedInput) {
+      return;
+    }
 
-    onSubmit?.(input.trim());
+    await runPrompt(trimmedInput);
     setInput("");
   };
 
-  const handleStarter = (text: string) => {
+  const handleStarter = async (text: string) => {
     setInput(text);
-    onSubmit?.(text);
+    await runPrompt(text);
   };
 
   return (
-    <div className={`w-full ${compact ? "" : "mx-auto max-w-2xl"}`}>
+    <div className={`w-full ${compact ? "" : "mx-auto max-w-2xl"} ${className}`}>
       <form onSubmit={handleSubmit} className="relative">
         <div className="flex items-center rounded-lg border border-border bg-card transition-colors focus-within:border-primary/50 focus-within:glow-shadow">
           <Sparkles size={16} className="ml-4 shrink-0 text-primary" />
@@ -52,23 +119,60 @@ export function AIWorkspace({
           />
           <button
             type="submit"
-            disabled={!input.trim()}
+            disabled={!input.trim() || isLoading}
             aria-label="Send message"
-            className="mr-2 rounded-md p-2 text-muted-foreground transition-colors hover:text-primary disabled:opacity-30"
+            className="mr-2 rounded-md p-2 text-muted-foreground transition-colors hover:text-primary disabled:opacity-40"
           >
-            <Send size={16} />
+            {isLoading ? (
+              <Loader2 size={16} className="animate-spin" />
+            ) : (
+              <Send size={16} />
+            )}
           </button>
         </div>
       </form>
 
-      {!compact && (
+      {helperText ? (
+        <p className="mt-2 text-[11px] text-muted-foreground">{helperText}</p>
+      ) : null}
+
+      {error ? (
+        <div className="mt-3 rounded-lg border border-destructive/30 bg-destructive/10 px-3 py-2.5">
+          <p className="inline-flex items-center gap-1.5 text-sm text-destructive">
+            <AlertCircle size={14} />
+            {error}
+          </p>
+        </div>
+      ) : null}
+
+      {isLoading ? (
+        <div className="mt-3 rounded-lg border border-border bg-card px-3 py-2.5">
+          <p className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+            <Loader2 size={14} className="animate-spin" />
+            Generating response...
+          </p>
+        </div>
+      ) : null}
+
+      {answer ? (
+        <div className="mt-3 rounded-lg border border-primary/20 bg-primary/[0.04] p-4">
+          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-primary">
+            AI response
+          </p>
+          <p className="text-sm leading-relaxed text-foreground">{answer}</p>
+        </div>
+      ) : null}
+
+      {starterPrompts.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
-          {circlePrompts.slice(0, 4).map((starter) => (
+          {starterPrompts.map((starter) => (
             <motion.button
               key={starter}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => handleStarter(starter)}
+              onClick={() => {
+                void handleStarter(starter);
+              }}
               className="rounded-md border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
               type="button"
             >

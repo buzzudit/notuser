@@ -10,8 +10,6 @@ import { CallToAction } from "@/components/site/CallToAction";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { projects } from "@/data/projects";
 import { homeFeaturedCaseStudies } from "@/data/site";
-import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
-import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
 import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies";
 
 export default function PortfolioPage() {
@@ -38,29 +36,32 @@ export default function PortfolioPage() {
           across healthcare, commerce, platforms, and product systems.
         </SectionDescription>
 
-        <div className="mt-6">
-          <AIWorkspace compact />
-          <p className="mt-2 text-[11px] text-muted-foreground">
-            Ask about technology choices, outcomes, and tradeoffs across projects.
-          </p>
-        </div>
-
-        <AISuggestionChips
-          className="mt-4"
+        <AIWorkspace
+          compact
+          className="mt-6"
+          page="portfolio"
+          context="Portfolio landing page with flagship case studies and a full project set spanning healthcare, enterprise platforms, and commerce."
+          helperText="Ask about technology choices, outcomes, and tradeoffs across projects."
           suggestions={[
-            { label: "Compare all projects" },
-            { label: "Show AI-related work" },
-            { label: "Which project had the highest impact?" },
+            "Compare all projects",
+            "Show AI-related work",
+            "Which project had the highest impact?",
           ]}
         />
       </SectionShell>
 
       <SectionShell className="pt-0" id="portfolio-overview">
-        <AIInsightHighlight label="Portfolio overview">
-          {totalVisibleProjects} visible projects in two tiers ({featuredPreviews.length} flagship
-          and {summaryProjects.length} summary), with {impactSignalCount}+ impact signals.{" "}
-          {privateCount} projects are marked private where details are intentionally limited.
-        </AIInsightHighlight>
+        <div className="rounded-lg border border-border/70 bg-secondary/25 p-4">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+            Portfolio overview
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-foreground">
+            {totalVisibleProjects} visible projects in two tiers ({featuredPreviews.length}{" "}
+            flagship and {summaryProjects.length} summary), with {impactSignalCount}+ impact
+            signals. {privateCount} projects are marked private where details are intentionally
+            limited.
+          </p>
+        </div>
       </SectionShell>
 
       <SectionShell className="pt-0" id="flagship-case-studies">

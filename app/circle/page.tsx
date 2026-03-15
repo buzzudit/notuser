@@ -39,7 +39,13 @@ export default function CirclePage() {
             onSelect={(suggestion) => setSelectedPrompt(suggestion.label)}
           />
           <PromptExamples prompts={circlePrompts} onSelect={setSelectedPrompt} />
-          <AIWorkspace prefill={selectedPrompt} />
+          <AIWorkspace
+            prefill={selectedPrompt}
+            autoSubmitOnPrefill
+            page="circle"
+            context="Circle page for trying prompt ideas related to AI-first product workflows."
+            helperText="Select a prompt starter or write your own to generate a response."
+          />
           <AIWorkflowHelper
             actions={[
               {
