@@ -9,6 +9,40 @@ export type ProjectGalleryItem = {
   alt?: string;
 };
 
+export type NarrativeCallout = {
+  label: string;
+  text: string;
+};
+
+export type NarrativeOption = {
+  label: string;
+  detail: string;
+};
+
+export type NarrativeAct = {
+  id: string;
+  chapter: string;
+  title: string;
+  prose: string[];
+  callout?: NarrativeCallout;
+  options?: NarrativeOption[];
+};
+
+export type ProjectNarrative = {
+  hook: string;
+  acts: NarrativeAct[];
+  pivot: {
+    chapter: string;
+    title: string;
+    prose: string[];
+    callout?: NarrativeCallout;
+  };
+  resolution: {
+    prose: string[];
+    highlight: string;
+  };
+};
+
 export type Project = {
   id: string;
   slug: string;
@@ -38,4 +72,5 @@ export type Project = {
   demoUrl?: string;
   sourceUrl: string;
   isPrivate?: boolean;
+  narrative?: ProjectNarrative;
 };
