@@ -10,7 +10,10 @@
     "prisma:generate": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
-    "seed": "prisma db seed"
+    "seed": "prisma db seed",
+    "projects:import": "node scripts/import-projects-from-archive.mjs",
+    "media:scan": "node scripts/mirror-wix-media.mjs --dry-run",
+    "media:mirror": "node scripts/mirror-wix-media.mjs"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",

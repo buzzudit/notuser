@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import { SectionShell } from "@/components/site/SectionShell";
 import { CaseStudyHero } from "@/components/site/CaseStudyHero";
@@ -6,13 +6,15 @@ import { CaseStudySection } from "@/components/site/CaseStudySection";
 import { QuoteBlock } from "@/components/site/QuoteBlock";
 import { ImageGallery } from "@/components/site/ImageGallery";
 import { CallToAction } from "@/components/site/CallToAction";
-import { getProjectBySlug, projects } from "@/data/projects";
+import { getProjectBySlug, projects, resolveProjectSlug } from "@/data/projects";
 import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
 import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
 import { AIGuidedNavigator } from "@/components/ai/AIGuidedNavigator";
 import { AISummaryPanel } from "@/components/ai/AISummaryPanel";
 import { AIWorkflowHelper } from "@/components/ai/AIWorkflowHelper";
 import { AIInlineActions } from "@/components/ai/AIInlineActions";
+import { BulletList } from "@/components/site/BulletList";
+import { ParagraphStack } from "@/components/site/ParagraphStack";
 
 type CaseStudyPageProps = {
   params: Promise<{ slug: string }>;
@@ -24,6 +26,11 @@ export async function generateStaticParams() {
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { slug } = await params;
+  const resolvedSlug = resolveProjectSlug(slug);
+  if (resolvedSlug !== slug) {
+    redirect(`/portfolio/${resolvedSlug}`);
+  }
+
   const project = getProjectBySlug(slug);
   if (!project) {
     notFound();
@@ -75,13 +82,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       <SectionShell className="pt-0">
         <div className="grid gap-4">
           <CaseStudySection title="Problem" id="problem">
-            <p>{project.challenge}</p>
+            <ParagraphStack paragraphs={[project.challenge]} />
           </CaseStudySection>
           <CaseStudySection title="Context" id="context">
-            <p>{project.context}</p>
+            <ParagraphStack paragraphs={[project.context]} />
           </CaseStudySection>
           <CaseStudySection title="Role" id="role">
-            <p>{project.role}</p>
+            <ParagraphStack paragraphs={[project.role]} />
           </CaseStudySection>
           <AIWorkflowHelper
             stage="Case study process interpretation"
@@ -93,14 +100,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             output="A concise process narrative that links strategic choices to measurable outcomes."
           />
           <CaseStudySection title="Process" id="process">
-            <ul className="space-y-1.5">
-              {project.process.map((step) => (
-                <li key={step} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                  {step}
-                </li>
-              ))}
-            </ul>
+            <BulletList items={project.process} />
           </CaseStudySection>
           <AIInsightHighlight
             title="Smart highlight"
@@ -108,38 +108,19 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             context="This decision had outsized impact on adoption velocity and trust calibration."
           />
           <CaseStudySection title="Key Decisions" id="decisions">
-            <ul className="space-y-1.5">
-              {project.keyDecisions.map((decision) => (
-                <li key={decision} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                  {decision}
-                </li>
-              ))}
-            </ul>
+            <BulletList items={project.keyDecisions} />
           </CaseStudySection>
           <CaseStudySection title="Outcome" id="outcome">
-            <ul className="space-y-1.5">
-              {project.outcome.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <BulletList items={project.outcome} />
           </CaseStudySection>
           <CaseStudySection title="Lessons" id="lessons">
-            <ul className="space-y-1.5">
-              {project.lessons.map((lesson) => (
-                <li key={lesson} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                  {lesson}
-                </li>
-              ))}
-            </ul>
+            <BulletList items={project.lessons} />
           </CaseStudySection>
-          <CaseStudySection title="Gallery">
-            <ImageGallery items={project.gallery} />
-          </CaseStudySection>
+          {project.gallery.length > 0 ? (
+            <CaseStudySection title="Gallery">
+              <ImageGallery items={project.gallery} />
+            </CaseStudySection>
+          ) : null}
           {project.testimonial ? (
             <QuoteBlock
               quote={project.testimonial.quote}

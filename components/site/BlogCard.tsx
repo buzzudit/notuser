@@ -1,20 +1,25 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { BlogPost } from "@/data/blog";
 import { TagList } from "@/components/site/TagList";
+import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type BlogCardProps = {
   post: BlogPost;
 };
 
 export function BlogCard({ post }: BlogCardProps) {
+  const thumbnailSrc = resolveMirroredMediaSrc(post.thumbnail);
+
   return (
     <article className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40">
-      <div className="mb-4 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
-        <img
-          src={post.thumbnail}
+      <div className="relative mb-4 h-44 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
+        <Image
+          src={thumbnailSrc}
           alt={post.title}
-          className="h-44 w-full object-cover"
-          loading="lazy"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
         />
       </div>
       <p className="font-mono text-[10px] uppercase tracking-wider text-primary">

@@ -1,5 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import { SectionShell } from "@/components/site/SectionShell";
 import { ReadingProgressBar } from "@/components/site/ReadingProgressBar";
@@ -11,6 +12,7 @@ import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
 import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
 import { AIInlineActions } from "@/components/ai/AIInlineActions";
 import { resolveBlogSlug } from "@/data/blog";
+import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -31,6 +33,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) {
     notFound();
   }
+  const thumbnailSrc = resolveMirroredMediaSrc(post.thumbnail);
 
   return (
     <PageLayout>
@@ -46,11 +49,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="mt-2 text-xs text-muted-foreground">
             By {post.author} - Updated {post.updatedAt}
           </p>
-          <div className="mt-4 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
-            <img
-              src={post.thumbnail}
+          <div className="relative mt-4 h-[220px] overflow-hidden rounded-lg border border-border/70 bg-secondary/40 md:h-[420px]">
+            <Image
+              src={thumbnailSrc}
               alt={post.title}
-              className="max-h-[420px] w-full object-cover"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 960px"
             />
           </div>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">

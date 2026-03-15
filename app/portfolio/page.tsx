@@ -1,5 +1,3 @@
-"use client";
-
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import {
   SectionDescription,
@@ -14,14 +12,17 @@ import { AIGuidedNavigator } from "@/components/ai/AIGuidedNavigator";
 import { AIInsightsPanel } from "@/components/ai/AIInsightsPanel";
 
 export default function PortfolioPage() {
+  const privateCount = projects.filter((project) => project.isPrivate).length;
+
   return (
     <PageLayout>
       <SectionShell>
         <SectionLabel>Portfolio</SectionLabel>
         <SectionHeading>Case studies and shipped outcomes</SectionHeading>
         <SectionDescription>
-          Five recent projects across AI product, healthcare systems, growth, and
-          decision intelligence. Each project links to a full case study.
+          {projects.length} projects across healthcare, commerce, platform, and
+          product systems. Each card links to a full case study; {privateCount} are
+          marked private where deeper details stay limited.
         </SectionDescription>
       </SectionShell>
 

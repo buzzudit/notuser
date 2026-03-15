@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { TagList } from "@/components/site/TagList";
 import { MetricsStrip } from "@/components/site/MetricsStrip";
+import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type ProjectCardProps = {
   project: Project;
@@ -11,10 +13,26 @@ type ProjectCardProps = {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40">
+      {project.thumbnail ? (
+        <div className="relative mb-4 h-44 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
+          <Image
+            src={resolveMirroredMediaSrc(project.thumbnail)}
+            alt={project.title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          />
+        </div>
+      ) : null}
       <div className="mb-3 flex items-center justify-between gap-3">
         <p className="font-mono text-[10px] uppercase tracking-wider text-primary">
           {project.category} - {project.year}
         </p>
+        {project.isPrivate ? (
+          <span className="rounded border border-border/70 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-muted-foreground">
+            Private
+          </span>
+        ) : null}
         <Link
           href={`/portfolio/${project.slug}`}
           className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
@@ -24,6 +42,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
+      <p className="mt-1 text-xs text-muted-foreground">
+        {project.organization} - {project.platform}
+      </p>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
         {project.summary}
       </p>
