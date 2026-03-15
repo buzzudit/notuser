@@ -4,6 +4,9 @@ import fs from "node:fs/promises";
 
 const INPUT_PATH = "archive/Portfolio.csv";
 const OUTPUT_PATH = "data/projects.ts";
+const KNOWN_PLACEHOLDER_MEDIA_IDS = new Set([
+  "bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+]);
 
 function parseCsv(input) {
   const rows = [];
@@ -122,6 +125,30 @@ function normalizeMediaUrl(rawUrl) {
   return "";
 }
 
+function extractMediaIdFromUrl(rawUrl) {
+  const value = cleanText(rawUrl);
+  if (!value) return "";
+  if (value.startsWith("wix:image://v1/")) {
+    return value.slice("wix:image://v1/".length).split(/[\/#?]/)[0];
+  }
+  if (value.startsWith("http://") || value.startsWith("https://")) {
+    try {
+      const parsed = new URL(value);
+      if (parsed.hostname === "static.wixstatic.com" && parsed.pathname.startsWith("/media/")) {
+        return decodeURIComponent(parsed.pathname.slice("/media/".length)).split("/")[0];
+      }
+    } catch {
+      return "";
+    }
+  }
+  return "";
+}
+
+function isPlaceholderMedia(rawUrl) {
+  const mediaId = extractMediaIdFromUrl(rawUrl);
+  return Boolean(mediaId && KNOWN_PLACEHOLDER_MEDIA_IDS.has(mediaId));
+}
+
 function splitParagraphs(input) {
   if (!input) return [];
   const normalized = String(input).replaceAll("\r\n", "\n");
@@ -166,7 +193,7 @@ function slugify(raw) {
 
 function parseGallery(rawGallery, title, mainImage) {
   const items = [];
-  if (mainImage) {
+  if (mainImage && !isPlaceholderMedia(mainImage)) {
     items.push({
       label: `${title} cover`,
       src: mainImage,
@@ -184,7 +211,7 @@ function parseGallery(rawGallery, title, mainImage) {
           const src = normalizeMediaUrl(entry.src ?? "");
           const label = cleanText(entry.title || entry.slug || `Gallery ${i + 1}`);
           const alt = cleanText(entry.alt || entry.title || title);
-          if (!src) continue;
+          if (!src || isPlaceholderMedia(src)) continue;
           items.push({
             label: label || `Gallery ${i + 1}`,
             src,
@@ -248,6 +275,13 @@ function parseMetric(value, index) {
   };
 }
 
+function normalizeOrganizationName(raw) {
+  const value = cleanText(raw);
+  if (!value) return "";
+  if (value.toLowerCase() === "athenahealth") return "athenahealth";
+  return value;
+}
+
 async function main() {
   const rawCsv = (await fs.readFile(INPUT_PATH, "utf8")).replace(/^\uFEFF/, "");
   const parsedRows = parseCsv(rawCsv);
@@ -277,7 +311,7 @@ async function main() {
     const title = cleanText(row["Project Name"]) || slug;
     const year = cleanText(row["Year"]) || "Unknown";
     const scope = cleanText(row["Scope"]);
-    const organization = cleanText(row["Organization"]);
+    const organization = normalizeOrganizationName(row["Organization"]);
     const platform = cleanText(row["Platform"]);
     const shortDescription = cleanText(row["Short Project Description"]);
     const storyParagraphs = splitParagraphs(row["Story Text"] || row["Body"]);
@@ -366,7 +400,8 @@ async function main() {
       metrics.push({ label: "Platform", value: platform });
     }
 
-    const mainImage = normalizeMediaUrl(row["Main Project Image"]);
+    const normalizedMainImage = normalizeMediaUrl(row["Main Project Image"]);
+    const mainImage = isPlaceholderMedia(normalizedMainImage) ? "" : normalizedMainImage;
     const gallery = parseGallery(row["Gallery"], title, mainImage);
     const demoUrl = cleanText(row["Demo"]);
     const sourceUrl = `https://www.notuser.com${projectPath}`;
@@ -485,4 +520,3 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
-

@@ -101,14 +101,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "360X Closed Loop Referrals cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "360X Closed Loop Referrals"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/360x-closed-loop-referrals",
     "isPrivate": false
   },
@@ -158,14 +152,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "Data Exports cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Data Exports"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/data-exports",
     "isPrivate": false
   },
@@ -215,14 +203,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "Data Imports Self-service cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Data Imports Self-service"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/data-imports-self-service",
     "isPrivate": false
   },
@@ -272,14 +254,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "Insights and Reporting cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Insights and Reporting"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/insights-and-reporting",
     "isPrivate": false
   },
@@ -323,14 +299,8 @@ export const projects: Project[] = [
         "value": "athenahealth"
       }
     ],
-    "gallery": [
-      {
-        "label": "Payer Solutions cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Payer Solutions"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/payer-solutions",
     "isPrivate": false
   },
@@ -380,14 +350,8 @@ export const projects: Project[] = [
         "value": "Responsive Web"
       }
     ],
-    "gallery": [
-      {
-        "label": "Unified Rollout Flags cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Unified Rollout Flags"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/unified-rollout-flags",
     "isPrivate": false
   },
@@ -437,14 +401,8 @@ export const projects: Project[] = [
         "value": "Reference Framework"
       }
     ],
-    "gallery": [
-      {
-        "label": "User Journey Framework cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "User Journey Framework"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/user-journey-framework",
     "isPrivate": false
   },
@@ -554,14 +512,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "Design Quality cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Design Quality"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/design-quality",
     "isPrivate": false
   },
@@ -612,14 +564,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "Data Migration Mapping Self-service cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Data Migration Mapping Self-service"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/data-migration-mapping-self-service",
     "isPrivate": false
   },
@@ -758,14 +704,8 @@ export const projects: Project[] = [
         "value": "Responsive Web"
       }
     ],
-    "gallery": [
-      {
-        "label": "Marketplace cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Marketplace"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/marketplace",
     "isPrivate": false
   },
@@ -816,14 +756,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "athenaNet Device Manager cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "athenaNet Device Manager"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/athenanet-device-manager",
     "isPrivate": false
   },
@@ -936,14 +870,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "Fine Grained Access Control cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Fine Grained Access Control"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/fine-grained-access-control",
     "isPrivate": false
   },
@@ -993,14 +921,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "Go Quality cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Go Quality"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/go-quality",
     "isPrivate": false
   },
@@ -1050,14 +972,8 @@ export const projects: Project[] = [
         "value": "Responsive Web"
       }
     ],
-    "gallery": [
-      {
-        "label": "Quick Pay cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Quick Pay"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/quick-pay",
     "isPrivate": false
   },
@@ -1217,14 +1133,8 @@ export const projects: Project[] = [
         "value": "Cloud App"
       }
     ],
-    "gallery": [
-      {
-        "label": "Old Developer Portal cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-        "alt": "Old Developer Portal"
-      }
-    ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "gallery": [],
+    "thumbnail": "",
     "sourceUrl": "https://www.notuser.com/portfolio/old-developer-portal",
     "isPrivate": false
   },

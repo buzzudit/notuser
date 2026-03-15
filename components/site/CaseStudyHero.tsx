@@ -23,7 +23,13 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
             sizes="(max-width: 768px) 100vw, 1100px"
           />
         </div>
-      ) : null}
+      ) : (
+        <div className="mb-5 rounded-xl border border-border/70 bg-gradient-to-br from-secondary/70 via-secondary/40 to-card p-6">
+          <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+            Visual preview unavailable
+          </p>
+        </div>
+      )}
       <p className="font-mono text-xs uppercase tracking-widest text-primary">
         {project.category} - {project.year}
       </p>

@@ -23,8 +23,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
           />
         </div>
-      ) : null}
-      <div className="mb-3 flex items-center justify-between gap-3">
+      ) : (
+        <div className="mb-4 rounded-lg border border-border/70 bg-gradient-to-br from-secondary/70 via-secondary/40 to-card p-5">
+          <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+            Visual preview unavailable
+          </p>
+        </div>
+      )}
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <p className="font-mono text-[10px] uppercase tracking-wider text-primary">
           {project.category} - {project.year}
         </p>
