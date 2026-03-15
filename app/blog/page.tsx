@@ -9,9 +9,28 @@ import {
 } from "@/components/site/SectionShell";
 import { BlogGrid } from "@/components/site/BlogGrid";
 import { CallToAction } from "@/components/site/CallToAction";
+import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { blogPosts } from "@/data/blog";
 import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
-import { AIInsightsPanel } from "@/components/ai/AIInsightsPanel";
+import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
+
+const blogThinkingPrompts = [
+  {
+    question: "How would these ideas apply to my current product?",
+    context:
+      "Pick one post and map it to a single workflow in your team before broad rollout.",
+  },
+  {
+    question: "Which assumption here is most likely to fail first?",
+    context:
+      "Stress-test where trust, governance, or execution capacity could break under real usage.",
+  },
+  {
+    question: "What is the smallest experiment I can run this week?",
+    context:
+      "Turn one takeaway into a measurable test with a success threshold and owner.",
+  },
+];
 
 export default function BlogPage() {
   return (
@@ -20,19 +39,24 @@ export default function BlogPage() {
         <SectionLabel>Blog</SectionLabel>
         <SectionHeading>Writing on AI product and execution</SectionHeading>
         <SectionDescription>
-          Four recent posts on designing reliable AI workflows, operating systems,
-          and building high-signal product narratives.
+          Real posts on designing reliable AI workflows, operating systems, and
+          high-signal product narratives.
         </SectionDescription>
-      </SectionShell>
 
-      <SectionShell>
+        <div className="mt-6">
+          <AIWorkspace compact />
+          <p className="mt-2 text-[11px] text-muted-foreground">
+            Ask AI to summarize themes, compare posts, or suggest a next read.
+          </p>
+        </div>
+
         <AISuggestionChips
-          title="Contextual suggestions"
+          className="mt-4"
           suggestions={[
-            "Show posts about trust in AI workflows",
-            "Find articles with operational playbooks",
-            "Highlight strategy-to-execution frameworks",
-            "Extract weekly implementation actions",
+            { label: "Summarize all posts" },
+            { label: "Find workflow patterns" },
+            { label: "What should I read first?" },
+            { label: "Extract weekly action items" },
           ]}
         />
       </SectionShell>
@@ -41,30 +65,12 @@ export default function BlogPage() {
         <BlogGrid posts={blogPosts} />
       </SectionShell>
 
-      <SectionShell className="pt-0">
-        <AIInsightsPanel
-          title="Theme insights"
-          insights={[
-            {
-              title: "Trust and legibility",
-              description:
-                "High-performing AI products expose reasoning and make correction easy.",
-              signal: "Core theme",
-            },
-            {
-              title: "Operations over prompts",
-              description:
-                "Sustainable outcomes come from workflow design, governance, and instrumentation.",
-              signal: "Execution lens",
-            },
-            {
-              title: "Narrative with metrics",
-              description:
-                "Strong product storytelling combines decision quality with measurable outcomes.",
-              signal: "Communication",
-            },
-          ]}
-        />
+      <SectionShell>
+        <SectionLabel>Reflect</SectionLabel>
+        <SectionHeading>Think deeper</SectionHeading>
+        <div className="mt-4 max-w-2xl">
+          <AIThinkingPrompts prompts={blogThinkingPrompts} />
+        </div>
       </SectionShell>
 
       <SectionShell>

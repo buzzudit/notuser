@@ -1,25 +1,88 @@
 "use client";
 
-type AIThinkingPromptsProps = {
-  prompts: string[];
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight, Brain } from "lucide-react";
+
+export type AIThinkingPrompt = {
+  question: string;
+  context?: string;
 };
 
-export function AIThinkingPrompts({ prompts }: AIThinkingPromptsProps) {
+type AIThinkingPromptsProps = {
+  prompts: AIThinkingPrompt[];
+  onSelect?: (prompt: AIThinkingPrompt) => void;
+  className?: string;
+};
+
+export function AIThinkingPrompts({
+  prompts,
+  onSelect,
+  className = "",
+}: AIThinkingPromptsProps) {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const handleSelect = (prompt: AIThinkingPrompt, index: number) => {
+    const nextIndex = selectedIndex === index ? null : index;
+    setSelectedIndex(nextIndex);
+    onSelect?.(prompt);
+  };
+
   return (
-    <section className="rounded-xl border border-border bg-card p-4">
-      <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
-        Thinking prompts
-      </p>
-      <ul className="mt-3 space-y-2">
-        {prompts.map((prompt) => (
-          <li
-            key={prompt}
-            className="rounded-md border border-border/70 bg-secondary/30 px-3 py-2 text-sm text-muted-foreground"
+    <div className={`space-y-2 ${className}`}>
+      <div className="mb-3 flex items-center gap-2">
+        <Brain size={14} className="text-primary" />
+        <span className="font-mono text-[11px] uppercase tracking-widest text-primary">
+          Think deeper
+        </span>
+      </div>
+
+      {prompts.map((prompt, index) => {
+        const isActive = selectedIndex === index;
+        return (
+          <motion.button
+            key={`${prompt.question}-${index}`}
+            whileHover={{ x: 3 }}
+            type="button"
+            onClick={() => handleSelect(prompt, index)}
+            className={`group flex w-full items-center gap-3 rounded-lg border px-4 py-3 text-left transition-colors ${
+              isActive
+                ? "border-primary/30 bg-primary/[0.04]"
+                : "border-border bg-card hover:border-primary/20"
+            }`}
           >
-            {prompt}
-          </li>
-        ))}
-      </ul>
-    </section>
+            <div className="flex-1">
+              <p className="text-sm text-foreground">{prompt.question}</p>
+            </div>
+            <ArrowRight
+              size={14}
+              className={`shrink-0 transition-all ${
+                isActive
+                  ? "translate-x-0 text-primary"
+                  : "-translate-x-1 text-muted-foreground/40 group-hover:translate-x-0 group-hover:text-muted-foreground"
+              }`}
+            />
+          </motion.button>
+        );
+      })}
+
+      <AnimatePresence>
+        {selectedIndex !== null && prompts[selectedIndex]?.context ? (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="mt-1 rounded-lg border border-primary/20 bg-primary/[0.03] p-4">
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                {prompts[selectedIndex].context}
+              </p>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </div>
   );
 }

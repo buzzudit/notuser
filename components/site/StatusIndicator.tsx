@@ -10,7 +10,7 @@ export function StatusIndicator() {
   useEffect(() => {
     api
       .getHealth()
-      .then((res) => setStatus(res.ok ? "ok" : "error"))
+      .then((response) => setStatus(response.ok ? "ok" : "error"))
       .catch(() => setStatus("error"));
   }, []);
 
@@ -20,14 +20,12 @@ export function StatusIndicator() {
       role="status"
       aria-label={`System status: ${status}`}
     >
-      {status === "loading" && (
+      {status === "loading" ? (
         <span className="h-1.5 w-1.5 animate-pulse-subtle rounded-full bg-muted-foreground" />
-      )}
-      {status === "ok" && <CheckCircle size={12} className="text-green-500" />}
-      {status === "error" && (
-        <AlertCircle size={12} className="text-destructive" />
-      )}
-      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+      ) : null}
+      {status === "ok" ? <CheckCircle size={12} className="text-green-500" /> : null}
+      {status === "error" ? <AlertCircle size={12} className="text-destructive" /> : null}
+      <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
         {status === "loading"
           ? "Checking"
           : status === "ok"

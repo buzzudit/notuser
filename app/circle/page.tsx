@@ -35,20 +35,32 @@ export default function CirclePage() {
         <SectionLabel>Prompt Examples</SectionLabel>
         <div className="space-y-4">
           <AISuggestionChips
-            title="Contextual suggestions"
-            suggestions={circlePrompts}
-            onSelect={setSelectedPrompt}
+            suggestions={circlePrompts.map((prompt) => ({ label: prompt }))}
+            onSelect={(suggestion) => setSelectedPrompt(suggestion.label)}
           />
           <PromptExamples prompts={circlePrompts} onSelect={setSelectedPrompt} />
           <AIWorkspace prefill={selectedPrompt} />
           <AIWorkflowHelper
-            stage="Prompt to workflow translation"
-            inputs={[
-              "Clear problem framing",
-              "Useful context and constraints",
-              "Expected output format",
+            actions={[
+              {
+                label: "Frame the prompt",
+                description: "Define task, context, constraints, and output format.",
+                result: [
+                  "Clarify the exact decision this prompt supports.",
+                  "Add domain constraints and source-of-truth inputs.",
+                  "State output structure for easier downstream use.",
+                ],
+              },
+              {
+                label: "Operationalize the workflow",
+                description: "Turn one-off prompts into reusable team routines.",
+                result: [
+                  "Assign owners for prompt quality and review loops.",
+                  "Create acceptance checks for output reliability.",
+                  "Track adoption and measurable outcomes over time.",
+                ],
+              },
             ]}
-            output="A reusable prompt pattern that can be embedded in a team workflow."
           />
         </div>
       </SectionShell>
@@ -61,18 +73,24 @@ export default function CirclePage() {
             patterns={[
               {
                 name: "Suggestion chips",
-                whenToUse: "When users need fast starting points instead of blank input states.",
-                value: "Reduces interaction friction and improves first-run engagement.",
+                category: "Discovery",
+                description:
+                  "Provide immediate high-signal starting points when users face blank input states.",
+                example: "Summarize this project, compare options, identify risks.",
               },
               {
                 name: "Workflow assist",
-                whenToUse: "When prompts need structured inputs and expected output guidance.",
-                value: "Improves output quality and repeatability across teams.",
+                category: "Execution",
+                description:
+                  "Guide teams through repeatable prompt-to-output steps with explicit checkpoints.",
+                example: "Frame -> Generate -> Review -> Instrument.",
               },
               {
                 name: "Pattern explorer",
-                whenToUse: "When teaching non-experts how to choose the right AI UX pattern.",
-                value: "Builds shared understanding and speeds onboarding.",
+                category: "Enablement",
+                description:
+                  "Help non-experts choose the right AI interaction pattern for each product moment.",
+                example: "Use summaries for orientation and inline actions for depth.",
               },
             ]}
           />

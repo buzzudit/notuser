@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { TagList } from "@/components/site/TagList";
@@ -8,11 +11,15 @@ import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type ProjectCardProps = {
   project: Project;
+  className?: string;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, className = "" }: ProjectCardProps) {
   return (
-    <article className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40">
+    <motion.article
+      whileHover={{ y: -3 }}
+      className={`group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/30 ${className}`}
+    >
       {project.thumbnail ? (
         <div className="relative mb-4 h-44 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
           <Image
@@ -30,6 +37,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </p>
         </div>
       )}
+
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <p className="font-mono text-[10px] uppercase tracking-wider text-primary">
           {project.category} - {project.year}
@@ -41,13 +49,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
         ) : null}
         <Link
           href={`/portfolio/${project.slug}`}
-          className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+          className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors group-hover:text-primary"
         >
           Case study <ArrowUpRight size={14} />
         </Link>
       </div>
 
-      <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
+      <h3 className="text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
+        {project.title}
+      </h3>
       <p className="mt-1 text-xs text-muted-foreground">
         {project.organization} - {project.platform}
       </p>
@@ -59,6 +69,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="mt-4">
         <MetricsStrip metrics={project.metrics} compact />
       </div>
-    </article>
+    </motion.article>
   );
 }

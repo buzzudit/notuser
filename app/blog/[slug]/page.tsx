@@ -6,12 +6,12 @@ import { SectionShell } from "@/components/site/SectionShell";
 import { ReadingProgressBar } from "@/components/site/ReadingProgressBar";
 import { TagList } from "@/components/site/TagList";
 import { CallToAction } from "@/components/site/CallToAction";
-import { blogPosts, getBlogPostBySlug } from "@/data/blog";
+import { blogPosts, getBlogPostBySlug, resolveBlogSlug } from "@/data/blog";
+import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
 import { AISummaryPanel } from "@/components/ai/AISummaryPanel";
 import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
 import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
 import { AIInlineActions } from "@/components/ai/AIInlineActions";
-import { resolveBlogSlug } from "@/data/blog";
 import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type BlogPostPageProps = {
@@ -33,6 +33,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) {
     notFound();
   }
+
   const thumbnailSrc = resolveMirroredMediaSrc(post.thumbnail);
 
   return (
@@ -49,6 +50,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <p className="mt-2 text-xs text-muted-foreground">
             By {post.author} - Updated {post.updatedAt}
           </p>
+
           <div className="relative mt-4 h-[220px] overflow-hidden rounded-lg border border-border/70 bg-secondary/40 md:h-[420px]">
             <Image
               src={thumbnailSrc}
@@ -59,28 +61,32 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               sizes="(max-width: 768px) 100vw, 960px"
             />
           </div>
+
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             {post.excerpt}
           </p>
           <TagList tags={post.tags} className="mt-4" />
 
-          <div className="mt-6">
-            <AISummaryPanel
-              summary={post.excerpt}
-              bullets={post.sections.map((section) => section.heading)}
-            />
-          </div>
+          <AISuggestionChips
+            className="mt-6"
+            suggestions={[
+              { label: "Summarize this article" },
+              { label: "Extract key takeaways" },
+              { label: "Find related posts" },
+            ]}
+          />
 
-          <div className="mt-6">
-            <AIInsightHighlight
-              title="Smart highlight"
-              insight={
-                post.sections[0]?.paragraphs[0] ??
-                "This article explores practical AI-first design decisions."
-              }
-              context="Use this as a quick framing before diving into the full article."
-            />
-          </div>
+          <AISummaryPanel
+            className="mt-6"
+            summary={post.excerpt}
+            bullets={post.sections.map((section) => section.heading)}
+            defaultExpanded
+          />
+
+          <AIInsightHighlight className="mt-6" label="Smart highlight">
+            {post.sections[0]?.paragraphs[0] ??
+              "This article explores practical AI-first design decisions."}
+          </AIInsightHighlight>
 
           <div className="mt-8 space-y-8">
             {post.sections.map((section) => (
@@ -97,25 +103,31 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ))}
           </div>
 
-          <div className="mt-8">
-            <AIThinkingPrompts
-              prompts={[
-                "What assumption in this article would fail in my current context?",
-                "Which idea can be tested in the next 7 days?",
-                "Where does this strategy need human oversight?",
-              ]}
-            />
-          </div>
+          <AIInlineActions
+            className="mt-8"
+            result="This post can be converted into a concrete weekly experiment with clear owners, quality checks, and a measurable outcome."
+          />
 
-          <div className="mt-6">
-            <AIInlineActions
-              actions={[
-                { label: "Apply this idea to my product", href: "/contact" },
-                { label: "Browse more posts", href: "/blog" },
-                { label: "See portfolio examples", href: "/portfolio" },
-              ]}
-            />
-          </div>
+          <AIThinkingPrompts
+            className="mt-8"
+            prompts={[
+              {
+                question: "What assumption in this article fails in my context?",
+                context:
+                  "Look for organizational constraints, data limitations, or trust requirements that change execution.",
+              },
+              {
+                question: "Which idea can be tested in the next 7 days?",
+                context:
+                  "Pick the smallest test with a measurable outcome and explicit owner.",
+              },
+              {
+                question: "Where does this strategy need human oversight?",
+                context:
+                  "Identify decisions that require judgment, policy interpretation, or stakeholder alignment.",
+              },
+            ]}
+          />
 
           <p className="mt-6 text-xs text-muted-foreground">
             Source:&nbsp;
@@ -134,7 +146,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <SectionShell>
         <CallToAction
           title="Want to apply this to your product?"
-          description="Let's map these ideas to your current roadmap and team context."
+          description="Let's map these ideas to your roadmap and team context."
           primaryLabel="Get in touch"
           primaryHref="/contact"
           secondaryLabel="Back to blog"

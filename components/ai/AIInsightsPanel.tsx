@@ -1,43 +1,53 @@
 "use client";
 
-type InsightItem = {
-  title: string;
-  description: string;
-  signal?: string;
+import { motion } from "framer-motion";
+import { Lightbulb } from "lucide-react";
+
+export type AIInsight = {
+  category: string;
+  text: string;
 };
 
 type AIInsightsPanelProps = {
+  insights: AIInsight[];
   title?: string;
-  insights: InsightItem[];
+  className?: string;
 };
 
 export function AIInsightsPanel({
-  title = "AI insights",
   insights,
+  title = "Extracted insights",
+  className = "",
 }: AIInsightsPanelProps) {
   return (
-    <section className="rounded-xl border border-border bg-card p-4">
-      <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
-        {title}
-      </p>
-      <div className="mt-3 grid gap-3 md:grid-cols-3">
-        {insights.map((insight) => (
-          <article
-            key={insight.title}
-            className="rounded-md border border-border/70 bg-secondary/30 p-3"
+    <div className={`rounded-lg border border-border bg-card ${className}`}>
+      <div className="flex items-center gap-2 border-b border-border px-5 py-4">
+        <Lightbulb size={14} className="text-primary" />
+        <span className="text-sm font-medium text-foreground">{title}</span>
+        <span className="rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[11px] text-primary">
+          {insights.length} found
+        </span>
+      </div>
+
+      <div className="divide-y divide-border">
+        {insights.map((insight, index) => (
+          <motion.div
+            key={`${insight.category}-${index}`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.05 }}
+            className="flex items-start gap-3 px-5 py-3.5"
           >
-            <p className="text-sm font-medium text-foreground">{insight.title}</p>
-            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-              {insight.description}
+            <span className="shrink-0 rounded-md bg-secondary px-2 py-0.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+              {insight.category}
+            </span>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {insight.text}
             </p>
-            {insight.signal ? (
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-wider text-primary">
-                {insight.signal}
-              </p>
-            ) : null}
-          </article>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
