@@ -13,7 +13,8 @@
     "seed": "prisma db seed",
     "projects:import": "node scripts/import-projects-from-archive.mjs",
     "media:scan": "node scripts/mirror-wix-media.mjs --dry-run",
-    "media:mirror": "node scripts/mirror-wix-media.mjs"
+    "media:mirror": "node scripts/mirror-wix-media.mjs",
+    "deploy:fast": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-fast.ps1"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",

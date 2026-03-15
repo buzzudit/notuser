@@ -86,9 +86,37 @@ Current scripts:
 
 This avoids build-time DB connectivity failures and runs migrations when the service starts in Railway's runtime network.
 
+## Fast deploy (Windows PowerShell)
+
+From repo root:
+
+```bash
+npm run deploy:fast
+```
+
+What it does:
+- auto-commits local changes (if any)
+- runs `lint` + `build`
+- pushes `main` to `origin`
+- waits for production health at `/api/health`
+
+Useful flags:
+
+```powershell
+# Skip lint/build
+powershell -ExecutionPolicy Bypass -File .\scripts\deploy-fast.ps1 -SkipChecks
+
+# Require clean working tree (no auto-commit)
+powershell -ExecutionPolicy Bypass -File .\scripts\deploy-fast.ps1 -NoAutoCommit
+
+# Preview steps without making changes
+powershell -ExecutionPolicy Bypass -File .\scripts\deploy-fast.ps1 -DryRun
+```
+
 ## Verify production
 
 1. Open `/` and confirm headline/status render.
 2. Open `/api/health` and confirm `ok: true`.
 3. Open `/api/db-test` and confirm DB connectivity.
 4. Insert a message from `/` and verify row count/latest message update.
+
