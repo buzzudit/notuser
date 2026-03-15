@@ -166,9 +166,9 @@ try {
     }
 
     try {
-      $home = Invoke-WebRequest -Uri $ProductionUrl -UseBasicParsing -TimeoutSec $RequestTimeoutSec
-      $homeOk = $home.StatusCode -eq 200
-      $homeDetail = "status=$($home.StatusCode)"
+      $homeResponse = Invoke-WebRequest -Uri $ProductionUrl -UseBasicParsing -TimeoutSec $RequestTimeoutSec
+      $homeOk = $homeResponse.StatusCode -eq 200
+      $homeDetail = "status=$($homeResponse.StatusCode)"
     }
     catch {
       $homeDetail = $_.Exception.Message
