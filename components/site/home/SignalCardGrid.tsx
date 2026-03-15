@@ -45,7 +45,7 @@ export function SignalCardGrid({
         return (
           <article
             key={`${item.eyebrow}-${item.title}`}
-            className="rounded-2xl border border-border bg-card p-5"
+            className="rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/30"
           >
             <div className="flex items-center gap-3">
               <div className="rounded-full border border-primary/25 bg-primary/10 p-2 text-primary">

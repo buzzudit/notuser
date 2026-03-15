@@ -18,7 +18,7 @@ export function ProjectCard({ project, className = "" }: ProjectCardProps) {
   return (
     <motion.article
       whileHover={{ y: -3 }}
-      className={`group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/30 ${className}`}
+      className={`group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:shadow-[0_0_20px_-8px_hsl(38_92%_50%/0.2)] ${className}`}
     >
       {project.thumbnail ? (
         <div className="relative mb-4 h-44 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">

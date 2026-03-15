@@ -43,7 +43,7 @@ export function SectionLabel({ children }: { children: ReactNode }) {
 
 export function SectionHeading({ children }: { children: ReactNode }) {
   return (
-    <h2 className="mb-4 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+    <h2 className="mb-4 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
       {children}
     </h2>
   );

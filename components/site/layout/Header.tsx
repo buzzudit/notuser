@@ -34,9 +34,9 @@ export function Header() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`rounded-md px-3 py-1.5 text-sm transition-colors ${
+                className={`relative rounded-md px-3 py-1.5 text-sm transition-colors ${
                   pathname === item.href
-                    ? "bg-secondary text-foreground"
+                    ? "text-foreground after:absolute after:inset-x-3 after:-bottom-[1px] after:h-[2px] after:rounded-full after:bg-primary after:content-['']"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -45,6 +45,13 @@ export function Header() {
             </li>
           ))}
         </ul>
+
+        <Link
+          href="/contact"
+          className="hidden rounded-lg bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 md:inline-flex"
+        >
+          Get in touch
+        </Link>
 
         <button
           className="rounded-md p-2 text-muted-foreground hover:text-foreground md:hidden"

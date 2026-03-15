@@ -100,4 +100,12 @@
   .glow-shadow {
     box-shadow: var(--shadow-glow);
   }
+
+  .card-hover {
+    @apply transition-colors hover:border-primary/30;
+  }
+
+  .section-surface {
+    @apply rounded-2xl border border-border bg-card;
+  }
 }

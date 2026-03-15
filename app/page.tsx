@@ -79,9 +79,9 @@ export default function HomePage() {
           {trustIndicators.map((item) => (
             <div
               key={item.label}
-              className="rounded-xl border border-border bg-card px-4 py-5"
+              className="rounded-xl border border-border bg-card px-4 py-5 transition-colors hover:border-primary/25"
             >
-              <p className="text-2xl font-semibold tracking-tight text-foreground">
+              <p className="text-3xl font-semibold tracking-tight text-foreground">
                 {item.value}
               </p>
               <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
