@@ -35,6 +35,59 @@ function Run-Step {
   & $Command
 }
 
+function Assert-NoAthenaArtifactory {
+  $candidates = [System.Collections.Generic.List[string]]::new()
+
+  if ($env:NPM_CONFIG_REGISTRY) {
+    $candidates.Add("env:NPM_CONFIG_REGISTRY=$($env:NPM_CONFIG_REGISTRY)")
+  }
+
+  if ($env:npm_config_registry) {
+    $candidates.Add("env:npm_config_registry=$($env:npm_config_registry)")
+  }
+
+  $projectNpmrc = Join-Path $repoRoot ".npmrc"
+  if (Test-Path $projectNpmrc) {
+    $projectNpmrcContent = Get-Content -Raw $projectNpmrc
+    if ($projectNpmrcContent) {
+      $candidates.Add(".npmrc=$projectNpmrcContent")
+    }
+  }
+
+  $userNpmrc = Join-Path $HOME ".npmrc"
+  if (Test-Path $userNpmrc) {
+    $userNpmrcContent = Get-Content -Raw $userNpmrc
+    if ($userNpmrcContent) {
+      $candidates.Add("~/.npmrc=$userNpmrcContent")
+    }
+  }
+
+  $npmRegistry = (& npm config get registry 2>$null)
+  if ($LASTEXITCODE -eq 0 -and -not [string]::IsNullOrWhiteSpace($npmRegistry)) {
+    $candidates.Add("npm config registry=$npmRegistry")
+  }
+
+  $athenaArtifactoryRefs = @(
+    $candidates | Where-Object {
+      $_ -match "(?i)athena" -and $_ -match "(?i)artifactory"
+    }
+  )
+
+  if ($athenaArtifactoryRefs.Count -gt 0) {
+    throw "Blocked deploy: Athena Artifactory usage detected in npm configuration. Remove Athena Artifactory settings before deploying."
+  }
+
+  $artifactoryRefs = @(
+    $candidates | Where-Object {
+      $_ -match "(?i)artifactory"
+    }
+  )
+
+  if ($artifactoryRefs.Count -gt 0) {
+    throw "Blocked deploy: Artifactory registry usage is not allowed for this repo."
+  }
+}
+
 $repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
 Push-Location $repoRoot
 
@@ -49,6 +102,8 @@ try {
   if ($branch -ne "main") {
     throw "Deploy must run from 'main'. Current branch: '$branch'."
   }
+
+  Assert-NoAthenaArtifactory
 
   $dirtyStatus = (& git status --porcelain)
   Assert-ExitCode "Read git status"
