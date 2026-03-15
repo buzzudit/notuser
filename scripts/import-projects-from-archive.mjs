@@ -4,9 +4,6 @@ import fs from "node:fs/promises";
 
 const INPUT_PATH = "archive/Portfolio.csv";
 const OUTPUT_PATH = "data/projects.ts";
-const KNOWN_PLACEHOLDER_MEDIA_IDS = new Set([
-  "bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
-]);
 
 function parseCsv(input) {
   const rows = [];
@@ -125,30 +122,6 @@ function normalizeMediaUrl(rawUrl) {
   return "";
 }
 
-function extractMediaIdFromUrl(rawUrl) {
-  const value = cleanText(rawUrl);
-  if (!value) return "";
-  if (value.startsWith("wix:image://v1/")) {
-    return value.slice("wix:image://v1/".length).split(/[\/#?]/)[0];
-  }
-  if (value.startsWith("http://") || value.startsWith("https://")) {
-    try {
-      const parsed = new URL(value);
-      if (parsed.hostname === "static.wixstatic.com" && parsed.pathname.startsWith("/media/")) {
-        return decodeURIComponent(parsed.pathname.slice("/media/".length)).split("/")[0];
-      }
-    } catch {
-      return "";
-    }
-  }
-  return "";
-}
-
-function isPlaceholderMedia(rawUrl) {
-  const mediaId = extractMediaIdFromUrl(rawUrl);
-  return Boolean(mediaId && KNOWN_PLACEHOLDER_MEDIA_IDS.has(mediaId));
-}
-
 function splitParagraphs(input) {
   if (!input) return [];
   const normalized = String(input).replaceAll("\r\n", "\n");
@@ -193,7 +166,7 @@ function slugify(raw) {
 
 function parseGallery(rawGallery, title, mainImage) {
   const items = [];
-  if (mainImage && !isPlaceholderMedia(mainImage)) {
+  if (mainImage) {
     items.push({
       label: `${title} cover`,
       src: mainImage,
@@ -211,7 +184,7 @@ function parseGallery(rawGallery, title, mainImage) {
           const src = normalizeMediaUrl(entry.src ?? "");
           const label = cleanText(entry.title || entry.slug || `Gallery ${i + 1}`);
           const alt = cleanText(entry.alt || entry.title || title);
-          if (!src || isPlaceholderMedia(src)) continue;
+          if (!src) continue;
           items.push({
             label: label || `Gallery ${i + 1}`,
             src,
@@ -400,8 +373,7 @@ async function main() {
       metrics.push({ label: "Platform", value: platform });
     }
 
-    const normalizedMainImage = normalizeMediaUrl(row["Main Project Image"]);
-    const mainImage = isPlaceholderMedia(normalizedMainImage) ? "" : normalizedMainImage;
+    const mainImage = normalizeMediaUrl(row["Main Project Image"]);
     const gallery = parseGallery(row["Gallery"], title, mainImage);
     const demoUrl = cleanText(row["Demo"]);
     const sourceUrl = `https://www.notuser.com${projectPath}`;
