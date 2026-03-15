@@ -1,0 +1,48 @@
+import { BlogPost } from "../types/blog";
+
+export const post: BlogPost = {
+    id: 'real-21',
+    slug: '15-design-issues-hiree-could-fix-today',
+    title: '15 design issues Hiree could fix today!',
+    excerpt: 'If there\'s a \'trick\' to it, the UI is broken.Douglas AndersonHiree.com has a beautiful website, and when you look at it from a distance, every page looks minimal, uncluttered. But as you go deeper, as you start using it, you realise that there are flaws. Some of them very obvious. I am writing this post hoping that someone at Hiree reads this, and makes the improvements to make the lives of users easy!This is the homepage:1. The primary CTA says Upload Profile Now! And the primary messaging is t',
+    sourceUrl: 'https://www.notuser.com/post/15-design-issues-hiree-could-fix-today',
+    thumbnail: 'https://static.wixstatic.com/media/bc4f65_7d86300bd6c74d78aab765dee1fdbaa3~mv2.png/v1/fill/w_672,h_372,al_c,lg_1,q_85/bc4f65_7d86300bd6c74d78aab765dee1fdbaa3~mv2.png',
+    author: 'Udit Khandelwal',
+    category: 'Design',
+    tags: [
+      'Design',
+    ],
+    date: '2015-10-20',
+    updatedAt: '2023-10-05',
+    readTime: '3 min read',
+    sections: [
+      {
+        heading: 'Overview',
+        paragraphs: [
+          'Hiree.com has a beautiful website, and when you look at it from a distance, every page looks minimal, uncluttered. But as you go deeper, as you start using it, you realise that there are flaws. Some of them very obvious. I am writing this post hoping that someone at Hiree reads this, and makes the improvements to make the lives of users easy!',
+          'This is the homepage:',
+          '1. The primary CTA says Upload Profile Now! And the primary messaging is targeted for Job seekers as well. So I take it that primary target user group is the job seekers. So is the search for job seekers Maybe, because I can search jobs based on my skillset. Bummer! The search is for recruiters. A clear label should take care of it.',
+          '2. When When do I want to hire Or When did the candidate resign When is the candidate available Again, poor label. A clear label is required.',
+          '3. Do you see the sign in link Well, I\'m sure a lot of users would fail to see it. A quick UT should reveal it for you. More contrast required.',
+          'Next, you start doing the most tiresome task - Filling the forms. Though Hiree has a nice wizard based approach which seems non-daunting, but there are numerous issue here:',
+          '4. Once you start adding achievements (or anything similar that could have multiple entries), the fields keep getting appended at the bottom. Eventually, the left bar is not visible anymore. You have no idea where you are.',
+          '5. Certification and Publication are placed under achievements. Doesn\'t really fit the user\'s mental model. Poor categorisation.',
+          '6. If you have to add another achievement, you have to scroll all the way up (which of-course is easy to lose track of), and say add achievement. Come all the way down to fill it. All of this, without performing save!',
+          '7. Save and Add is missing. Could save you from a lot of trouble. Plus, save takes you to next item in the wizard. Poor label again (It\'s actually performing \'save and next\').',
+          'Once you\'re done filling all the forms, this is the profile you get. Though it\'s pretty and minimal, but is missing a lot of information and heavily depends on poor icons, abbreviations and hover effects:',
+          '8. There\'s no tagline. It\'s against the user\'s mental model. All the other portals out there provide a tagline feature. Trying to be different Or beyond minimal Bad Idea! Give me my tagline, I love it!',
+          '9. Current job: Other. Really UX designer has no identity. Please update your database, or let me enter my designation. You can\'t take that away from me!',
+          '10. I\'m seeing the recruiter\'s view. That\'s great, because I see a progress bar and an improve profile link. Plus, I\'m also seeing the stats. Will my recruiters see them too Not sure. IA is messed up here.',
+          '11. Oh, about those icons. You could hover on them to see more details. Yes, even on tablet and mobile :-).',
+          '12. So all of these cup icons, are really one of 4 things: certification, publication, patent, award. What you need is at least 3 parallel rows of icons, with proper iconography. Please don\'t represent my CXA certification with a cup.',
+          '13. Poor iconography again. www is my portfolio. What would work better is \'see portfolio\' button.',
+          'Lastly, if you scroll below, you\'d see some summary:',
+          '14. Any guesses for what does E stand for Expert! Poor iconography again. Please replace these things with solid and hollow stars. You should be just fine.',
+          '15. Lot\'s of whitespace. Actually a waste of real estate, while all the information is cramped on left.',
+          'BONUS POINT 16. Remember the yellow and black homepage Where did that come from if the brand colors are blue and green Why doesn\'t the homepage reflect the brand Reminds me of \'mera wala pink\'',
+          'If you are from hiree.com , please don\'t take this personally. My intention here is not to make fun of this design, but to point out that even beautiful looking webpages have usability issues and design flaws. Please feel free to take these points and make improvements. Happy hiring!',
+          '#CaseStudy #DesignIssues #Hiree #InteractionDesign',
+        ],
+      },
+    ],
+  };

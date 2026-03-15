@@ -25,7 +25,7 @@ export function FeaturedCaseStudies({
       {featuredItems.map(({ preview, project }) => (
         <article
           key={project.slug}
-          className="rounded-2xl border border-border bg-card p-5 md:p-6"
+          className="rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/25 md:p-6"
         >
           <div className="grid gap-6 lg:grid-cols-[260px_1fr] lg:items-start">
             {project.thumbnail ? (
@@ -62,9 +62,9 @@ export function FeaturedCaseStudies({
 
                 <Link
                   href={`/portfolio/${project.slug}`}
-                  className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
                 >
-                  View case study <ArrowUpRight size={14} />
+                  View case study <ArrowUpRight size={13} />
                 </Link>
               </div>
 
@@ -72,7 +72,7 @@ export function FeaturedCaseStudies({
                 <span className="font-medium text-foreground">Role:</span> {project.role}
               </p>
 
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="mt-6 grid gap-4 border-t border-border/50 pt-5 md:grid-cols-3">
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
                     Problem space

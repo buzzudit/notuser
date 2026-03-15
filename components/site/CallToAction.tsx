@@ -19,14 +19,16 @@ export function CallToAction({
   secondaryHref,
 }: CallToActionProps) {
   return (
-    <section className="rounded-2xl border border-border bg-card p-6 text-center md:p-8">
-      <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+    <section className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-center md:p-10">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.07),transparent_60%)]" aria-hidden="true" />
+      <div className="relative">
+      <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
         {title}
       </h2>
-      <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+      <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
         {description}
       </p>
-      <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
         <Link
           href={primaryHref}
           className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
@@ -41,6 +43,7 @@ export function CallToAction({
             {secondaryLabel}
           </Link>
         ) : null}
+      </div>
       </div>
     </section>
   );

@@ -1,0 +1,135 @@
+import { BlogPost } from "../types/blog";
+
+export const post: BlogPost = {
+    id: 'real-7',
+    slug: 'think-about-the-users-of-your-prototype',
+    title: 'Think About The Users of Your Prototype',
+    excerpt: 'We put in all our efforts in designing, testing and iterating the prototypes for the end-users. But, has it occurred to you that it\'s not...',
+    sourceUrl: 'https://www.notuser.com/post/think-about-the-users-of-your-prototype',
+    thumbnail: 'https://static.wixstatic.com/media/bc4f65_f7c687f18f1f47949b46ff9c1f0e61e5~mv2.jpg/v1/fit/w_1000,h_630,al_c,q_80/file.png',
+    author: 'Udit Khandelwal',
+    category: 'Design',
+    tags: [
+      'Design',
+      'Tools',
+    ],
+    date: '2019-01-12',
+    updatedAt: '2019-01-12',
+    readTime: '6 min read',
+    sections: [
+      {
+        heading: 'So, who are the users of your prototype',
+        paragraphs: [
+          'At different stages during the process, prototype changes several hands. When you\'re trying to cover all the use cases, it is the Product and Engineering Managers. When validating a few concepts, it is the UX researcher. When you are being evaluated for your skills, it is your manager. A fellow designer might access it to draw some inspiration or to simply critique the design. And so on…',
+          'I am pretty sure the list below is not exhaustive, but definitely covers most important users of design prototypes:',
+          'Product Leadership',
+          'Engineering Leadership',
+          'Developers',
+          'Fellow Designers',
+          'UX Researchers',
+          'Cross-functional Stakeholders',
+          'Outsiders',
+          'End-users',
+        ],
+      },
+      {
+        heading: 'What do these users want',
+        paragraphs: [
+          'While working for various products in different cross-functional teams, I realized that that are various stages at which we share prototypes with appropriate fidelity. The viewers of these prototypes have goals that are drastically different from the end-users, and hence they use it in a very different manner. They don\'t follow the usual workflow or the happy path. Instead, they keep going back and forth searching for the stuff, looking for minute details or looking at the bigger picture.',
+          'See what they have to say about prototype goals and usage specific to their job roles:',
+          'Nitin Gupta Product Management A prototype helps a business owner start to visualise his business requirements getting converted into features or set of features. It is the tipping point where a smaller and large number of abstract requirements start to take shape that not only helps validate requirements for business owners but customers too.',
+          'Ratnesh Lal',
+          'Engineering Management I would like to understand the complexity. I would like to evaluate the engineering feasibility, find how effectively the design could leverage existing design system library components and hence estimate the engineering effort required.',
+          'Shruti Avalkar',
+          'UX Design As a designer, my goal would be to see what is the next screen is and how it is designed. Why I am assuming that my fellow designer wants feedback from me… and I should go through the entire flow before commenting. So I would try to click on action items I feel are clickable',
+          'Brandon Dobro',
+          'Product Management A prototype is a critical early draft that has the purpose of aligning stakeholders on the basic layout and user experience of a page or module. Getting this early buy-in from the team allows them to move closer to the goal of a high-fidelity design that can be handed over to the development team.',
+          'Manikandan Jayagopal',
+          'Engineering First, I check whether all the scenarios/use cases are covered in it. Secondly, I check for feasibility, since we have forge (our design system library), I try to leverage it as much as possible. And try to understand a few new things like why are we doing so How it actually adds benefit to the user (user point of few).',
+          'Kristina Krause',
+          'UX Research To get more context, of course. I guess I would say I use the prototype as a conversation starter to learn more about what good UX will look like for the end user… and to understand the process what went into the making the design.',
+          'Kim Marques',
+          'Content Strategy When I receive a prototype the first thing I\'m looking for is: does it have the elements I requested or that are needed to support whatever content or business goals we\'re working on. The next thing I do is try to break it. I know that sounds ridiculous, but I try to think of any possible edge use-case that could break the convention put forth in the prototype. Better to catch it in that stage than right before or - god forbid - right after, launch.',
+        ],
+      },
+      {
+        heading: 'So, what should a prototype provide or facilitate',
+        paragraphs: [
+          'Engineering Manager needs to be able to break it down and plan for it',
+          'Product Leadership needs to be able to zoom out and see the bigger picture',
+          'Product Manager needs to be able to see smaller pieces coming together',
+          'Fellow designer needs to be able to break it apart and critique it',
+          'UX researcher needs to be able to find loopholes and ask questions',
+          'Content strategist needs to be able to find placeholders that could be used',
+          'An outsider needs to be able to play around and explore stuff',
+          'All of above need to be able to provide feedback and contribute',
+          'The list above does not even scratch the surface, as there is a lot more to be discovered. But, it should get the designers thinking. So many people are trying to achieve so much more with the prototype we design. Hence, I believe whenever we are delivering a prototype, we should think about how we\'re going to facilitate the discovery and exploration the following:',
+          'Features',
+          'Workflows',
+          'Components',
+          'Page-elements',
+          'Buy-in',
+          'Feedback',
+          'Edge cases',
+          'Vision',
+        ],
+      },
+      {
+        heading: 'Finally, how can you serve these needs',
+        paragraphs: [
+          'Provide an additional way to expose all the use cases',
+          'Provide a video tour of the Prototype, covering all the use cases and product features',
+          'Provide a cognitive-walkthrough video for High Value Scenario',
+          'Highlight the components that are not part of your Design System Library',
+          'Maintain a before/after version and a timeline, for comparative analysis',
+          'Ditch lorem ipsum and always try to work with real data and real content',
+          'Use the right tool to build and publish your prototype',
+          'In the following sections, I have tried to cover examples of most of the point mentioned above. I hope these examples are helpful and give you enough insight into how each of these points results into a tangible outcome. I will not write about using the right tool, as there are a zillion articles about it out there!',
+        ],
+      },
+      {
+        heading: 'Prototype Navigator',
+        paragraphs: [
+          'As the number of use cases handled by a prototype increase, it becomes increasingly difficult for the users to find stuff they are looking for.',
+          'As a result, overall breadth and depth of the prototype remain unknown or hidden deep inside nested JIRA tickets. An easy solution to all of this is prototype Navigator.',
+          'Here is an example:',
+          'This screen should be always 1 click away , so that folks can access it on-demand. Additionally, it could be the home-screen for the internally shared prototype. In my case, I provided little icon in the header, that brings this screen up. Of course, all the team members we informed about it. You can see it in action in the following Video.',
+        ],
+      },
+      {
+        heading: 'Prototype Tour Video',
+        paragraphs: [
+          'This video is recorded by going through each and every item in the prototype navigator and talking about how the UI handles every use case. The idea is to be exhaustive, covering all possible screen states and edge cases.',
+          'The Prototype Tour Video is particularly appreciated by the leadership, as they can get a power-packed presentation within 10 minutes without having to do anything but just sit back and watch! Here is what my Product Leadership had to say when I shared one such video along with a Prototype.',
+          '​Lana Cohen',
+          'Product Leadership The tour video was a really awesome way to walk through this - would love to do like that again… I can provide comments in order of video.',
+        ],
+      },
+      {
+        heading: 'Cognitive Walkthrough Video',
+        paragraphs: [
+          'Cognitive Walkthrough Video focuses on primary system interactions and critical paths a user will perform in the workflow. Here, you record the video in the first person (acting as a user) communicating not only what the user is doing, but what they are thinking. Thoughts about the workflow should be task-focused, and should not include thoughts about how easy/difficult it is to complete a workflow. The cognitive walkthrough video is primarily targeted towards fellow designers and researchers. Remaining unbiased and focused is the key, unlike the prototype tour video. In prototype tour video, you can take the liberty to explore entire breadth & depth and to try & sell the concept to the stakeholders.',
+          'Here is an example:',
+        ],
+      },
+      {
+        heading: 'Component Mapping Table',
+        paragraphs: [
+          'A map of all the major components present in the UI, and their availability (or extensibility) in the design system library. This table is genrally prepared in collaboration with engineering after UX can provide details regarding all the components used in the UI. The final output would look something like this:',
+        ],
+      },
+      {
+        heading: 'Before and After',
+        paragraphs: [
+          'This is an excellent tool if you want to highlight the stark difference between new and old approaches or if you want to paint the vision. Here is an example developed using JuxtaposeJS:',
+        ],
+      },
+      {
+        heading: 'Conclusion',
+        paragraphs: [
+          'If you have any suggestions or comments, I\'d love to hear them!',
+          '#Stakeholders #PrototypeNavigator #USers #ProductManagement #CognitiveWalkthrough #prototype #prototyping #Tool #Video',
+        ],
+      },
+    ],
+  };

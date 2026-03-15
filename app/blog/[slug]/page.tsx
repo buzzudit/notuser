@@ -67,15 +67,21 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <PageLayout>
       <ReadingProgressBar />
       <SectionShell>
-        <article className="rounded-xl border border-border bg-card p-6 md:p-8">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-            {displayCategory} - {displayDate} - {displayReadTime}
-          </p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
+        <article className="rounded-xl border border-border bg-card p-6 md:p-10">
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+              {displayCategory}
+            </p>
+            <span className="text-border">·</span>
+            <p className="font-mono text-[11px] text-muted-foreground">{displayDate}</p>
+            <span className="text-border">·</span>
+            <p className="font-mono text-[11px] text-muted-foreground">{displayReadTime}</p>
+          </div>
+          <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
             {post.title}
           </h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            By {post.author} - Updated {displayUpdatedAt}
+          <p className="mt-3 text-sm text-muted-foreground">
+            By <span className="text-foreground">{post.author}</span> &middot; Updated {displayUpdatedAt}
           </p>
 
           <div className="relative mt-4 h-[220px] overflow-hidden rounded-lg border border-border/70 bg-secondary/40 md:h-[420px]">
@@ -115,12 +121,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <p className="mt-2 text-sm leading-relaxed text-foreground">{firstBodyText}</p>
           </div>
 
-          <div className="mt-8 space-y-8">
+          <div className="mt-10 space-y-10">
             {renderableSections.map((section) => (
               <section key={section.heading}>
                 {!section.hideHeading ? (
                   section.level === 3 ? (
-                    <h3 className="text-lg font-medium tracking-tight text-foreground">
+                    <h3 className="text-xl font-semibold tracking-tight text-foreground">
                       {section.heading}
                     </h3>
                   ) : (
@@ -131,8 +137,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 ) : null}
                 {section.blocks.length > 0 ? (
                   <div
-                    className={`space-y-4 text-sm leading-relaxed text-muted-foreground ${
-                      section.hideHeading ? "" : "mt-4"
+                    className={`space-y-5 text-base leading-relaxed text-muted-foreground ${
+                      section.hideHeading ? "" : "mt-5"
                     }`}
                   >
                     {section.blocks.map((block, blockIndex) => {

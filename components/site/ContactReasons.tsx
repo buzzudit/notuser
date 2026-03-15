@@ -22,7 +22,7 @@ export function ContactReasons({ reasons }: ContactReasonsProps) {
         <motion.li
           key={reason.title}
           whileHover={{ y: -2 }}
-          className="rounded-lg border border-border bg-card p-5 transition-colors hover:border-primary/20"
+          className="rounded-lg border border-border bg-card p-5 transition-colors hover:border-primary/30"
         >
           <div className="mb-3">{icons[index % icons.length]}</div>
           <p className="font-mono text-[11px] uppercase tracking-widest text-primary">

@@ -35,11 +35,11 @@ export function BlogCard({ post, className = "" }: BlogCardProps) {
 
   return (
     <motion.article
-      whileHover={{ y: -2 }}
-      className={`group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/30 ${className}`}
+      whileHover={{ y: -3 }}
+      className={`group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:shadow-[0_0_20px_-8px_hsl(38_92%_50%/0.2)] ${className}`}
     >
       <Link href={`/blog/${post.slug}`} className="block">
-        <div className="relative mb-4 h-44 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
+        <div className="relative mb-4 h-52 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
           <Image
             src={thumbnailSrc}
             alt={post.title}
