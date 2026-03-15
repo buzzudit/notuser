@@ -1,6 +1,10 @@
 param(
   [string]$ProductionUrl = "https://notuser-production.up.railway.app",
   [string]$CommitMessage = "",
+  [int]$MaxAttempts = 60,
+  [int]$SleepSeconds = 10,
+  [int]$RequestTimeoutSec = 20,
+  [switch]$RequireHomeOk,
   [switch]$SkipChecks,
   [switch]$NoAutoCommit,
   [switch]$DryRun
@@ -48,7 +52,8 @@ try {
 
   $dirtyStatus = (& git status --porcelain)
   Assert-ExitCode "Read git status"
-  $isDirty = $dirtyStatus -and $dirtyStatus.Count -gt 0
+  $dirtyLines = @($dirtyStatus | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+  $isDirty = $dirtyLines.Count -gt 0
 
   if ($isDirty -and $NoAutoCommit) {
     throw "Working tree has changes. Commit them first, or rerun without -NoAutoCommit."
@@ -83,32 +88,61 @@ try {
   }
 
   Write-Host "`nWaiting for production deploy to become healthy..." -ForegroundColor Cyan
-  $maxAttempts = 30
-  $sleepSeconds = 10
   $healthy = $false
+  $lastFailure = "No response received yet."
 
   for ($attempt = 1; $attempt -le $maxAttempts; $attempt++) {
+    $healthOk = $false
+    $healthDetail = "not checked"
+    $homeOk = $false
+    $homeDetail = "not checked"
+
     try {
-      $health = Invoke-RestMethod -Uri "$ProductionUrl/api/health" -Method GET -TimeoutSec 20
-      $home = Invoke-WebRequest -Uri $ProductionUrl -UseBasicParsing -TimeoutSec 20
-
-      if ($home.StatusCode -eq 200 -and $health.ok -eq $true) {
-        Write-Host "Production healthy on attempt $attempt." -ForegroundColor Green
-        $healthy = $true
-        break
+      $health = Invoke-RestMethod -Uri "$ProductionUrl/api/health" -Method GET -TimeoutSec $RequestTimeoutSec
+      $healthOk = $health.ok -eq $true
+      if ($healthOk) {
+        $healthDetail = "ok=true"
+      } else {
+        $healthDetail = "ok was not true"
       }
-
-      Write-Host ("Attempt {0}/{1}: waiting..." -f $attempt, $maxAttempts) -ForegroundColor DarkYellow
     }
     catch {
-      Write-Host ("Attempt {0}/{1}: waiting..." -f $attempt, $maxAttempts) -ForegroundColor DarkYellow
+      $healthDetail = $_.Exception.Message
+    }
+
+    try {
+      $home = Invoke-WebRequest -Uri $ProductionUrl -UseBasicParsing -TimeoutSec $RequestTimeoutSec
+      $homeOk = $home.StatusCode -eq 200
+      $homeDetail = "status=$($home.StatusCode)"
+    }
+    catch {
+      $homeDetail = $_.Exception.Message
+    }
+
+    $homeRequiredOk = (-not $RequireHomeOk) -or $homeOk
+    if ($healthOk -and $homeRequiredOk) {
+      if ($RequireHomeOk) {
+        Write-Host "Production healthy on attempt $attempt (health endpoint + home page)." -ForegroundColor Green
+      } else {
+        Write-Host "Production healthy on attempt $attempt (health endpoint)." -ForegroundColor Green
+      }
+      $healthy = $true
+      break
+    }
+
+    if ($RequireHomeOk) {
+      $lastFailure = "health=[$healthDetail], home=[$homeDetail]"
+      Write-Host ("Attempt {0}/{1}: waiting (health=[{2}], home=[{3}])..." -f $attempt, $maxAttempts, $healthDetail, $homeDetail) -ForegroundColor DarkYellow
+    } else {
+      $lastFailure = "health=[$healthDetail], home(non-blocking)=[$homeDetail]"
+      Write-Host ("Attempt {0}/{1}: waiting (health=[{2}], home non-blocking=[{3}])..." -f $attempt, $maxAttempts, $healthDetail, $homeDetail) -ForegroundColor DarkYellow
     }
 
     Start-Sleep -Seconds $sleepSeconds
   }
 
   if (-not $healthy) {
-    throw "Deploy pushed, but production health check did not pass in time. Check Railway logs."
+    throw "Deploy pushed, but production checks did not pass in time. Last result: $lastFailure"
   }
 
   Write-Host "`nDeploy complete: $ProductionUrl" -ForegroundColor Green

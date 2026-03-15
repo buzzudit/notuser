@@ -1,106 +1,58 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { PageLayout } from "@/components/site/layout/PageLayout";
-import { AIWorkspace } from "@/components/site/AIWorkspace";
-import { StatusIndicator } from "@/components/site/StatusIndicator";
+import { AILeadershipSection } from "@/components/site/home/AILeadershipSection";
+import { ExecutiveHero } from "@/components/site/home/ExecutiveHero";
+import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies";
+import { SignalCardGrid } from "@/components/site/home/SignalCardGrid";
 import {
   SectionDescription,
   SectionHeading,
   SectionLabel,
   SectionShell,
 } from "@/components/site/SectionShell";
-import { ProjectGrid } from "@/components/site/ProjectGrid";
-import { FeatureGrid } from "@/components/site/FeatureGrid";
-import { AIWorkflowCards } from "@/components/site/AIWorkflowCards";
-import { ExperienceTimeline } from "@/components/site/ExperienceTimeline";
 import { BlogGrid } from "@/components/site/BlogGrid";
-import { CallToAction } from "@/components/site/CallToAction";
+import { ExperienceTimeline } from "@/components/site/ExperienceTimeline";
 import { ImpactStats } from "@/components/site/ImpactStats";
 import { TestimonialCard } from "@/components/site/TestimonialCard";
-import { projects } from "@/data/projects";
 import { blogPosts } from "@/data/blog";
+import { projects } from "@/data/projects";
 import {
-  aiWorkflowSteps,
-  designFeatures,
+  homeAILeadership,
+  homeAILeadershipPillars,
+  homeCallToAction,
+  homeExecutiveProof,
+  homeFeaturedCaseStudies,
+  homeFeaturedWritingSlugs,
   homeHero,
+  homeLeadershipModel,
   homeTestimonials,
+  homeWhyUdit,
+  homeWritingSection,
   trustIndicators,
 } from "@/data/site";
 
 export default function HomePage() {
+  const featuredPosts = homeFeaturedWritingSlugs.flatMap((slug) => {
+    const post = blogPosts.find((item) => item.slug === slug);
+    return post ? [post] : [];
+  });
+
   return (
     <PageLayout>
-      <section className="relative overflow-hidden">
-        <div className="container flex flex-col items-center py-24 text-center md:py-36">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-6"
-          >
-            <StatusIndicator />
-          </motion.div>
+      <ExecutiveHero hero={homeHero} />
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-4 whitespace-pre-line text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl"
-          >
-            {homeHero.headline}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-10 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg"
-          >
-            {homeHero.subheadline}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-full max-w-xl"
-          >
-            <AIWorkspace />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-6 flex flex-wrap items-center justify-center gap-3"
-          >
-            <Link
-              href="/resume"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              View resume <ArrowRight size={14} />
-            </Link>
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Browse portfolio
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      <SectionShell className="border-y border-border/50 py-10 md:py-10">
-        <div className="grid grid-cols-3 gap-8 text-center">
+      <SectionShell className="border-b border-border/50 py-10 md:py-10">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {trustIndicators.map((item) => (
-            <div key={item.label}>
-              <p className="text-xl font-semibold text-foreground md:text-2xl">
-                {item.metric}
+            <div
+              key={item.label}
+              className="rounded-xl border border-border bg-card px-4 py-5"
+            >
+              <p className="text-2xl font-semibold tracking-tight text-foreground">
+                {item.value}
               </p>
-              <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+              <p className="mt-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                 {item.label}
               </p>
             </div>
@@ -108,59 +60,96 @@ export default function HomePage() {
         </div>
       </SectionShell>
 
-      <SectionShell>
-        <div className="mb-8 flex items-end justify-between">
+      <SectionShell id="why-udit">
+        <SectionLabel>Why Udit</SectionLabel>
+        <SectionHeading>
+          Why hiring managers bring me into senior design and transformation conversations
+        </SectionHeading>
+        <SectionDescription>
+          I am most effective where leadership, systems thinking, product quality,
+          and organizational change need to move together.
+        </SectionDescription>
+        <div className="mt-8">
+          <SignalCardGrid items={homeWhyUdit} iconSet="value" />
+        </div>
+      </SectionShell>
+
+      <SectionShell id="ai-leadership" className="border-y border-border/50">
+        <SectionLabel>AI Leadership</SectionLabel>
+        <SectionHeading>
+          AI-first product thinking for workflows, systems, and organizations
+        </SectionHeading>
+        <SectionDescription>
+          My AI relevance is not about chatbot novelty. It is about how AI changes
+          decision-making, orchestration, trust, and the way product organizations
+          operate.
+        </SectionDescription>
+        <div className="mt-8">
+          <AILeadershipSection
+            intro={homeAILeadership.intro}
+            focusAreas={homeAILeadership.focusAreas}
+            pillars={homeAILeadershipPillars}
+          />
+        </div>
+      </SectionShell>
+
+      <SectionShell id="case-studies">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionLabel>Portfolio</SectionLabel>
-            <SectionHeading>Selected work</SectionHeading>
+            <SectionLabel>Leadership Work</SectionLabel>
+            <SectionHeading>Selected case studies with stronger business context</SectionHeading>
+            <SectionDescription>
+              These previews focus on the scale of the problem, the leadership I
+              brought, and why the work mattered in enterprise environments.
+            </SectionDescription>
           </div>
           <Link
             href="/portfolio"
-            className="hidden items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground md:flex"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            View all <ArrowRight size={14} />
+            View full portfolio <ArrowRight size={14} />
           </Link>
         </div>
-        <ProjectGrid projects={projects.slice(0, 4)} />
+        <div className="mt-8">
+          <FeaturedCaseStudies previews={homeFeaturedCaseStudies} projects={projects} />
+        </div>
       </SectionShell>
 
-      <SectionShell>
+      <SectionShell id="leadership-model">
         <SectionLabel>Leadership</SectionLabel>
-        <SectionHeading>How I lead, operate, and deliver</SectionHeading>
+        <SectionHeading>The operating model I bring to design organizations</SectionHeading>
         <SectionDescription>
-          My operating model combines team leadership, cross-functional alignment,
-          and design quality discipline to consistently ship high-impact products.
+          I lead by clarifying direction, aligning teams, growing designers, and
+          building systems that keep quality high as organizations scale.
         </SectionDescription>
         <div className="mt-8">
-          <FeatureGrid features={designFeatures} />
+          <SignalCardGrid items={homeLeadershipModel} iconSet="leadership" />
         </div>
       </SectionShell>
 
-      <SectionShell className="border-y border-border/50">
-        <SectionLabel>Operating Model</SectionLabel>
-        <SectionHeading>How I run design organizations</SectionHeading>
+      <SectionShell id="career-proof" className="border-y border-border/50">
+        <SectionLabel>Executive Proof</SectionLabel>
+        <SectionHeading>Career credibility built across leadership, platforms, and engineering</SectionHeading>
         <SectionDescription>
-          I balance strategic direction with tactical execution to help teams move
-          faster without compromising product quality.
+          The progression matters: director-level leadership at athenahealth today,
+          supported by earlier work across Adobe, Cisco, Kaseya, Zivame, and a
+          foundation in software engineering.
         </SectionDescription>
         <div className="mt-8">
-          <AIWorkflowCards steps={aiWorkflowSteps} />
+          <SignalCardGrid items={homeExecutiveProof} iconSet="proof" />
         </div>
-      </SectionShell>
-
-      <SectionShell>
-        <SectionLabel>Impact</SectionLabel>
-        <SectionHeading>Career highlights</SectionHeading>
-        <ImpactStats />
+        <div className="mt-8">
+          <ImpactStats />
+        </div>
         <div className="mt-8">
           <ExperienceTimeline />
         </div>
       </SectionShell>
 
       <SectionShell>
-        <SectionLabel>What partners say</SectionLabel>
+        <SectionLabel>What Partners Say</SectionLabel>
         <SectionHeading>Leadership and execution feedback</SectionHeading>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-3">
           {homeTestimonials.map((item) => (
             <TestimonialCard
               key={item.author}
@@ -172,31 +161,57 @@ export default function HomePage() {
         </div>
       </SectionShell>
 
-      <SectionShell>
-        <div className="mb-8 flex items-end justify-between">
+      <SectionShell id="thinking">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionLabel>Writing</SectionLabel>
-            <SectionHeading>Latest thinking</SectionHeading>
+            <SectionLabel>{homeWritingSection.label}</SectionLabel>
+            <SectionHeading>{homeWritingSection.heading}</SectionHeading>
+            <SectionDescription>{homeWritingSection.description}</SectionDescription>
           </div>
           <Link
             href="/blog"
-            className="hidden items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground md:flex"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            View all <ArrowRight size={14} />
+            View all writing <ArrowRight size={14} />
           </Link>
         </div>
-        <BlogGrid posts={blogPosts.slice(0, 3)} />
+        <div className="mt-8">
+          <BlogGrid posts={featuredPosts} />
+        </div>
       </SectionShell>
 
       <SectionShell>
-        <CallToAction
-          title="Hiring for a design leadership role?"
-          description="If you are a hiring manager or recruiter, I would be glad to share role fit, leadership examples, and portfolio depth."
-          primaryLabel="View full resume"
-          primaryHref="/resume"
-          secondaryLabel="Contact Udit"
-          secondaryHref="/contact"
-        />
+        <section className="rounded-2xl border border-border bg-card p-6 md:p-8">
+          <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
+            {homeCallToAction.eyebrow}
+          </p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            {homeCallToAction.title}
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            {homeCallToAction.description}
+          </p>
+          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <Link
+              href={homeCallToAction.primaryHref}
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              {homeCallToAction.primaryLabel} <ArrowRight size={14} />
+            </Link>
+            <Link
+              href={homeCallToAction.secondaryHref}
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {homeCallToAction.secondaryLabel}
+            </Link>
+            <Link
+              href={homeCallToAction.tertiaryHref}
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {homeCallToAction.tertiaryLabel}
+            </Link>
+          </div>
+        </section>
       </SectionShell>
     </PageLayout>
   );
