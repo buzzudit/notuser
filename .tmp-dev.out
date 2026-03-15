@@ -1,0 +1,71 @@
+
+> notuser@0.1.0 dev
+> next dev --port 3000
+
+   ▲ Next.js 15.5.11
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.175:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 1715ms
+ ○ Compiling /api/health ...
+ ✓ Compiled /api/health in 1671ms (297 modules)
+ GET /api/health 200 in 1875ms
+ ○ Compiling / ...
+ ✓ Compiled / in 5.2s (1592 modules)
+ GET / 200 in 6942ms
+ ✓ Compiled /favicon.ico in 410ms (911 modules)
+ GET /favicon.ico 200 in 501ms
+ ○ Compiling /resume ...
+ ✓ Compiled /resume in 518ms (1607 modules)
+ GET /resume 200 in 936ms
+ ✓ Compiled /portfolio in 356ms (1623 modules)
+ GET /portfolio 200 in 817ms
+ ✓ Compiled /portfolio/[slug] in 427ms (1642 modules)
+ GET /portfolio/vision-platform-and-data-services 200 in 1516ms
+ ✓ Compiled /blog in 427ms (1655 modules)
+ GET /blog 200 in 910ms
+ ○ Compiling /blog/[slug] ...
+ ✓ Compiled /blog/[slug] in 897ms (1664 modules)
+ GET /blog/how-i-groom-my-designers-at-athenahealth 200 in 1730ms
+ ✓ Compiled /contact in 484ms (1689 modules)
+ GET /contact 200 in 729ms
+ ✓ Compiled /post/[slug] in 428ms (1689 modules)
+ GET /post/how-i-groom-my-designers-at-athenahealth 307 in 1118ms
+ GET /blog/how-i-groom-my-designers-at-athenahealth 200 in 196ms
+ GET / 200 in 392ms
+ GET /resume 200 in 154ms
+ GET /portfolio 200 in 413ms
+ GET /portfolio/vision-platform-and-data-services 200 in 182ms
+ GET /blog 200 in 271ms
+ GET /blog/how-i-groom-my-designers-at-athenahealth 200 in 156ms
+ GET /contact 200 in 138ms
+ GET /post/how-i-groom-my-designers-at-athenahealth 307 in 102ms
+ GET /blog/how-i-groom-my-designers-at-athenahealth 200 in 161ms
+ GET / 200 in 463ms
+ GET /resume 200 in 125ms
+ GET /portfolio 200 in 288ms
+ GET /portfolio/vision-platform-and-data-services 200 in 144ms
+ GET /blog 200 in 289ms
+ GET /blog/how-i-groom-my-designers-at-athenahealth 200 in 110ms
+ GET /contact 200 in 142ms
+ GET /post/how-i-groom-my-designers-at-athenahealth 307 in 75ms
+ GET /post/framework-first-design-a-scalable-approach-to-problem-solving 307 in 78ms
+ ✓ Compiled /api/health in 377ms (984 modules)
+ GET /api/health 200 in 451ms
+ ○ Compiling /api/messages ...
+ ✓ Compiled /api/messages in 655ms (1710 modules)
+ POST /api/messages 201 in 822ms
+ GET /api/messages 200 in 11ms
+ ✓ Compiled /api/ai in 387ms (1670 modules)
+ POST /api/ai 200 in 6384ms
+ ✓ Compiled / in 446ms (994 modules)
+ GET / 200 in 1164ms
+ GET /resume 200 in 160ms
+ GET /portfolio 200 in 363ms
+ ✓ Compiled /portfolio/[slug] in 387ms (1003 modules)
+ GET /portfolio/vision-platform-and-data-services 200 in 803ms
+ GET /blog 200 in 331ms
+ GET /blog/how-i-groom-my-designers-at-athenahealth 200 in 192ms
+ GET /contact 200 in 144ms
