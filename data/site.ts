@@ -26,9 +26,8 @@ export const homeHero = {
     "Director-level design leader helping organizations turn complex enterprise workflows into clear, scalable, high-trust experiences.",
   credibilityLine:
     "Currently Director, Experience Design at athenahealth, with 17+ years across healthcare, enterprise software, cloud platforms, and commerce, backed by engineering roots and hands-on product depth.",
-  imageSrc:
-    "https://static.wixstatic.com/media/bc4f65_046f0b5484f348a68d2454678c7a3dc6~mv2.jpg/v1/fill/w_916,h_1176,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/udit-exec-smile-optimized.jpg",
-  imageAlt: "Portrait of Udit Khandelwal",
+  imageSrc: "/images/udit-bw.png",
+  imageAlt: "Black and white portrait of Udit Khandelwal",
   quickSignals: [
     "Director, Experience Design at athenahealth",
     "Enterprise platform and ecosystem experience",

@@ -20,7 +20,7 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-border/50">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.16),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.08),transparent_28%)]" />
-      <div className="container relative py-14 md:py-20">
+      <div className="container relative py-12 md:py-20">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
             <p className="inline-flex items-center rounded-full border border-border bg-card/70 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-primary">
@@ -29,10 +29,22 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
             <p className="mt-6 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
               {hero.name}
             </p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
+
+            <div className="relative mx-auto mt-4 h-[220px] w-full max-w-[220px] lg:hidden">
+              <Image
+                src={hero.imageSrc}
+                alt={hero.imageAlt}
+                fill
+                className="object-contain object-bottom"
+                priority
+                sizes="220px"
+              />
+            </div>
+
+            <h1 className="mt-5 max-w-4xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl md:text-6xl">
               {hero.headline}
             </h1>
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-foreground/90 md:text-xl">
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-foreground/90 md:text-xl">
               {hero.subheadline}
             </p>
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
@@ -72,18 +84,18 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
             </div>
           </div>
 
-          <div className="grid gap-4">
-            <div className="rounded-[1.75rem] border border-border/70 bg-card/80 p-3 shadow-2xl shadow-black/20">
-              <div className="relative aspect-[0.78] overflow-hidden rounded-[1.25rem] bg-secondary/40">
+          <div className="hidden gap-4 lg:grid">
+            <div className="relative min-h-[560px]">
+              <div className="absolute inset-x-10 bottom-6 h-16 rounded-full bg-primary/10 blur-3xl" />
+              <div className="relative h-full w-full">
                 <Image
                   src={hero.imageSrc}
                   alt={hero.imageAlt}
                   fill
-                  className="object-cover"
+                  className="object-contain object-bottom"
                   priority
                   sizes="(max-width: 1024px) 100vw, 38vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
               </div>
             </div>
 
