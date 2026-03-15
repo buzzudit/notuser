@@ -12,12 +12,39 @@ export type EducationItem = {
   year: string;
 };
 
+export type ResumeSignal = {
+  label: string;
+  title: string;
+  description: string;
+};
+
 export const profile = {
   name: "Udit Khandelwal",
-  title: "AI Product Designer and Systems Builder",
+  title: "Design leader focused on AI-first products, enterprise platforms, and transformation work",
   summary:
-    "I design AI-first products that improve decision quality and operational speed. My work sits at the intersection of strategy, workflow design, and delivery.",
+    "Director-level design leader with engineering roots and 17+ years across healthcare, enterprise software, cloud platforms, and commerce. I work with teams to clarify direction, modernize complex workflows, and build durable design and product systems for long-term outcomes.",
 };
+
+export const resumeSignals: ResumeSignal[] = [
+  {
+    label: "Current role",
+    title: "Director, Experience Design at athenahealth",
+    description:
+      "Leading experience direction across platform and cloud-service environments where complexity, scale, and operational trust are central.",
+  },
+  {
+    label: "Leadership approach",
+    title: "Strategy, systems thinking, and hands-on product judgment",
+    description:
+      "I work at the intersection of design leadership, product direction, organizational clarity, and execution quality.",
+  },
+  {
+    label: "Where I add value",
+    title: "Bridging strategy, systems, and delivery in AI-era products",
+    description:
+      "My background spans workflow design, enterprise ecosystems, cross-functional influence, and the technical fluency needed for modern AI product environments.",
+  },
+];
 
 export const experienceTimeline: ExperienceItem[] = [
   {
@@ -113,7 +140,8 @@ export const education: EducationItem[] = [
 ];
 
 export const achievements = [
-  "Led AI product initiatives delivering measurable cycle-time reduction across business-critical workflows.",
-  "Designed systems that increased adoption by combining trust cues, governance, and clear operator control.",
-  "Established repeatable playbooks for moving AI from pilot phase to operational scale.",
+  "Set direction for platform and data-services vision work at athenahealth across a broad product ecosystem spanning 70+ products.",
+  "Led design organizations and cross-functional teams through platform, cloud, healthcare, and commerce initiatives where clarity and systems thinking were essential.",
+  "Built credibility across product, engineering, and business partners through a blend of strategic leadership, delivery judgment, and technical fluency.",
+  "Progressed from software engineering into director-level design leadership, creating a strong foundation for enterprise product and AI transformation work.",
 ];

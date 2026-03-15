@@ -13,7 +13,7 @@ export function SkillGrid() {
             {category.skills.map((skill) => (
               <li
                 key={skill}
-                className="rounded-md border border-border/80 bg-secondary/40 px-2.5 py-1 text-xs text-muted-foreground"
+                className="rounded-md border border-border/80 bg-secondary/40 px-2.5 py-1 text-sm text-muted-foreground"
               >
                 {skill}
               </li>

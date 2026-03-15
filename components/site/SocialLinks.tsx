@@ -18,7 +18,7 @@ export function SocialLinks({ links }: SocialLinksProps) {
             href={link.href}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex rounded-md border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="inline-flex rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             {link.label}
           </Link>

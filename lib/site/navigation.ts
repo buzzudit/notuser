@@ -9,5 +9,4 @@ export const mainNavItems: NavItem[] = [
   { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
-  { label: "Circle", href: "/circle" },
 ];

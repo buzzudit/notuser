@@ -12,7 +12,16 @@ import { AISummaryPanel } from "@/components/ai/AISummaryPanel";
 import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
 import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
 import { AIInlineActions } from "@/components/ai/AIInlineActions";
-import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
+import {
+  formatBlogDate,
+  getBlogDisplayCategory,
+  getBlogDisplayTags,
+  getBlogExcerpt,
+  getFirstBlogBodyText,
+  getBlogReadTime,
+  getBlogThumbnailSrc,
+  getRenderableBlogSections,
+} from "@/lib/site/blogFormatting";
 
 type BlogPostPageProps = {
   params: Promise<{ slug: string }>;
@@ -34,21 +43,31 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const thumbnailSrc = resolveMirroredMediaSrc(post.thumbnail);
+  const thumbnailSrc = getBlogThumbnailSrc(post.thumbnail);
+  const displayDate = formatBlogDate(post.date);
+  const displayUpdatedAt = formatBlogDate(post.updatedAt);
+  const displayExcerpt = getBlogExcerpt(post, 320);
+  const renderableSections = getRenderableBlogSections(post);
+  const displayCategory = getBlogDisplayCategory(post);
+  const displayTags = getBlogDisplayTags(post);
+  const displayReadTime = getBlogReadTime(post.readTime);
+  const firstBodyText =
+    getFirstBlogBodyText(post) ||
+    "This article explores practical AI-first design decisions.";
 
   return (
     <PageLayout>
       <ReadingProgressBar />
       <SectionShell>
         <article className="rounded-xl border border-border bg-card p-6 md:p-8">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
-            {post.category} - {post.date} - {post.readTime}
+          <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+            {displayCategory} - {displayDate} - {displayReadTime}
           </p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
             {post.title}
           </h1>
-          <p className="mt-2 text-xs text-muted-foreground">
-            By {post.author} - Updated {post.updatedAt}
+          <p className="mt-2 text-sm text-muted-foreground">
+            By {post.author} - Updated {displayUpdatedAt}
           </p>
 
           <div className="relative mt-4 h-[220px] overflow-hidden rounded-lg border border-border/70 bg-secondary/40 md:h-[420px]">
@@ -63,9 +82,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            {post.excerpt}
+            {displayExcerpt}
           </p>
-          <TagList tags={post.tags} className="mt-4" />
+          <TagList tags={displayTags} className="mt-4" />
 
           <AISuggestionChips
             className="mt-6"
@@ -78,25 +97,38 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           <AISummaryPanel
             className="mt-6"
-            summary={post.excerpt}
-            bullets={post.sections.map((section) => section.heading)}
+            summary={displayExcerpt}
+            bullets={renderableSections.map((section) => section.heading)}
             defaultExpanded
           />
 
           <AIInsightHighlight className="mt-6" label="Smart highlight">
-            {post.sections[0]?.paragraphs[0] ??
-              "This article explores practical AI-first design decisions."}
+            {firstBodyText}
           </AIInsightHighlight>
 
           <div className="mt-8 space-y-8">
-            {post.sections.map((section) => (
+            {renderableSections.map((section) => (
               <section key={section.heading}>
                 <h2 className="font-mono text-xs uppercase tracking-widest text-primary">
                   {section.heading}
                 </h2>
                 <div className="mt-3 space-y-3 text-sm leading-relaxed text-muted-foreground">
-                  {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
+                  {section.blocks.map((block, blockIndex) => (
+                    block.type === "paragraph" ? (
+                      <p key={`${section.heading}-paragraph-${blockIndex}`}>{block.text}</p>
+                    ) : (
+                      <ul
+                        key={`${section.heading}-list-${blockIndex}`}
+                        className="space-y-2"
+                      >
+                        {block.items.map((item, itemIndex) => (
+                          <li key={`${section.heading}-item-${itemIndex}`} className="flex gap-2">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )
                   ))}
                 </div>
               </section>
@@ -129,7 +161,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             ]}
           />
 
-          <p className="mt-6 text-xs text-muted-foreground">
+          <p className="mt-6 text-sm text-muted-foreground">
             Source:&nbsp;
             <Link
               href={post.sourceUrl}

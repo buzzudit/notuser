@@ -13,7 +13,7 @@ export function PromptExamples({ prompts, onSelect }: PromptExamplesProps) {
           key={prompt}
           type="button"
           onClick={() => onSelect(prompt)}
-          className="rounded-md border border-border bg-card px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
+          className="rounded-md border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
         >
           {prompt}
         </button>

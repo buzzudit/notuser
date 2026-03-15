@@ -23,64 +23,64 @@ export const homeHero = {
   name: "Udit Khandelwal",
   headline: "Design leader shaping AI-first products, platforms, and teams.",
   subheadline:
-    "Director-level design leader helping organizations turn complex enterprise workflows into clear, scalable, high-trust experiences.",
+    "Director-level design leader helping product organizations turn complex enterprise workflows into clear, trustworthy experiences.",
   credibilityLine:
-    "Currently Director, Experience Design at athenahealth, with 17+ years across healthcare, enterprise software, cloud platforms, and commerce, backed by engineering roots and hands-on product depth.",
+    "Director, Experience Design at athenahealth, with 17+ years across healthcare, enterprise software, cloud platforms, and commerce, grounded in an engineering foundation.",
   imageSrc: "/images/udit-bw.png",
   imageAlt: "Black and white portrait of Udit Khandelwal",
   quickSignals: [
     "Director, Experience Design at athenahealth",
-    "Enterprise platform and ecosystem experience",
-    "Strategic, systems-oriented, and hands-on",
+    "Enterprise platforms, ecosystems, and workflow products",
+    "Strategy, systems thinking, and hands-on execution",
   ],
   fitRoles: [
     "Design leadership for complex product organizations",
-    "AI transformation and AI-first product leadership",
-    "Enterprise platform, ecosystem, and workflow modernization",
+    "AI-first product strategy and transformation initiatives",
+    "Platform modernization across enterprise and healthcare environments",
   ],
 };
 
 export const trustIndicators: HomeMetric[] = [
   { value: "17+", label: "Years across design and product delivery" },
-  { value: "Director", label: "Current leadership scope at athenahealth" },
-  { value: "70+", label: "Products shaped in platform vision work" },
+  { value: "Director", label: "Current leadership scope" },
+  { value: "70+", label: "Products influenced in platform vision work" },
   { value: "6", label: "Companies across engineering and design leadership" },
 ];
 
 export const homeWhyUdit: HomeSignalItem[] = [
   {
     eyebrow: "Leadership",
-    title: "I lead beyond execution.",
+    title: "Direction and execution stay connected.",
     description:
-      "I help teams set direction, make sharper product decisions, and move from scattered effort to aligned execution.",
+      "I help teams align around direction, make clearer product decisions, and move from scattered effort to coordinated delivery.",
   },
   {
     eyebrow: "Enterprise",
-    title: "I am fluent in platform complexity.",
+    title: "Comfortable with platform complexity.",
     description:
       "My work is strongest where product ecosystems, shared services, technical constraints, and multiple stakeholders all shape the experience.",
   },
   {
     eyebrow: "AI-first",
-    title: "I think in workflows, not just interfaces.",
+    title: "AI thinking starts with workflows.",
     description:
       "I focus on how AI changes decision-making, orchestration, trust, and operating models across real product environments.",
   },
   {
     eyebrow: "Influence",
-    title: "I connect design with product and engineering.",
+    title: "Cross-functional alignment as a core practice.",
     description:
-      "I close ambiguity across functions, translate strategy into execution, and help teams make progress without losing quality.",
+      "I reduce ambiguity across functions, translate strategy into execution, and help teams make progress without losing quality.",
   },
   {
     eyebrow: "Technical fluency",
-    title: "I bring engineering roots to product design.",
+    title: "Technical fluency that supports better decisions.",
     description:
-      "That foundation helps me work credibly with technical teams, frame systems-level tradeoffs, and stay grounded in how products are actually built.",
+      "My engineering foundation helps me partner credibly with technical teams, frame systems-level tradeoffs, and stay grounded in delivery reality.",
   },
   {
     eyebrow: "Transformation",
-    title: "I drive change, not just shipping.",
+    title: "Transformation beyond individual launches.",
     description:
       "From platform vision to team development and quality systems, I help organizations evolve how they work, not only what they release.",
   },
@@ -88,7 +88,7 @@ export const homeWhyUdit: HomeSignalItem[] = [
 
 export const homeAILeadership = {
   intro:
-    "I do not treat AI as a thin layer on top of existing products. I approach it as a workflow, systems, and organizational design problem.",
+    "I treat AI less as an interface feature and more as a workflow, systems, and operating-model design challenge.",
   focusAreas: [
     "Identify where AI can meaningfully improve judgment, speed, coordination, or service quality in complex workflows.",
     "Design human plus AI systems with review, escalation, intervention, and clear operator control.",
@@ -100,25 +100,25 @@ export const homeAILeadership = {
 export const homeAILeadershipPillars: HomeSignalItem[] = [
   {
     eyebrow: "AI-first product strategy",
-    title: "Find the right role for AI in the product.",
+    title: "Clarify where AI adds durable product value.",
     description:
       "I focus on where AI truly changes workflow value, not where it simply adds novelty to the interface.",
   },
   {
     eyebrow: "Human + AI workflows",
-    title: "Design for collaboration between people and systems.",
+    title: "Design strong human and AI collaboration patterns.",
     description:
       "That means review loops, fallback paths, clear responsibility, and strong interaction patterns around decision support.",
   },
   {
     eyebrow: "Trust and control",
-    title: "Make AI usable in real operating environments.",
+    title: "Build trust through control, transparency, and governance.",
     description:
       "Explainability, confidence, intervention, and governance matter more in enterprise settings than polished prompts alone.",
   },
   {
     eyebrow: "Team transformation",
-    title: "Modernize how teams work with AI.",
+    title: "Help teams evolve how they work with AI.",
     description:
       "I care about the operating model too: how design, product, and engineering use AI to move faster without lowering standards.",
   },
@@ -190,37 +190,37 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
 export const homeLeadershipModel: HomeSignalItem[] = [
   {
     eyebrow: "Direction",
-    title: "Set direction where ambiguity is high.",
+    title: "Clarity in ambiguous problem spaces.",
     description:
       "I help teams move from vague opportunity spaces to sharper priorities, clearer frameworks, and better product bets.",
   },
   {
     eyebrow: "Alignment",
-    title: "Align product, design, and engineering around the real work.",
+    title: "Alignment across product, design, and engineering.",
     description:
       "I make collaboration concrete by clarifying goals, decisions, dependencies, and the path from strategy to delivery.",
   },
   {
     eyebrow: "Team growth",
-    title: "Grow designers into stronger problem solvers.",
+    title: "Team growth through coaching and context.",
     description:
       "Coaching, feedback, context-setting, and stretch opportunities are central to how I build stronger teams over time.",
   },
   {
     eyebrow: "Quality",
-    title: "Raise the quality bar with systems thinking.",
+    title: "Quality through repeatable systems.",
     description:
       "I use frameworks, design principles, and repeatable review habits to keep product quality from becoming inconsistent at scale.",
   },
   {
     eyebrow: "Scale",
-    title: "Build practices that survive beyond one launch.",
+    title: "Scalable practices beyond a single launch.",
     description:
       "That includes design systems, decision frameworks, operating rhythms, and ways of working that make future execution stronger.",
   },
   {
     eyebrow: "Hands-on credibility",
-    title: "Stay close enough to the work to lead well.",
+    title: "Hands-on judgment where needed.",
     description:
       "I am strategic, but I stay grounded in the product, the workflow, and the delivery reality so decisions remain practical.",
   },
@@ -229,19 +229,19 @@ export const homeLeadershipModel: HomeSignalItem[] = [
 export const homeExecutiveProof: HomeSignalItem[] = [
   {
     eyebrow: "Current scope",
-    title: "Director-level leadership in a complex healthcare platform environment.",
+    title: "Director-level scope in a complex healthcare platform context.",
     description:
       "At athenahealth, my work spans platform thinking, product direction, team leadership, and cloud-based services that support real operational workflows.",
   },
   {
     eyebrow: "Career arc",
-    title: "Progression from hands-on maker to organizational design leader.",
+    title: "Progression from engineering roots to design leadership.",
     description:
       "My path moves from software engineering and prototyping into UX leadership, strategy, systems thinking, and product transformation.",
   },
   {
     eyebrow: "Breadth",
-    title: "Credibility across healthcare, enterprise software, commerce, and devices.",
+    title: "Breadth across healthcare, enterprise software, commerce, and devices.",
     description:
       "That range makes me effective in roles that need both strategic perspective and the ability to work across very different product contexts.",
   },
@@ -251,7 +251,7 @@ export const homeWritingSection = {
   label: "Thinking",
   heading: "Thinking on design, AI, and transformation",
   description:
-    "Writing that reflects how I think about systems, leadership, team growth, design quality, and AI-first ways of working.",
+    "Writing that captures how I think about systems, leadership, product quality, and AI-first ways of working.",
 };
 
 export const homeFeaturedWritingSlugs = [
@@ -282,15 +282,15 @@ export const homeTestimonials = [
 ];
 
 export const homeCallToAction = {
-  eyebrow: "Hiring Conversations",
-  title: "Hiring for design leadership or AI transformation?",
+  eyebrow: "Conversations",
+  title: "Open to design leadership and AI transformation conversations",
   description:
-    "I am most useful in conversations about design organization leadership, AI-first product strategy, platform modernization, and portfolio deep dives into relevant work.",
+    "If you are hiring for design leadership, AI-first product strategy, or platform modernization, I am happy to share relevant work and discuss fit.",
   primaryLabel: "Start a conversation",
   primaryHref: "/contact",
-  secondaryLabel: "Review case studies",
+  secondaryLabel: "Explore case studies",
   secondaryHref: "/portfolio",
-  tertiaryLabel: "View full resume",
+  tertiaryLabel: "View resume",
   tertiaryHref: "/resume",
 };
 

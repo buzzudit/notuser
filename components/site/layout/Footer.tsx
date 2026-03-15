@@ -11,7 +11,7 @@ export function Footer() {
       className="border-t border-border/50 bg-background"
     >
       <div className="container flex flex-col items-center justify-between gap-4 py-8 md:flex-row">
-        <p className="font-mono text-xs text-muted-foreground">
+        <p className="font-mono text-sm text-muted-foreground">
           (c) {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
         </p>
         <ul className="flex items-center gap-4">
@@ -19,7 +19,7 @@ export function Footer() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="text-xs text-muted-foreground transition-colors hover:text-foreground"
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
               </Link>

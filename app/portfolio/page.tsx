@@ -9,8 +9,10 @@ import { ProjectGrid } from "@/components/site/ProjectGrid";
 import { CallToAction } from "@/components/site/CallToAction";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { projects } from "@/data/projects";
+import { homeFeaturedCaseStudies } from "@/data/site";
 import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
 import { AIInsightHighlight } from "@/components/ai/AIInsightHighlight";
+import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies";
 
 export default function PortfolioPage() {
   const privateCount = projects.filter((project) => project.isPrivate).length;
@@ -18,16 +20,22 @@ export default function PortfolioPage() {
     (count, project) => count + project.metrics.length,
     0,
   );
+  const featuredPreviews = homeFeaturedCaseStudies.filter((preview) =>
+    projects.some((project) => project.slug === preview.slug),
+  );
+  const featuredSlugs = new Set(featuredPreviews.map((preview) => preview.slug));
+  const summaryProjects = projects.filter((project) => !featuredSlugs.has(project.slug));
+  const totalVisibleProjects = featuredPreviews.length + summaryProjects.length;
 
   return (
     <PageLayout>
       <SectionShell>
         <SectionLabel>Portfolio</SectionLabel>
-        <SectionHeading>Case studies and shipped outcomes</SectionHeading>
+        <SectionHeading>Portfolio with flagship case studies and full project coverage</SectionHeading>
         <SectionDescription>
-          {projects.length} projects across healthcare, commerce, platform, and
-          product systems. Each card links to a full case study; {privateCount} are
-          marked private where deeper details stay limited.
+          This portfolio is structured for fast executive review: a flagship tier
+          with deeper context, followed by the broader project set that shows range
+          across healthcare, commerce, platforms, and product systems.
         </SectionDescription>
 
         <div className="mt-6">
@@ -49,13 +57,35 @@ export default function PortfolioPage() {
 
       <SectionShell className="pt-0" id="portfolio-overview">
         <AIInsightHighlight label="Portfolio overview">
-          {projects.length} projects with {impactSignalCount}+ recorded impact
-          signals across UX strategy, platform design, and workflow execution.
+          {totalVisibleProjects} visible projects in two tiers ({featuredPreviews.length} flagship
+          and {summaryProjects.length} summary), with {impactSignalCount}+ impact signals.{" "}
+          {privateCount} projects are marked private where details are intentionally limited.
         </AIInsightHighlight>
       </SectionShell>
 
+      <SectionShell className="pt-0" id="flagship-case-studies">
+        <SectionLabel>Flagship Case Studies</SectionLabel>
+        <SectionHeading>Higher-context work for leadership and transformation conversations</SectionHeading>
+        <SectionDescription>
+          These case studies provide stronger detail on problem space, leadership
+          scope, and why the work mattered. They are intended as the first review
+          set for hiring managers and senior product leaders.
+        </SectionDescription>
+        <div className="mt-8">
+          <FeaturedCaseStudies previews={featuredPreviews} projects={projects} />
+        </div>
+      </SectionShell>
+
       <SectionShell className="pt-0" id="project-grid">
-        <ProjectGrid projects={projects} />
+        <SectionLabel>Full Project Set</SectionLabel>
+        <SectionHeading>Additional projects that show breadth across domains and roles</SectionHeading>
+        <SectionDescription>
+          The remaining projects stay visible to show consistent execution across
+          environments, while keeping the flagship tier as the primary deep-dive path.
+        </SectionDescription>
+        <div className="mt-8">
+          <ProjectGrid projects={summaryProjects} />
+        </div>
       </SectionShell>
 
       <SectionShell id="portfolio-cta">

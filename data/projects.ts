@@ -63,42 +63,51 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "Strategy, Direction & Research",
-    "summary": "360X Closed Loop Referrals case study.",
-    "challenge": "360X Closed Loop Referrals required a focused redesign to improve outcomes.",
-    "context": "Year: 2024 | Organization: athenahealth | Scope: Strategy, Direction & Research | Platform: Cloud App",
-    "role": "Zone Lead | at athenahealth",
+    "summary": "Shaped direction for a closed-loop referrals workflow at athenahealth, focusing on care coordination, operational clarity, and trust in a high-stakes healthcare environment.",
+    "challenge": "Referral workflows break down when participants cannot easily understand status, handoffs, or next steps. The challenge here was to improve a closed-loop experience where coordination quality and follow-through mattered as much as interface simplicity.",
+    "context": "This work sat inside athenahealth's cloud environment and focused on a healthcare workflow where product quality directly affects coordination between teams. Much of the value came from understanding the operational reality behind referrals and turning research into clearer product direction.",
+    "role": "Zone Lead at athenahealth. I helped set direction for the work, connected research to product strategy, and aligned stakeholders around what a stronger referrals experience needed to support.",
     "process": [
-      "360X Closed Loop Referrals case study."
+      "Used research and workflow analysis to understand where referral coordination created friction, ambiguity, or loss of trust.",
+      "Helped frame the work around real care coordination needs instead of treating it as a narrow interface refresh.",
+      "Worked with cross-functional partners to align on the highest-value workflow improvements and the constraints around them.",
+      "Translated findings into product direction that could improve clarity, accountability, and day-to-day usability across the referrals flow."
     ],
     "keyDecisions": [
-      "360X Closed Loop Referrals case study."
+      "Design for the full coordination loop, not only the initiating action, so the product better supported follow-through across the workflow.",
+      "Center the experience on visibility, handoffs, and operational confidence in addition to task completion.",
+      "Use research to ground prioritization, especially in areas where the cost of ambiguity is higher than the cost of extra interface simplicity."
     ],
     "outcome": [
-      "360X Closed Loop Referrals shipped with measurable product improvements."
+      "Strengthened the product direction for a high-stakes healthcare workflow where operational trust is essential.",
+      "Gave the team a clearer framework for evaluating referral experience improvements against real coordination needs.",
+      "Helped move the conversation from surface redesign toward workflow quality, decision support, and end-to-end follow-through."
     ],
     "lessons": [
-      "Cross-functional alignment is critical for durable product outcomes.",
-      "Scoping decisions early helps teams ship with confidence."
+      "In healthcare workflows, better design often means reducing ambiguity between participants, states, and next steps.",
+      "Research is most valuable when it changes how teams frame the problem, not only how they validate a solution."
     ],
     "tags": [
-      "Strategy",
-      "Direction & Research",
+      "Healthcare Workflows",
+      "Care Coordination",
+      "Research",
+      "Product Direction",
       "Cloud App",
       "athenahealth",
       "Zone Lead"
     ],
     "metrics": [
       {
-        "label": "Year",
-        "value": "2024"
+        "label": "Role",
+        "value": "Zone lead"
       },
       {
-        "label": "Organization",
-        "value": "athenahealth"
+        "label": "Environment",
+        "value": "Healthcare cloud product"
       },
       {
-        "label": "Platform",
-        "value": "Cloud App"
+        "label": "Focus",
+        "value": "Strategy and research"
       }
     ],
     "gallery": [
@@ -457,42 +466,51 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "Strategy",
-    "summary": "5 years Vision for 70+ products under the Platform Umbrella",
-    "challenge": "5 years Vision for 70+ products under the Platform Umbrella",
-    "context": "Year: 2023 | Organization: athenahealth | Scope: Strategy | Platform: Cloud App",
-    "role": "Director | Project Lead | Hands-on | at athenahealth",
+    "summary": "Set multi-year design direction for platform and data services across more than 70 products within athenahealth's broader ecosystem.",
+    "challenge": "Platform and data services touched a wide product surface, but the experience vision needed to work across shared services, product teams, and longer-term investment decisions. The challenge was less about a single interface and more about creating direction teams could use across a complex enterprise platform.",
+    "context": "This work sat within athenahealth's platform umbrella and looked ahead across a five-year horizon. Because it informed private internal strategy, the case study stays at a higher level, but the brief centered on clarifying how platform and data capabilities should support a large ecosystem of products over time.",
+    "role": "Director, Experience Design at athenahealth. I led the vision work as project lead, partnered closely across product and engineering, and stayed hands-on in shaping the strategic artifacts, experience direction, and decision-making framework.",
     "process": [
-      "5 years Vision for 70+ products under the Platform Umbrella"
+      "Mapped the platform and data-services landscape across more than 70 products to understand where shared capabilities needed clearer experience direction.",
+      "Framed the work around long-horizon platform questions rather than isolated feature requests, so teams could align on what should be common, extensible, and product-specific.",
+      "Used strategy artifacts and design exploration to make abstract platform decisions more concrete for cross-functional stakeholders.",
+      "Worked across leadership, product, engineering, and design to turn a broad platform surface into a usable vision teams could reference."
     ],
     "keyDecisions": [
-      "5 years Vision for 70+ products under the Platform Umbrella"
+      "Keep the work at the level of platform vision and shared-service direction rather than presenting it as a conventional feature redesign.",
+      "Prioritize reusable patterns and platform principles that could guide many products instead of optimizing for one immediate local workflow.",
+      "Connect design direction to product and platform investment decisions so the work could influence roadmaps, not only concepts."
     ],
     "outcome": [
-      "5 years Vision for 70+ products under the Platform Umbrella"
+      "Established a clearer multi-year experience direction for platform and data services across athenahealth's ecosystem.",
+      "Gave teams a stronger basis for aligning shared-service priorities, platform boundaries, and future product investments.",
+      "Created strategic clarity in an area where the primary value was better coordination and better decisions at scale."
     ],
     "lessons": [
-      "Cross-functional alignment is critical for durable product outcomes.",
-      "Scoping decisions early helps teams ship with confidence."
+      "Platform strategy becomes more actionable when design can translate shared services into language product, engineering, and leadership can all use.",
+      "In large ecosystems, the value of design often comes from clarifying boundaries, common patterns, and future direction before delivery begins."
     ],
     "tags": [
-      "Strategy",
+      "Platform Strategy",
+      "Data Services",
+      "Enterprise Systems",
       "Cloud App",
       "athenahealth",
-      "Project Lead",
-      "Hands-on"
+      "Director",
+      "Project Lead"
     ],
     "metrics": [
       {
-        "label": "Year",
-        "value": "2023"
+        "label": "Scope",
+        "value": "70+ products"
       },
       {
-        "label": "Organization",
-        "value": "athenahealth"
+        "label": "Horizon",
+        "value": "5-year vision"
       },
       {
-        "label": "Platform",
-        "value": "Cloud App"
+        "label": "Team size",
+        "value": "30"
       }
     ],
     "gallery": [
@@ -632,42 +650,51 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "UX Design & Strategy",
-    "summary": "A set of microsites that provide a comprehensive guide to athenahealth's technical products, which are used to integrate with the platform.",
-    "challenge": "A set of microsites that provide a comprehensive guide to athenahealth's technical products, which are used to integrate with the platform.",
-    "context": "Year: 2020 | Organization: athenahealth | Scope: UX Design & Strategy | Platform: Cloud App",
-    "role": "Sr Manager UX | Project Lead | Hands-on | at athenahealth",
+    "summary": "Designed a clearer portal experience to help developers and partners understand athenahealth's technical products, integration surfaces, and documentation ecosystem.",
+    "challenge": "athenahealth's technical ecosystem needed an easier way for developers to discover what existed, understand how products connected, and find the guidance required to integrate with confidence. The challenge was to turn a set of technical resources into a coherent product experience.",
+    "context": "This work spanned microsites and documentation surfaces used by developers working with athenahealth's platform. It sat at the intersection of product UX, technical communication, and ecosystem adoption, where navigation, information architecture, and trust all shape whether builders can move forward efficiently.",
+    "role": "Senior Manager, UX at athenahealth. I led the UX strategy and overall project direction, working hands-on with the experience architecture while partnering across product and technical stakeholders.",
     "process": [
-      "A set of microsites that provide a comprehensive guide to athenahealth's technical products, which are used to integrate with the platform."
+      "Mapped the developer journey across documentation, product information, and integration needs to identify where the ecosystem felt fragmented.",
+      "Reworked information architecture and content structure so developers could move from orientation to implementation more easily.",
+      "Designed the portal as a connected system of microsites rather than isolated pages, with consistency across navigation, patterns, and pathways.",
+      "Balanced usability with technical depth so the portal could serve both discovery and practical integration work."
     ],
     "keyDecisions": [
-      "A set of microsites that provide a comprehensive guide to athenahealth's technical products, which are used to integrate with the platform."
+      "Treat the portal as an enablement product, not just a documentation container, so the experience supported adoption as well as information access.",
+      "Create clearer pathways between technical products, guidance, and supporting resources instead of relying on documentation depth alone.",
+      "Use a system mindset across microsites to make the ecosystem feel coherent for repeat users and first-time builders."
     ],
     "outcome": [
-      "A set of microsites that provide a comprehensive guide to athenahealth's technical products, which are used to integrate with the platform."
+      "Made athenahealth's technical ecosystem easier to understand and navigate for developers and partners.",
+      "Created a stronger foundation for platform adoption by connecting product information, documentation, and integration guidance into a more usable whole.",
+      "Raised the quality bar for a technical experience where clarity directly affects developer confidence and time to value."
     ],
     "lessons": [
-      "Cross-functional alignment is critical for durable product outcomes.",
-      "Scoping decisions early helps teams ship with confidence."
+      "Developer experience improves when information architecture and product strategy are treated as one system.",
+      "Technical audiences still need strong narrative structure, orientation, and decision support, especially across large ecosystems."
     ],
     "tags": [
-      "UX Design & Strategy",
+      "Developer Experience",
+      "Information Architecture",
+      "Platform Adoption",
       "Cloud App",
       "athenahealth",
       "Project Lead",
-      "Hands-on"
+      "Senior Manager UX"
     ],
     "metrics": [
       {
-        "label": "Year",
-        "value": "2020"
+        "label": "Audience",
+        "value": "Developers and partners"
       },
       {
-        "label": "Organization",
-        "value": "athenahealth"
+        "label": "Role",
+        "value": "Senior Manager UX"
       },
       {
-        "label": "Platform",
-        "value": "Cloud App"
+        "label": "Focus",
+        "value": "Platform adoption"
       }
     ],
     "gallery": [
@@ -1070,49 +1097,51 @@ export const projects: Project[] = [
     "organization": "Zivame",
     "platform": "Responsive Web",
     "scope": "Strategy, Design, Development",
-    "summary": "Lifestyle blog platform, driving organic traffic and enhancing engagement through strategic content integration.",
-    "challenge": "Zivame's content-led commerce initiative was a game-changer in driving organic traffic and boosting engagement. What started as a pilot within the Zivame.com framework quickly evolved into an independent platform on WordPress, and I had the privilege of leading this effort from start to finish. Collaborating with multiple teams, I conceptualized the strategy and oversaw everything from design to execution, ensuring we brought the project live within a month. The seamless teamwork allowed us to create a system where content played a crucial role in shaping user experience and driving transactions.",
-    "context": "The impact was significant—content efforts resulted in 1.9x higher conversions and contributed to 5.1% of all transactions. By developing custom templates and smart UX solutions, I made it easy for the content team to publish engaging material without needing technical expertise. The numbers from our pilot in February 2017 were promising, with 69% new sessions and a total add-to-cart value of ₹5.35 lakh. Following the official blog launch in April, we saw even more impressive results, with 6.78% of blog sessions driving traffic to the site and generating ₹1.86 lakh in revenue. My role spanned across content strategy, WordPress setup, and the design of product and content infusion, contributing to a successful and sustainable content-driven model for Zivame.",
-    "role": "Director UX | Project Lead | Hands-on | at Zivame",
+    "summary": "Built a content-led commerce model for Zivame that connected editorial content with product discovery, merchandising, and conversion.",
+    "challenge": "Zivame wanted content to do more than support brand storytelling. The opportunity was to create a model where editorial content could attract organic traffic, help customers discover products more naturally, and contribute meaningfully to commerce outcomes without becoming a disconnected side project.",
+    "context": "What began as a pilot inside Zivame.com evolved into a dedicated WordPress-based platform launched in roughly a month. I led the effort across strategy, UX, implementation direction, and content-system design, working across teams to make publishing easier while keeping product discovery tightly connected to commerce.",
+    "role": "Director UX at Zivame. I led the initiative end to end, shaping the strategy, designing the experience model, guiding implementation, and staying hands-on with the product-content integration patterns.",
     "process": [
-      "The impact was significant—content efforts resulted in 1.9x higher conversions and contributed to 5.1% of all transactions.",
-      "By developing custom templates and smart UX solutions, I made it easy for the content team to publish engaging material without needing technical expertise.",
-      "The numbers from our pilot in February 2017 were promising, with 69% new sessions and a total add-to-cart value of ₹5.35 lakh.",
-      "Following the official blog launch in April, we saw even more impressive results, with 6.78% of blog sessions driving traffic to the site and generating ₹1.86 lakh in revenue."
+      "Started with a pilot inside the existing commerce experience to validate whether content could improve discovery, engagement, and transaction quality.",
+      "Defined a content-led commerce model that connected articles, collections, and product infusion patterns instead of separating editorial from shopping.",
+      "Built custom templates, shortcodes, and publishing flows in WordPress so the content team could create rich pages without depending on engineering for every update.",
+      "Worked across content, product, design, and engineering to launch a dedicated platform quickly while preserving a coherent brand and shopping experience."
     ],
     "keyDecisions": [
-      "The impact was significant—content efforts resulted in 1.9x higher conversions and contributed to 5.1% of all transactions.",
-      "By developing custom templates and smart UX solutions, I made it easy for the content team to publish engaging material without needing technical expertise.",
-      "The numbers from our pilot in February 2017 were promising, with 69% new sessions and a total add-to-cart value of ₹5.35 lakh."
+      "Move beyond a traditional blog model and treat content as a commerce surface with clear pathways into product exploration.",
+      "Design reusable templates and structured inputs so the content team could scale output without sacrificing experience quality.",
+      "Use product infusion deliberately inside editorial journeys so commerce support felt contextual rather than interruptive."
     ],
     "outcome": [
-      "The engagement with content boosted conversions by 1.9x and contributing 5.1% of transactions"
+      "Content-driven sessions converted at 1.9x the site baseline and contributed 5.1% of all transactions.",
+      "The February 2017 pilot delivered 69% new sessions and Rs 5.35 lakh in add-to-cart value.",
+      "After the April launch, 6.78% of blog sessions drove traffic to the main site and generated Rs 1.86 lakh in revenue."
     ],
     "lessons": [
-      "Cross-functional alignment is critical for durable product outcomes.",
-      "Scoping decisions early helps teams ship with confidence."
+      "Content earns a larger business role when the publishing system, experience model, and commerce pathways are designed together.",
+      "Cross-functional pilots are a strong way to prove new product models quickly, especially when they combine brand, UX, and measurable business impact."
     ],
     "tags": [
-      "Strategy",
-      "Design",
-      "Development",
+      "Content-led Commerce",
+      "Editorial Systems",
+      "WordPress",
       "Responsive Web",
       "Zivame",
       "Project Lead",
-      "Hands-on"
+      "Director UX"
     ],
     "metrics": [
       {
-        "label": "Year",
-        "value": "2017"
+        "label": "Lift",
+        "value": "1.9x conversions"
       },
       {
-        "label": "Organization",
-        "value": "Zivame"
+        "label": "Commerce share",
+        "value": "5.1% of transactions"
       },
       {
-        "label": "Platform",
-        "value": "Responsive Web"
+        "label": "Launch",
+        "value": "About 1 month"
       }
     ],
     "gallery": [

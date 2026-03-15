@@ -15,7 +15,7 @@ export function AIWorkflowCards({ steps }: AIWorkflowCardsProps) {
           key={step.title}
           className="rounded-xl border border-border bg-card p-5"
         >
-          <p className="font-mono text-[10px] uppercase tracking-wider text-primary">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-primary">
             Step {index + 1}
           </p>
           <h3 className="mt-2 text-base font-semibold text-foreground">{step.title}</h3>

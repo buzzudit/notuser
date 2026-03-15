@@ -51,7 +51,7 @@ export function SignalCardGrid({
               <div className="rounded-full border border-primary/25 bg-primary/10 p-2 text-primary">
                 <Icon size={16} />
               </div>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
+              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
                 {item.eyebrow}
               </p>
             </div>

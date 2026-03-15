@@ -24,11 +24,11 @@ export function TimelineItem({
   return (
     <li className="relative">
       <span className="absolute -left-[25px] top-1.5 h-2.5 w-2.5 rounded-full bg-primary" />
-      <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+      <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
         {period}
       </p>
       <h3 className="mt-1 text-base font-medium text-foreground">{title}</h3>
-      <p className="text-xs text-muted-foreground">{subtitle}</p>
+      <p className="text-sm text-muted-foreground">{subtitle}</p>
       {children && <div className="mt-2">{children}</div>}
     </li>
   );

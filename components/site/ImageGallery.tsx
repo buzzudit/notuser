@@ -27,7 +27,7 @@ export function ImageGallery({ items }: ImageGalleryProps) {
           ) : (
             <div className="h-40 w-full bg-secondary" />
           )}
-          <p className="px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          <p className="px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
             {item.label}
           </p>
         </div>

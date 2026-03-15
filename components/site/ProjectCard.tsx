@@ -32,24 +32,24 @@ export function ProjectCard({ project, className = "" }: ProjectCardProps) {
         </div>
       ) : (
         <div className="mb-4 rounded-lg border border-border/70 bg-gradient-to-br from-secondary/70 via-secondary/40 to-card p-5">
-          <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
             Visual preview unavailable
           </p>
         </div>
       )}
 
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-        <p className="font-mono text-[10px] uppercase tracking-wider text-primary">
+        <p className="font-mono text-[11px] uppercase tracking-wider text-primary">
           {project.category} - {project.year}
         </p>
         {project.isPrivate ? (
-          <span className="rounded border border-border/70 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-muted-foreground">
+          <span className="rounded border border-border/70 px-2 py-0.5 font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
             Private
           </span>
         ) : null}
         <Link
           href={`/portfolio/${project.slug}`}
-          className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors group-hover:text-primary"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors group-hover:text-primary"
         >
           Case study <ArrowUpRight size={14} />
         </Link>
@@ -58,7 +58,7 @@ export function ProjectCard({ project, className = "" }: ProjectCardProps) {
       <h3 className="text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
         {project.title}
       </h3>
-      <p className="mt-1 text-xs text-muted-foreground">
+      <p className="mt-1 text-sm text-muted-foreground">
         {project.organization} - {project.platform}
       </p>
       <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

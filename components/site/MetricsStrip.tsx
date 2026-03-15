@@ -22,7 +22,7 @@ export function MetricsStrip({ metrics, compact = false }: MetricsStripProps) {
           <p className="text-base font-semibold leading-tight text-foreground break-words">
             {metric.value}
           </p>
-          <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
             {metric.label}
           </p>
         </div>

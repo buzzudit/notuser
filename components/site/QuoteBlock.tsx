@@ -10,7 +10,7 @@ export function QuoteBlock({ quote, author, role }: QuoteBlockProps) {
       <blockquote className="text-base leading-relaxed text-foreground">
         &quot;{quote}&quot;
       </blockquote>
-      <figcaption className="mt-3 text-xs text-muted-foreground">
+      <figcaption className="mt-3 text-sm text-muted-foreground">
         <span className="font-medium text-foreground">{author}</span> - {role}
       </figcaption>
     </figure>

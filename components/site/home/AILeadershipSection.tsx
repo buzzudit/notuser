@@ -18,7 +18,7 @@ export function AILeadershipSection({
       <div className="rounded-2xl border border-border bg-card p-6">
         <p className="text-base leading-relaxed text-foreground md:text-lg">{intro}</p>
         <div className="mt-6 rounded-xl border border-border/70 bg-secondary/30 p-4">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
             What I focus on
           </p>
           <div className="mt-4 text-sm leading-relaxed text-muted-foreground">

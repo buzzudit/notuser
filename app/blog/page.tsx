@@ -11,8 +11,10 @@ import { BlogGrid } from "@/components/site/BlogGrid";
 import { CallToAction } from "@/components/site/CallToAction";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { blogPosts } from "@/data/blog";
+import { homeFeaturedWritingSlugs } from "@/data/site";
 import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
 import { AIThinkingPrompts } from "@/components/ai/AIThinkingPrompts";
+import { getBlogLandingCollections } from "@/lib/site/blogFormatting";
 
 const blogThinkingPrompts = [
   {
@@ -33,6 +35,11 @@ const blogThinkingPrompts = [
 ];
 
 export default function BlogPage() {
+  const { featured, archive } = getBlogLandingCollections(
+    blogPosts,
+    homeFeaturedWritingSlugs,
+  );
+
   return (
     <PageLayout>
       <SectionShell>
@@ -62,7 +69,29 @@ export default function BlogPage() {
       </SectionShell>
 
       <SectionShell className="pt-0">
-        <BlogGrid posts={blogPosts} />
+        <SectionLabel>Featured</SectionLabel>
+        <SectionHeading>Thinking on leadership, product systems, and AI-first execution</SectionHeading>
+        <SectionDescription>
+          Priority reading for hiring managers and product leaders evaluating how I
+          approach strategy, organizational design, and execution quality.
+        </SectionDescription>
+        <div className="mt-8">
+          <BlogGrid posts={featured} />
+        </div>
+      </SectionShell>
+
+      <SectionShell className="pt-0">
+        <section className="rounded-xl border border-border/70 bg-card p-5 md:p-6">
+          <SectionLabel>Archive</SectionLabel>
+          <SectionHeading>Additional writing and legacy posts</SectionHeading>
+          <SectionDescription>
+            Earlier writing remains available for context and breadth, with lower
+            priority than the featured leadership and AI-focused pieces above.
+          </SectionDescription>
+          <div className="mt-8">
+            <BlogGrid posts={archive} />
+          </div>
+        </section>
       </SectionShell>
 
       <SectionShell>

@@ -23,7 +23,7 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
       <div className="container relative py-12 md:py-20">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p className="inline-flex items-center rounded-full border border-border bg-card/70 px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-primary">
+            <p className="inline-flex items-center rounded-full border border-border bg-card/70 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-primary">
               {hero.eyebrow}
             </p>
             <p className="mt-6 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
@@ -76,7 +76,7 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
               {hero.quickSignals.map((signal) => (
                 <span
                   key={signal}
-                  className="rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs text-muted-foreground"
+                  className="rounded-full border border-border bg-card/70 px-3 py-1.5 text-sm text-muted-foreground"
                 >
                   {signal}
                 </span>
@@ -104,8 +104,8 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
                 <div className="rounded-full border border-primary/25 bg-primary/10 p-2 text-primary">
                   <BriefcaseBusiness size={16} />
                 </div>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
-                  Best Fit
+                <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+                  Focus Areas
                 </p>
               </div>
               <ul className="mt-4 space-y-3">

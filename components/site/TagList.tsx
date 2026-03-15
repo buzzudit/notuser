@@ -9,7 +9,7 @@ export function TagList({ tags, className = "" }: TagListProps) {
       {tags.map((tag) => (
         <li
           key={tag}
-          className="rounded-md border border-border bg-card px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide text-muted-foreground"
+          className="rounded-md border border-border bg-card px-2.5 py-1 font-mono text-[11px] uppercase tracking-wide text-muted-foreground"
         >
           {tag}
         </li>

@@ -4,9 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useMemo, useState } from "react";
 import type { BlogPost } from "@/data/blog";
 import { TagList } from "@/components/site/TagList";
-import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
+import {
+  formatBlogDate,
+  getBlogDisplayCategory,
+  getBlogDisplayTags,
+  getBlogExcerpt,
+  getBlogReadTime,
+  getBlogThumbnailSrc,
+} from "@/lib/site/blogFormatting";
 
 type BlogCardProps = {
   post: BlogPost;
@@ -14,7 +22,16 @@ type BlogCardProps = {
 };
 
 export function BlogCard({ post, className = "" }: BlogCardProps) {
-  const thumbnailSrc = resolveMirroredMediaSrc(post.thumbnail);
+  const defaultThumbnailSrc = useMemo(
+    () => getBlogThumbnailSrc(post.thumbnail),
+    [post.thumbnail],
+  );
+  const [thumbnailSrc, setThumbnailSrc] = useState(defaultThumbnailSrc);
+  const displayExcerpt = getBlogExcerpt(post, 210);
+  const displayDate = formatBlogDate(post.date);
+  const displayCategory = getBlogDisplayCategory(post);
+  const displayTags = getBlogDisplayTags(post);
+  const displayReadTime = getBlogReadTime(post.readTime);
 
   return (
     <motion.article
@@ -27,27 +44,28 @@ export function BlogCard({ post, className = "" }: BlogCardProps) {
             src={thumbnailSrc}
             alt={post.title}
             fill
+            onError={() => setThumbnailSrc("/images/blog-placeholder.svg")}
             className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
           />
         </div>
 
         <div className="flex items-center justify-between gap-2">
-          <p className="font-mono text-[10px] uppercase tracking-wider text-primary">
-            {post.category}
+          <p className="font-mono text-[11px] uppercase tracking-wider text-primary">
+            {displayCategory}
           </p>
-          <p className="font-mono text-[11px] text-muted-foreground">{post.readTime}</p>
+          <p className="font-mono text-[11px] text-muted-foreground">{displayReadTime}</p>
         </div>
 
         <h3 className="mt-2 text-xl font-semibold text-foreground transition-colors group-hover:text-primary">
           {post.title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
-        <p className="mt-3 text-xs text-muted-foreground">
-          {post.date} - {post.author}
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{displayExcerpt}</p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          {displayDate} - {post.author}
         </p>
 
-        <TagList tags={post.tags} className="mt-3" />
+        <TagList tags={displayTags} className="mt-3" />
 
         <div className="mt-4 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors group-hover:text-primary">
           Read post <ArrowRight size={12} />

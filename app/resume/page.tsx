@@ -2,35 +2,83 @@
 
 import { ContentCard } from "@/components/site/ContentCard";
 import { PageLayout } from "@/components/site/layout/PageLayout";
-import { SectionLabel, SectionShell, SectionHeading } from "@/components/site/SectionShell";
+import {
+  SectionDescription,
+  SectionHeading,
+  SectionLabel,
+  SectionShell,
+} from "@/components/site/SectionShell";
 import { ExperienceTimeline } from "@/components/site/ExperienceTimeline";
 import { SkillGrid } from "@/components/site/SkillGrid";
 import { ImpactStats } from "@/components/site/ImpactStats";
 import { DownloadButton } from "@/components/site/DownloadButton";
-import { achievements, education, profile } from "@/data/experience";
+import { achievements, education, profile, resumeSignals } from "@/data/experience";
 
 export default function ResumePage() {
   return (
     <PageLayout>
       <SectionShell>
         <SectionLabel>Resume</SectionLabel>
-        <SectionHeading>{profile.name}</SectionHeading>
-        <p className="text-lg text-muted-foreground">{profile.title}</p>
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          {profile.summary}
-        </p>
-        <div className="mt-6">
-          <DownloadButton href="/resume.pdf" />
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.8fr)_minmax(280px,0.9fr)] lg:items-start">
+          <div>
+            <SectionHeading>{profile.name}</SectionHeading>
+            <p className="mt-3 max-w-3xl text-lg leading-relaxed text-foreground/90">
+              {profile.title}
+            </p>
+            <div className="mt-4 max-w-3xl">
+              <SectionDescription>{profile.summary}</SectionDescription>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-border bg-card p-5">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+              At a glance
+            </p>
+            <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+              <p>Director-level design leadership in enterprise healthcare.</p>
+              <p>Career path across Adobe, Cisco, Kaseya, Zivame, and athenahealth.</p>
+              <p>Strong in design leadership, platform strategy, and AI-first product work.</p>
+            </div>
+            <div className="mt-5">
+              <DownloadButton href="/resume.pdf" />
+            </div>
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell>
+        <SectionLabel>Leadership Context</SectionLabel>
+        <SectionHeading>Background and operating context</SectionHeading>
+        <SectionDescription>
+          Beyond tenure, this reflects a combination of platform leadership,
+          systems thinking, cross-functional influence, and technical depth.
+        </SectionDescription>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {resumeSignals.map((signal) => (
+            <ContentCard key={signal.title} hoverable={false}>
+              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+                {signal.label}
+              </p>
+              <h3 className="mt-3 text-base font-semibold text-foreground">
+                {signal.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {signal.description}
+              </p>
+            </ContentCard>
+          ))}
         </div>
       </SectionShell>
 
       <SectionShell>
         <SectionLabel>Impact</SectionLabel>
+        <SectionHeading>Career signals</SectionHeading>
         <ImpactStats />
       </SectionShell>
 
       <SectionShell>
-        <SectionLabel>Achievements</SectionLabel>
+        <SectionLabel>Selected Outcomes</SectionLabel>
+        <SectionHeading>Signals of leadership, scope, and progression</SectionHeading>
         <div className="space-y-3">
           {achievements.map((achievement) => (
             <ContentCard key={achievement} hoverable={false}>
@@ -41,12 +89,14 @@ export default function ResumePage() {
       </SectionShell>
 
       <SectionShell>
-        <SectionLabel>Experience Timeline</SectionLabel>
+        <SectionLabel>Career Timeline</SectionLabel>
+        <SectionHeading>Progression from engineering roots to design leadership</SectionHeading>
         <ExperienceTimeline />
       </SectionShell>
 
       <SectionShell>
-        <SectionLabel>Skills</SectionLabel>
+        <SectionLabel>Capabilities</SectionLabel>
+        <SectionHeading>How I operate across design, product, and transformation work</SectionHeading>
         <SkillGrid />
       </SectionShell>
 
@@ -56,7 +106,7 @@ export default function ResumePage() {
           {education.map((item) => (
             <ContentCard key={`${item.institution}-${item.year}`} hoverable={false}>
               <h3 className="text-sm font-medium text-foreground">{item.degree}</h3>
-              <p className="mt-1 text-xs text-muted-foreground">
+              <p className="mt-1 text-sm text-muted-foreground">
                 {item.institution} - {item.year}
               </p>
             </ContentCard>

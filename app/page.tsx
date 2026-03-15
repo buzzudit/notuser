@@ -52,7 +52,7 @@ export default function HomePage() {
               <p className="text-2xl font-semibold tracking-tight text-foreground">
                 {item.value}
               </p>
-              <p className="mt-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+              <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
                 {item.label}
               </p>
             </div>
@@ -63,11 +63,11 @@ export default function HomePage() {
       <SectionShell id="why-udit">
         <SectionLabel>Why Udit</SectionLabel>
         <SectionHeading>
-          Why hiring managers bring me into senior design and transformation conversations
+          Where I tend to add value in senior design and transformation roles
         </SectionHeading>
         <SectionDescription>
           I am most effective where leadership, systems thinking, product quality,
-          and organizational change need to move together.
+          and organizational change need to move in the same direction.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeWhyUdit} iconSet="value" />
@@ -77,12 +77,11 @@ export default function HomePage() {
       <SectionShell id="ai-leadership" className="border-y border-border/50">
         <SectionLabel>AI Leadership</SectionLabel>
         <SectionHeading>
-          AI-first product thinking for workflows, systems, and organizations
+          AI-first product thinking grounded in workflows and operating reality
         </SectionHeading>
         <SectionDescription>
-          My AI relevance is not about chatbot novelty. It is about how AI changes
-          decision-making, orchestration, trust, and the way product organizations
-          operate.
+          For me, AI work is less about novelty and more about decision support,
+          orchestration, trust, and how product organizations operate.
         </SectionDescription>
         <div className="mt-8">
           <AILeadershipSection
@@ -96,11 +95,11 @@ export default function HomePage() {
       <SectionShell id="case-studies">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionLabel>Leadership Work</SectionLabel>
-            <SectionHeading>Selected case studies with stronger business context</SectionHeading>
+            <SectionLabel>Selected Work</SectionLabel>
+            <SectionHeading>Case studies with business and leadership context</SectionHeading>
             <SectionDescription>
-              These previews focus on the scale of the problem, the leadership I
-              brought, and why the work mattered in enterprise environments.
+              These previews focus on problem context, the leadership I brought,
+              and why the work mattered in enterprise environments.
             </SectionDescription>
           </div>
           <Link
@@ -117,10 +116,10 @@ export default function HomePage() {
 
       <SectionShell id="leadership-model">
         <SectionLabel>Leadership</SectionLabel>
-        <SectionHeading>The operating model I bring to design organizations</SectionHeading>
+        <SectionHeading>How I lead design in complex product environments</SectionHeading>
         <SectionDescription>
-          I lead by clarifying direction, aligning teams, growing designers, and
-          building systems that keep quality high as organizations scale.
+          I focus on clarifying direction, aligning teams, growing designers, and
+          building systems that sustain quality as organizations scale.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeLeadershipModel} iconSet="leadership" />
@@ -128,10 +127,10 @@ export default function HomePage() {
       </SectionShell>
 
       <SectionShell id="career-proof" className="border-y border-border/50">
-        <SectionLabel>Executive Proof</SectionLabel>
-        <SectionHeading>Career credibility built across leadership, platforms, and engineering</SectionHeading>
+        <SectionLabel>Career Context</SectionLabel>
+        <SectionHeading>Progression across leadership, platforms, and engineering roots</SectionHeading>
         <SectionDescription>
-          The progression matters: director-level leadership at athenahealth today,
+          The progression matters: director-level leadership at athenahealth,
           supported by earlier work across Adobe, Cisco, Kaseya, Zivame, and a
           foundation in software engineering.
         </SectionDescription>
@@ -147,8 +146,8 @@ export default function HomePage() {
       </SectionShell>
 
       <SectionShell>
-        <SectionLabel>What Partners Say</SectionLabel>
-        <SectionHeading>Leadership and execution feedback</SectionHeading>
+        <SectionLabel>Partner Feedback</SectionLabel>
+        <SectionHeading>How collaborators describe working with me</SectionHeading>
         <div className="grid gap-4 md:grid-cols-3">
           {homeTestimonials.map((item) => (
             <TestimonialCard
@@ -182,7 +181,7 @@ export default function HomePage() {
 
       <SectionShell>
         <section className="rounded-2xl border border-border bg-card p-6 md:p-8">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
             {homeCallToAction.eyebrow}
           </p>
           <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
