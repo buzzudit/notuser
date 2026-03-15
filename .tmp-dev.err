@@ -1,2 +1,232 @@
  ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
  ⚠ Mismatching @next/swc version, detected: 15.5.7 while Next.js is on 15.5.11. Please ensure these match
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\next.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:589:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\next.js',
+  page: '/portfolio/data-exports'
+}
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\lucide-react.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:589:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\lucide-react.js',
+  page: '/portfolio/insights-and-reporting'
+}
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\lucide-react.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:589:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\lucide-react.js',
+  page: '/portfolio/quick-pay'
+}
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\lucide-react.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\page.js:597:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\page.js:600:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\lucide-react.js',
+  page: '/portfolio'
+}
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\lucide-react.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:589:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\lucide-react.js',
+  page: '/portfolio/data-exports'
+}
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\lucide-react.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\page.js:597:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\page.js:600:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\lucide-react.js',
+  page: '/portfolio'
+}
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\lucide-react.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:589:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\lucide-react.js',
+  page: '/portfolio/data-exports'
+}
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\lucide-react.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:589:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\lucide-react.js',
+  page: '/portfolio/insights-and-reporting'
+}
+ ⨯ Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\vendor-chunks\lucide-react.js'
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:47)
+    at Object.<anonymous> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:589:3) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\vendor-chunks\\lucide-react.js',
+  page: '/portfolio/quick-pay'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'E:\Projects\notuser\.next\cache\webpack\server-development\10.pack.gz_' -> 'E:\Projects\notuser\.next\cache\webpack\server-development\10.pack.gz'
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/portfolio'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/portfolio'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/portfolio/data-exports'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/portfolio/data-exports'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/portfolio/insights-and-reporting'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/portfolio/insights-and-reporting'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/portfolio/quick-pay'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/portfolio/quick-pay'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\pages-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\pages-manifest.json'
+}
+[Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\routes-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\routes-manifest.json'
+}
+ ⨯ Failed to generate static paths for /portfolio/[slug]:
+TypeError: __webpack_modules__[moduleId] is not a function
+    at __webpack_exec__ (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:585:39)
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:242) {
+  type: 'TypeError'
+}
+ ⨯ Failed to generate static paths for /portfolio/[slug]:
+TypeError: __webpack_modules__[moduleId] is not a function
+    at __webpack_exec__ (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:585:39)
+    at <unknown> (E:\Projects\notuser\.next\server\app\portfolio\[slug]\page.js:586:242) {
+  type: 'TypeError'
+}
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ [Error: ENOENT: no such file or directory, open 'E:\Projects\notuser\.next\server\app-paths-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'E:\\Projects\\notuser\\.next\\server\\app-paths-manifest.json',
+  page: '/favicon.ico'
+}

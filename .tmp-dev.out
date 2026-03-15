@@ -69,3 +69,38 @@
  GET /blog 200 in 331ms
  GET /blog/how-i-groom-my-designers-at-athenahealth 200 in 192ms
  GET /contact 200 in 144ms
+ ✓ Compiled in 1020ms (1640 modules)
+ ✓ Compiled in 430ms (921 modules)
+ ✓ Compiled in 388ms (719 modules)
+ ✓ Compiled in 230ms (719 modules)
+ GET /portfolio 200 in 189ms
+ ✓ Compiled /portfolio/[slug] in 257ms (931 modules)
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1445ms (1996 modules)
+ GET /portfolio/data-exports 500 in 2191ms
+ GET /portfolio/insights-and-reporting 500 in 245ms
+ GET /portfolio/quick-pay 500 in 238ms
+ GET /portfolio 500 in 247ms
+ GET /portfolio/data-exports 500 in 238ms
+ GET /portfolio 500 in 238ms
+ GET /portfolio/data-exports 500 in 236ms
+ GET /portfolio/insights-and-reporting 500 in 236ms
+ GET /portfolio/quick-pay 500 in 262ms
+ GET /portfolio 500 in 1537ms
+ GET /portfolio 500 in 75ms
+ GET /portfolio/data-exports 500 in 99ms
+ GET /portfolio/data-exports 500 in 37ms
+ GET /portfolio/insights-and-reporting 500 in 94ms
+ GET /portfolio/insights-and-reporting 500 in 32ms
+ GET /portfolio/quick-pay 500 in 92ms
+ GET /portfolio/quick-pay 500 in 33ms
+ ✓ Compiled in 288ms (1115 modules)
+ ✓ Compiled /portfolio/[slug] in 192ms (1125 modules)
+ GET /portfolio/data-exports 200 in 218ms
+ GET /portfolio/data-exports 200 in 494ms
+ ✓ Compiled /favicon.ico in 333ms (1142 modules)
+ GET /favicon.ico 200 in 445ms
+ ✓ Compiled in 371ms (871 modules)
+ GET /portfolio/data-exports 200 in 1178ms
+ GET /portfolio/data-exports 200 in 1202ms
+ GET /favicon.ico 500 in 34ms

@@ -113,11 +113,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "360X Closed Loop Referrals cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/360x-closed-loop-referrals.png",
         "alt": "360X Closed Loop Referrals"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/360x-closed-loop-referrals.png",
     "sourceUrl": "https://www.notuser.com/portfolio/360x-closed-loop-referrals",
     "isPrivate": false
   },
@@ -130,18 +130,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "Strategy & Direction",
-    "summary": "Data Exports case study.",
-    "challenge": "Data Exports required a focused redesign to improve outcomes.",
-    "context": "Year: 2024 | Organization: athenahealth | Scope: Strategy & Direction | Platform: Cloud App",
-    "role": "Zone Lead | at athenahealth",
+    "summary": "Data Exports at athenahealth (2024) focused on strategy & direction for cloud app. Why it matters: Gave teams reliable access to operational data without engineering bottlenecks.",
+    "challenge": "The challenge was to improve Data Exports in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Gave teams reliable access to operational data without engineering bottlenecks.",
+    "context": "Delivered in 2024 at athenahealth on Cloud App. Scope centered on Strategy & Direction, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Zone Lead at athenahealth.",
     "process": [
-      "Data Exports case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Data Exports.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Data Exports case study."
+      "Start with the most error-prone workflow path in Data Exports before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Data Exports shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Gave teams reliable access to operational data without engineering bottlenecks."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -170,11 +176,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Data Exports cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/data-exports.png",
         "alt": "Data Exports"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/data-exports.png",
     "sourceUrl": "https://www.notuser.com/portfolio/data-exports",
     "isPrivate": false
   },
@@ -187,18 +193,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "Strategy & Direction",
-    "summary": "Data Imports Self-service case study.",
-    "challenge": "Data Imports Self-service required a focused redesign to improve outcomes.",
-    "context": "Year: 2024 | Organization: athenahealth | Scope: Strategy & Direction | Platform: Cloud App",
-    "role": "Zone Lead | at athenahealth",
+    "summary": "Data Imports Self-service at athenahealth (2024) focused on strategy & direction for cloud app. Why it matters: Reduced onboarding friction by making imports safer and more self-serve.",
+    "challenge": "The challenge was to improve Data Imports Self-service in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Reduced onboarding friction by making imports safer and more self-serve.",
+    "context": "Delivered in 2024 at athenahealth on Cloud App. Scope centered on Strategy & Direction, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Zone Lead at athenahealth.",
     "process": [
-      "Data Imports Self-service case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Data Imports Self-service.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Data Imports Self-service case study."
+      "Start with the most error-prone workflow path in Data Imports Self-service before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Data Imports Self-service shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Reduced onboarding friction by making imports safer and more self-serve."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -227,11 +239,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Data Imports Self-service cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/data-imports-self-service.png",
         "alt": "Data Imports Self-service"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/data-imports-self-service.png",
     "sourceUrl": "https://www.notuser.com/portfolio/data-imports-self-service",
     "isPrivate": false
   },
@@ -244,10 +256,10 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "UX Design & Strategy",
-    "summary": "Analytics platform for practice performance insights and strategies to boost revenue and clinical outcomes",
+    "summary": "Analytics platform for practice performance insights and strategies to boost revenue and clinical outcomes. Why it matters: Helped practices act on performance signals faster.",
     "challenge": "Analytics platform for practice performance insights and strategies to boost revenue and clinical outcomes",
-    "context": "Year: 2024 | Organization: athenahealth | Scope: UX Design & Strategy | Platform: Cloud App",
-    "role": "Zone Lead | at athenahealth",
+    "context": "Delivered in 2024 at athenahealth on Cloud App. Scope centered on UX Design & Strategy, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Zone Lead at athenahealth.",
     "process": [
       "Analytics platform for practice performance insights and strategies to boost revenue and clinical outcomes"
     ],
@@ -284,11 +296,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Insights and Reporting cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/insights-and-reporting.png",
         "alt": "Insights and Reporting"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/insights-and-reporting.png",
     "sourceUrl": "https://www.notuser.com/portfolio/insights-and-reporting",
     "isPrivate": false
   },
@@ -301,18 +313,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Product",
     "scope": "Design and Delivery",
-    "summary": "Payer Solutions case study.",
-    "challenge": "Payer Solutions required a focused redesign to improve outcomes.",
-    "context": "Year: 2024 | Organization: athenahealth",
-    "role": "Zone Lead | at athenahealth",
+    "summary": "Payer Solutions at athenahealth (2024) focused on design and delivery for product. Why it matters: Improved payer workflow clarity where delays directly affect revenue cycles.",
+    "challenge": "The challenge was to improve Payer Solutions in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Improved payer workflow clarity where delays directly affect revenue cycles.",
+    "context": "Delivered in 2024 at athenahealth on Product. Scope centered on Design and Delivery, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Zone Lead at athenahealth.",
     "process": [
-      "Payer Solutions case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Payer Solutions.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Payer Solutions case study."
+      "Start with the most error-prone workflow path in Payer Solutions before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Payer Solutions shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Improved payer workflow clarity where delays directly affect revenue cycles."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -335,11 +353,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Payer Solutions cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/payer-solutions.png",
         "alt": "Payer Solutions"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/payer-solutions.png",
     "sourceUrl": "https://www.notuser.com/portfolio/payer-solutions",
     "isPrivate": false
   },
@@ -352,10 +370,10 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Responsive Web",
     "scope": "Strategy & Direction",
-    "summary": "End-to-end feature release management using unified rollout flags powered by LaunchDarkly",
+    "summary": "End-to-end feature release management using unified rollout flags powered by LaunchDarkly. Why it matters: Enabled safer releases across teams with consistent rollout controls.",
     "challenge": "End-to-end feature release management using unified rollout flags powered by LaunchDarkly",
-    "context": "Year: 2023 | Organization: athenahealth | Scope: Strategy & Direction | Platform: Responsive Web",
-    "role": "Zone Lead | at athenahealth",
+    "context": "Delivered in 2023 at athenahealth on Responsive Web. Scope centered on Strategy & Direction, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Zone Lead at athenahealth.",
     "process": [
       "End-to-end feature release management using unified rollout flags powered by LaunchDarkly"
     ],
@@ -392,11 +410,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Unified Rollout Flags cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/unified-rollout-flags.png",
         "alt": "Unified Rollout Flags"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/unified-rollout-flags.png",
     "sourceUrl": "https://www.notuser.com/portfolio/unified-rollout-flags",
     "isPrivate": false
   },
@@ -409,18 +427,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Reference Framework",
     "scope": "Strategy & Direction",
-    "summary": "User Journey Framework case study.",
-    "challenge": "User Journey Framework required a focused redesign to improve outcomes.",
-    "context": "Year: 2023 | Organization: athenahealth | Scope: Strategy & Direction | Platform: Reference Framework",
-    "role": "Zone Lead | at athenahealth",
+    "summary": "User Journey Framework at athenahealth (2023) focused on strategy & direction for reference framework. Why it matters: Created shared decision language across teams and product surfaces.",
+    "challenge": "The challenge was to improve User Journey Framework in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Created shared decision language across teams and product surfaces.",
+    "context": "Delivered in 2023 at athenahealth on Reference Framework. Scope centered on Strategy & Direction, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Zone Lead at athenahealth.",
     "process": [
-      "User Journey Framework case study."
+      "Aligned product, design, and engineering on the highest-friction parts of User Journey Framework.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "User Journey Framework case study."
+      "Start with the most error-prone workflow path in User Journey Framework before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "User Journey Framework shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Created shared decision language across teams and product surfaces."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -449,11 +473,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "User Journey Framework cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/user-journey-framework.png",
         "alt": "User Journey Framework"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/user-journey-framework.png",
     "sourceUrl": "https://www.notuser.com/portfolio/user-journey-framework",
     "isPrivate": false
   },
@@ -533,18 +557,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "Strategy, Design & Development",
-    "summary": "Design Quality case study.",
-    "challenge": "Design Quality required a focused redesign to improve outcomes.",
-    "context": "Year: 2021 | Organization: athenahealth | Scope: Strategy, Design & Development | Platform: Cloud App",
-    "role": "Zone Lead | Hands-on | at athenahealth",
+    "summary": "Design Quality at athenahealth (2021) focused on strategy, design & development for cloud app. Why it matters: Raised consistency and usability standards at scale.",
+    "challenge": "The challenge was to improve Design Quality in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Raised consistency and usability standards at scale.",
+    "context": "Delivered in 2021 at athenahealth on Cloud App. Scope centered on Strategy, Design & Development, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Zone Lead, Hands-on at athenahealth.",
     "process": [
-      "Design Quality case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Design Quality.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Design Quality case study."
+      "Start with the most error-prone workflow path in Design Quality before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Design Quality shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Raised consistency and usability standards at scale."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -575,11 +605,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Design Quality cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/design-quality.png",
         "alt": "Design Quality"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/design-quality.png",
     "sourceUrl": "https://www.notuser.com/portfolio/design-quality",
     "isPrivate": false
   },
@@ -592,18 +622,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "UX Design & Research",
-    "summary": "Data Migration Mapping Self-service case study.",
-    "challenge": "Data Migration Mapping Self-service required a focused redesign to improve outcomes.",
-    "context": "Year: 2020 | Organization: athenahealth | Scope: UX Design & Research | Platform: Cloud App",
-    "role": "Project Lead | Hands-on | at athenahealth",
+    "summary": "Data Migration Mapping Self-service at athenahealth (2020) focused on ux design & research for cloud app. Why it matters: Lowered migration risk by clarifying mapping decisions early.",
+    "challenge": "The challenge was to improve Data Migration Mapping Self-service in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Lowered migration risk by clarifying mapping decisions early.",
+    "context": "Delivered in 2020 at athenahealth on Cloud App. Scope centered on UX Design & Research, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Project Lead, Hands-on at athenahealth.",
     "process": [
-      "Data Migration Mapping Self-service case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Data Migration Mapping Self-service.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Data Migration Mapping Self-service case study."
+      "Start with the most error-prone workflow path in Data Migration Mapping Self-service before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Data Migration Mapping Self-service shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Lowered migration risk by clarifying mapping decisions early."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -633,11 +669,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Data Migration Mapping Self-service cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/data-migration-mapping-self-service.png",
         "alt": "Data Migration Mapping Self-service"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/data-migration-mapping-self-service.png",
     "sourceUrl": "https://www.notuser.com/portfolio/data-migration-mapping-self-service",
     "isPrivate": false
   },
@@ -748,18 +784,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Responsive Web",
     "scope": "Strategy & Direction",
-    "summary": "Marketplace case study.",
-    "challenge": "Marketplace required a focused redesign to improve outcomes.",
-    "context": "Year: 2020 | Organization: athenahealth | Scope: Strategy & Direction | Platform: Responsive Web",
-    "role": "Zone Lead | at athenahealth",
+    "summary": "Marketplace at athenahealth (2020) focused on strategy & direction for responsive web. Why it matters: Improved discoverability and adoption for ecosystem offerings.",
+    "challenge": "The challenge was to improve Marketplace in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Improved discoverability and adoption for ecosystem offerings.",
+    "context": "Delivered in 2020 at athenahealth on Responsive Web. Scope centered on Strategy & Direction, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Zone Lead at athenahealth.",
     "process": [
-      "Marketplace case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Marketplace.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Marketplace case study."
+      "Start with the most error-prone workflow path in Marketplace before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Marketplace shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Improved discoverability and adoption for ecosystem offerings."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -788,11 +830,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Marketplace cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/marketplace.png",
         "alt": "Marketplace"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/marketplace.png",
     "sourceUrl": "https://www.notuser.com/portfolio/marketplace",
     "isPrivate": false
   },
@@ -805,18 +847,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "UX Design & Strategy",
-    "summary": "athenaNet Device Manager case study.",
-    "challenge": "athenaNet Device Manager required a focused redesign to improve outcomes.",
-    "context": "Year: 2019 | Organization: athenahealth | Scope: UX Design & Strategy | Platform: Cloud App",
-    "role": "Project Lead | Hands-on | at athenahealth",
+    "summary": "athenaNet Device Manager at athenahealth (2019) focused on ux design & strategy for cloud app. Why it matters: Simplified device operations for support and front-line teams.",
+    "challenge": "The challenge was to improve athenaNet Device Manager in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Simplified device operations for support and front-line teams.",
+    "context": "Delivered in 2019 at athenahealth on Cloud App. Scope centered on UX Design & Strategy, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Project Lead, Hands-on at athenahealth.",
     "process": [
-      "athenaNet Device Manager case study."
+      "Aligned product, design, and engineering on the highest-friction parts of athenaNet Device Manager.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "athenaNet Device Manager case study."
+      "Start with the most error-prone workflow path in athenaNet Device Manager before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "athenaNet Device Manager shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Simplified device operations for support and front-line teams."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -846,11 +894,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "athenaNet Device Manager cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/athenanet-device-manager.png",
         "alt": "athenaNet Device Manager"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/athenanet-device-manager.png",
     "sourceUrl": "https://www.notuser.com/portfolio/athenanet-device-manager",
     "isPrivate": false
   },
@@ -863,10 +911,10 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Responsive Web",
     "scope": "UX Design & Strategy",
-    "summary": "Corporate website to refresh brand and boost lead collection from Medical Groups and Hospitals.",
+    "summary": "Corporate website to refresh brand and boost lead collection from Medical Groups and Hospitals. Why it matters: Strengthened brand clarity and lead capture for enterprise buyers.",
     "challenge": "In 2017, I was brought in to lead the redesign of the athenahealth corporate website, a project that had seen two years of stalled progress. The goal was to align the website with updated brand guidelines while improving lead collection by delivering personalized experiences for prospects in Medical Groups and Hospitals. The project's strategy had shifted frequently, so my first task was to provide clear direction and a user-centered design focus. To inform our approach, we conducted extensive research, including competitive analysis, industry benchmarking, and web analytics.",
     "context": "Over the course of a year, I collaborated closely with cross-functional teams across various geographies. Together, we developed and refined two distinct design concepts—one focused on creating an engaging, animation-heavy experience, and the other prioritizing simplicity and ease of use. My responsibilities spanned product strategy, information architecture, and interaction design, helping us craft a site that not only reflected the refreshed brand but also improved user engagement and lead conversion.",
-    "role": "UX Manager | Project Lead | Hands-on | at athenahealth",
+    "role": "UX Manager, Project Lead, Hands-on at athenahealth.",
     "process": [
       "Product Strategy",
       "Information Architecture",
@@ -926,18 +974,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "UX Design",
-    "summary": "Fine Grained Access Control case study.",
-    "challenge": "Fine Grained Access Control required a focused redesign to improve outcomes.",
-    "context": "Year: 2018 | Organization: athenahealth | Scope: UX Design | Platform: Cloud App",
-    "role": "Hands-on | at athenahealth",
+    "summary": "Fine Grained Access Control at athenahealth (2018) focused on ux design for cloud app. Why it matters: Balanced security governance with practical day-to-day usability.",
+    "challenge": "The challenge was to improve Fine Grained Access Control in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Balanced security governance with practical day-to-day usability.",
+    "context": "Delivered in 2018 at athenahealth on Cloud App. Scope centered on UX Design, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Hands-on at athenahealth.",
     "process": [
-      "Fine Grained Access Control case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Fine Grained Access Control.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Fine Grained Access Control case study."
+      "Start with the most error-prone workflow path in Fine Grained Access Control before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Fine Grained Access Control shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Balanced security governance with practical day-to-day usability."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -966,11 +1020,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Fine Grained Access Control cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/fine-grained-access-control.png",
         "alt": "Fine Grained Access Control"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/fine-grained-access-control.png",
     "sourceUrl": "https://www.notuser.com/portfolio/fine-grained-access-control",
     "isPrivate": false
   },
@@ -983,18 +1037,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "UX Design & Strategy",
-    "summary": "Go Quality case study.",
-    "challenge": "Go Quality required a focused redesign to improve outcomes.",
-    "context": "Year: 2018 | Organization: athenahealth | Scope: UX Design & Strategy | Platform: Cloud App",
-    "role": "Hands-on | at athenahealth",
+    "summary": "Go Quality at athenahealth (2018) focused on ux design & strategy for cloud app. Why it matters: Made quality signals visible earlier in delivery.",
+    "challenge": "The challenge was to improve Go Quality in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Made quality signals visible earlier in delivery.",
+    "context": "Delivered in 2018 at athenahealth on Cloud App. Scope centered on UX Design & Strategy, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Hands-on at athenahealth.",
     "process": [
-      "Go Quality case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Go Quality.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Go Quality case study."
+      "Start with the most error-prone workflow path in Go Quality before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Go Quality shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Made quality signals visible earlier in delivery."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -1023,11 +1083,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Go Quality cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/go-quality.png",
         "alt": "Go Quality"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/go-quality.png",
     "sourceUrl": "https://www.notuser.com/portfolio/go-quality",
     "isPrivate": false
   },
@@ -1040,18 +1100,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Responsive Web",
     "scope": "UX Design & Strategy",
-    "summary": "Quick Pay case study.",
-    "challenge": "Quick Pay required a focused redesign to improve outcomes.",
-    "context": "Year: 2018 | Organization: athenahealth | Scope: UX Design & Strategy | Platform: Responsive Web",
-    "role": "Hands-on | at athenahealth",
+    "summary": "Quick Pay at athenahealth (2018) focused on ux design & strategy for responsive web. Why it matters: Reduced payment friction and improved completion confidence.",
+    "challenge": "The challenge was to improve Quick Pay in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Reduced payment friction and improved completion confidence.",
+    "context": "Delivered in 2018 at athenahealth on Responsive Web. Scope centered on UX Design & Strategy, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Hands-on at athenahealth.",
     "process": [
-      "Quick Pay case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Quick Pay.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Quick Pay case study."
+      "Start with the most error-prone workflow path in Quick Pay before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Quick Pay shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Reduced payment friction and improved completion confidence."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -1080,11 +1146,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Quick Pay cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/quick-pay.png",
         "alt": "Quick Pay"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/quick-pay.png",
     "sourceUrl": "https://www.notuser.com/portfolio/quick-pay",
     "isPrivate": false
   },
@@ -1209,18 +1275,24 @@ export const projects: Project[] = [
     "organization": "athenahealth",
     "platform": "Cloud App",
     "scope": "UX Design & Strategy",
-    "summary": "Old Developer Portal case study.",
-    "challenge": "Old Developer Portal required a focused redesign to improve outcomes.",
-    "context": "Year: 2017 | Organization: athenahealth | Scope: UX Design & Strategy | Platform: Cloud App",
-    "role": "Hands-on | at athenahealth",
+    "summary": "Old Developer Portal at athenahealth (2017) focused on ux design & strategy for cloud app. Why it matters: Improved developer onboarding and integration success.",
+    "challenge": "The challenge was to improve Old Developer Portal in a way that reduced ambiguity, aligned teams, and made delivery more reliable. Improved developer onboarding and integration success.",
+    "context": "Delivered in 2017 at athenahealth on Cloud App. Scope centered on UX Design & Strategy, with emphasis on practical rollout and cross-functional alignment.",
+    "role": "Hands-on at athenahealth.",
     "process": [
-      "Old Developer Portal case study."
+      "Aligned product, design, and engineering on the highest-friction parts of Old Developer Portal.",
+      "Prioritized a phased delivery plan around clarity, reliability, and adoption.",
+      "Defined review checkpoints so quality and workflow integrity held through implementation."
     ],
     "keyDecisions": [
-      "Old Developer Portal case study."
+      "Start with the most error-prone workflow path in Old Developer Portal before scaling improvements broadly.",
+      "Standardize patterns where possible to reduce cross-team variance.",
+      "Sequence rollout in measurable increments to de-risk adoption."
     ],
     "outcome": [
-      "Old Developer Portal shipped with measurable product improvements."
+      "Improved workflow clarity for contributors and downstream users.",
+      "Created a stronger foundation for repeatable delivery quality.",
+      "Improved developer onboarding and integration success."
     ],
     "lessons": [
       "Cross-functional alignment is critical for durable product outcomes.",
@@ -1249,11 +1321,11 @@ export const projects: Project[] = [
     "gallery": [
       {
         "label": "Old Developer Portal cover",
-        "src": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+        "src": "/images/projects/generated/old-developer-portal.png",
         "alt": "Old Developer Portal"
       }
     ],
-    "thumbnail": "https://static.wixstatic.com/media/bc4f65_7b256680812141a19da2e8e40d57a2ef~mv2.png",
+    "thumbnail": "/images/projects/generated/old-developer-portal.png",
     "sourceUrl": "https://www.notuser.com/portfolio/old-developer-portal",
     "isPrivate": false
   },
@@ -1266,10 +1338,10 @@ export const projects: Project[] = [
     "organization": "Zivame",
     "platform": "iOS & Android Apps",
     "scope": "UX Design & Strategy",
-    "summary": "Revamping Zivame’s mobile-first experience boosting engagement and conversion",
+    "summary": "Revamping Zivame’s mobile-first experience boosting engagement and conversion. Why it matters: Drove stronger mobile engagement for a commerce-heavy audience.",
     "challenge": "Our goal was to create a Big, Bold, Beautiful brand that not only looked great but functioned with engineering efficiency, delivering a five-month turnaround. To boost engagement and conversion by 20%, we focused on a mobile-first design approach, ensuring the experience was seamless across devices. Using atomic design principles, we built the UI in layers—molecules, components, and surfaces—to deliver a clean and focused user interface that presented one task at a time. Data-driven iteration guided the process, with every change grounded in user feedback and performance metrics.",
     "context": "Innovation was at the heart of this project. We introduced real-world mirroring to let users shop based on experience and implemented a multi-tier product page that gave shoppers three lenses to view products. The FitCode™ recommendation system offered personalized fit suggestions, and content-led commerce infused editorial content directly into the shopping experience. Our cross-functional collaboration spanned tech, UX, marketing, and more, ensuring every team was aligned. The result? See highlights below.",
-    "role": "Director UX | Project Lead | Hands-on | at Zivame",
+    "role": "Director UX, Project Lead, Hands-on at Zivame.",
     "process": [
       "Overall UX design strategy across platforms",
       "US Research",
@@ -1369,10 +1441,10 @@ export const projects: Project[] = [
     "organization": "Zivame",
     "platform": "Responsive Web",
     "scope": "UX Design",
-    "summary": "Bulk-ordering web app for Zivame's merchants",
+    "summary": "Bulk-ordering web app for Zivame's merchants. Why it matters: Made bulk ordering faster and less error-prone for traders.",
     "challenge": "When Zivame entered the B2B trade market, traders like Manoj Babu (the trader persona) faced a time-consuming challenge. Ordering products in bulk was difficult because the platform wasn’t optimized for adding multiple sizes at once. Additionally, determining the availability of specific size ranges was nearly impossible, frustrating users who needed efficiency. I stepped in to address these pain points with a fresh design that simplified bulk orders and streamlined product selection.",
     "context": "The redesigned experience featured a bulk add option, allowing traders to quickly select multiple sizes of a product. A single category page was introduced to highlight stock availability, whether in popular, all, or fast-moving sizes. I also integrated automatic trader margins into the cart and checkout process, making pricing more transparent. Enhancing the order review at checkout ensured accuracy, while restricting B2B users from accessing the consumer site with the same login added an extra layer of security. These changes made bulk ordering faster and more intuitive, ultimately improving the user experience for traders.",
-    "role": "Director UX | Project Lead | Hands-on | at Zivame",
+    "role": "Director UX, Project Lead, Hands-on at Zivame.",
     "process": [
       "UX Research",
       "Stakeholder Envisioning & UX Strategy",
@@ -1459,10 +1531,10 @@ export const projects: Project[] = [
     "organization": "Zivame",
     "platform": "Responsive Web",
     "scope": "UX Design & Strategy",
-    "summary": "ecommerce website for India's largest online lingerie store",
+    "summary": "ecommerce website for India's largest online lingerie store. Why it matters: Improved conversion through a clearer mobile-first commerce experience.",
     "challenge": "Zivame’s e-commerce redesign aimed to embody the brand's bold and beautiful identity while driving a significant boost in engagement and conversion. The challenge was to deliver a mobile-first, visually engaging experience that balanced engineering efficiency with a focus on conversion. Working within a 5-month timeline, the team implemented an atomic design approach, breaking down the UI into components and surfaces that prioritized one task at a time. The result was a streamlined, image-driven platform that seduced users with visuals while ensuring a smooth and intuitive shopping experience.",
     "context": "My contributions were part of a larger cross-functional effort that brought together teams from tech, UX, marketing, and merchandising. With innovations like FitCode™ for personalized recommendations, multi-tier product pages, and real-world shopping mirroring, we focused on creating meaningful product discovery experiences. Through continuous monitoring and data-driven iterations, we achieved a 9% overall web conversion improvement and a 17% increase in user engagement by the end of the year. This project reinforced the value of collaboration and data in driving both brand expression and business growth.",
-    "role": "Director UX | Project Lead | Hands-on | at Zivame",
+    "role": "Director UX, Project Lead, Hands-on at Zivame.",
     "process": [
       "UX Research",
       "Stakeholder Envisioning & UX Strategy",
@@ -1571,10 +1643,10 @@ export const projects: Project[] = [
     "organization": "Kaseya",
     "platform": "Keynote",
     "scope": "Visual Design & Animation",
-    "summary": "CEO’s Keynote Presentation Design for KaseyaConnect 2015",
+    "summary": "CEO’s Keynote Presentation Design for KaseyaConnect 2015. Why it matters: Aligned leadership messaging and product narrative for a major customer event.",
     "challenge": "KaseyaConnect is an annual event organized by Kaseya, a prominent provider of IT management and security software. The event gathers IT professionals, MSPs, industry experts, and partners to explore emerging trends and showcase the latest technologies. A key highlight is the CEO’s keynote, which sets the stage for the entire event. It outlines Kaseya’s strategic direction, product plans, and major announcements, aiming to inspire and align the audience with the company’s vision.",
     "context": "For KaseyaConnect 2015, I had the opportunity to work directly with CEO Yogesh Gupta on crafting the keynote presentation. Starting from scratch, I collaborated with the CEO to develop a cohesive storyline and source key data points. Through several phases—design exploration, template creation, and meticulous review with team members Loren and Yogesh—I created an engaging presentation. The final touches included integrating “magic” animations that brought the story to life. The presentation was very well received, and I was honored with a spot award for my contributions in animation, art concepts, and compiling the final artwork.",
-    "role": "Sr. UX Designer | Hands-on | at Kaseya",
+    "role": "Sr. UX Designer, Hands-on at Kaseya.",
     "process": [
       "For KaseyaConnect 2015, I had the opportunity to work directly with CEO Yogesh Gupta on crafting the keynote presentation.",
       "Starting from scratch, I collaborated with the CEO to develop a cohesive storyline and source key data points.",
@@ -1634,10 +1706,10 @@ export const projects: Project[] = [
     "organization": "Kaseya",
     "platform": "Responsive Web",
     "scope": "UX Design",
-    "summary": "All new website for Kaseya, launched in June 2015",
+    "summary": "All new website for Kaseya, launched in June 2015. Why it matters: Improved digital presence and conversion readiness during a brand refresh.",
     "challenge": "In June 2015, Kaseya launched a completely revamped website aimed at improving user engagement and driving conversions. The goal was to create a responsive, modern web experience that not only looked great but also performed efficiently across all devices. Built on a Drupal backend, the website was designed to be robust and scalable, offering an enhanced browsing experience for users while meeting Kaseya’s business goals of reducing bounce rates and increasing conversions.",
     "context": "The redesign focused on making the site more user-friendly and intuitive, allowing visitors to easily navigate through content and find the information they needed. The result was a notable decrease in bounce rates and a boost in conversion rates, thanks to a streamlined interface that catered to both desktop and mobile users. This project demonstrated the impact of thoughtful design and technical execution in delivering a site that supports business growth while providing an exceptional user experience.",
-    "role": "Sr. UX Designer | Hands-on | at Kaseya",
+    "role": "Sr. UX Designer, Hands-on at Kaseya.",
     "process": [
       "Information Architecture – Wireframes and Task Flows in Balsamiq",
       "Visual Design – for all 3 form factors, in Illustrator",
@@ -1739,10 +1811,10 @@ export const projects: Project[] = [
     "organization": "Kaseya",
     "platform": "Cloud App",
     "scope": "UX Design",
-    "summary": "Enables organizations to secure mobile devices and data on the devices, whether company-owned or employee-owned.",
+    "summary": "Enables organizations to secure mobile devices and data on the devices, whether company-owned or employee-owned. Why it matters: Improved enterprise control over device security workflows.",
     "challenge": "In this project, we focused on enhancing Kaseya’s Enterprise Mobility Management (EMM) platform to better secure both company-owned and personal mobile devices. With the platform already widely used by organizations, the challenge was to design new screens for upcoming features without disrupting the established user experience. Working within the constraints of a legacy framework, I collaborated with a team of six to create intuitive designs that streamlined how users interacted with data-heavy screens.",
     "context": "I contributed to the project by restructuring the information architecture and creating wireframes using Balsamiq, ensuring the designs met the platform’s usability needs. For the visual design, I refreshed legacy screens in Illustrator, maintaining consistency while improving clarity. Through this experience, I learned how to address interaction usability issues and effectively balance functionality with an aging interface.",
-    "role": "Sr. UX Designer | Hands-on | at Kaseya",
+    "role": "Sr. UX Designer, Hands-on at Kaseya.",
     "process": [
       "I contributed to the project by restructuring the information architecture and creating wireframes using Balsamiq, ensuring the designs met the platform’s usability needs.",
       "For the visual design, I refreshed legacy screens in Illustrator, maintaining consistency while improving clarity.",
@@ -1825,10 +1897,10 @@ export const projects: Project[] = [
     "organization": "Cisco",
     "platform": "Set-top Box",
     "scope": "Interactive Prototype",
-    "summary": "Video library for set top boxes, featuring thousands of movies and assets",
+    "summary": "Video library for set top boxes, featuring thousands of movies and assets. Why it matters: Made large content libraries easier to navigate on constrained hardware.",
     "challenge": "The Video-On-Demand (VOD) project aimed to transform how users interact with large content catalogs on set-top boxes, tackling the complexity of navigating vast movie and TV show collections. Our team’s goal was to streamline access to relevant content and make browsing a more intuitive, visually appealing experience. By flattening the category hierarchy, we reduced the clicks needed to access content, making it quicker for users to jump into the catalog. The multi-line scroll design, with rows of posters stacked vertically, allowed for efficient browsing while minimizing performance issues on low-end hardware.",
     "context": "I contributed to this project by gathering customer requirements and developing multiple prototypes in Flash, refining the user experience across several iterations. Key features like curated content and express lanes for recent purchases or wish lists personalized the experience, while semantic search made finding specific titles, actors, or genres quick and easy. I also suggested context menus and in-place expansions, solving usability challenges within the constrained real estate of set-top boxes. Through collaborative design efforts and continuous user feedback, we delivered a simplified VOD experience that catered to user needs while optimizing performance.",
-    "role": "UX Designer | Hands-on | at Cisco",
+    "role": "UX Designer, Hands-on at Cisco.",
     "process": [
       "I contributed to this project by gathering customer requirements and developing multiple prototypes in Flash, refining the user experience across several iterations.",
       "Key features like curated content and express lanes for recent purchases or wish lists personalized the experience, while semantic search made finding specific titles, actors, or genres quick and easy.",
@@ -1888,10 +1960,10 @@ export const projects: Project[] = [
     "organization": "Cisco",
     "platform": "Set-top Box",
     "scope": "Interactive Prototype",
-    "summary": "End-to-end solution for high quality set-top boxes",
+    "summary": "End-to-end solution for high quality set-top boxes. Why it matters: Delivered a scalable TV UX baseline across high-volume deployments.",
     "challenge": "Evo 12 was designed to revolutionize the user experience for high-quality set-top boxes by simplifying complex features into an intuitive interface. My role in the project was to help streamline navigation and functionality, ensuring users could access all the powerful tools without frustration. With a focus on improving usability, I worked closely with a large team over an 18-month period, solving key challenges such as search functionality and recording conflict resolution. These refinements enhanced how users interacted with the system, making it easier to navigate, find content, and resolve common issues.",
     "context": "A major part of my contribution was developing a reskinnable prototype in Flash, allowing the UI to be easily adapted for different brands. I also helped redesign global search, ensuring users could efficiently find content with advanced filters and suggestions. In addition, I tackled interaction design issues in features like conflict resolution, which gave users more flexibility when managing recordings. Throughout the project, I gained valuable insights into handling large-scale designs and learned how to create effective fixed-focus solutions in complex scenarios, helping establish Evo 12 as a leading choice in the set-top box market.",
-    "role": "UX Designer | Hands-on | at Cisco",
+    "role": "UX Designer, Hands-on at Cisco.",
     "process": [
       "A major part of my contribution was developing a reskinnable prototype in Flash, allowing the UI to be easily adapted for different brands.",
       "I also helped redesign global search, ensuring users could efficiently find content with advanced filters and suggestions.",
@@ -1951,10 +2023,10 @@ export const projects: Project[] = [
     "organization": "Cisco",
     "platform": "Set-top Box",
     "scope": "Interactive Prototype",
-    "summary": "Evo 3D was an experimental UI for Set-top Boxes. The prototype was developed by me to showcase the 3D animation effects on TV.",
+    "summary": "Evo 3D was an experimental UI for Set-top Boxes. The prototype was developed by me to showcase the 3D animation effects on TV. Why it matters: Demonstrated advanced interaction possibilities for future TV experiences.",
     "challenge": "Evo 3D was an experimental UI prototype designed to bring immersive 3D animation effects to set-top boxes. The goal was to explore the possibilities of 3D interfaces on TV, creating a visually dynamic experience for users. I developed the prototype in Flash using Papervision 3D, incorporating features like poster list animations and cube transitions to showcase how 3D elements could enhance navigation and interactivity. While the concept showed promise, the set-top box hardware struggled to handle the performance demands, and the experiment was ultimately shelved.",
     "context": "Despite the project not moving forward, it was a valuable learning experience. I reused my 3D poster-list component from a previous project and set a benchmark for the engineering team to explore. Through this work, I deepened my understanding of 3D animations and honed my skills in Papervision 3D, an exciting new tool at the time. Though Evo 3D didn’t make it to production, the project demonstrated the potential of 3D UI on TV and provided insights for future explorations in set-top box design.",
-    "role": "UX Designer | Hands-on | at Cisco",
+    "role": "UX Designer, Hands-on at Cisco.",
     "process": [
       "Despite the project not moving forward, it was a valuable learning experience.",
       "I reused my 3D poster-list component from a previous project and set a benchmark for the engineering team to explore.",
@@ -2014,10 +2086,10 @@ export const projects: Project[] = [
     "organization": "Cisco",
     "platform": "Set-top Box",
     "scope": "Interactive Prototype",
-    "summary": "An EPG (Electronic Program Guide) software specifically designed for low-end set-top boxes.",
+    "summary": "An EPG (Electronic Program Guide) software specifically designed for low-end set-top boxes. Why it matters: Proved that low-end hardware can still deliver usable guide experiences.",
     "challenge": "Evo Lite was developed as an Electronic Program Guide (EPG) software specifically tailored for low-end set-top boxes, where limited processing power and memory posed unique challenges. Our mission was to create a simple, functional UI that performed efficiently on these devices while providing an intuitive user experience. With heavy animations and complex visuals off the table due to hardware limitations, we focused on optimizing basic elements like colors, fonts, and simple images to create a realistic prototype that mirrored the actual user experience.",
     "context": "The Evo Lite prototype featured a straightforward design with minimal transitions. For instance, instead of animations like fading, we used timed appearances and disappearances to move between screens and menus. Highlights and navigation within the guide screen were designed to convey information clearly without relying on resource-heavy animations. We also added subtle fly-in animations for banners and transitions, injecting a sense of dynamism without overwhelming the device’s limited capabilities. By balancing simplicity with thoughtful design, we were able to demonstrate that even low-end set-top boxes could offer a seamless and visually appealing EPG experience.",
-    "role": "UX Designer | Hands-on | at Cisco",
+    "role": "UX Designer, Hands-on at Cisco.",
     "process": [
       "The Evo Lite prototype featured a straightforward design with minimal transitions.",
       "For instance, instead of animations like fading, we used timed appearances and disappearances to move between screens and menus.",
@@ -2077,10 +2149,10 @@ export const projects: Project[] = [
     "organization": "Cisco",
     "platform": "Desktop app for Set-top Box",
     "scope": "Product Design & Development",
-    "summary": "UI solution designed specifically for low-end set-top boxes",
+    "summary": "UI solution designed specifically for low-end set-top boxes. Why it matters: Enabled faster branded UI delivery for multiple TV deployments.",
     "challenge": "The Express Branding Tool for Evo Lite was developed to simplify and streamline the rebranding process for low-end set-top boxes, where traditional efforts involved significant time and resources. Our goal was to create a solution that focused on the most impactful branding elements—colors and logos—allowing operators to refresh the UI without the high costs and complexities of full-scale rebranding. The UI of Evo Lite was designed with color panels, simple fonts, and images, providing an ideal foundation for this streamlined branding approach.",
     "context": "I contributed to the inception and development of this tool, playing a key role in designing a fully functional prototype in Flash that could communicate directly with set-top boxes. The tool allowed users to customize the UI using a color editor and select a brand \"mood\" that aligned with their logo. Thanks to the algorithm we developed, changes were applied across all screens, ensuring a cohesive and visually appealing brand experience. The tool's success was recognized with a Spot Award at Cisco and a Best Demo Award at an international conference, highlighting its effectiveness in solving rebranding challenges quickly and efficiently.",
-    "role": "UX Designer | Hands-on | at Cisco",
+    "role": "UX Designer, Hands-on at Cisco.",
     "process": [
       "I contributed to the inception and development of this tool, playing a key role in designing a fully functional prototype in Flash that could communicate directly with set-top boxes.",
       "The tool allowed users to customize the UI using a color editor and select a brand \"mood\" that aligned with their logo.",
@@ -2140,10 +2212,10 @@ export const projects: Project[] = [
     "organization": "Cisco",
     "platform": "Desktop app for Set-top Box",
     "scope": "Product Design and Development",
-    "summary": "A tool for set-top box designers, enabling them to create and implement high-quality animations seamlessly",
+    "summary": "A tool for set-top box designers, enabling them to create and implement high-quality animations seamlessly. Why it matters: Increased designer speed and quality for animation production.",
     "challenge": "The Freehand Animation Tool was developed to solve a long-standing challenge in set-top box design: the gap between designers' creative vision and the final animation implementation. Traditionally, designers communicated animations through sketches or prototypes, which often led to misinterpretation and suboptimal results. To bridge this gap, we created a tool that allowed designers to directly animate set-top box interfaces, ensuring the final output matched their vision. The prototype, demonstrated on Astro's home screen, showcased seamless scrolling, screen transitions, and dynamic menu interactions, dramatically improving the user experience.",
     "context": "I played a key role in conceptualizing and developing this tool. By researching and modifying Robert Penner’s easing equations, I enabled designers to manipulate animation curves and directly implement them on set-top boxes. This innovation allowed for precise control over the flow and timing of animations, eliminating miscommunication and ensuring smooth, cohesive transitions. The tool's success was recognized with an Innovation Excellence Award at Cisco and a Best Demo Award at an international conference, highlighting its impact on the design process and user experience for set-top boxes.",
-    "role": "UX Designer | Hands-on | Project Lead | at Cisco",
+    "role": "UX Designer, Hands-on, Project Lead at Cisco.",
     "process": [
       "I played a key role in conceptualizing and developing this tool.",
       "By researching and modifying Robert Penner’s easing equations, I enabled designers to manipulate animation curves and directly implement them on set-top boxes.",
@@ -2204,10 +2276,10 @@ export const projects: Project[] = [
     "organization": "CodeMyCode",
     "platform": "Android and iOS App",
     "scope": "Product Design & Development",
-    "summary": "Hungry lion is a puzzle game full of action and adventure. You play as unicorns and your aim is to capture the lion.",
+    "summary": "Hungry lion is a puzzle game full of action and adventure. You play as unicorns and your aim is to capture the lion. Why it matters: Demonstrated end-to-end product ownership from concept to release.",
     "challenge": "Hungry Lion is an action-packed puzzle game where players take on the role of magical unicorns with the mission to capture a ferocious, hungry lion before it strikes. The game features five diverse maps—Water of Life, Heat of Desert, Ruins of Temple, Gates of Castle, and Mystery of Caves—each containing six challenging levels. As players progress, they can unlock powerful, colorful unicorns that enhance gameplay. The balance of strategy, adventure, and unlocking magical upgrades keeps players engaged across increasingly difficult levels.",
     "context": "I contributed to the game's entire development cycle, from conceptualizing the gameplay and defining the graphic assets to designing the user interface and analyzing its usability. My role also extended to sound design, optimizing the game's performance in Adobe Flash/ActionScript, and managing its launch on the PlayStore. Through collaboration with a small team of developers and a freelance graphic design team, we brought *Hungry Lion* to life. The game received a positive reception, earning a 4.5-star rating on the PlayStore. This project taught me the intricacies of game development, especially working with heavy graphics on mobile devices while optimizing memory and CPU usage.",
-    "role": "Founder | Hands-on | at CodeMyCode",
+    "role": "Founder, Hands-on at CodeMyCode.",
     "process": [
       "I contributed to the game's entire development cycle, from conceptualizing the gameplay and defining the graphic assets to designing the user interface and analyzing its usability.",
       "My role also extended to sound design, optimizing the game's performance in Adobe Flash/ActionScript, and managing its launch on the PlayStore.",
@@ -2268,10 +2340,10 @@ export const projects: Project[] = [
     "organization": "CodeMyCode",
     "platform": "Android and iOS App",
     "scope": "Product Design & Development",
-    "summary": "Slide Maker is a wonderful application designed and developed to create amazing slideshows.",
+    "summary": "Slide Maker is a wonderful application designed and developed to create amazing slideshows. Why it matters: Turned a consumer creative workflow into a usable mobile product.",
     "challenge": "Slide Maker is a fun and intuitive application that allows users to create beautiful, personalized slideshows with ease. Whether selecting images from their gallery, capturing new photos, or incorporating videos, users have a range of exciting options to craft their perfect slideshow. The app features customizable entry and exit effects, slide animations, and color adjustments, along with the ability to set focus points for each slide. One of the standout features is the use of themes, which adds a unique and creative touch to every slideshow. Users can also enhance their creations with audio effects and captions, giving them full control over the look and feel of their presentations.",
     "context": "My contributions to the project spanned the full development lifecycle, from concept creation and determining graphic asset requirements to designing the user interface and optimizing the user experience. I was also involved in the development using Adobe Flash/ActionScript, ensuring smooth performance and seamless functionality. With easy sharing options and the ability to preview creations live, Slide Maker offers a fun, engaging way to turn everyday photos and videos into visually stunning slideshows, available for free on the Android market.",
-    "role": "Founder | Hands-on | at CodeMyCode",
+    "role": "Founder, Hands-on at CodeMyCode.",
     "process": [
       "My contributions to the project spanned the full development lifecycle, from concept creation and determining graphic asset requirements to designing the user interface and optimizing the user experience.",
       "I was also involved in the development using Adobe Flash/ActionScript, ensuring smooth performance and seamless functionality.",
