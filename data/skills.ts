@@ -47,8 +47,8 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const impactStats = [
-  { label: "AI launches", value: "18+" },
-  { label: "Products scaled", value: "7" },
-  { label: "Avg cycle-time gain", value: "41%" },
-  { label: "Cross-functional teams led", value: "12" },
+  { label: "Years in UX and design", value: "17+" },
+  { label: "Career roles", value: "8" },
+  { label: "Companies", value: "6" },
+  { label: "Core domains", value: "3" },
 ];

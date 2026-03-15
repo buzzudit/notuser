@@ -21,36 +21,80 @@ export const profile = {
 
 export const experienceTimeline: ExperienceItem[] = [
   {
-    period: "2024 - Present",
-    role: "Principal Product Designer, AI Initiatives",
-    company: "Athenaux",
-    location: "Remote",
+    period: "2021 - Present",
+    role: "Director, Experience Design",
+    company: "athenahealth",
+    location: "Boston",
     highlights: [
-      "Led AI-first product direction across enterprise workflow programs.",
-      "Designed cross-tool copilots for sales, operations, and executive teams.",
-      "Established quality metrics and rollout playbooks for AI workflows.",
-    ],
-  },
-  {
-    period: "2021 - 2024",
-    role: "Senior Product Designer",
-    company: "Northscale Labs",
-    location: "New York, NY",
-    highlights: [
-      "Built experimentation and personalization tooling used across growth teams.",
-      "Reduced feature discovery friction through architecture and navigation redesign.",
-      "Partnered with engineering leadership on design system modernization.",
+      "Leading a world-class experience for cloud-based services and mobile tools across zones within athenahealth Platform.",
     ],
   },
   {
     period: "2018 - 2021",
-    role: "Product Designer",
-    company: "Signalform",
-    location: "San Francisco, CA",
+    role: "Senior Manager, UX",
+    company: "athenahealth",
+    location: "Boston",
     highlights: [
-      "Shipped collaboration and reporting experiences for B2B analytics users.",
-      "Improved onboarding and activation flows through targeted UX improvements.",
-      "Introduced structured discovery practices with product and data teams.",
+      "Led a world-class experience for cloud-based services and mobile tools across zones within athenahealth Platform.",
+    ],
+  },
+  {
+    period: "2017 - 2018",
+    role: "Manager, UX",
+    company: "athenahealth",
+    location: "Bengaluru",
+    highlights: [
+      "Defined a world-class experience for cloud-based services and mobile tools for medical groups and health systems.",
+    ],
+  },
+  {
+    period: "2016 - 2017",
+    role: "UX Director",
+    company: "Zivame",
+    location: "Bengaluru",
+    highlights: [
+      "Defined shopping experience across multiple offline and online properties of Zivame.",
+      "Led major redesign work focused on strengthening the brand as a global lingerie destination.",
+    ],
+  },
+  {
+    period: "2014 - 2016",
+    role: "Senior UX Designer",
+    company: "Kaseya",
+    location: "Bengaluru",
+    highlights: [
+      "Redefined UX for the corporate website, e-commerce portal, and flagship product.",
+      "Contributed to marketing collateral, presentations, and team-building efforts.",
+    ],
+  },
+  {
+    period: "2012 - 2014",
+    role: "UX Engineer",
+    company: "Cisco",
+    location: "Bengaluru",
+    highlights: [
+      "Defined animations and developed high-fidelity interactive prototypes in Flash/AS3.",
+      "Designed and innovated new tools for set-top boxes.",
+    ],
+  },
+  {
+    period: "2010 - 2012",
+    role: "Mobile and Devices Engineer",
+    company: "Adobe",
+    location: "Bengaluru",
+    highlights: [
+      "Ported Flash runtimes to mobiles and devices.",
+      "Handled runtime maintenance, device certification, enterprise support, and troubleshooting.",
+    ],
+  },
+  {
+    period: "2007 - 2010",
+    role: "Software Engineer",
+    company: "Applied Materials",
+    location: "Bengaluru",
+    highlights: [
+      "Developed upgradable device drivers in C++ for the chip manufacturing tool Endura.",
+      "Provided enterprise support and troubleshooting.",
     ],
   },
 ];
