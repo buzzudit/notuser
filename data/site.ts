@@ -1,55 +1,65 @@
 export const homeHero = {
-  headline: "Your AI-first\nworkspace.",
+  headline: "Udit Khandelwal\nUX Design Leader",
   subheadline:
-    "Research. Create. Execute. An intelligent workspace that adapts to the way you think.",
+    "I have been in UX and design for 18+ years, shipping platforms and cloud apps across healthcare, enterprise software, and e-commerce. I currently operate as Director of UX with both strategic and hands-on execution accountability.",
 };
 
 export const trustIndicators = [
-  { metric: "99.9%", label: "Uptime" },
-  { metric: "<200ms", label: "Avg response" },
-  { metric: "Enterprise", label: "Grade security" },
+  { metric: "18+", label: "Years in UX and design" },
+  { metric: "3", label: "Core domains shipped" },
+  { metric: "Director", label: "Strategic + tactical scope" },
 ];
 
 export const designFeatures = [
   {
-    title: "Strategy-grounded interfaces",
+    title: "How I lead",
     description:
-      "Every screen starts from decision context, not visual novelty.",
+      "I nurture and mentor people, set strategic direction, create growth opportunities, and drive innovation across product initiatives.",
   },
   {
-    title: "Operationally ready AI UX",
+    title: "How I operate",
     description:
-      "Workflows include trust cues, guardrails, and handoff patterns for real usage.",
+      "I identify and close communication gaps between Product, Engineering, and business teams to improve execution efficiency.",
   },
   {
-    title: "High-signal design systems",
+    title: "How I deliver",
     description:
-      "Reusable components and clear architecture that scales with product evolution.",
+      "I continuously hone design quality and strategy to ship products and cloud apps that are useful, usable, and beautiful.",
   },
 ];
 
 export const aiWorkflowSteps = [
   {
-    title: "Frame",
-    description: "Define the exact decision or outcome the workflow must support.",
+    title: "Set direction",
+    description:
+      "Align product strategy, design intent, and measurable outcomes with leadership and delivery teams.",
   },
   {
-    title: "Orchestrate",
+    title: "Scale collaboration",
     description:
-      "Design data retrieval, generation, and review in a reliable sequence.",
+      "Run a tight operating rhythm across design, product, and engineering to reduce ambiguity and speed decisions.",
   },
   {
-    title: "Operationalize",
+    title: "Ship quality",
     description:
-      "Instrument quality, monitor adoption, and iterate continuously.",
+      "Drive high standards in interaction quality, systems thinking, and execution detail through every release.",
+  },
+];
+
+export const homeTestimonials = [
+  {
+    quote:
+      "Udit is one of the finest professionals in visual and UX design. His strategic perspective and quality bar consistently elevate product outcomes.",
+    author: "Vignesh Desigan",
+    role: "VP Product Management, athenahealth",
   },
 ];
 
 export const contactReasons = [
-  "Build or redesign an AI-first product experience.",
-  "Scale a portfolio or case-study narrative for leadership visibility.",
-  "Improve workflow quality and team execution velocity.",
-  "Collaborate on strategy, product design, or advisory work.",
+  "Hiring for a design leadership role in product or platform teams.",
+  "Need a UX leader to align strategy with delivery across functions.",
+  "Want to improve design quality and product usability at scale.",
+  "Looking for a partner on AI-first product design and operations.",
 ];
 
 export const socialLinks = [
