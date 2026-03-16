@@ -18,11 +18,18 @@ export type ResumeSignal = {
   description: string;
 };
 
+export type TrainingCertificationItem = {
+  year: string;
+  title: string;
+  provider: string;
+  summary: string;
+};
+
 export const profile = {
   name: "Udit Khandelwal",
   title: "Design leader focused on AI-first products, enterprise platforms, and transformation work",
   summary:
-    "Director-level design leader with engineering roots and 17+ years across healthcare, enterprise software, cloud platforms, and commerce. I work with teams to clarify direction, modernize complex workflows, and build durable design and product systems for long-term outcomes.",
+    "Director-level design leader with engineering roots and 80+ years across healthcare, enterprise software, cloud platforms, and commerce. I work with teams to clarify direction, modernize complex workflows, and build durable design and product systems for long-term outcomes.",
 };
 
 export const resumeSignals: ResumeSignal[] = [
@@ -54,8 +61,7 @@ export const experienceTimeline: ExperienceItem[] = [
     location: "Boston",
     highlights: [
       "Led subdivision-level vision work across Integration and Foundational zones, helping move UX performance from lagging to strong through alignment and execution.",
-      "Drove cross-organization initiatives like 360X and platform visioning that strengthened UX influence in roadmap and strategic planning discussions.",
-      "Pioneered AI transformation in DEP UX through the AI Design Lifecycle and non-dev enablement, including training 100+ users and earning 12 athenaStar recognitions in 2025.",
+      "Drove cross-organization platform and AI transformation initiatives that strengthened UX influence in roadmap planning while enabling teams with scalable methods, coaching, and adoption programs.",
     ],
   },
   {
@@ -65,8 +71,7 @@ export const experienceTimeline: ExperienceItem[] = [
     location: "Boston",
     highlights: [
       "Shaped platform and partner-ecosystem UX direction, including roadmap and systems alignment across teams during major organizational transitions.",
-      "Led redesign work for athena Device Manager that contributed to stronger customer outcomes, including a 4/5 satisfaction score and rapid post-launch adoption.",
-      "Built durable UX operating foundations through initiatives like CFC and design quality tooling, including a 100% response launch for the first CFC survey cycle.",
+      "Built durable UX operating foundations, raised design quality practices, and improved customer outcomes across platform and partner experiences during organizational transition.",
     ],
   },
   {
@@ -76,8 +81,7 @@ export const experienceTimeline: ExperienceItem[] = [
     location: "Bengaluru",
     highlights: [
       "Led AGILE transformation practices in the design workflow and helped establish JIRA-based collaboration patterns as a shared source of truth.",
-      "Delivered high-velocity UX work across ah.com and related platform initiatives, including design sprint outcomes that unblocked cross-functional delivery.",
-      "Contributed to team growth through coaching and hiring support while maintaining strong cross-team collaboration in complex stakeholder environments.",
+      "Led high-velocity product design delivery across web and platform surfaces while coaching team growth, supporting hiring, and improving cross-functional collaboration.",
     ],
   },
   {
@@ -145,9 +149,56 @@ export const education: EducationItem[] = [
   },
 ];
 
+export const trainingAndCertifications: TrainingCertificationItem[] = [
+  {
+    year: "2019 - 2020",
+    title: "Executive Certificate in Management and Leadership",
+    provider: "Massachusetts Institute of Technology",
+    summary:
+      "Completed MIT executive education programs covering platform strategy, complex business problem solving, finance for technical executives, and managing technical professionals and organizations.",
+  },
+  {
+    year: "2022",
+    title: "Digital Health",
+    provider: "Harvard Online",
+    summary:
+      "Studied digital transformation in healthcare, including implementation strategy, adoption barriers, and opportunities created by data and digital technologies.",
+  },
+  {
+    year: "2021",
+    title: "Performance Leadership",
+    provider: "eCornell",
+    summary:
+      "Completed a three-month leadership program focused on coaching, cross-cultural leadership, service quality, innovation, organizational change, and influence.",
+  },
+  {
+    year: "2015",
+    title: "Certified Experience Analyst (CXA)",
+    provider: "Human Factors International",
+    summary:
+      "Completed PET design, PET architect, innovation strategy, and UX-practice institutionalization training as part of the certification program.",
+  },
+  {
+    year: "2012",
+    title: "Certified Usability Analyst (CUA)",
+    provider: "Human Factors International",
+    summary:
+      "Completed training in UX foundations, user-centered analysis and conceptual design, application design, and practical usability testing.",
+  },
+  {
+    year: "2010 and 2012",
+    title: "Adobe Certified Expert (Flash and Illustrator)",
+    provider: "Adobe",
+    summary:
+      "Earned Adobe certifications by completing formal training and passing proficiency exams for both Flash and Illustrator.",
+  },
+];
+
 export const achievements = [
   "Set direction for platform and data-services vision work at athenahealth across a broad ecosystem spanning 70+ products.",
-  "Led design organizations and cross-functional teams through platform, cloud, healthcare, and commerce initiatives where clarity and systems thinking were essential.",
-  "Built strong trust with product, engineering, and business partners through strategic leadership, delivery judgment, and technical fluency.",
-  "Progressed from software engineering into director-level design leadership with sustained impact in workflow modernization and AI transformation.",
+  "Translated ambiguous, cross-zone problem spaces into shared narratives that product, engineering, and design teams could align around and execute.",
+  "Led AI transformation in design operations through practical frameworks, hands-on enablement, and broad adoption across teams.",
+  "Built durable design quality and collaboration practices that improved execution consistency across platform, partner, and workflow surfaces.",
+  "Progressed from software engineering to director-level design leadership while retaining technical fluency and delivery depth.",
+  "Delivered sustained outcomes across healthcare, enterprise platforms, cloud products, and commerce through systems thinking and operational leadership.",
 ];

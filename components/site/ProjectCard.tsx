@@ -65,7 +65,7 @@ export function ProjectCard({ project, className = "" }: ProjectCardProps) {
         {project.summary}
       </p>
 
-      <TagList tags={project.tags} className="mt-4" />
+      <TagList tags={project.tags} brandTag={project.organization} className="mt-4" />
       <div className="mt-4">
         <MetricsStrip metrics={project.metrics} compact />
       </div>

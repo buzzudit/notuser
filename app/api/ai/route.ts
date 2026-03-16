@@ -4,6 +4,12 @@ const OPENAI_API_URL = "https://api.openai.com/v1/responses";
 const REQUEST_TIMEOUT_MS = 25000;
 const MAX_PROMPT_LENGTH = 2400;
 const MAX_CONTEXT_LENGTH = 7000;
+const BURST_WINDOW_MS = 60_000;
+const BURST_REQUEST_LIMIT = 3;
+const BURST_COOLDOWN_MS = 300_000;
+const ROLLING_WINDOW_MS = 3_600_000;
+const ROLLING_REQUEST_LIMIT = 12;
+const STALE_REQUESTER_TTL_MS = 7_200_000;
 
 const SYSTEM_INSTRUCTIONS =
   "You are an assistant for Udit Khandelwal's executive portfolio site. " +
@@ -11,11 +17,121 @@ const SYSTEM_INSTRUCTIONS =
   "Use provided context first, avoid inventing facts, and say when context is limited. " +
   "Keep responses concise and practical.";
 
+type RequesterRateState = {
+  burstTimestamps: number[];
+  rollingTimestamps: number[];
+  cooldownUntil: number;
+};
+
+const requesterRateState = new Map<string, RequesterRateState>();
+
 type AIRequestBody = {
   prompt?: string;
   context?: string;
   page?: string;
 };
+
+function toUnixSeconds(milliseconds: number) {
+  return Math.max(1, Math.ceil(milliseconds / 1000));
+}
+
+function getRequesterKey(request: Request) {
+  const forwardedFor = request.headers.get("x-forwarded-for");
+  const realIp = request.headers.get("x-real-ip");
+  const userAgent = request.headers.get("user-agent") ?? "unknown-agent";
+  const ipCandidate = forwardedFor?.split(",")[0]?.trim() || realIp?.trim() || "unknown-ip";
+  const normalizedAgent = userAgent.slice(0, 120).toLowerCase();
+  return `${ipCandidate}|${normalizedAgent}`;
+}
+
+function pruneRequesterState(now: number) {
+  for (const [key, state] of requesterRateState.entries()) {
+    state.burstTimestamps = state.burstTimestamps.filter(
+      (timestamp) => now - timestamp <= BURST_WINDOW_MS,
+    );
+    state.rollingTimestamps = state.rollingTimestamps.filter(
+      (timestamp) => now - timestamp <= ROLLING_WINDOW_MS,
+    );
+
+    const newestBurst = state.burstTimestamps[state.burstTimestamps.length - 1] ?? 0;
+    const newestRolling = state.rollingTimestamps[state.rollingTimestamps.length - 1] ?? 0;
+    const newestActivity = Math.max(newestBurst, newestRolling, state.cooldownUntil);
+    if (newestActivity > 0 && now - newestActivity <= STALE_REQUESTER_TTL_MS) {
+      continue;
+    }
+
+    requesterRateState.delete(key);
+  }
+}
+
+function evaluateRequesterRateLimit(request: Request, now: number) {
+  pruneRequesterState(now);
+
+  const requesterKey = getRequesterKey(request);
+  const state =
+    requesterRateState.get(requesterKey) ??
+    {
+      burstTimestamps: [],
+      rollingTimestamps: [],
+      cooldownUntil: 0,
+    };
+
+  state.burstTimestamps = state.burstTimestamps.filter(
+    (timestamp) => now - timestamp <= BURST_WINDOW_MS,
+  );
+  state.rollingTimestamps = state.rollingTimestamps.filter(
+    (timestamp) => now - timestamp <= ROLLING_WINDOW_MS,
+  );
+
+  if (state.cooldownUntil > now) {
+    requesterRateState.set(requesterKey, state);
+    const retryAfter = toUnixSeconds(state.cooldownUntil - now);
+    return {
+      allowed: false as const,
+      retryAfter,
+      code: "ai_guardrail_cooldown",
+      error:
+        "AI guardrail is active due to repeated rapid prompts. Please wait a few minutes before trying again.",
+    };
+  }
+
+  if (state.burstTimestamps.length >= BURST_REQUEST_LIMIT) {
+    state.cooldownUntil = now + BURST_COOLDOWN_MS;
+    requesterRateState.set(requesterKey, state);
+    const retryAfter = toUnixSeconds(BURST_COOLDOWN_MS);
+    return {
+      allowed: false as const,
+      retryAfter,
+      code: "ai_guardrail_burst",
+      error:
+        "Too many prompts submitted in quick succession. Please pause before sending another request.",
+    };
+  }
+
+  if (state.rollingTimestamps.length >= ROLLING_REQUEST_LIMIT) {
+    requesterRateState.set(requesterKey, state);
+    const oldest = state.rollingTimestamps[0];
+    const retryAfter = oldest
+      ? toUnixSeconds(ROLLING_WINDOW_MS - (now - oldest))
+      : toUnixSeconds(ROLLING_WINDOW_MS);
+    return {
+      allowed: false as const,
+      retryAfter,
+      code: "ai_guardrail_quota",
+      error:
+        "AI helper usage limit reached for now. Please try again later.",
+    };
+  }
+
+  state.burstTimestamps.push(now);
+  state.rollingTimestamps.push(now);
+  state.cooldownUntil = 0;
+  requesterRateState.set(requesterKey, state);
+
+  return {
+    allowed: true as const,
+  };
+}
 
 function parseErrorMessage(payload: unknown): string | null {
   if (!payload || typeof payload !== "object") {
@@ -117,6 +233,23 @@ export async function POST(request: Request) {
         error: `Prompt is too long. Please keep it under ${MAX_PROMPT_LENGTH} characters.`,
       },
       { status: 400 },
+    );
+  }
+
+  const rateLimitDecision = evaluateRequesterRateLimit(request, Date.now());
+  if (!rateLimitDecision.allowed) {
+    return NextResponse.json(
+      {
+        ok: false,
+        code: rateLimitDecision.code,
+        error: rateLimitDecision.error,
+      },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(rateLimitDecision.retryAfter),
+        },
+      },
     );
   }
 

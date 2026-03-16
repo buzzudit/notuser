@@ -8,11 +8,17 @@ import {
   SectionShell,
 } from "@/components/site/SectionShell";
 import { BlogGrid } from "@/components/site/BlogGrid";
+import { BlogList } from "@/components/site/BlogList";
 import { CallToAction } from "@/components/site/CallToAction";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { blogPosts } from "@/data/blog";
 import { homeFeaturedWritingSlugs } from "@/data/site";
-import { getBlogLandingCollections } from "@/lib/site/blogFormatting";
+import {
+  getBlogDisplayCategory,
+  getBlogDisplayTags,
+  getBlogLandingCollections,
+  getBlogReadTime,
+} from "@/lib/site/blogFormatting";
 
 const blogThinkingPrompts = [
   {
@@ -37,6 +43,27 @@ export default function BlogPage() {
     blogPosts,
     homeFeaturedWritingSlugs,
   );
+  const commonThemes = Array.from(
+    new Set(blogPosts.flatMap((post) => getBlogDisplayTags(post))),
+  )
+    .filter((theme) => theme && theme.trim().length > 0)
+    .slice(0, 24);
+  const blogAiContext = [
+    `Blog landing with ${blogPosts.length} posts (${featured.length} featured, ${archive.length} archive).`,
+    `Featured posts: ${featured
+      .map(
+        (post) =>
+          `${post.title} | ${getBlogDisplayCategory(post)} | ${post.author} | ${getBlogReadTime(post.readTime)} | tags: ${getBlogDisplayTags(post).join(", ")}`,
+      )
+      .join(" || ")}`,
+    `Archive posts: ${archive
+      .map(
+        (post) =>
+          `${post.title} | ${getBlogDisplayCategory(post)} | ${post.author} | ${getBlogReadTime(post.readTime)} | tags: ${getBlogDisplayTags(post).join(", ")}`,
+      )
+      .join(" || ")}`,
+    `Common themes: ${commonThemes.join(", ")}`,
+  ].join("\n\n");
 
   return (
     <PageLayout>
@@ -52,7 +79,7 @@ export default function BlogPage() {
           compact
           className="mt-6"
           page="blog"
-          context="Blog landing page with writing focused on design leadership, systems thinking, and AI-first product execution."
+          context={blogAiContext}
           helperText="Ask AI to summarize themes, compare posts, or suggest a next read."
           suggestions={[
             "Summarize all posts",
@@ -84,27 +111,29 @@ export default function BlogPage() {
             priority than the featured leadership and AI-focused pieces above.
           </SectionDescription>
           <div className="mt-8">
-            <BlogGrid posts={archive} />
+            <BlogList posts={archive} />
           </div>
         </section>
       </SectionShell>
 
       <SectionShell>
-        <SectionLabel>Reflect</SectionLabel>
-        <SectionHeading>Think deeper</SectionHeading>
-        <div className="mt-4 max-w-2xl space-y-2">
-          {blogThinkingPrompts.map((prompt) => (
-            <div
-              key={prompt.question}
-              className="rounded-lg border border-border bg-card px-4 py-3"
-            >
-              <p className="text-sm text-foreground">{prompt.question}</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {prompt.context}
+        <SectionLabel>Think Tank</SectionLabel>
+        <SectionHeading>Questions to pressure-test your thinking</SectionHeading>
+        <ol className="mt-6 divide-y divide-border/70 rounded-xl border border-border/70 bg-card">
+          {blogThinkingPrompts.map((prompt, index) => (
+            <li key={prompt.question} className="grid gap-3 px-4 py-4 md:grid-cols-[40px_1fr] md:px-5">
+              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+                {String(index + 1).padStart(2, "0")}
               </p>
-            </div>
+              <div>
+                <p className="text-sm font-medium text-foreground md:text-base">{prompt.question}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                  {prompt.context}
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </SectionShell>
 
       <SectionShell>

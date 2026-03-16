@@ -46,7 +46,7 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
         <span className="font-medium text-foreground">Context:</span>{" "}
         {project.organization} - {project.platform} - {project.scope}
       </p>
-      <TagList tags={project.tags} className="mt-5" />
+      <TagList tags={project.tags} brandTag={project.organization} className="mt-5" />
       <div className="mt-6">
         <MetricsStrip metrics={project.metrics} />
       </div>

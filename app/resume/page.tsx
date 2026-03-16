@@ -13,9 +13,38 @@ import { SkillGrid } from "@/components/site/SkillGrid";
 import { ImpactStats } from "@/components/site/ImpactStats";
 import { DownloadButton } from "@/components/site/DownloadButton";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
-import { achievements, education, profile, resumeSignals } from "@/data/experience";
+import {
+  achievements,
+  education,
+  experienceTimeline,
+  profile,
+  resumeSignals,
+  trainingAndCertifications,
+} from "@/data/experience";
 
 export default function ResumePage() {
+  const resumeAiContext = [
+    `Profile: ${profile.name}`,
+    `Title: ${profile.title}`,
+    `Summary: ${profile.summary}`,
+    `Leadership context: ${resumeSignals
+      .map((signal) => `${signal.label}: ${signal.title}. ${signal.description}`)
+      .join(" ")}`,
+    `Career timeline: ${experienceTimeline
+      .map(
+        (item) =>
+          `${item.period} - ${item.role} at ${item.company} (${item.location}). Highlights: ${item.highlights.join(" ")}`,
+      )
+      .join(" ")}`,
+    `Selected outcomes: ${achievements.join(" ")}`,
+    `Education: ${education
+      .map((item) => `${item.degree}, ${item.institution} (${item.year})`)
+      .join(" | ")}`,
+    `Training and certifications: ${trainingAndCertifications
+      .map((item) => `${item.year}: ${item.title} - ${item.provider}. ${item.summary}`)
+      .join(" ")}`,
+  ].join("\n\n");
+
   return (
     <PageLayout>
       <SectionShell>
@@ -43,25 +72,24 @@ export default function ResumePage() {
             <div className="mt-5">
               <DownloadButton href="/resume.pdf" />
             </div>
-
-            <div className="mt-5 border-t border-border pt-5">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                AI resume helper
-              </p>
-              <AIWorkspace
-                compact
-                className="mt-3"
-                page="resume"
-                context={`Resume profile for ${profile.name}. Title: ${profile.title}. Summary: ${profile.summary}`}
-                helperText="Ask AI for a role-fit summary, interview briefing, or leadership talking points."
-                suggestions={[
-                  "Summarize this resume for a hiring manager",
-                  "Extract top leadership strengths",
-                  "Draft interview questions based on this profile",
-                ]}
-              />
-            </div>
           </div>
+        </div>
+
+        <div className="mx-auto mt-8 w-full max-w-4xl rounded-2xl border border-border bg-card p-5 md:p-6">
+          <p className="text-center font-mono text-[11px] uppercase tracking-widest text-primary">
+            AI resume helper
+          </p>
+          <AIWorkspace
+            className="mt-4"
+            page="resume"
+            context={resumeAiContext}
+            helperText="Ask AI for a role-fit summary, interview briefing, or leadership talking points."
+            suggestions={[
+              "Summarize this resume for a hiring manager",
+              "Extract top leadership strengths",
+              "Draft interview questions based on this profile",
+            ]}
+          />
         </div>
       </SectionShell>
 
@@ -97,14 +125,18 @@ export default function ResumePage() {
 
       <SectionShell>
         <SectionLabel>Selected Outcomes</SectionLabel>
-        <SectionHeading>Signals of leadership, scope, and progression</SectionHeading>
-        <div className="space-y-3">
+        <SectionHeading>Leadership scope and progression</SectionHeading>
+        <ul className="mt-6 grid gap-3 md:grid-cols-2">
           {achievements.map((achievement) => (
-            <ContentCard key={achievement} hoverable={false}>
-              <p className="text-sm leading-relaxed text-muted-foreground">{achievement}</p>
-            </ContentCard>
+            <li
+              key={achievement}
+              className="flex items-start gap-2 rounded-xl border border-border bg-card p-4 text-sm leading-relaxed text-muted-foreground"
+            >
+              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+              <span>{achievement}</span>
+            </li>
           ))}
-        </div>
+        </ul>
       </SectionShell>
 
       <SectionShell>
@@ -130,6 +162,24 @@ export default function ResumePage() {
               </p>
             </ContentCard>
           ))}
+        </div>
+
+        <div className="mt-8">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+            Training and certification
+          </p>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            {trainingAndCertifications.map((item) => (
+              <ContentCard key={`${item.title}-${item.year}`} hoverable={false}>
+                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                  {item.year}
+                </p>
+                <h3 className="mt-2 text-sm font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{item.provider}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.summary}</p>
+              </ContentCard>
+            ))}
+          </div>
         </div>
       </SectionShell>
     </PageLayout>

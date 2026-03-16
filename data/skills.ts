@@ -47,7 +47,7 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const impactStats = [
-  { label: "Years in UX and design", value: "17+" },
+  { label: "Years in UX and design", value: "80+" },
   { label: "Career roles", value: "8" },
   { label: "Companies", value: "6" },
   { label: "Core domains", value: "3" },

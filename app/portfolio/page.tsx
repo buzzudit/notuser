@@ -12,56 +12,58 @@ import { projects } from "@/data/projects";
 import { homeFeaturedCaseStudies } from "@/data/site";
 import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies";
 
+function parseProjectYear(value: string) {
+  const matches = value.match(/\d{4}/g);
+  if (!matches) {
+    return 0;
+  }
+
+  return Math.max(...matches.map((entry) => Number(entry)));
+}
+
 export default function PortfolioPage() {
-  const privateCount = projects.filter((project) => project.isPrivate).length;
-  const impactSignalCount = projects.reduce(
-    (count, project) => count + project.metrics.length,
-    0,
-  );
+  const sortedProjects = [...projects].sort((left, right) => {
+    const yearDelta = parseProjectYear(right.year) - parseProjectYear(left.year);
+    if (yearDelta !== 0) {
+      return yearDelta;
+    }
+
+    return left.title.localeCompare(right.title);
+  });
   const featuredPreviews = homeFeaturedCaseStudies.filter((preview) =>
-    projects.some((project) => project.slug === preview.slug),
+    sortedProjects.some((project) => project.slug === preview.slug),
   );
   const featuredSlugs = new Set(featuredPreviews.map((preview) => preview.slug));
-  const summaryProjects = projects.filter((project) => !featuredSlugs.has(project.slug));
-  const totalVisibleProjects = featuredPreviews.length + summaryProjects.length;
+  const summaryProjects = sortedProjects.filter((project) => !featuredSlugs.has(project.slug));
+  const portfolioAiContext = [
+    "Portfolio landing page with flagship and full project coverage.",
+    `Total projects: ${sortedProjects.length}.`,
+    `Flagship projects: ${
+      featuredPreviews.length > 0
+        ? featuredPreviews.map((preview) => preview.slug).join(" | ")
+        : "none"
+    }.`,
+    `Project list and metadata: ${sortedProjects
+      .map(
+        (project) =>
+          `${project.title} (${project.year}) | org: ${project.organization} | category: ${project.category} | platform: ${project.platform} | scope: ${project.scope} | tags: ${project.tags.slice(0, 4).join(", ")} | metrics: ${project.metrics
+            .slice(0, 2)
+            .map((metric) => `${metric.label} ${metric.value}`)
+            .join(", ")}`,
+      )
+      .join(" || ")}`,
+  ].join("\n\n");
 
   return (
     <PageLayout>
       <SectionShell>
         <SectionLabel>Portfolio</SectionLabel>
-        <SectionHeading>Portfolio with flagship case studies and full project coverage</SectionHeading>
+        <SectionHeading>Case studies and successes</SectionHeading>
         <SectionDescription>
-          This portfolio is structured for fast executive review: a flagship tier
-          with deeper context, followed by the broader project set that shows range
-          across healthcare, commerce, platforms, and product systems.
+          A curated set of flagship case studies followed by the complete project
+          catalog for breadth across healthcare, enterprise platforms, commerce,
+          and personal build work.
         </SectionDescription>
-
-        <AIWorkspace
-          compact
-          className="mt-6"
-          page="portfolio"
-          context="Portfolio landing page with flagship case studies and a full project set spanning healthcare, enterprise platforms, and commerce."
-          helperText="Ask about technology choices, outcomes, and tradeoffs across projects."
-          suggestions={[
-            "Compare all projects",
-            "Show AI-related work",
-            "Which project had the highest impact?",
-          ]}
-        />
-      </SectionShell>
-
-      <SectionShell className="pt-0" id="portfolio-overview">
-        <div className="rounded-lg border border-border/70 bg-secondary/25 p-4">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-            Portfolio overview
-          </p>
-          <p className="mt-2 text-sm leading-relaxed text-foreground">
-            {totalVisibleProjects} visible projects in two tiers ({featuredPreviews.length}{" "}
-            flagship and {summaryProjects.length} summary), with {impactSignalCount}+ impact
-            signals. {privateCount} projects are marked private where details are intentionally
-            limited.
-          </p>
-        </div>
       </SectionShell>
 
       <SectionShell className="pt-0" id="flagship-case-studies">
@@ -75,6 +77,21 @@ export default function PortfolioPage() {
         <div className="mt-8">
           <FeaturedCaseStudies previews={featuredPreviews} projects={projects} />
         </div>
+      </SectionShell>
+
+      <SectionShell className="pt-0" id="portfolio-ai">
+        <AIWorkspace
+          compact
+          className="rounded-xl border border-border bg-card p-4"
+          page="portfolio"
+          context={portfolioAiContext}
+          helperText="Ask about technology choices, chronology, outcomes, and tradeoffs across projects."
+          suggestions={[
+            "Compare all projects",
+            "Show AI-related work",
+            "Which project had the highest impact?",
+          ]}
+        />
       </SectionShell>
 
       <SectionShell className="pt-0" id="project-grid">

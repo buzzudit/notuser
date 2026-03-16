@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 type ExecutiveHeroProps = {
   hero: {
@@ -46,15 +48,19 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
               {hero.credibilityLine}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-2">
-              {hero.quickSignals.map((signal) => (
-                <span
-                  key={signal}
-                  className="rounded-full border border-border bg-card/70 px-3 py-1.5 text-sm text-muted-foreground"
-                >
-                  {signal}
-                </span>
-              ))}
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href="#case-studies"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                View leadership work <ArrowRight size={14} />
+              </Link>
+              <Link
+                href="/portfolio"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                Explore case studies
+              </Link>
             </div>
           </div>
 
