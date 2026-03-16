@@ -12,6 +12,7 @@
     "migrate:deploy": "prisma migrate deploy",
     "seed": "prisma db seed",
     "projects:import": "node scripts/import-projects-from-archive.mjs",
+    "pdf:extract": "node scripts/extract-pdf-text.mjs",
     "media:scan": "node scripts/mirror-wix-media.mjs --dry-run",
     "media:mirror": "node scripts/mirror-wix-media.mjs",
     "deploy:fast": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-fast.ps1"
@@ -24,6 +25,7 @@
     "framer-motion": "^12.36.0",
     "lucide-react": "^0.462.0",
     "next": "^15.5.11",
+    "pdf-parse": "^2.4.5",
     "pg": "^8.17.2",
     "postcss": "^8.5.8",
     "prisma": "^7.3.0",

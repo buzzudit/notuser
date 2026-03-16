@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, Mail } from "lucide-react";
 
 type ExecutiveHeroProps = {
   hero: {
@@ -23,10 +21,7 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
       <div className="container relative py-12 md:py-20">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p className="inline-flex items-center rounded-full border border-border bg-card/70 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-primary">
-              {hero.eyebrow}
-            </p>
-            <p className="mt-6 font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+            <p className="font-mono text-lg uppercase tracking-[0.16em] text-muted-foreground md:text-2xl">
               {hero.name}
             </p>
 
@@ -50,27 +45,6 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
             <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
               {hero.credibilityLine}
             </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link
-                href="#case-studies"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                View leadership work <ArrowRight size={14} />
-              </Link>
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                Explore case studies
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                Contact <Mail size={14} />
-              </Link>
-            </div>
 
             <div className="mt-8 flex flex-wrap gap-2">
               {hero.quickSignals.map((signal) => (
@@ -100,18 +74,12 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
             </div>
 
             <div className="rounded-2xl border border-border bg-card/85 p-5">
-              <div className="flex items-center gap-2">
-                <div className="rounded-full border border-primary/25 bg-primary/10 p-2 text-primary">
-                  <BriefcaseBusiness size={16} />
-                </div>
-                <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                  Focus Areas
-                </p>
-              </div>
+              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+                Focus Areas
+              </p>
               <ul className="mt-4 space-y-3">
                 {hero.fitRoles.map((role) => (
-                  <li key={role} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                  <li key={role} className="text-sm leading-relaxed text-muted-foreground">
                     {role}
                   </li>
                 ))}

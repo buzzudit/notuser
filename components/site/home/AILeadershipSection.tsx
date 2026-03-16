@@ -1,4 +1,3 @@
-import { BulletList } from "@/components/site/BulletList";
 import { SignalCardGrid } from "@/components/site/home/SignalCardGrid";
 import type { HomeSignalItem } from "@/data/site";
 
@@ -21,9 +20,11 @@ export function AILeadershipSection({
           <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
             What I focus on
           </p>
-          <div className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            <BulletList items={focusAreas} />
-          </div>
+          <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted-foreground">
+            {focusAreas.map((area) => (
+              <li key={area}>{area}</li>
+            ))}
+          </ul>
         </div>
       </div>
       <SignalCardGrid items={pillars} columns="two" iconSet="ai" />

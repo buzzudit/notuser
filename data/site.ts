@@ -140,11 +140,11 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     slug: "vision-platform-and-data-services",
     eyebrow: "Enterprise platform strategy",
     problemSpace:
-      "Set multi-year design direction for platform and data services supporting a broad product ecosystem inside athenahealth.",
+      "Platform and data-service work across 70+ products needed a clearer shared direction, not disconnected local wins.",
     leadership:
-      "Led vision work at director level, turning a large, ambiguous platform surface into a clearer strategic direction teams could align around.",
+      "Led cross-zone vision synthesis at director level, aligned VP stakeholders, and turned fragmented discussions into one narrative teams could execute against.",
     impact:
-      "Created a stronger foundation for shared services, platform priorities, and future product investments across a complex enterprise landscape.",
+      "Created strategic clarity for roadmap decisions and strengthened UX maturity in platform zones where alignment had historically been inconsistent.",
     metrics: [
       { label: "Scope", value: "70+ products" },
       { label: "Role", value: "Director and project lead" },
@@ -155,11 +155,11 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     slug: "360x-closed-loop-referrals",
     eyebrow: "Healthcare workflow leadership",
     problemSpace:
-      "Shape a more effective closed-loop referrals experience in a workflow where coordination, clarity, and operational trust are critical.",
+      "Referral workflows were breaking continuity of care because sender and receiver systems lacked reliable closed-loop status flow.",
     leadership:
-      "Drove zone-level direction, connected research with product strategy, and framed the experience around real care coordination needs.",
+      "Set zone-level direction, aligned cross-functional teams on architecture and workflow priorities, and framed decisions around care coordination reality.",
     impact:
-      "Strengthened a high-stakes healthcare workflow where the quality of the system matters more than surface polish alone.",
+      "Delivered a stronger interoperability foundation and reduced manual coordination burden in a high-stakes healthcare experience.",
     metrics: [
       { label: "Role", value: "Zone lead" },
       { label: "Environment", value: "Healthcare cloud product" },
@@ -170,11 +170,11 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     slug: "developer-portal",
     eyebrow: "Technical ecosystem design",
     problemSpace:
-      "Improve how developers and partners understand, navigate, and adopt athenahealth's technical products and integration surfaces.",
+      "Developers and partners needed a clearer path through documentation, integration surfaces, and contribution workflows.",
     leadership:
-      "Led UX strategy for a portal that connected documentation, technical products, and ecosystem enablement into one usable system.",
+      "Led UX strategy across multiple teams and shaped the portal into a coherent ecosystem entry point instead of a set of disconnected tools.",
     impact:
-      "Made the platform easier to understand and more usable for builders working across technical and product boundaries.",
+      "Improved platform adoption readiness by making key technical journeys easier to discover, understand, and execute.",
     metrics: [
       { label: "Role", value: "Senior Manager UX and project lead" },
       { label: "Audience", value: "Developers and partners" },
@@ -185,11 +185,11 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     slug: "content-led-commerce-at-zivame",
     eyebrow: "Cross-functional business impact",
     problemSpace:
-      "Build a content-led commerce model that could strengthen discovery, engagement, and conversion without adding friction to the business.",
+      "Commerce growth needed a model that improved discovery and conversion while still fitting publishing and merchandising workflows.",
     leadership:
-      "Owned strategy, design, and implementation direction across content, commerce, and publishing workflows.",
+      "Owned strategy and implementation direction across product, content, and business teams to operationalize a content-led model.",
     impact:
-      "Demonstrated business impact through an integrated content model, including 1.9x higher conversions and measurable revenue contribution.",
+      "Drove measurable commercial outcomes through an integrated content-commerce system, including 1.9x higher conversion performance.",
     metrics: [
       { label: "Role", value: "UX Director and project lead" },
       { label: "Impact", value: "1.9x higher conversions" },
@@ -242,19 +242,19 @@ export const homeExecutiveProof: HomeSignalItem[] = [
     eyebrow: "Current scope",
     title: "Director-level scope in a complex healthcare platform context.",
     description:
-      "At athenahealth, my work spans platform thinking, product direction, team leadership, and cloud-based services that support real operational workflows.",
+      "At athenahealth, I lead across platform direction, workflow modernization, design maturity, and team leadership in cloud-service environments.",
   },
   {
     eyebrow: "Career arc",
     title: "Progression from engineering roots to design leadership.",
     description:
-      "My path moves from software engineering and prototyping into UX leadership, strategy, systems thinking, and product transformation.",
+      "The arc from engineering to design leadership is reflected in sustained delivery across strategy, systems thinking, and cross-functional execution.",
   },
   {
     eyebrow: "Breadth",
     title: "Breadth across healthcare, enterprise software, commerce, and devices.",
     description:
-      "That range makes me effective in roles that need both strategic perspective and the ability to work across very different product contexts.",
+      "That breadth helps me lead in roles where strategic direction and hands-on delivery judgment both matter.",
   },
 ];
 
@@ -274,21 +274,27 @@ export const homeFeaturedWritingSlugs = [
 export const homeTestimonials = [
   {
     quote:
-      "With every new team I've taken on, you have been essential to its success.",
+      "What an incredible impact you have! With every new team I have taken on, you have been essential to its success.",
     author: "Leah Foerster",
     role: "Director Product Mgmt, athenahealth",
+    image:
+      "wix:image://v1/bc4f65_032bb53ebf4d4f04a61248fd5cf866d5~mv2.jpeg/leah.jpeg#originWidth=400&originHeight=400",
   },
   {
     quote:
-      "Udit is clear in his presentation, able to pivot as circumstances change, and collaborative in his approach.",
+      "Udit is clear in his presentation, able to pivot as circumstances change, open to feedback, collaborative in his approach, thoughtful and considerate with his colleagues, empathetic and positive.",
     author: "Liz Dunn",
     role: "Director Product Mgmt, athenahealth",
+    image:
+      "wix:image://v1/bc4f65_d30fe141a45b4a4185de58d7db370273~mv2.jpeg/lizd.jpeg#originWidth=400&originHeight=399",
   },
   {
     quote:
-      "Everything Udit delivers is polished and incorporates all best practices.",
+      "Udit has been fantastic. He has a lot of great ideas and is very open to feedback. Everything Udit delivers is polished and incorporates all best practices.",
     author: "Joe Hunstock",
     role: "Product Manager, athenahealth",
+    image:
+      "wix:image://v1/bc4f65_137366605d76475d936c78f41a3a5620~mv2.png/joe%20hunstock%20-%20athenahealth.png#originWidth=200&originHeight=200",
   },
 ];
 

@@ -36,9 +36,9 @@ export default function ResumePage() {
               At a glance
             </p>
             <div className="mt-4 space-y-3 text-sm text-muted-foreground">
-              <p>Director-level design leadership in enterprise healthcare.</p>
-              <p>Career path across Adobe, Cisco, Kaseya, Zivame, and athenahealth.</p>
-              <p>Strong in design leadership, platform strategy, and AI-first product work.</p>
+              <p>Director-level design leadership in enterprise healthcare and platform environments.</p>
+              <p>Career progression at athenahealth from Manager to Director across platform vision, UX maturity, and cross-zone transformation.</p>
+              <p>Recognized for AI transformation leadership, hands-on enablement, and sustained cross-functional impact.</p>
             </div>
             <div className="mt-5">
               <DownloadButton href="/resume.pdf" />

@@ -1,0 +1,309 @@
+Khandelwal, Udit 2018 Performance Feedback
+Process
+Director Experience Design Department: 3360 User Experience Design US
+Manager: Amanda Mander Location: Watertown MA
+Evaluated by: Rohan Sandeep (Terminated) 01/01/2018 - 12/31/2018
+Overall Evaluation
+Manager
+Rating: Meets Expectations
+Comment:: Udit khandelwal has continued providing support to the experience design team in
+bangalore, as a strong IC and as a support to recruitment initiatives.
+Starting with Platform in Developer Portal, Doc Hub and extending support to Consumer
+health with Quick Pay.
+The rating i have provided is a reflection of the feedback i have received from key
+stakeholders, my own experience dealing with constraints inherit, and from discussions with
+Udit in our 1:1.
+• Udit has pushed the envelope in Developer portal and Dochub with complex interactions
+and complex stakeholder requirements in this area involving more than 4 teams
+• Udit continues to take on additional challenges in self growth, explorations in Defensive
+design, Forge, and now in persuasion usability patterns library are testaments to these.
+• Has collaborated well with cross geographical teams in consumer health and was able
+to deliver a complex project taking assistance where required
+• Has been of great help through the year in Recruitment activities, partiering in design
+activities, and helping the team grow by 2 more designers.
+• Has repeatedly demonstrated rapid turnarounds with projects, in AH.com, Dev portal
+and now consumer health, which have now become the aspiration metric for other
+designers
+• Ah.com a complex stakeholder was handled very well by udit, delivering the ah.com
+MVP, through faster turnaround times and collaboration with DevOPS, stakeholders,
+and Product Managers.
+Udit is currently in the senior manager cohort, which is the highest level for individual
+contributors in athenahealth,
+• Interaction design, can be more explorative, striking the right balance between what is
+available and the right component to do a task. We experienced this in mobile
+interactions patterns.
+• Semantics is often a achilles heel while working in cross geographical implementation
+scenarios. Udit could focus more on this
+• Given the role, udit could have done more in setting up design practices in scorecarding
+and other initiatives taken. More collaboration and convincing others in following best
+practices.
+Competencies
+Interaction Design
+• Need to work on usability, Udit is already an expert in science of persuasion and
+experience design in general, but we could increase design depth in usability.
+
+-- 1 of 9 --
+
+Judgement and Decision Quality
+• Udit could put some effort on collaboration use cases with Product managers,
+highlighting the right amount of change required personally and through peers
+Udit has done well for the growth of the team, has been a strong contributor in the design
+team for the past year.
+I wish him, well and hope that in the coming year, he will be contribute more.
+Acknowledgment
+Manager
+Entered by : Rohan Sandeep (Terminated) Date: 01/30/2019
+Status: Acknowledged (Inactive)
+Comment: Shared with Udit!
+Employee
+Entered by : Udit Khandelwal Date: 01/30/2019
+Status: Acknowledged (Inactive)
+Comment: I have been having regular feedback sessions (10:10) with my manager and this feedback/review is in-
+line with what we discussed. I trust my manager's judgement and will continue to strive hard to improve
+in areas of development identified for me.
+I understand the scope of evaluation is not limited to merely deliverables and releases, but having
+contributed to 4 releases in the year (including 2 big ones), I was hoping for a better rating.
+Nonetheless, I am motivated to perform even better and focus more on holistic development as guided
+by the success profile.
+I am happy being a part of UX team at athenahealth.
+Goal Overall Rating
+[Q1-Q2 2018 EBA, Platform] Deliver designs, in-time and with high quality, for projects undertaken
+Specific
+Deliverables to be delivered for the following projects and epics
+EBA/ah.com AHD-2273, AHD-2271, AHD-2275, AHD-2272, AHD-2322
+PLATFORM/App Foundry: PLAMDP-210, PLAMDP-408, PLAMDP-407, P2DP-1, P2DP-2, P2DP-3
+PLATFORM/Doc Hub: PDDH-2,PDDH-166,PDDH-167,PDDH-1,PDDH-4
+Relevant
+Mapped to Design Team Performance
+Measurable
+Quality
+Ensure the quality standards are high by deploying the following methods
+
+-- 2 of 9 --
+
+Visioning, Design Critique, Scorecarding, Cognitive Walkthrough, Visual QA
+On Time Delivery
+Ensure the deliveries are made 1-2 sprints in advance
+Satisfaction
+Get positive feedback from stakeholders
+Attainable
+Ensure the goals are attainable by spending productive time as follows:
+EBA: 40%
+PLATFORM: 20%
+Time Bound
+To be achieved by end of Q2
+Due Date: 06/30/2018 Status: Completed - Above
+Target
+Completion Date: 06/30/2018
+Category: Business Goal
+[Q1-Q4 2018 Hiring]Participate actively in the hiring process, following the protocol
+Specific
+• Shortlist Candidates for Bangalore
+• Interview candidates and provide feedback
+• Assess design tasks and provide feedback
+• Help new hires with onboarding
+Relevant
+• Mapped to the Hiring Goal for AHI UX
+Measurable
+Quality
+Ensure the protocol is followed, documentation is done and the candidates are assessed properly
+On Time Delivery
+Respect the SLAs
+Attainable
+Ensure the goals are attainable by spending 20% of productive time
+
+-- 3 of 9 --
+
+Time Bound
+To be achieved by end of Q4
+Due Date: 09/30/2018 Status: Completed - On
+Target
+Completion Date:
+Category: Business Goal
+[Q3 2018 - Q4 2018 Consumer Health] Deliver designs, in-time and with high quality, for projects
+undertaken
+Deliver designs for the following Epics by end of Q1 19.3
+• CHTR-255 Payment workflow modernisation
+• CHTR-254 Patient payment records
+• CHTR-252 Payment Plans
+• CHTR-253 Payment by checks/ACH
+• CHTR-256 Payment workflow microservice
+As per current strategy, ensure QuickPay scales up to all online Payment mechanisms related to Portal
+By doing following (Judgement and Decision Quality):
+• Work with cross geographical teams to leverage EDF and EMF
+• Come up with multiple UX Hypotheses and thus design options and with a strategy to converge towards the most
+appropriate option
+• Maintain proper communication (daily, weekly and ad-hoc) with stakeholders to keep resolving ambiguities
+• Keep buffer, and have a Plan B to deal with ambiguity
+And by doing following (Interaction Design):
+• Ensure that task flows and research results are fully documented
+• Contribute to Forge components, specially for mobile
+• Come up with a framework of design principles/heuristics deployed by self pay, that can bbe leveraged by other teams
+• Deliver multiple versions of high fidelity prototypes and specs that can be tested with users and/or used by Enginnering
+for production
+• Build detailed use cases
+Due Date: 03/31/2019 Status: Completed - Above
+Target
+Completion Date:
+Category: Business Goal
+[Q3 2018 Consumer Health] Deliver designs, in-time and with high quality, for projects undertaken
+Specific
+Deliverables to be delivered for the following projects and/or epics:
+
+-- 4 of 9 --
+
+• Consumer Health Portal 1.0:
+• VDT Page - GA
+• Accessibility Updates - GA
+• Feedback Form - GA
+Keeping the following in mind:
+• Work with PM and Engineering to plan in advance for future requirements
+• Keep buffer, and have a Plan B to deal with ambiguity
+• Ensure that problem statement is clearly defined and logged in One Pager Doc
+• Loop in PM and engineering from the early stage of design and keep feasibility of implementation in check
+• Leverage the previous research done and build upon the existing POCs or designs
+• Come up with multiple UX Hypotheses and thus design options and with a strategy to converge towards the most
+appropriate option
+• Establish a good working relationship with cross-geographical UX Team & Maintain proper communication (daily,
+weekly and ad-hoc) to resolve ambiguities and to obtain continuous feedback
+• Work with cross geographical teams to leverage EDF and EMF
+• Follow through with the PM and engineering to ensure whatever is designed gets implemented and finally released
+• Define and track the success metrics on project and team level
+• Ensure that Consumer Health Portal 2.0 design is fully aligned to our users and business
+• Follow agile, make full use of JIRA and work closely with PM, Engineering and cross-geographical UX Team.
+• Document the process and maintain artefacts.
+• Contribute to Forge components, specially for mobile
+• Come up with a framework of design principles/heuristics deployed by self pay, that can be leveraged by other teams
+• Deliver multiple versions of high fidelity prototypes and specs that can be tested with users and/or used by Engineering
+for production
+• Deliver designs to stay at least 1 sprint ahead of engineering
+Relevant
+Mapped to Design Team Performance
+Measurable
+Quality
+Ensure the quality standards are high by deploying the following methods
+Visioning, Design Critique, Scorecarding, Cognitive Walkthrough, Visual QA
+On Time Delivery
+Ensure the deliveries are made 1-2 sprints in advance
+Satisfaction
+Get positive feedback from stakeholders
+Business Goals
+Direct impact to business goals for the mentioned epics or Projects
+UX Goals
+Document and track UX goals at team and project level
+
+-- 5 of 9 --
+
+Attainable
+Ensure the goals are attainable by spending 60% of productive time in ongoing project
+Time Bound
+To be achieved by end of Q3 (except for a few ongoing documentation activities)
+Due Date: 09/30/2018 Status: Completed - On
+Target
+Completion Date: 10/12/2018
+Category: Business Goal
+[Q3-Q4 2018 Reviews]Explore and Test design evaluation & feedback methods
+Specific
+• Plan in advance for the review/evals required by the team members
+• Help team members come up with right method for review/eval required based on the project stage and type of
+feedback reqd
+• Ensure a healthy participation in the reviews/eval sessions
+• Document and Moderate the sessions
+• Ensure the learnings are shared
+• Ensure standard frameworks are used while conducting the sessions
+Relevant
+Mapped to Design Team Performance
+Measurable
+On Time Delivery
+Respect the SLAs
+Documentation
+Ensure learnings are shared
+Satisfaction
+• Ensure requestor is satisfied with the value of the reviews/eval
+Attainable
+Ensure the goals are attainable by spending 20% of productive time
+
+-- 6 of 9 --
+
+Time Bound
+To be achieved by end of Q4 2018
+Due Date: 09/30/2018 Status: Completed - On
+Target
+Completion Date:
+Category: Business Goal
+Help Increase AHI UX Penetration and Cross Functional Collaboration
+Specific
+Take forge to the next level by:
+• Developing sketch plugins that help increase design and development efficiency
+• Finishing the paper prototype so it can be released and distributed
+• Develop a toolset that makes sketch and react integration better, in context to forge
+• Share knowledge and collaborate with Forge design and dev team to achieve above
+Relevant
+Mapped to high quality cross functional relationships
+Measurable
+Efficiency
+Ensure that certain tasks during forge design and development become efficient by more than 50%
+Engagement
+Ensure a high degree of cross functional collaboration and team engagement by conducting meetings, knowledge sharing
+sessions and posts, regular reviews, and events.
+Attainable
+Make use of what was already achieved in Q1 and take it a step further using 20% of my productive time.
+Time Bound
+By end of Q3
+Due Date: 09/30/2018 Status: Completed - On
+Target
+Completion Date:
+Category: Business Goal
+
+-- 7 of 9 --
+
+Rating: Meets Expectations
+Competency Evaluation
+Builds Effective Teams
+Building strong-identity teams that apply their diverse skills and perspectives to achieve common goals.
+Manager
+Rating: Meets Expectations
+Drives Results
+Consistently achieving results; delegating assignments and decisions appropriately, while holding self and others
+accountable
+Manager
+Rating: Exceeds Expectations
+Drives Vision and Purpose
+Painting a compelling picture of the vision and strategy that motivates others to action.
+Manager
+Rating: Meets Expectations
+Instills Trust
+Gaining the confidence and trust of others through honesty, integrity, and authenticity.
+Manager
+Rating: Exceeds Expectations
+Interaction Design
+Ability to design simple, effective, and elegant interactions between users and products.
+Manager
+Rating: Meets Expectations
+Judgement and Decision Quality
+Making good and timely decisions that keep the organization moving forward.
+Manager
+Rating: Meets Expectations
+Plans and Aligns
+Planning and prioritizing work to meet commitments aligned with organizational goals.
+Manager
+Rating: Exceeds Expectations
+Problem Framing
+Understands the value of, and can create, strong problem statements and metrics that are actionable, focused and inspiring
+to achieve correct business outcomes.
+Manager
+
+-- 8 of 9 --
+
+Rating: Meets Expectations
+Strategic Mindset
+Seeing ahead to future possibilities and translating them into breakthrough strategies.
+Manager
+Rating: Meets Expectations
+Workflow & Information Architecture
+The ability to research, analyze, understand, and organize workflows from a user perspective to create intuitive, efficient
+and resilient tools and services that deliver value for users, clients and the business.
+Manager
+Rating: Meets Expectations
+
+-- 9 of 9 --

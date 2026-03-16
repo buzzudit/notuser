@@ -20,6 +20,7 @@ type SignalCardGridProps = {
   items: HomeSignalItem[];
   columns?: "two" | "three";
   iconSet?: "value" | "ai" | "leadership" | "proof";
+  iconTreatment?: "small" | "none" | "background";
 };
 
 const iconSets: Record<NonNullable<SignalCardGridProps["iconSet"]>, LucideIcon[]> = {
@@ -33,6 +34,7 @@ export function SignalCardGrid({
   items,
   columns = "three",
   iconSet = "value",
+  iconTreatment = "small",
 }: SignalCardGridProps) {
   const gridClassName =
     columns === "two" ? "grid gap-4 md:grid-cols-2" : "grid gap-4 md:grid-cols-2 xl:grid-cols-3";
@@ -45,16 +47,29 @@ export function SignalCardGrid({
         return (
           <article
             key={`${item.eyebrow}-${item.title}`}
-            className="rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/30"
+            className="relative overflow-hidden rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/30"
           >
-            <div className="flex items-center gap-3">
-              <div className="rounded-full border border-primary/25 bg-primary/10 p-2 text-primary">
-                <Icon size={16} />
+            {iconTreatment === "background" ? (
+              <div className="pointer-events-none absolute -right-6 -top-6 text-primary/15">
+                <Icon size={120} strokeWidth={1.6} />
               </div>
+            ) : null}
+
+            {iconTreatment === "small" ? (
+              <div className="flex items-center gap-3">
+                <div className="rounded-full border border-primary/25 bg-primary/10 p-2 text-primary">
+                  <Icon size={16} />
+                </div>
+                <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+                  {item.eyebrow}
+                </p>
+              </div>
+            ) : (
               <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
                 {item.eyebrow}
               </p>
-            </div>
+            )}
+
             <h3 className="mt-4 text-lg font-semibold tracking-tight text-foreground">
               {item.title}
             </h3>

@@ -53,7 +53,9 @@ export const experienceTimeline: ExperienceItem[] = [
     company: "athenahealth",
     location: "Boston",
     highlights: [
-      "Leading a world-class experience for cloud-based services and mobile tools across zones within athenahealth Platform.",
+      "Led subdivision-level vision work across Integration and Foundational zones, helping move UX performance from lagging to strong through alignment and execution.",
+      "Drove cross-organization initiatives like 360X and platform visioning that strengthened UX influence in roadmap and strategic planning discussions.",
+      "Pioneered AI transformation in DEP UX through the AI Design Lifecycle and non-dev enablement, including training 100+ users and earning 12 athenaStar recognitions in 2025.",
     ],
   },
   {
@@ -62,7 +64,9 @@ export const experienceTimeline: ExperienceItem[] = [
     company: "athenahealth",
     location: "Boston",
     highlights: [
-      "Led a world-class experience for cloud-based services and mobile tools across zones within athenahealth Platform.",
+      "Shaped platform and partner-ecosystem UX direction, including roadmap and systems alignment across teams during major organizational transitions.",
+      "Led redesign work for athena Device Manager that contributed to stronger customer outcomes, including a 4/5 satisfaction score and rapid post-launch adoption.",
+      "Built durable UX operating foundations through initiatives like CFC and design quality tooling, including a 100% response launch for the first CFC survey cycle.",
     ],
   },
   {
@@ -71,7 +75,9 @@ export const experienceTimeline: ExperienceItem[] = [
     company: "athenahealth",
     location: "Bengaluru",
     highlights: [
-      "Defined a world-class experience for cloud-based services and mobile tools for medical groups and health systems.",
+      "Led AGILE transformation practices in the design workflow and helped establish JIRA-based collaboration patterns as a shared source of truth.",
+      "Delivered high-velocity UX work across ah.com and related platform initiatives, including design sprint outcomes that unblocked cross-functional delivery.",
+      "Contributed to team growth through coaching and hiring support while maintaining strong cross-team collaboration in complex stakeholder environments.",
     ],
   },
   {
@@ -140,8 +146,8 @@ export const education: EducationItem[] = [
 ];
 
 export const achievements = [
-  "Set direction for platform and data-services vision work at athenahealth across a broad product ecosystem spanning 70+ products.",
+  "Set direction for platform and data-services vision work at athenahealth across a broad ecosystem spanning 70+ products.",
   "Led design organizations and cross-functional teams through platform, cloud, healthcare, and commerce initiatives where clarity and systems thinking were essential.",
-  "Built credibility across product, engineering, and business partners through a blend of strategic leadership, delivery judgment, and technical fluency.",
-  "Progressed from software engineering into director-level design leadership, creating a strong foundation for enterprise product and AI transformation work.",
+  "Built strong trust with product, engineering, and business partners through strategic leadership, delivery judgment, and technical fluency.",
+  "Progressed from software engineering into director-level design leadership with sustained impact in workflow modernization and AI transformation.",
 ];

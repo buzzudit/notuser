@@ -1,0 +1,337 @@
+Khandelwal, Udit 2017 Performance Review
+Director Experience Design Department: 3360 User Experience Design US
+Manager: Amanda Mander Location: Watertown MA
+Evaluated by: Rohan Sandeep (Terminated) 01/01/2017 - 12/31/2017
+Overall Evaluation
+Manager
+Rating: 2 - Meets Expectations
+Comment:: Udit has been a key member and supportive of the organization goals for the year. Two
+areas that i would like to highlight is AGILE transformation, where he has lead the
+organization initiatives and led by example. He has also demonstrated good communication
+and collaboration skills across the board.
+He has worked on projects that can be categorized as difficult and have not resulted in GA,
+but his perseverance and positive outlook, despite all odds is commendable.
+He has also has a can-do attitude which is helping and having a positive influence on other
+team members. Udit has worked hard during this year, and gone a step beyond what was
+required which will have positive and measurable outcomes in 2018.
+Meets expectation has been recorded here, as desired outcomes were not achieved. Which
+we have to address both individually and as a team.
+Employee
+Rating: 3 - Exceeds Expectations
+Comment: For ah.com, I collaborated for developing web design strategy as a result of which PMs were
+able to clearly articulate the strategic direction. I delivered final wires for Webinar Hub (within
+2 iteration), which is now currently under implementation and will be released within 18.3
+timeframe. I travelled to US and collaborated in a cross-functional team for 2 weeks to
+successfully execute Design Sprint, which resulting in unblocking the entire team. After
+multiple iterations, I delivered 2 designs for home + segment + product pages, which is now
+planned to be tested with users, and then A/B.
+For collector, I performed research and then suggested the product management team
+against a big bang release, which proved to be the right decision and saved cost/effort of
+developing a potential risky solution.
+AGILE
+As part of Rohan’s initiative, I made sure team adopts a practice of logging all discussions
+and progress in JIRA, so we have a single source of truth, and we are clearly able to
+manage requirements, design decisions and approvals.
+Prepared and shared process documents with stakeholders, that helped streamlining cross-
+functional collaboration in MDP Marketplace, resulting in higher productivity and throughput.
+As a result, we are now able to prioritize, estimate and execute tasks seamlessly in MDP
+Marketplace team.
+BUILD EFFECTIVE TEAMS
+Coached my team on sketch workflow, which resulted in higher adoption of advanced
+features of sketch (i.e. icons, symbols). As a result, Shruti’s efficiency has improved and is
+
+-- 1 of 8 --
+
+now able to make global changes fairly quickly. Mary is still in the process of adoption.
+I Identified areas of development and suggested skill specific trainings to team, but failed to
+follow up regularly. As a result, the training is still ongoing, and will be completed at a later
+date.
+DEVELOP TALENT
+I have lead the effort to build UX library, but the adoption has been really low. This is an area
+of improvement for me, as I need better planning and execution.
+DRIVE ACTION AND RESULTS
+I lead the ah.com redesign effort, and persisted for 6 iterations, despite setbacks or
+obstacles. I was supported by Mary, Shruti, Mahendra and Rohan at various stages for
+same. This persistence of entire teams is appreciated and recorded in feedback received
+from Stefan
+PROBLEM FRAMING
+Worked on projects with ambiguity, and figured details later with iteration (e.g. ah.com page
+strategy, self-identification). Adapted to multiple changes in ah.com strategy by Product
+Management, and finally we are at a point where we are ready to test the design.
+Acknowledgment
+Manager
+Entered by : Rohan Sandeep (Terminated) Date: 02/12/2018
+Status: Acknowledged (Inactive)
+Comment: Thank you!
+Employee
+Entered by : Udit Khandelwal Date: 02/12/2018
+Status: Acknowledged (Inactive)
+Comment:
+Business Goals
+Agile
+• Provides guidance and support in the implementation of agile development processes and procedures.
+• Creates a team environment where members contribute independently and effectively.
+• Leads complex improvement initiatives, providing coaching and mentorship on agile project processes and sub
+processes.
+• Measures and assesses the effectiveness of agile methodologies and deliverables.
+Due Date: 12/31/2017 Status: Completion Date:
+Category: Business Goal
+Weight: 0
+Manager Employee
+Rating: 3 - Exceeds Expectations Rating: 2 - Meets Expectations
+
+-- 2 of 8 --
+
+Build Effective Teams
+• Coaches others on quality of work, execution, and behaviors that create team success.
+• Communicates clear goals and roles to team members.
+• Ensures that the team has the right mix of skills and leverages the strengths of individual members; determines when
+to develop skills in house or look to hire them externally.
+• Rewards team efforts and accomplishments.
+Due Date: 12/31/2017 Status: Completion Date:
+Category: Business Goal
+Weight: 0
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 2 - Meets Expectations
+Deliver high quality designs, in time, for collector projects to ensure business goals are achieved.
+Specific
+Deliver high quality designs for Collector initiative. Currently this includes:
+• Validator
+Measurable
+• Minimise heavy iterations by following design process.
+Metric: Project should not go back to previous phase (e.g.. While iterating on VD, you should not go back to research)
+• Smooth coordination with stakeholders.
+Metric: No major negative feedback (related to project management) should be provided by stakeholders
+• On time delivery
+Metric: Deliveries to be made as per agreed timelines, which could be iterative.
+• Stakeholder satisfaction
+Metric: Stakeholder must not provide any major negative feedback to design
+• Continuous Improvement
+Metric: All the learnings from a project to be documented (do better together), shared and must not be repeated in
+future projects
+• Business Metric
+May or may not be applicable. Varies on per project basis.
+Attainable
+Prepare a plan for each project, which could be iterative. The plan for each project should include:
+• Design process to be followed
+• Agreed timelines
+• Agreed deliverables
+Relevant
+Results in a direct positive impact on business. eg. aiding migration, increasing productivity etc.
+Time-bound
+Validator to be delivered in July/Aug.
+Other to be delivered as per agreed timelines.
+Due Date: 08/31/2017 Status: Completion Date:
+Category: Business Goal
+Weight: 25
+
+-- 3 of 8 --
+
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 2 - Meets Expectations
+Deliver high quality designs, on time, to achieve higher engagement and lead conversion on
+athenahealth.com
+Specific
+Deliver high quality designs for AH.com initiatives driven by business. Currently, this includes:
+• Insight Forms
+• Prospect View
+• Client Homepage
+• Careers Optimisation and Migration
+Measurable
+• Minimise heavy iterations by following design process.
+Metric: Project should not go back to previous phase (e.g.. While iterating on VD, you should not go back to research)
+• Smooth coordination with stakeholders.
+Metric: No major negative feedback (related to project management) should be provided by stakeholders
+• On time delivery
+Metric: Deliveries to be made as per agreed timelines, which could be iterative.
+• Stakeholder satisfaction
+Metric: Stakeholder must not provide any major negative feedback to design
+• Continuous Improvement
+Metric: All the learnings from a project to be documented (do better together), shared and must not be repeated in
+future projects
+• Business Metric
+Metric: Each project to have at least 1 business metric that should be aimed for, and tracked. eg. Conversion, Time
+Spent etc.
+Attainable
+Prepare a plan for each project, which could be iterative. The plan for each project should include:
+• Design process to be followed
+• Agreed timelines
+• Agreed deliverables
+Relevant
+Projects must directly result in a direct or indirect positive impact on business, as tracked under metrics.
+Time-bound
+At least 3 projects to be delivered by Q4 (Prospects, CHE and Careers)
+Micro timelines, as mentioned above, to be followed and tracked for each project
+Due Date: 12/31/2017 Status: Completion Date:
+Category: Business Goal
+Weight: 75
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 2 - Meets Expectations
+Develops Talent
+
+-- 4 of 8 --
+
+• Offers constructive development activities and ideas to others.
+• Creates actionable development plans to enhance skills and capabilities.
+• Helps others learn new skills and provides the support needed.
+• Supports others in taking ownership of their own development.
+Due Date: 12/31/2017 Status: Completion Date:
+Category: Business Goal
+Weight: 0
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 3 - Exceeds Expectations
+Drives Action & Results
+• Instills a can-do attitude in others.
+• Fosters a sense of urgency in the team and pushes them to take action on new challenges.
+• Drives a track record of success for the team.
+• Leads others to persist despite setbacks or obstacles.
+Due Date: 12/31/2017 Status: Completion Date:
+Category: Business Goal
+Weight: 0
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 3 - Exceeds Expectations
+Problem Framing
+• Leads colleagues in exploring problem space and creates strong problem statements that drive towards desired
+business outcomes.
+• Draws upon experience to shape initial paths of inquiry and identify key uncertainties to be addressed.
+• Confidently adjusts problem scope, breaking into tiers and sections as needed, to create team momentum.
+• Sets qualitative or quantitative measures of success at outset of work to drive focus, assess progress and ensure
+business impact.
+Due Date: 12/31/2017 Status: Completion Date:
+Category: Business Goal
+Weight: 0
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 2 - Meets Expectations
+Core Values
+Teaching
+Behaves in a way to be modeled. Maximizes knowledge by sharing information across boundaries.
+• You speak up and champion a good idea
+• You lead with your actions, not just your words
+• You are generous with your coaching, feedback and insights in the spirit of developing others
+
+-- 5 of 8 --
+
+Manager Employee
+Rating: 3 - Exceeds Expectations Rating: 3 - Exceeds Expectations
+Learning
+Relentlessly curious about new ideas and experiences. Actively broadens one’s perspective with insights both internally
+and externally.
+• You ask questions; you seek answers
+• You are always on the path to self-improvement, leveraging failure along the way
+• You know you are responsible for your own experience and the direction of your career
+Manager Employee
+Rating: 3 - Exceeds Expectations Rating: 2 - Meets Expectations
+Teamwork
+Collaborates, putting collective impact above individual gain to drive organizational success. Treats others' intentions with
+unconditional positive regard.
+• You invite ways to work with others
+• You create an environment of accountability across the organization
+• You know that transparency doesn't mean consensus; it means having open dialogue
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 3 - Exceeds Expectations
+Tenacity
+Embraces a risk-taker mentality. Handles change and pressure with resiliency and confidence to get the work done.
+• You act like an owner
+• You meet adversity head-on
+• You are resourceful and know hard work is part of your DNA
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 3 - Exceeds Expectations
+True Customer Success
+Anticipates customer needs and partners to create measurable solutions. Accountable for delivering profitability, growth,
+and better clinical outcomes.
+• You keep the customer at the center of everything you do
+• You obsess over ways to alleviate work and stress of our customers
+• You solve for the network, even when it's hard for us to face or for our clients to hear
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 2 - Meets Expectations
+Cohort-Specific Competencies
+1. Information Management: Coordination
+Align process, projects and people to meet business objectives. Assess processes for weakness and innovate to streamline
+them.
+
+-- 6 of 8 --
+
+Key Behavior:
+• Manages time of teams to ensure all time is valued
+• Matches assignments to team members by leveraging individual strengths and encouraging personal development
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 3 - Exceeds Expectations
+2. Interpersonal Skills: Influence
+Build effective relationships with internal and external stakeholders. Coach athenistas along career paths. Model full and
+appropriate use of writing, phone calls, and meetings (remote and in-person) to get maximum success with minimum
+distraction.
+Key Behavior:
+• Adjusts behavior to most effectively connect with others
+• Structures training and development into the work experience of direct reports
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 2 - Meets Expectations
+3. Accountability: Deciding
+Develop solutions that support both your team and the teams around you. Take action with the best information available.
+Key Behavior:
+• Takes responsibility for guiding others
+• Proactively makes certain that decisions are effective (e.g. appropriate, timely, proactive, well-considered) and contribute
+to win-win situations
+Manager Employee
+Rating: 2 - Meets Expectations Rating: 2 - Meets Expectations
+Development Goals
+Acquire knowledge related to latest in tech and UX (eg. VR, AR, wearables etc.) and implement the
+knowledge to build a small pet project. Draw extensions and interpolations to benefit athenhealth of
+future.
+Specific
+• Acquire, document and share new knowledge
+• Come up with an idea
+• Build something tangible, extensible.
+Measurable
+• Tangible prototype
+• Shareable
+• Appreciation from team
+Attainable
+• 
+Research
+• 
+Ideation
+• 
+Feasibility
+• 
+Design
+• 
+Test
+
+-- 7 of 8 --
+
+Relevant
+• Directly impact personal development and future outlook
+Time-bound
+• By Q4
+• Do something every month
+Due Date: 12/31/2017 Status: Completion Date:
+Category: Development Goal
+Collaborate and facilitate to build a better team, together, that is well equipped with design principles,
+process and communication skills, to be able to attack design problems, solve them, and ensure
+adaptation of relevant solutions.
+Specific
+• Learn, document and share design/workflow techniques regularly
+• Facilitate communication skills learning
+• Maintain a consistent (but constantly improving) process across team.
+Measurable
+• Cover techniques spanning across 5 or more areas
+• Cover 5 or more areas of communication
+• Document and improvise process
+Attainable
+• 
+Maintain repository
+• 
+Conduct workshops
+• 
+Document feedback
+• 
+Document learnings
+Relevant
+Directly impacts growth of team AHI-UX
+Time-bound
+Achieve by end of Q4.
+Divide into daily, weekly, monthly activities.
+Due Date: 12/31/2017 Status: Completion Date:
+Category: Development Goal
+
+-- 8 of 8 --

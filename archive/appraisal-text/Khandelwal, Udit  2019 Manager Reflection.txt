@@ -1,0 +1,125 @@
+Khandelwal, Udit 2019 Manager Reflection
+Director Experience Design Department: 3360 User Experience Design US
+Manager: Amanda Mander Location: Watertown MA
+Evaluated by: Gabi de Oliveira Castro 01/01/2019 - 12/31/2019
+Overall Rating
+Manager
+Rating: Exceeds Expectations
+Acknowledgment
+Manager
+Entered by : Gabi de Oliveira Castro Date: 01/24/2020
+Status: Acknowledged
+Comment:
+Employee
+Entered by : Udit Khandelwal Date: 01/24/2020
+Status: Acknowledged
+Comment: Looking forward to succeeding in leading Platform UX in 2020.
+Manager Reflection
+1. Looking back on the year, how did this athenista’s work most contribute to business results?
+Manager
+Udit relocated from Bangalore to the Boston this year, even with this lifechanging move he never missed a beat delivering
+uninterrupted value to athena. In his position as a UX designer on the platform team, Udit has been instrumental in helping
+build a vision and road map for the entire partner ecosystem. His willingness to step in when needed, also resulted in the
+release of an improved and adopted athena Device Manger. While doing this work, Udit also supported the Forge team by
+developing a new collaboration and contribution model for working with CaaS.
+When Udit first onboarded, he was asked to help build an athena-branded consumer facing portal from scratch. Using his
+previous experience working with ah.com and App Foundry, Udit was able bring the CaaS team onboard. This brought
+new skills on to the team that allowed the team to build marketing pages more efficiently. Also, during this time, he saw an
+opportunity to leverage Forge and helped the teams to develop a working relationship that was mutually beneficial.
+Through this work Udit was able to help the team build a roadmap that outlines the next two years of work.
+“Udit has been instrumental in influencing the EBA CaaS team toward using the Forge design system and aligning the
+various teams involved recognizing that the technical choices made here will have long term impacts on our ability to "be
+the best developer portal in healthcare.”
+In Fall 2019, The ADM team reached out to Udit with a very last-minute request for his design expertise to reimagine the
+Device Management page. The goal was to improve the UI prior to launch. During the Beta clients had found it difficult to
+download, install and troubleshoot (when needed) the new application, so with a short timeline a new user experience had
+to be imagined. As a result of Udit’s efforts, ADM 3.0 has been a tremendous success, earning high marks from customers
+
+-- 1 of 3 --
+
+in the 19.11 release with a 4/5 satisfaction rating - a 25% increase over earlier versions of ADM. Moreover, there has been
+a more rapid adoption than expected, with 50K ADM users and 22% of device usage already on ADM 3.0 a month after
+GA launch.
+“Udit had an ability to rapidly to evaluate and understand a new product area, assess user needs and identify critical pain
+points/opportunities – especially impressive given that ADM is not at all an intuitive or typical athenaNet product. Udit was
+an incredible partner throughout this work and I cannot thank him enough for his contributions!”
+2. When does this athenista do their best work? What would you say are their unique skills and
+strengths?
+Manager
+Udit is a natural collaborator and helps teams to plan and align on work. As mentioned above, he took disparate teams,
+Dev Portal, CaaS, and Forge, and successfully helped them to work together to achieve results that benefit everyone. He
+has also partnered with DesignOps to help the team get up to speed to better understand the portal and the user needs to
+propel their work forward. Since Platform has a limited number of designers, Udit is often asked by teams to help, though
+he can’t always get as involved as he would like, he sets the right expectations and always adds value in impactful areas.
+Udit is ex expert at his craft. He is an excellent interaction designer. His previous development experience allows him to
+quickly experiment with concepts and translate feedback into product improvements. Once Udit has a clear understanding
+of what teams are trying to do, he is able to recommend solutions that fit within the timelines they are working under and
+solve for the most important problem areas.
+“His instincts are right on and he is flexible, proficient and efficient in turning designs around quickly to reflect feedback
+and keep projects moving. I believe his design anchoring headings for longer sections of the page will be a "show stopper"
+when we demo this new site at HIMSS in March.”
+“I have worked closely with Udit on Developer-Portal project. During the design iterations in the last couple of months, I
+have seen Udit going great lengths in simplifying the user-interactions problems given to him. He is very meticulous in his
+thinking and executions. I have seen him in action in developer-portal documentation sections, which is considered to be
+one of the complex and crucial items. He has worked with us to simplify the information architecture which is currently
+presented in a very cumbersome/complicated way to our partners.”
+Another quality Udit exhibits consistently is sound judgment. When Udit found out another team was designing using a
+technology that wasn’t up to standards he was quick to speak with the team and set appropriate expectations for the
+resulting designs. In addition to setting new expectations, Udit brought teams together and helped them to define the work
+that needed to be done and figure out how they would achieve the higher standards he had set. Udit has a clear
+understanding of the impact decisions have on maintainability and usability of the system and that understanding leads to
+higher decision quality.
+“As mentioned above, the EBA CaaS team was originally designing using a technology that would give us poor results and
+limit us in the long term. The minute Udit found out about this misalignment, he clearly communicated to the team that he
+would not approve those designs and he rallied the troops to bring the various parties together to explain the value of
+athena's design system and educate all parties on our business goals and the importance of this standard toward long
+term maintainability and usability of our system.”
+3. Which value does this athenista embody most naturally? Which values should they continue to work
+to develop?
+Manager
+Based on Udit’s success working across teams, it is evident that he embodies “Value Everyone”. Throughout the year, Udit
+has spent a large portion of his time working with different people with different skillsets, Udit is able to instill trust in all of
+them. His collaborators see he is committed to seeing through the success of projects and value the connections, to others
+with valuable skills, he makes to improve the results.
+In 2020 Udit should continue to work on “Being a Team Player”. Though he has developed strong relationships with his
+product and engineering counterparts, Udit has an opportunity to work more closely with Ben, his UX counterpart in
+
+-- 2 of 3 --
+
+platform. Design is a newer capability for Platform and currently designers work in zone silos. In the coming year, Udit and
+Ben can work more closely to help better define design roles, working models for design, resource allocation and increase
+design quality across the zone.On a more tactical note,
+“Udit can also ensure that he stores his materials centrally so
+others can review them when he's not around and ensure they get into Jira as that is the official "source of truth" for all dev
+teams.”
+4. Based on your expectations for the role of this athenista, how would you describe their performance
+for 2019? Why?
+Manager
+Based on Udit’s work and feedback from his stakeholders, Udit has exceeded expectations.
+“He is a grinder and gets
+things done!” Since his arrival to the Boston office, Udit has proven he is a valuable partner. His ability to collaborate, set
+expectations, and balance tradeoffs have made him an indispensable contributor to the platform team. As his new
+manager, I value Udit’s insights into the worlds of platform and design and his disposition to doing things in the best
+possible manner. I look forward to continuing to work with him in 2020.
+“Udit has been an exceptional partner throughout our work on the new dev portal. He appropriately balances design
+principles and business workflows. He is clear in his presentation, able to pivot as circumstances change, open to
+feedback, collaborative in his approach, thoughtful and considerate with his colleagues, empathetic and positive. Honestly,
+I have been very impressed with Udit since I started working with him closely in the second half of 2019. I would rate him
+as one of the strongest UXers I've worked with in my career.”
+5. What is one thing this athenista could do differently to expand the impact of their work and increase
+the value they contribute to athena going forward?
+Manager
+In 2020, now that Udit has settled into his new surroundings so well, he can begin to better home in on his voice as a
+leader. Today, Udit is a valuable partner for others and works hard to do everything that is asked of him and his direct
+reports. Sometimes this can cause an unmanageable amount of work for himself and his people, these times represent
+opportunities for Udit to speak up and take a stronger stance on how work should be prioritized and managed. This year
+Udit enrolled in an MIT business course, I expect this course will help him build his self-assurance and enable him to
+confidently participate in higher level discussions and have his voice heard.
+“I feel Udit sometimes hesitate to raise his voice strong. I believe he can stand for his team but when there is situation
+where you need to take strong stand, he hesitates by considering impact. He always supports, always guides us even
+when he gets genuinely worried for us, but I feel he can improve in this area where you take risk and stand for the team.
+Rest, he is one of the role models for me.”
+“Udit needs to see the leader in himself and stand beside other colleagues as an equal. He could be a great UX influencer
+if he networked more.”
+
+-- 3 of 3 --

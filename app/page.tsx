@@ -37,7 +37,7 @@ export default function HomePage() {
   const featuredPosts = homeFeaturedWritingSlugs.flatMap((slug) => {
     const post = blogPosts.find((item) => item.slug === slug);
     return post ? [post] : [];
-  });
+  }).slice(0, 3);
   const homeAiContext = [
     `Profile: ${homeHero.name}`,
     `Headline: ${homeHero.headline}`,
@@ -102,7 +102,7 @@ export default function HomePage() {
           and organizational change need to move in the same direction.
         </SectionDescription>
         <div className="mt-8">
-          <SignalCardGrid items={homeWhyUdit} iconSet="value" />
+          <SignalCardGrid items={homeWhyUdit} iconSet="value" iconTreatment="background" />
         </div>
       </SectionShell>
 
@@ -167,7 +167,7 @@ export default function HomePage() {
           foundation in software engineering.
         </SectionDescription>
         <div className="mt-8">
-          <SignalCardGrid items={homeExecutiveProof} iconSet="proof" />
+          <SignalCardGrid items={homeExecutiveProof} iconSet="proof" iconTreatment="none" />
         </div>
         <div className="mt-8">
           <ImpactStats />
@@ -187,6 +187,7 @@ export default function HomePage() {
               quote={item.quote}
               author={item.author}
               role={item.role}
+              photoSrc={item.image}
             />
           ))}
         </div>

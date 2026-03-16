@@ -1,0 +1,116 @@
+Khandelwal, Udit 2025 PRR: Manager
+Director Experience Design Organization: Elizabeth Kelly
+Manager: Elizabeth Kelly Location: Boston MA
+Evaluated By: Elizabeth Kelly 01/01/2025 - 12/31/2025
+Acknowledgement
+Manager
+Entered by: Elizabeth Kelly Date: 03/03/2026
+Status: Acknowledged
+Comment:
+Employee
+Entered by: Udit Khandelwal Date: 03/04/2026
+Status: Acknowledged
+Comment:
+Manager Reflection
+How did this athenista contribute to their goals, and what impact did this have on the broader team and
+organization this year? What should they focus on in the coming year?
+Manager Reflection
+Response: Udit had a strong year as our AI innovation pioneer, creating frameworks and training programs that
+positioned DEP UX at the forefront of AI transformation. His enthusiasm for learning, hands-on leadership,
+and ability to bring the team along on new technologies are exceptional. He received 12 athenaStar
+recognitions (130 points) throughout the year for AI leadership, partnership, teaching, and community
+building. Mid-year, we repositioned Udit's role to allow him to spend half his time as an IC focused on AI
+transformation and half his time managing his team. This shift reflects both his passion for hands-on
+innovation work and the organization's need for leadership in AI adoption. As Udit continues to pioneer this
+hybrid IC/Director path, the development areas below will be critical for expanding his impact and creating
+future career opportunities. These capabilities will position him well for whatever opportunities emerge as
+the organization evolves.
+Key Accomplishments
+AI Innovation Leadership and Organizational Transformation
+Udit became the single point of contact for AI in DEP UX and led the organization's AI transformation in
+design. He created the AI Design Lifecycle (AI DLC) framework, which keeps the essence of Design
+Thinking intact while thoughtfully adding an AI layer. He trained 100+ users on Windsurf through the Non-
+Dev POC program and took over the AI Playtime series. Vignesh noted that when talking to folks in other
+divisions, "people haven't started using Windsurf... haven't really thought about AI DLC and spec-driven
+development." Platform UX is increasingly recognized as a leader in AI adoption within athenahealth.
+Customer Engagement and Innovation at Thrive
+Udit led customer engagement initiatives at Thrive, running the Innovation Lab AI booth which had high
+traffic and strong customer engagement. He pioneered vibe-coding with customers and successfully tested
+
+-- 1 of 3 --
+
+a "vibe-coded co-design" method with clients like Privia, enabling faster feedback cycles, deeper
+collaboration, and earlier validation of ideas. This work was picked up by athena's Chief Marketing Officer
+and featured in external communications including a podcast and an upcoming public blog post, positioning
+athena as an AI innovation leader in the market. While not yet tied to direct customer outcomes, these
+efforts increased both internal confidence and external visibility of design's role in AI transformation.
+Platform Ecosystem and Integration Leadership
+Udit provided tactical UX leadership across complex, multi-team programs including Interface Build
+Transformation, Imports Patient Data Extraction using AI, Referral Management via 360X, and Data
+Pipeline Transparency. A key milestone was releasing the Carequality include/exclude feature, driving
+athenaConnect's shift from informational to actionable experiences. His team also led UX for the Payer
+Moment of Care Dashboards with Humana, delivering a first-of-its-kind, payer-specific, network-level
+experience. Beyond project delivery, Udit's mentorship resulted in increased design maturity and quality
+across his team. He brought Vignesh and Gogul to their current levels of capability, supported Gogul's
+career shift into product management without blocking his growth, and created an environment where team
+members feel comfortable being transparent about challenges and learning from mistakes.
+Strengths
+• AI Innovation and Technical Leadership: Exceptional at identifying emerging technologies,
+experimenting rapidly, and translating innovations into practical frameworks and training
+• Enthusiasm and Team Energy: Brings infectious energy and optimism that motivates team and
+creates positive culture
+• Hands-On Leadership: Rolls up sleeves to work alongside team, models behaviors, and creates
+psychological safety for experimentation
+• Teaching and Knowledge Sharing Within Team: Effective at building capabilities within his direct team
+through hands-on coaching and requiring adoption of new approaches; has opportunity to make
+learning experiences more accessible beyond his direct span of control
+Areas for Development
+As Udit continues to pioneer AI transformation and explore a hybrid IC/Director path, the following
+development areas will be critical for expanding his impact and creating future career opportunities.
+Building these capabilities will position him well for whatever opportunities emerge as the organization
+evolves.
+Develop Product and Business Acumen
+To expand his influence and impact, Udit should invest in understanding athena's products, their strategy,
+how the business makes decisions, and our customers and their needs. This foundation is essential for
+contributing meaningfully to strategic discussions and making informed decisions about where to focus
+innovation efforts. He should spend time learning product strategy deeply, understanding customer
+workflows and pain points through direct engagement, studying how the business evaluates opportunities
+and makes tradeoffs, and developing fluency in the language of business outcomes.
+This could look like: Shadowing product leaders to understand strategy development, conducting customer
+visits or interviews to understand motivations and challenges and advocating for unmet client needs, and
+participating in business planning discussions to understand how decisions are made.
+Develop Proactive Business Judgment and Strategic Autonomy
+As Udit pioneers new territory with AI transformation, developing stronger business judgment will help him
+identify the highest-impact opportunities and make wise decisions about where to invest time and
+resources. This means anticipating athena's business needs, identifying opportunities independently, and
+
+-- 2 of 3 --
+
+proactively creating work that moves the needle on what matters to the business. This strategic autonomy
+is what will allow him to shape his path forward rather than waiting for direction.
+This could look like: Identifying 2-3 high-impact opportunities independently based on business priorities,
+proactively recommending where to invest time and resources, and demonstrating strategic autonomy in
+shaping work direction.
+Improve Communication of Business Value and Impact
+To build broader organizational influence, Udit should develop stronger skills in communicating the
+business value of his work and making his progress visible to stakeholders. This means quantifying
+productivity gains from AI adoption, demonstrating ROI on training programs, and articulating how design
+work affects customer satisfaction, retention, or revenue. He should develop storytelling skills that connect
+innovation activities to business outcomes in language that resonates with business leaders. Additionally,
+he should make his work visible not just to his immediate manager but to the broader AI Spine team and
+stakeholders through proactive progress updates.
+This could look like: Explicitly documenting productivity/quality gains, ROI, and business impact from AI
+innovation work; presenting findings to senior leadership in business language; establishing regular
+communication cadence with AI Spine team and stakeholders about work progress and impact.
+Strengthen Operational Discipline and Follow-Through
+As Udit pioneers a new path where there's no established playbook to follow, building credibility through
+consistent follow-through becomes even more important. This means being responsive when asked for
+deliverables or information, completing commitments within agreed timelines, and proactively
+communicating when delays occur. Strong operational discipline—setting clear goals with measurable
+outcomes, tracking progress systematically, and managing stakeholder expectations proactively—will build
+the reliability and trust needed to expand his influence.
+This could look like: Responding to requests within 48 hours, completing committed deliverables on time,
+proactively communicating when delays occur, and establishing systematic tracking of goals and progress
+that is visible to stakeholders.
+
+-- 3 of 3 --
