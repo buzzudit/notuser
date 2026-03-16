@@ -12,3 +12,16 @@ model Message {
   message   String
   createdAt DateTime @default(now())
 }
+
+model PortfolioShareLink {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  company   String
+  position  String?
+  notes     String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([createdAt])
+}

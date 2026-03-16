@@ -1,4 +1,10 @@
 import { NextResponse } from "next/server";
+import {
+  buildShareProfileAiContext,
+  getPortfolioShareLinkByCode,
+  isValidPortfolioShareCode,
+  normalizePortfolioShareCode,
+} from "@/lib/site/portfolioShareLinks";
 
 const OPENAI_API_URL = "https://api.openai.com/v1/responses";
 const REQUEST_TIMEOUT_MS = 25000;
@@ -29,6 +35,7 @@ type AIRequestBody = {
   prompt?: string;
   context?: string;
   page?: string;
+  shareCode?: string;
 };
 
 function toUnixSeconds(milliseconds: number) {
@@ -217,6 +224,7 @@ export async function POST(request: Request) {
   const prompt = body.prompt?.trim();
   const context = body.context?.trim();
   const page = body.page?.trim();
+  const shareCode = body.shareCode?.trim();
 
   if (!prompt) {
     return NextResponse.json(
@@ -254,12 +262,20 @@ export async function POST(request: Request) {
   }
 
   const model = process.env.OPENAI_MODEL?.trim() || "gpt-5-mini";
+  const normalizedShareCode = shareCode ? normalizePortfolioShareCode(shareCode) : "";
+  const shareProfile =
+    normalizedShareCode && isValidPortfolioShareCode(normalizedShareCode)
+      ? await getPortfolioShareLinkByCode(normalizedShareCode, { activeOnly: true })
+      : null;
+  const shareProfileBlock = shareProfile
+    ? `Share profile context:\n${buildShareProfileAiContext(shareProfile)}`
+    : "Share profile context: not provided.";
   const contextBlock = context
     ? `Page context:\n${context.slice(0, MAX_CONTEXT_LENGTH)}`
     : "Page context: not provided.";
   const pageBlock = page ? `Page: ${page}` : "Page: unknown";
 
-  const userInput = `${pageBlock}\n\n${contextBlock}\n\nVisitor request:\n${prompt}`;
+  const userInput = `${pageBlock}\n\n${shareProfileBlock}\n\n${contextBlock}\n\nVisitor request:\n${prompt}`;
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);

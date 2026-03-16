@@ -43,6 +43,7 @@ export interface AIRequest {
   prompt: string;
   context?: string;
   page?: string;
+  shareCode?: string;
 }
 
 export interface AIResponse {

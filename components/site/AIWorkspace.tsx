@@ -12,6 +12,7 @@ interface AIWorkspaceProps {
   prefill?: string;
   context?: string;
   page?: string;
+  shareCode?: string;
   suggestions?: string[];
   helperText?: string;
   autoSubmitOnPrefill?: boolean;
@@ -24,6 +25,7 @@ export function AIWorkspace({
   prefill = "",
   context,
   page,
+  shareCode,
   suggestions,
   helperText,
   autoSubmitOnPrefill = false,
@@ -55,7 +57,12 @@ export function AIWorkspace({
       setIsLoading(true);
 
       try {
-        const response = await api.askAI({ prompt: trimmedPrompt, context, page });
+        const response = await api.askAI({
+          prompt: trimmedPrompt,
+          context,
+          page,
+          shareCode,
+        });
         setAnswer(response.answer);
       } catch (requestError) {
         if (requestError instanceof ApiError) {
@@ -67,7 +74,7 @@ export function AIWorkspace({
         setIsLoading(false);
       }
     },
-    [context, onSubmit, page],
+    [context, onSubmit, page, shareCode],
   );
 
   useEffect(() => {
