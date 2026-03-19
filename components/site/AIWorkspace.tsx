@@ -174,8 +174,25 @@ export function AIWorkspace({
               if (trimmedLine.match(/^#+\s/)) {
                 const level = trimmedLine.match(/^(#+)/)?.[1].length || 1;
                 const text = trimmedLine.replace(/^#+\s/, '');
-                const HeadingTag = `h${Math.min(level + 2, 6)}` as keyof JSX.IntrinsicElements;
-                return <HeadingTag key={idx} className="font-semibold mt-3 mb-1">{text}</HeadingTag>;
+                const headingLevel = Math.min(level + 2, 6);
+
+                if (headingLevel === 2) {
+                  return <h2 key={idx} className="font-semibold mt-3 mb-1">{text}</h2>;
+                }
+
+                if (headingLevel === 3) {
+                  return <h3 key={idx} className="font-semibold mt-3 mb-1">{text}</h3>;
+                }
+
+                if (headingLevel === 4) {
+                  return <h4 key={idx} className="font-semibold mt-3 mb-1">{text}</h4>;
+                }
+
+                if (headingLevel === 5) {
+                  return <h5 key={idx} className="font-semibold mt-3 mb-1">{text}</h5>;
+                }
+
+                return <h6 key={idx} className="font-semibold mt-3 mb-1">{text}</h6>;
               }
               
               if (trimmedLine.match(/^[\*\-]\s/)) {
