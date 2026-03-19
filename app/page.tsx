@@ -55,9 +55,9 @@ export default function HomePage() {
         <div className="flex justify-center">
           <section className="w-full max-w-4xl rounded-2xl border border-border bg-card p-5 md:p-6">
             <SectionLabel>AI Briefing</SectionLabel>
-            <SectionHeading>Check if I'm fit for a particular role</SectionHeading>
+            <SectionHeading>Check if I am fit for a particular role</SectionHeading>
             <SectionDescription>
-              Ask for a quick summary tailored to the role you're hiring for. Get an unbiased and informed opinion.
+              Ask for a quick summary tailored to the role you are hiring for. Get an unbiased and informed opinion.
             </SectionDescription>
             <AIWorkspace
               compact
