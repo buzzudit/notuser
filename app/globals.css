@@ -5,7 +5,39 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root.light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 217 65% 73%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 89%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 223 47% 71%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 217 65% 73%;
+    --radius: 0.5rem;
+    --surface-elevated: 0 0% 96%;
+    --text-tertiary: 0 0% 62%;
+    --link: 217 65% 60%;
+    --link-hover: 217 65% 50%;
+    --link-visited: 223 47% 60%;
+    --gradient-accent: linear-gradient(135deg, hsl(217 65% 73%), hsl(223 47% 71%));
+    --shadow-glow: 0 0 40px -10px hsl(217 65% 73% / 0.15);
+    --selection: 214 74% 76%;
+    --selection-foreground: 0 0% 10%;
+  }
+
+  :root.dark {
     --background: 0 0% 4%;
     --foreground: 40 10% 92%;
     --card: 0 0% 7%;
@@ -33,6 +65,40 @@
     --link-visited: 196 72% 64%;
     --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%), hsl(28 85% 55%));
     --shadow-glow: 0 0 40px -10px hsl(38 92% 50% / 0.15);
+    --selection: 38 92% 46%;
+    --selection-foreground: 0 0% 6%;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 217 65% 73%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 89%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 223 47% 71%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 217 65% 73%;
+    --radius: 0.5rem;
+    --surface-elevated: 0 0% 96%;
+    --text-tertiary: 0 0% 62%;
+    --link: 217 65% 60%;
+    --link-hover: 217 65% 50%;
+    --link-visited: 223 47% 60%;
+    --gradient-accent: linear-gradient(135deg, hsl(217 65% 73%), hsl(223 47% 71%));
+    --shadow-glow: 0 0 40px -10px hsl(217 65% 73% / 0.15);
+    --selection: 214 74% 76%;
+    --selection-foreground: 0 0% 10%;
   }
 
   * {
@@ -73,8 +139,8 @@
   }
 
   ::selection {
-    background: hsl(38 92% 50% / 0.25);
-    color: hsl(40 10% 95%);
+    background: hsl(var(--selection));
+    color: hsl(var(--selection-foreground));
   }
 
   @media (prefers-reduced-motion: reduce) {

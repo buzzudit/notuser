@@ -60,17 +60,17 @@ export default function ResumePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-card p-5">
-            <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+          <div className="rounded-2xl border border-border bg-[hsl(217_65%_73%)] p-5 text-white shadow-[0_10px_40px_rgba(30,64,175,0.35)]">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-white/80">
               At a glance
             </p>
-            <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+            <div className="mt-4 space-y-3 text-sm text-white/90">
               <p>Director-level design leadership in enterprise healthcare and platform environments.</p>
               <p>Career progression at athenahealth from Manager to Director across platform vision, UX maturity, and cross-zone transformation.</p>
               <p>Recognized for AI transformation leadership, hands-on enablement, and sustained cross-functional impact.</p>
             </div>
             <div className="mt-5">
-              <DownloadButton href="/resume.pdf" />
+              <DownloadButton href="/resume.pdf" className="bg-white text-primary hover:bg-white/90" />
             </div>
           </div>
         </div>

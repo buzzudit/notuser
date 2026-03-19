@@ -159,7 +159,37 @@ export function AIWorkspace({
           <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-primary">
             AI response
           </p>
-          <p className="text-sm leading-relaxed text-foreground">{answer}</p>
+          <div className="prose prose-sm max-w-none text-foreground">
+            {answer.split('\n').map((line, idx) => {
+              const trimmedLine = line.trim();
+              if (!trimmedLine) return <br key={idx} />;
+              
+              if (trimmedLine.match(/^#+\s/)) {
+                const level = trimmedLine.match(/^(#+)/)?.[1].length || 1;
+                const text = trimmedLine.replace(/^#+\s/, '');
+                const HeadingTag = `h${Math.min(level + 2, 6)}` as keyof JSX.IntrinsicElements;
+                return <HeadingTag key={idx} className="font-semibold mt-3 mb-1">{text}</HeadingTag>;
+              }
+              
+              if (trimmedLine.match(/^[\*\-]\s/)) {
+                return (
+                  <li key={idx} className="ml-4 text-sm leading-relaxed">
+                    {trimmedLine.replace(/^[\*\-]\s/, '')}
+                  </li>
+                );
+              }
+              
+              if (trimmedLine.match(/^\d+\.\s/)) {
+                return (
+                  <li key={idx} className="ml-4 text-sm leading-relaxed list-decimal">
+                    {trimmedLine.replace(/^\d+\.\s/, '')}
+                  </li>
+                );
+              }
+              
+              return <p key={idx} className="text-sm leading-relaxed mb-2">{line}</p>;
+            })}
+          </div>
         </div>
       ) : null}
 
