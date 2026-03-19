@@ -1,5 +1,7 @@
-"use client";
-
+import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { IntentAudienceBanner } from "@/components/site/intent/IntentAudienceBanner";
+import { UkrSessionBridge } from "@/components/site/intent/UkrSessionBridge";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import {
   SectionDescription,
@@ -19,6 +21,13 @@ import {
   getBlogLandingCollections,
   getBlogReadTime,
 } from "@/lib/site/blogFormatting";
+import {
+  buildUkrIntentAiContext,
+  buildUkrScopedMetadata,
+  getIntentRoleSummary,
+  resolveUkrExperience,
+  UKR_COOKIE_NAME,
+} from "@/lib/site/ukrLinks";
 
 const blogThinkingPrompts = [
   {
@@ -38,7 +47,24 @@ const blogThinkingPrompts = [
   },
 ];
 
-export default function BlogPage() {
+type PageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  return buildUkrScopedMetadata("/blog", searchParams);
+}
+
+export default async function BlogPage({ searchParams }: PageProps) {
+  const cookieStore = await cookies();
+  const intentState = await resolveUkrExperience({
+    searchParams,
+    cookieCode: cookieStore.get(UKR_COOKIE_NAME)?.value ?? null,
+  });
+  const activeIntent = intentState.activeIntent;
+  const fitTarget = activeIntent ? getIntentRoleSummary(activeIntent) : null;
   const { featured, archive } = getBlogLandingCollections(
     blogPosts,
     homeFeaturedWritingSlugs,
@@ -64,10 +90,37 @@ export default function BlogPage() {
       )
       .join(" || ")}`,
     `Common themes: ${commonThemes.join(", ")}`,
+    activeIntent ? buildUkrIntentAiContext(activeIntent) : "",
   ].join("\n\n");
+  const blogSuggestions = activeIntent
+    ? [
+        `Which posts are most relevant for ${fitTarget}?`,
+        `What writing would resonate with ${activeIntent.org}?`,
+        `Which posts best demonstrate leadership fit?`,
+        "Extract weekly action items",
+      ]
+    : [
+        "Summarize all posts",
+        "Find workflow patterns",
+        "What should I read first?",
+        "Extract weekly action items",
+      ];
+  const blogHelperText = activeIntent
+    ? `Ask AI to surface writing that best supports ${fitTarget} and this conversation.`
+    : "Ask AI to summarize themes, compare posts, or suggest a next read.";
+  const ctaTitle = activeIntent
+    ? `Need help shipping outcomes for ${activeIntent.org}?`
+    : "Need help turning ideas into shipped outcomes?";
+  const ctaDescription = activeIntent
+    ? `I work with teams to translate strategy into AI-native products with the kind of leadership depth relevant to ${fitTarget}.`
+    : "I work with teams to translate strategy into AI-native products.";
 
   return (
     <PageLayout>
+      <UkrSessionBridge
+        persistCode={intentState.shouldPersistQueryCode ? activeIntent?.code ?? null : null}
+        clearInvalid={intentState.shouldClearCookie}
+      />
       <SectionShell>
         <SectionLabel>Blog</SectionLabel>
         <SectionHeading>Writing on design leadership, systems, and AI-first execution</SectionHeading>
@@ -75,19 +128,19 @@ export default function BlogPage() {
           Practical writing on product strategy, systems thinking, leadership, and
           the operating questions behind modern AI and platform work.
         </SectionDescription>
+        {activeIntent ? (
+          <div className="mt-6">
+            <IntentAudienceBanner intentLink={activeIntent} />
+          </div>
+        ) : null}
 
         <AIWorkspace
           compact
           className="mt-6"
           page="blog"
           context={blogAiContext}
-          helperText="Ask AI to summarize themes, compare posts, or suggest a next read."
-          suggestions={[
-            "Summarize all posts",
-            "Find workflow patterns",
-            "What should I read first?",
-            "Extract weekly action items",
-          ]}
+          helperText={blogHelperText}
+          suggestions={blogSuggestions}
         />
       </SectionShell>
 
@@ -139,8 +192,8 @@ export default function BlogPage() {
 
       <SectionShell>
         <CallToAction
-          title="Need help turning ideas into shipped outcomes?"
-          description="I work with teams to translate strategy into AI-native products."
+          title={ctaTitle}
+          description={ctaDescription}
           primaryLabel="Work together"
           primaryHref="/contact"
           secondaryLabel="View portfolio"

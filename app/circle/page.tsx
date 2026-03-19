@@ -1,7 +1,8 @@
-"use client";
-
-import { useState } from "react";
-import { AIWorkspace } from "@/components/site/AIWorkspace";
+import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { CirclePageContent } from "@/components/site/circle/CirclePageContent";
+import { IntentAudienceBanner } from "@/components/site/intent/IntentAudienceBanner";
+import { UkrSessionBridge } from "@/components/site/intent/UkrSessionBridge";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import {
   SectionDescription,
@@ -9,19 +10,39 @@ import {
   SectionLabel,
   SectionShell,
 } from "@/components/site/SectionShell";
-import { PromptExamples } from "@/components/site/PromptExamples";
-import { AIWorkflowCards } from "@/components/site/AIWorkflowCards";
-import { CallToAction } from "@/components/site/CallToAction";
-import { aiWorkflowSteps, circlePrompts } from "@/data/site";
-import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
-import { AIWorkflowHelper } from "@/components/ai/AIWorkflowHelper";
-import { AIPatternExplorer } from "@/components/ai/AIPatternExplorer";
+import {
+  buildUkrIntentAiContext,
+  buildUkrScopedMetadata,
+  getIntentRoleSummary,
+  resolveUkrExperience,
+  UKR_COOKIE_NAME,
+} from "@/lib/site/ukrLinks";
 
-export default function CirclePage() {
-  const [selectedPrompt, setSelectedPrompt] = useState("");
+type PageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  return buildUkrScopedMetadata("/circle", searchParams);
+}
+
+export default async function CirclePage({ searchParams }: PageProps) {
+  const cookieStore = await cookies();
+  const intentState = await resolveUkrExperience({
+    searchParams,
+    cookieCode: cookieStore.get(UKR_COOKIE_NAME)?.value ?? null,
+  });
+  const activeIntent = intentState.activeIntent;
+  const fitTarget = activeIntent ? getIntentRoleSummary(activeIntent) : null;
 
   return (
     <PageLayout>
+      <UkrSessionBridge
+        persistCode={intentState.shouldPersistQueryCode ? activeIntent?.code ?? null : null}
+        clearInvalid={intentState.shouldClearCookie}
+      />
       <SectionShell>
         <SectionLabel>Circle</SectionLabel>
         <SectionHeading>Prompt playground for AI-first workflows</SectionHeading>
@@ -29,90 +50,18 @@ export default function CirclePage() {
           Explore example prompts, experiment quickly, and see a repeatable AI
           workflow model from framing to execution.
         </SectionDescription>
+        {activeIntent ? (
+          <div className="mt-6">
+            <IntentAudienceBanner intentLink={activeIntent} />
+          </div>
+        ) : null}
       </SectionShell>
 
-      <SectionShell className="pt-0">
-        <SectionLabel>Prompt Examples</SectionLabel>
-        <div className="space-y-4">
-          <AISuggestionChips
-            suggestions={circlePrompts.map((prompt) => ({ label: prompt }))}
-            onSelect={(suggestion) => setSelectedPrompt(suggestion.label)}
-          />
-          <PromptExamples prompts={circlePrompts} onSelect={setSelectedPrompt} />
-          <AIWorkspace
-            prefill={selectedPrompt}
-            autoSubmitOnPrefill
-            page="circle"
-            context="Circle page for trying prompt ideas related to AI-first product workflows."
-            helperText="Select a prompt starter or write your own to generate a response."
-          />
-          <AIWorkflowHelper
-            actions={[
-              {
-                label: "Frame the prompt",
-                description: "Define task, context, constraints, and output format.",
-                result: [
-                  "Clarify the exact decision this prompt supports.",
-                  "Add domain constraints and source-of-truth inputs.",
-                  "State output structure for easier downstream use.",
-                ],
-              },
-              {
-                label: "Operationalize the workflow",
-                description: "Turn one-off prompts into reusable team routines.",
-                result: [
-                  "Assign owners for prompt quality and review loops.",
-                  "Create acceptance checks for output reliability.",
-                  "Track adoption and measurable outcomes over time.",
-                ],
-              },
-            ]}
-          />
-        </div>
-      </SectionShell>
-
-      <SectionShell>
-        <SectionLabel>AI Workflow Steps</SectionLabel>
-        <AIWorkflowCards steps={aiWorkflowSteps} />
-        <div className="mt-4">
-          <AIPatternExplorer
-            patterns={[
-              {
-                name: "Suggestion chips",
-                category: "Discovery",
-                description:
-                  "Provide immediate high-signal starting points when users face blank input states.",
-                example: "Summarize this project, compare options, identify risks.",
-              },
-              {
-                name: "Workflow assist",
-                category: "Execution",
-                description:
-                  "Guide teams through repeatable prompt-to-output steps with explicit checkpoints.",
-                example: "Frame -> Generate -> Review -> Instrument.",
-              },
-              {
-                name: "Pattern explorer",
-                category: "Enablement",
-                description:
-                  "Help non-experts choose the right AI interaction pattern for each product moment.",
-                example: "Use summaries for orientation and inline actions for depth.",
-              },
-            ]}
-          />
-        </div>
-      </SectionShell>
-
-      <SectionShell>
-        <CallToAction
-          title="Want custom prompts for your team?"
-          description="I can help design a workflow-specific prompt system and operating playbook."
-          primaryLabel="Request a session"
-          primaryHref="/contact"
-          secondaryLabel="View portfolio"
-          secondaryHref="/portfolio"
-        />
-      </SectionShell>
+      <CirclePageContent
+        fitTarget={fitTarget}
+        org={activeIntent?.org ?? null}
+        intentContext={activeIntent ? buildUkrIntentAiContext(activeIntent) : null}
+      />
     </PageLayout>
   );
 }

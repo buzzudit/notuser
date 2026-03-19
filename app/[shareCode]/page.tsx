@@ -25,5 +25,5 @@ export default async function SharePortfolioPage({ params }: SharePortfolioPageP
     notFound();
   }
 
-  return <PortfolioPageContent shareProfile={shareLink} />;
+  return <PortfolioPageContent audienceProfile={shareLink} />;
 }

@@ -25,3 +25,18 @@ model PortfolioShareLink {
 
   @@index([createdAt])
 }
+
+model IntentLink {
+  id            Int      @id @default(autoincrement())
+  code          String   @unique
+  org           String
+  positionTitle String?
+  positionUrl   String?
+  intentType    String?
+  notes         String?
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([createdAt])
+}

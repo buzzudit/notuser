@@ -12,15 +12,17 @@ import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies"
 import { projects } from "@/data/projects";
 import { homeFeaturedCaseStudies } from "@/data/site";
 
-type ShareProfileContext = {
+type AudienceProfileContext = {
   code: string;
   company: string;
   position: string | null;
+  positionUrl?: string | null;
+  intentType?: string | null;
   notes: string | null;
 };
 
 type PortfolioPageContentProps = {
-  shareProfile?: ShareProfileContext | null;
+  audienceProfile?: AudienceProfileContext | null;
 };
 
 function parseProjectYear(value: string) {
@@ -32,7 +34,15 @@ function parseProjectYear(value: string) {
   return Math.max(...matches.map((entry) => Number(entry)));
 }
 
-export function PortfolioPageContent({ shareProfile }: PortfolioPageContentProps) {
+function getAudienceRoleSummary(profile: AudienceProfileContext) {
+  if (profile.position) {
+    return `${profile.position} at ${profile.company}`;
+  }
+
+  return `a role at ${profile.company}`;
+}
+
+export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentProps) {
   const sortedProjects = [...projects].sort((left, right) => {
     const yearDelta = parseProjectYear(right.year) - parseProjectYear(left.year);
     if (yearDelta !== 0) {
@@ -48,16 +58,44 @@ export function PortfolioPageContent({ shareProfile }: PortfolioPageContentProps
   const featuredSlugs = new Set(featuredPreviews.map((preview) => preview.slug));
   const summaryProjects = sortedProjects.filter((project) => !featuredSlugs.has(project.slug));
 
-  const shareContextBlock = shareProfile
+  const shareContextBlock = audienceProfile
     ? [
-        `Share profile code: ${shareProfile.code}`,
-        `Target company: ${shareProfile.company}`,
-        shareProfile.position ? `Target position: ${shareProfile.position}` : "",
-        shareProfile.notes ? `Tailoring notes: ${shareProfile.notes}` : "",
+        `Share profile code: ${audienceProfile.code}`,
+        `Target company: ${audienceProfile.company}`,
+        audienceProfile.position ? `Target position: ${audienceProfile.position}` : "",
+        audienceProfile.positionUrl ? `Source role URL: ${audienceProfile.positionUrl}` : "",
+        audienceProfile.intentType ? `Intent type: ${audienceProfile.intentType}` : "",
+        audienceProfile.notes ? `Tailoring notes: ${audienceProfile.notes}` : "",
       ]
         .filter(Boolean)
         .join("\n")
     : null;
+  const portfolioRoleSummary = audienceProfile
+    ? getAudienceRoleSummary(audienceProfile)
+    : null;
+  const portfolioHeading = audienceProfile
+    ? `Case studies and evidence for ${portfolioRoleSummary}`
+    : "Case studies and successes";
+  const portfolioDescription = audienceProfile
+    ? `A curated set of flagship case studies followed by the complete project catalog, framed for the ${portfolioRoleSummary} conversation.`
+    : "A curated set of flagship case studies followed by the complete project catalog for breadth across healthcare, enterprise platforms, commerce, and personal build work.";
+  const portfolioSuggestions = audienceProfile
+    ? [
+        `Which case studies matter most for ${portfolioRoleSummary}?`,
+        `What evidence best supports ${portfolioRoleSummary}?`,
+        `Where might ${audienceProfile.company} still want more proof?`,
+      ]
+    : [
+        "Compare all projects",
+        "Show AI-related work",
+        "Which project had the highest impact?",
+      ];
+  const ctaTitle = audienceProfile
+    ? `Need this level of depth for ${audienceProfile.company}?`
+    : "Need this level of depth on your product?";
+  const ctaDescription = audienceProfile
+    ? `I can help connect product, design, and AI workflow strategy in a way that is relevant to ${portfolioRoleSummary}.`
+    : "I can help map your AI roadmap to real workflow impact.";
 
   const portfolioAiContext = [
     "Portfolio landing page with flagship and full project coverage.",
@@ -85,22 +123,34 @@ export function PortfolioPageContent({ shareProfile }: PortfolioPageContentProps
     <PageLayout>
       <SectionShell>
         <SectionLabel>Portfolio</SectionLabel>
-        <SectionHeading>Case studies and successes</SectionHeading>
-        <SectionDescription>
-          A curated set of flagship case studies followed by the complete project
-          catalog for breadth across healthcare, enterprise platforms, commerce,
-          and personal build work.
-        </SectionDescription>
-        {shareProfile ? (
+        <SectionHeading>{portfolioHeading}</SectionHeading>
+        <SectionDescription>{portfolioDescription}</SectionDescription>
+        {audienceProfile ? (
           <div className="mt-6 rounded-xl border border-primary/30 bg-primary/[0.06] px-4 py-3">
             <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
               Tailored view
             </p>
             <p className="mt-2 text-sm leading-relaxed text-foreground">
               This portfolio link is tailored for{" "}
-              <span className="font-semibold text-foreground">{shareProfile.company}</span>
-              {shareProfile.position ? ` (${shareProfile.position})` : ""}.
+              <span className="font-semibold text-foreground">{audienceProfile.company}</span>
+              {audienceProfile.position ? ` (${audienceProfile.position})` : ""}
+              {audienceProfile.intentType ? ` for a ${audienceProfile.intentType} conversation` : ""}.
             </p>
+            {audienceProfile.notes ? (
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Notes: {audienceProfile.notes}
+              </p>
+            ) : null}
+            {audienceProfile.positionUrl ? (
+              <a
+                href={audienceProfile.positionUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex text-sm font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+              >
+                View source role
+              </a>
+            ) : null}
           </div>
         ) : null}
       </SectionShell>
@@ -123,14 +173,10 @@ export function PortfolioPageContent({ shareProfile }: PortfolioPageContentProps
           compact
           className="rounded-xl border border-border bg-card p-4"
           page="portfolio"
-          shareCode={shareProfile?.code}
+          shareCode={audienceProfile?.code}
           context={portfolioAiContext}
           helperText="Ask about technology choices, chronology, outcomes, and tradeoffs across projects."
-          suggestions={[
-            "Compare all projects",
-            "Show AI-related work",
-            "Which project had the highest impact?",
-          ]}
+          suggestions={portfolioSuggestions}
         />
       </SectionShell>
 
@@ -148,8 +194,8 @@ export function PortfolioPageContent({ shareProfile }: PortfolioPageContentProps
 
       <SectionShell id="portfolio-cta">
         <CallToAction
-          title="Need this level of depth on your product?"
-          description="I can help map your AI roadmap to real workflow impact."
+          title={ctaTitle}
+          description={ctaDescription}
           primaryLabel="Contact me"
           primaryHref="/contact"
           secondaryLabel="Read the blog"

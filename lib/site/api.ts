@@ -52,6 +52,41 @@ export interface AIResponse {
   model: string;
 }
 
+export interface IntentLink {
+  code: string;
+  url: string;
+  queryParam: "ukr";
+  org: string;
+  positionTitle: string | null;
+  positionUrl: string | null;
+  intentType: string | null;
+  notes: string | null;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface IntentLinksResponse {
+  ok: true;
+  links: IntentLink[];
+}
+
+export interface IntentLinkResponse {
+  ok: true;
+  link: IntentLink;
+}
+
+export interface SessionResponse {
+  ok: true;
+  activeCode: string | null;
+}
+
+export interface ApiFailure {
+  ok: false;
+  error: string;
+  code?: string;
+}
+
 export class ApiError extends Error {
   constructor(public status: number, message: string) {
     super(message);
@@ -93,5 +128,40 @@ export const api = {
     apiFetch<AIResponse>("/ai", {
       method: "POST",
       body: JSON.stringify(payload),
+    }),
+  getIntentLinks: (password: string) =>
+    apiFetch<IntentLinksResponse | ApiFailure>("/intent-links", {
+      headers: {
+        "x-intent-admin-password": password,
+      },
+    }),
+  createIntentLink: (
+    password: string,
+    payload: {
+      org: string;
+      positionTitle?: string;
+      positionUrl?: string;
+      intentType?: string;
+      notes?: string;
+    },
+  ) =>
+    apiFetch<IntentLinkResponse | ApiFailure>("/intent-links", {
+      method: "POST",
+      body: JSON.stringify({ password, ...payload }),
+    }),
+  deactivateIntentLink: (password: string, code: string) =>
+    apiFetch<IntentLinkResponse | ApiFailure>("/intent-links", {
+      method: "PATCH",
+      body: JSON.stringify({ password, code }),
+    }),
+  persistUkrIntent: (ukr: string) =>
+    apiFetch<SessionResponse | ApiFailure>("/intent-links/session", {
+      method: "POST",
+      body: JSON.stringify({ ukr }),
+    }),
+  clearUkrIntent: () =>
+    apiFetch<SessionResponse | ApiFailure>("/intent-links/session", {
+      method: "POST",
+      body: JSON.stringify({ clear: true }),
     }),
 } as const;

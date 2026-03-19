@@ -1,6 +1,8 @@
-"use client";
-
+import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { ContentCard } from "@/components/site/ContentCard";
+import { IntentAudienceBanner } from "@/components/site/intent/IntentAudienceBanner";
+import { UkrSessionBridge } from "@/components/site/intent/UkrSessionBridge";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import {
   SectionDescription,
@@ -22,8 +24,32 @@ import {
   resumeSignals,
   trainingAndCertifications,
 } from "@/data/experience";
+import {
+  buildUkrIntentAiContext,
+  buildUkrScopedMetadata,
+  getIntentRoleSummary,
+  resolveUkrExperience,
+  UKR_COOKIE_NAME,
+} from "@/lib/site/ukrLinks";
 
-export default function ResumePage() {
+type PageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  return buildUkrScopedMetadata("/resume", searchParams);
+}
+
+export default async function ResumePage({ searchParams }: PageProps) {
+  const cookieStore = await cookies();
+  const intentState = await resolveUkrExperience({
+    searchParams,
+    cookieCode: cookieStore.get(UKR_COOKIE_NAME)?.value ?? null,
+  });
+  const activeIntent = intentState.activeIntent;
+  const fitTarget = activeIntent ? getIntentRoleSummary(activeIntent) : null;
   const resumeAiContext = [
     `Profile: ${profile.name}`,
     `Title: ${profile.title}`,
@@ -44,10 +70,29 @@ export default function ResumePage() {
     `Training and certifications: ${trainingAndCertifications
       .map((item) => `${item.year}: ${item.title} - ${item.provider}. ${item.summary}`)
       .join(" ")}`,
+    activeIntent ? buildUkrIntentAiContext(activeIntent) : "",
   ].join("\n\n");
+  const resumeSuggestions = activeIntent
+    ? [
+        `Summarize this resume for ${fitTarget}`,
+        `What strengths matter most for ${fitTarget}?`,
+        `What interview concerns might ${activeIntent.org} raise?`,
+      ]
+    : [
+        "Summarize this resume for a hiring manager",
+        "Extract top leadership strengths",
+        "Draft interview questions based on this profile",
+      ];
+  const resumeHelperText = activeIntent
+    ? `Ask AI for a role-fit summary for ${fitTarget}, interview briefing, or leadership talking points.`
+    : "Ask AI for a role-fit summary, interview briefing, or leadership talking points.";
 
   return (
     <PageLayout>
+      <UkrSessionBridge
+        persistCode={intentState.shouldPersistQueryCode ? activeIntent?.code ?? null : null}
+        clearInvalid={intentState.shouldClearCookie}
+      />
       <SectionShell>
         <SectionLabel>Resume</SectionLabel>
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.8fr)_minmax(280px,0.9fr)] lg:items-start">
@@ -62,6 +107,11 @@ export default function ResumePage() {
             <DownloadButton href="/resume.pdf" />
           </div>
         </div>
+        {activeIntent ? (
+          <div className="mt-6">
+            <IntentAudienceBanner intentLink={activeIntent} />
+          </div>
+        ) : null}
       </SectionShell>
 
       <SectionShell className="py-4 md:py-6">
@@ -192,12 +242,8 @@ export default function ResumePage() {
             className="mt-4"
             page="resume"
             context={resumeAiContext}
-            helperText="Ask AI for a role-fit summary, interview briefing, or leadership talking points."
-            suggestions={[
-              "Summarize this resume for a hiring manager",
-              "Extract top leadership strengths",
-              "Draft interview questions based on this profile",
-            ]}
+            helperText={resumeHelperText}
+            suggestions={resumeSuggestions}
           />
         </div>
       </SectionShell>
