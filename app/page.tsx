@@ -51,27 +51,27 @@ export default function HomePage() {
     <PageLayout>
       <ExecutiveHero hero={homeHero} />
 
-      <SectionShell className="pt-0">
-        <section className="rounded-2xl border border-border bg-card p-5 md:p-6">
-          <SectionLabel>AI Briefing</SectionLabel>
-          <SectionHeading>Get a fast leadership-fit brief from this profile</SectionHeading>
-          <SectionDescription>
-            Ask for a quick summary tailored to hiring managers, recruiters, or
-            executive stakeholders reviewing design and AI transformation fit.
-          </SectionDescription>
-          <AIWorkspace
-            compact
-            className="mt-5"
-            page="home"
-            context={homeAiContext}
-            helperText="Try a prompt, then use the response to guide your next review step."
-            suggestions={[
-              "Summarize Udit's leadership fit in 5 bullets",
-              "What roles is this profile best suited for?",
-              "What makes this relevant for AI transformation?",
-            ]}
-          />
-        </section>
+      <SectionShell className="pt-0 bg-gradient-to-b from-[rgba(166,198,234,0.25)] via-[rgba(229,239,251,0.6)] to-transparent">
+        <div className="flex justify-center">
+          <section className="w-full max-w-4xl rounded-2xl border border-border bg-card p-5 md:p-6">
+            <SectionLabel>AI Briefing</SectionLabel>
+            <SectionHeading>Check if I'm fit for a particular role</SectionHeading>
+            <SectionDescription>
+              Ask for a quick summary tailored to the role you're hiring for. Get an unbiased and informed opinion.
+            </SectionDescription>
+            <AIWorkspace
+              compact
+              className="mt-5"
+              page="home"
+              context={homeAiContext}
+              suggestions={[
+                "Summarize Udit's leadership fit in 5 bullets",
+                "What roles is this profile best suited for?",
+                "What makes this relevant for AI transformation?",
+              ]}
+            />
+          </section>
+        </div>
       </SectionShell>
 
       <SectionShell className="border-b border-border/50 py-10 md:py-10">
@@ -106,7 +106,10 @@ export default function HomePage() {
         </div>
       </SectionShell>
 
-      <SectionShell id="ai-leadership" className="border-y border-border/50">
+      <SectionShell
+        id="ai-leadership"
+        className="border-y border-border/50 bg-gradient-to-b from-[rgba(166,198,234,0.35)] via-[rgba(229,239,251,0.65)] to-transparent"
+      >
         <SectionLabel>AI Leadership</SectionLabel>
         <SectionHeading>
           AI-first product thinking grounded in workflows and operating reality
@@ -115,7 +118,7 @@ export default function HomePage() {
           For me, AI work is less about novelty and more about decision support,
           orchestration, trust, and how product organizations operate.
         </SectionDescription>
-        <div className="mt-8">
+        <div className="mt-10 flex justify-center">
           <AILeadershipSection
             intro={homeAILeadership.intro}
             focusAreas={homeAILeadership.focusAreas}
@@ -177,7 +180,7 @@ export default function HomePage() {
         </div>
       </SectionShell>
 
-      <SectionShell>
+      <SectionShell className="bg-gradient-to-b from-[rgba(166,198,234,0.25)] via-[rgba(229,239,251,0.6)] to-transparent">
         <SectionLabel>Partner Feedback</SectionLabel>
         <SectionHeading>How collaborators describe working with me</SectionHeading>
         <div className="grid gap-4 md:grid-cols-3">
@@ -213,32 +216,26 @@ export default function HomePage() {
       </SectionShell>
 
       <SectionShell>
-        <section className="rounded-2xl border border-border bg-card p-6 md:p-8">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+        <section className="rounded-2xl border border-border bg-[hsl(217_65%_73%)] p-6 text-white shadow-[0_10px_40px_rgba(30,64,175,0.35)] md:p-8">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-white/80">
             {homeCallToAction.eyebrow}
           </p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl">
             {homeCallToAction.title}
           </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/90">
             {homeCallToAction.description}
           </p>
           <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <Link
               href={homeCallToAction.primaryHref}
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-primary transition-opacity hover:bg-white/90"
             >
               {homeCallToAction.primaryLabel} <ArrowRight size={14} />
             </Link>
             <Link
-              href={homeCallToAction.secondaryHref}
-              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {homeCallToAction.secondaryLabel}
-            </Link>
-            <Link
               href={homeCallToAction.tertiaryHref}
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 text-sm font-medium text-white underline-offset-4 transition-colors hover:underline hover:text-white/80"
             >
               {homeCallToAction.tertiaryLabel}
             </Link>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/site/Providers";
 import { siteConfig } from "@/lib/site/content";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -36,8 +37,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers />
-        {children}
+        <ThemeProvider>
+          <Providers />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

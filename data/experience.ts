@@ -29,7 +29,7 @@ export const profile = {
   name: "Udit Khandelwal",
   title: "Design leader focused on AI-first products, enterprise platforms, and transformation work",
   summary:
-    "Director-level design leader with engineering roots and 80+ years across healthcare, enterprise software, cloud platforms, and commerce. I work with teams to clarify direction, modernize complex workflows, and build durable design and product systems for long-term outcomes.",
+    "Director-level design leader with engineering roots and 18+ years across healthcare, enterprise software, cloud platforms, and commerce. I work with teams to clarify direction, modernize complex workflows, and build durable design and product systems for long-term outcomes.",
 };
 
 export const resumeSignals: ResumeSignal[] = [

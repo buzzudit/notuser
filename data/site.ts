@@ -36,7 +36,7 @@ export const homeHero = {
   subheadline:
     "Director-level design leader helping product organizations turn complex enterprise workflows into clear, trustworthy experiences.",
   credibilityLine:
-    "Director, Experience Design at athenahealth, with 80+ years across healthcare, enterprise software, cloud platforms, and commerce, grounded in an engineering foundation.",
+    "18+ years across healthcare, enterprise software, cloud platforms, and commerce, grounded in an engineering foundation.",
   imageSrc: "/images/udit-bw.png",
   imageAlt: "Black and white portrait of Udit Khandelwal",
   quickSignals: [
@@ -52,7 +52,7 @@ export const homeHero = {
 };
 
 export const trustIndicators: HomeMetric[] = [
-  { value: "80+", label: "Years across design and product delivery" },
+  { value: "18+", label: "Years across design and product delivery" },
   { value: "Director", label: "Current leadership scope" },
   { value: "70+", label: "Products influenced in platform vision work" },
   { value: "6", label: "Companies across engineering and design leadership" },

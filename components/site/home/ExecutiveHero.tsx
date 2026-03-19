@@ -20,8 +20,8 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-border/50">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.16),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.08),transparent_28%)]" />
-      <div className="container relative py-12 md:py-20">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+      <div className="container relative pt-12 md:pt-20">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <p className="font-mono text-lg uppercase tracking-[0.16em] text-muted-foreground md:text-2xl">
               {hero.name}
@@ -57,39 +57,24 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline md:ml-6"
               >
                 Explore case studies
               </Link>
             </div>
           </div>
 
-          <div className="hidden gap-4 lg:grid">
-            <div className="relative min-h-[560px]">
-              <div className="absolute inset-x-10 bottom-6 h-16 rounded-full bg-primary/10 blur-3xl" />
-              <div className="relative h-full w-full">
-                <Image
-                  src={hero.imageSrc}
-                  alt={hero.imageAlt}
-                  fill
-                  className="object-contain object-bottom"
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 38vw"
-                />
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-card/85 p-5">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                Focus Areas
-              </p>
-              <ul className="mt-4 space-y-3">
-                {hero.fitRoles.map((role) => (
-                  <li key={role} className="text-sm leading-relaxed text-muted-foreground">
-                    {role}
-                  </li>
-                ))}
-              </ul>
+          <div className="hidden lg:flex items-end justify-end">
+            <div className="relative h-[620px] w-full max-w-[420px]">
+              <div className="absolute inset-x-6 bottom-2 h-20 rounded-full bg-primary/10 blur-3xl" />
+              <Image
+                src={hero.imageSrc}
+                alt={hero.imageAlt}
+                fill
+                className="object-contain object-bottom"
+                priority
+                sizes="(max-width: 1280px) 36vw, 32vw"
+              />
             </div>
           </div>
         </div>
