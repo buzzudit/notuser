@@ -10,14 +10,18 @@ type TestimonialCardProps = {
 
 export function TestimonialCard({ quote, author, role, photoSrc }: TestimonialCardProps) {
   return (
-    <article className="flex flex-col rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/20">
-      <span className="mb-3 font-serif text-3xl leading-none text-primary/50" aria-hidden="true">
+    <article className="relative flex flex-col overflow-hidden rounded-xl bg-card px-5 pb-5 pt-10">
+      <span
+        className="pointer-events-none absolute left-3 -top-5 font-serif text-[14rem] leading-[1.2] text-primary"
+        style={{ opacity: 0.1 }}
+        aria-hidden="true"
+      >
         &ldquo;
       </span>
-      <p className="flex-1 text-sm leading-relaxed text-foreground/90">{quote}</p>
-      <div className="mt-4 border-t border-border/50 pt-4">
+      <p className="relative z-10 mt-5 flex-1 text-sm leading-relaxed text-foreground/90">{quote}</p>
+      <div className="relative z-10 mt-4 border-t border-border/50 pt-4">
         {photoSrc ? (
-          <div className="mb-3 h-12 w-12 overflow-hidden rounded-full border border-border/60 bg-secondary/40">
+          <div className="mb-3 h-12 w-12 overflow-hidden rounded-full bg-secondary/40">
             <Image
               src={resolveMirroredMediaSrc(photoSrc)}
               alt={`${author} profile photo`}
@@ -28,7 +32,11 @@ export function TestimonialCard({ quote, author, role, photoSrc }: TestimonialCa
           </div>
         ) : null}
         <p className="text-sm font-medium text-foreground">{author}</p>
-        <p className="mt-0.5 font-mono text-[11px] uppercase tracking-wide text-muted-foreground">{role}</p>
+        {role ? (
+          <p className="mt-0.5 font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
+            {role}
+          </p>
+        ) : null}
       </div>
     </article>
   );

@@ -139,7 +139,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
           >
             View full portfolio <ArrowRight size={14} />
           </Link>
@@ -205,7 +205,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
           >
             View all writing <ArrowRight size={14} />
           </Link>
@@ -235,7 +235,7 @@ export default function HomePage() {
             </Link>
             <Link
               href={homeCallToAction.tertiaryHref}
-              className="inline-flex items-center gap-2 text-sm font-medium text-white underline-offset-4 transition-colors hover:underline hover:text-white/80"
+              className="inline-flex items-center gap-2 text-sm font-medium text-white underline underline-offset-4 transition-colors hover:text-white/80"
             >
               {homeCallToAction.tertiaryLabel}
             </Link>

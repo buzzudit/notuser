@@ -57,7 +57,7 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
               </Link>
               <Link
                 href="/portfolio"
-                className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline md:ml-6"
+                className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground md:ml-6"
               >
                 Explore case studies
               </Link>

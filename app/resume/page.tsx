@@ -9,15 +9,16 @@ import {
   SectionShell,
 } from "@/components/site/SectionShell";
 import { ExperienceTimeline } from "@/components/site/ExperienceTimeline";
-import { SkillGrid } from "@/components/site/SkillGrid";
 import { ImpactStats } from "@/components/site/ImpactStats";
 import { DownloadButton } from "@/components/site/DownloadButton";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
+import { TestimonialCard } from "@/components/site/TestimonialCard";
 import {
   achievements,
   education,
   experienceTimeline,
   profile,
+  resumeTestimonials,
   resumeSignals,
   trainingAndCertifications,
 } from "@/data/experience";
@@ -55,42 +56,24 @@ export default function ResumePage() {
             <p className="mt-3 max-w-3xl text-lg leading-relaxed text-foreground/90">
               {profile.title}
             </p>
-            <div className="mt-4 max-w-3xl">
-              <SectionDescription>{profile.summary}</SectionDescription>
-            </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-[hsl(217_65%_73%)] p-5 text-white shadow-[0_10px_40px_rgba(30,64,175,0.35)]">
-            <p className="font-mono text-[11px] uppercase tracking-widest text-white/80">
-              At a glance
-            </p>
-            <div className="mt-4 space-y-3 text-sm text-white/90">
-              <p>Director-level design leadership in enterprise healthcare and platform environments.</p>
-              <p>Career progression at athenahealth from Manager to Director across platform vision, UX maturity, and cross-zone transformation.</p>
-              <p>Recognized for AI transformation leadership, hands-on enablement, and sustained cross-functional impact.</p>
-            </div>
-            <div className="mt-5">
-              <DownloadButton href="/resume.pdf" className="bg-white text-primary hover:bg-white/90" />
-            </div>
+          <div className="flex justify-start lg:justify-end">
+            <DownloadButton href="/resume.pdf" />
           </div>
         </div>
+      </SectionShell>
 
-        <div className="mx-auto mt-8 w-full max-w-4xl rounded-2xl border border-border bg-card p-5 md:p-6">
-          <p className="text-center font-mono text-[11px] uppercase tracking-widest text-primary">
-            AI resume helper
-          </p>
-          <AIWorkspace
-            className="mt-4"
-            page="resume"
-            context={resumeAiContext}
-            helperText="Ask AI for a role-fit summary, interview briefing, or leadership talking points."
-            suggestions={[
-              "Summarize this resume for a hiring manager",
-              "Extract top leadership strengths",
-              "Draft interview questions based on this profile",
-            ]}
-          />
-        </div>
+      <SectionShell className="py-4 md:py-6">
+        <SectionLabel>Impact</SectionLabel>
+        <SectionHeading>Career signals</SectionHeading>
+        <ImpactStats />
+      </SectionShell>
+
+      <SectionShell>
+        <SectionLabel>Experience</SectionLabel>
+        <SectionHeading>Career progression from engineering roots to design leadership</SectionHeading>
+        <ExperienceTimeline />
       </SectionShell>
 
       <SectionShell>
@@ -118,12 +101,6 @@ export default function ResumePage() {
       </SectionShell>
 
       <SectionShell>
-        <SectionLabel>Impact</SectionLabel>
-        <SectionHeading>Career signals</SectionHeading>
-        <ImpactStats />
-      </SectionShell>
-
-      <SectionShell>
         <SectionLabel>Selected Outcomes</SectionLabel>
         <SectionHeading>Leadership scope and progression</SectionHeading>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
@@ -140,27 +117,31 @@ export default function ResumePage() {
       </SectionShell>
 
       <SectionShell>
-        <SectionLabel>Career Timeline</SectionLabel>
-        <SectionHeading>Progression from engineering roots to design leadership</SectionHeading>
-        <ExperienceTimeline />
-      </SectionShell>
-
-      <SectionShell>
-        <SectionLabel>Capabilities</SectionLabel>
-        <SectionHeading>How I operate across design, product, and transformation work</SectionHeading>
-        <SkillGrid />
-      </SectionShell>
-
-      <SectionShell>
         <SectionLabel>Education</SectionLabel>
-        <div className="grid gap-3 md:grid-cols-2">
+        <SectionHeading>Education and professional development</SectionHeading>
+        <div className="mt-6 space-y-4">
           {education.map((item) => (
-            <ContentCard key={`${item.institution}-${item.year}`} hoverable={false}>
-              <h3 className="text-sm font-medium text-foreground">{item.degree}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
-                {item.institution} - {item.year}
-              </p>
-            </ContentCard>
+            <div
+              key={`${item.institution}-${item.year}`}
+              className="rounded-3xl border border-border bg-card px-6 py-7 md:px-8 md:py-9"
+            >
+              <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-3xl">
+                  <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
+                    Foundational degree
+                  </p>
+                  <h3 className="mt-4 text-xl font-semibold tracking-tight text-foreground md:text-2xl">
+                    {item.degree}
+                  </h3>
+                  <p className="mt-3 text-sm text-foreground/80 md:text-base">
+                    {item.institution}
+                  </p>
+                </div>
+                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground md:text-right">
+                  {item.year}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
 
@@ -180,6 +161,44 @@ export default function ResumePage() {
               </ContentCard>
             ))}
           </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell className="bg-gradient-to-b from-[rgba(166,198,234,0.25)] via-[rgba(229,239,251,0.6)] to-transparent">
+        <SectionLabel>Testimonials</SectionLabel>
+        <SectionHeading>What collaborators say</SectionHeading>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {resumeTestimonials.map((testimonial) => (
+            <TestimonialCard
+              key={`${testimonial.author}-${testimonial.photoSrc}`}
+              quote={testimonial.quote}
+              author={testimonial.author}
+              role={testimonial.role}
+              photoSrc={testimonial.photoSrc}
+            />
+          ))}
+        </div>
+      </SectionShell>
+
+      <SectionShell>
+        <div className="mb-4 flex justify-center">
+          <DownloadButton href="/resume.pdf" />
+        </div>
+        <div className="mx-auto w-full max-w-4xl rounded-2xl border border-border bg-card p-5 md:p-6">
+          <p className="text-center font-mono text-[11px] uppercase tracking-widest text-primary">
+            AI resume helper
+          </p>
+          <AIWorkspace
+            className="mt-4"
+            page="resume"
+            context={resumeAiContext}
+            helperText="Ask AI for a role-fit summary, interview briefing, or leadership talking points."
+            suggestions={[
+              "Summarize this resume for a hiring manager",
+              "Extract top leadership strengths",
+              "Draft interview questions based on this profile",
+            ]}
+          />
         </div>
       </SectionShell>
     </PageLayout>

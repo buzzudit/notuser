@@ -24,7 +24,10 @@ const SYSTEM_INSTRUCTIONS =
   "Keep responses concise and practical. " +
   "IMPORTANT: Always format your responses using markdown structure: " +
   "use headings (##, ###), bullet points (- or *), and numbered lists (1., 2., etc.) to organize information clearly. " +
-  "Break content into scannable sections with clear hierarchy.";
+  "Break content into scannable sections with clear hierarchy. " +
+  "When you reference pages from this site, use relative markdown links only, such as [Read more](/blog/example-post) or [View portfolio](/portfolio). " +
+  "Never use absolute URLs or hardcoded domains. " +
+  "When useful, end with a short 'Relevant links' section that points to the most helpful internal pages.";
 
 type RequesterRateState = {
   burstTimestamps: number[];

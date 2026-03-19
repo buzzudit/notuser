@@ -50,16 +50,17 @@ export default function BlogPage() {
     .slice(0, 24);
   const blogAiContext = [
     `Blog landing with ${blogPosts.length} posts (${featured.length} featured, ${archive.length} archive).`,
+    "Core site routes: /blog | /portfolio | /resume | /contact",
     `Featured posts: ${featured
       .map(
         (post) =>
-          `${post.title} | ${getBlogDisplayCategory(post)} | ${post.author} | ${getBlogReadTime(post.readTime)} | tags: ${getBlogDisplayTags(post).join(", ")}`,
+          `${post.title} | path: /blog/${post.slug} | ${getBlogDisplayCategory(post)} | ${post.author} | ${getBlogReadTime(post.readTime)} | tags: ${getBlogDisplayTags(post).join(", ")}`,
       )
       .join(" || ")}`,
     `Archive posts: ${archive
       .map(
         (post) =>
-          `${post.title} | ${getBlogDisplayCategory(post)} | ${post.author} | ${getBlogReadTime(post.readTime)} | tags: ${getBlogDisplayTags(post).join(", ")}`,
+          `${post.title} | path: /blog/${post.slug} | ${getBlogDisplayCategory(post)} | ${post.author} | ${getBlogReadTime(post.readTime)} | tags: ${getBlogDisplayTags(post).join(", ")}`,
       )
       .join(" || ")}`,
     `Common themes: ${commonThemes.join(", ")}`,

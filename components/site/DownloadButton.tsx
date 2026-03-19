@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Download } from "lucide-react";
 
 type DownloadButtonProps = {
   href: string;
@@ -11,9 +10,8 @@ export function DownloadButton({ href, label = "Download resume", className }: D
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground ${className ?? ""}`.trim()}
+      className={`inline-flex items-center rounded-lg px-4 py-2 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground ${className ?? ""}`.trim()}
     >
-      <Download size={14} />
       {label}
     </Link>
   );

@@ -350,27 +350,27 @@ export const aiWorkflowSteps = [
 export const contactReasons: ContactReason[] = [
   {
     label: "Hiring",
-    title: "Design leadership roles",
+    title: "Senior design leadership searches",
     description:
-      "For teams hiring a senior design leader who can set direction, align functions, and raise product quality across complex environments.",
+      "For teams hiring a design leader who can create clarity, align product and engineering, and raise quality across complex enterprise work.",
   },
   {
-    label: "Transformation",
-    title: "AI-first product and workflow work",
+    label: "AI",
+    title: "AI-first product and workflow transformation",
     description:
-      "For organizations exploring how AI changes product strategy, operating models, decision support, and human-plus-AI workflows.",
+      "For organizations rethinking product strategy, operating models, and human-plus-AI workflows in ways that can actually ship and scale.",
   },
   {
     label: "Portfolio",
-    title: "Case-study and portfolio deep dives",
+    title: "Case study walkthroughs",
     description:
-      "For hiring managers and leadership teams who want to go deeper on selected work, scope, tradeoffs, and how I operated in context.",
+      "For hiring managers and leadership teams who want to go deeper on selected work, decision-making, tradeoffs, and leadership context.",
   },
   {
     label: "Advisory",
-    title: "Strategic product and design conversations",
+    title: "Focused advisory conversations",
     description:
-      "For focused conversations on platform thinking, design systems, organizational clarity, or quality at scale.",
+      "For targeted discussions on platform thinking, design systems, product direction, or improving quality and clarity at scale.",
   },
 ];
 

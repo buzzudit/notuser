@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { AlertCircle, Loader2, Send, Sparkles } from "lucide-react";
@@ -17,6 +18,256 @@ interface AIWorkspaceProps {
   helperText?: string;
   autoSubmitOnPrefill?: boolean;
   className?: string;
+}
+
+type OrderedAnswerItem = {
+  title: string;
+  bullets: string[];
+  paragraphs: string[];
+};
+
+function getNextNonEmptyLine(lines: string[], startIndex: number) {
+  for (let index = startIndex; index < lines.length; index += 1) {
+    const trimmedLine = lines[index].trim();
+    if (trimmedLine) {
+      return trimmedLine;
+    }
+  }
+
+  return null;
+}
+
+function renderHeading(level: number, key: string, text: string) {
+  const headingLevel = Math.min(level + 2, 6);
+
+  if (headingLevel === 2) {
+    return <h2 key={key} className="font-semibold mt-3 mb-1">{text}</h2>;
+  }
+
+  if (headingLevel === 3) {
+    return <h3 key={key} className="font-semibold mt-3 mb-1">{text}</h3>;
+  }
+
+  if (headingLevel === 4) {
+    return <h4 key={key} className="font-semibold mt-3 mb-1">{text}</h4>;
+  }
+
+  if (headingLevel === 5) {
+    return <h5 key={key} className="font-semibold mt-3 mb-1">{text}</h5>;
+  }
+
+  return <h6 key={key} className="font-semibold mt-3 mb-1">{text}</h6>;
+}
+
+function renderInlineContent(text: string, keyPrefix: string) {
+  const segments: React.ReactNode[] = [];
+  const linkPattern = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null = linkPattern.exec(text);
+
+  while (match) {
+    const [fullMatch, label, href] = match;
+    const startIndex = match.index;
+
+    if (startIndex > lastIndex) {
+      segments.push(text.slice(lastIndex, startIndex));
+    }
+
+    segments.push(
+      <Link
+        key={`${keyPrefix}-${startIndex}`}
+        href={href}
+        className="font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+      >
+        {label}
+      </Link>,
+    );
+
+    lastIndex = startIndex + fullMatch.length;
+    match = linkPattern.exec(text);
+  }
+
+  if (lastIndex < text.length) {
+    segments.push(text.slice(lastIndex));
+  }
+
+  return segments.length > 0 ? segments : text;
+}
+
+function renderAnswerBlocks(answer: string) {
+  const lines = answer.split("\n");
+  const blocks: React.ReactNode[] = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const line = lines[index];
+    const trimmedLine = line.trim();
+
+    if (!trimmedLine) {
+      blocks.push(<br key={`br-${index}`} />);
+      index += 1;
+      continue;
+    }
+
+    if (trimmedLine.match(/^#+\s/)) {
+      const level = trimmedLine.match(/^(#+)/)?.[1].length || 1;
+      const text = trimmedLine.replace(/^#+\s/, "");
+      blocks.push(renderHeading(level, `h-${index}`, text));
+      index += 1;
+      continue;
+    }
+
+    if (trimmedLine.match(/^\d+\.\s/)) {
+      const items: OrderedAnswerItem[] = [];
+      const start = index;
+
+      while (index < lines.length) {
+        const currentLine = lines[index].trim();
+
+        if (!currentLine) {
+          const nextNonEmpty = getNextNonEmptyLine(lines, index + 1);
+          if (!nextNonEmpty || !nextNonEmpty.match(/^\d+\.\s/)) {
+            break;
+          }
+
+          index += 1;
+          continue;
+        }
+
+        if (!currentLine.match(/^\d+\.\s/)) {
+          break;
+        }
+
+        const item: OrderedAnswerItem = {
+          title: currentLine.replace(/^\d+\.\s/, ""),
+          bullets: [],
+          paragraphs: [],
+        };
+        index += 1;
+
+        while (index < lines.length) {
+          const detailLine = lines[index];
+          const trimmedDetailLine = detailLine.trim();
+
+          if (!trimmedDetailLine) {
+            const nextNonEmpty = getNextNonEmptyLine(lines, index + 1);
+            if (
+              !nextNonEmpty ||
+              nextNonEmpty.match(/^\d+\.\s/) ||
+              nextNonEmpty.match(/^#+\s/)
+            ) {
+              index += 1;
+              break;
+            }
+
+            index += 1;
+            continue;
+          }
+
+          if (trimmedDetailLine.match(/^\d+\.\s/) || trimmedDetailLine.match(/^#+\s/)) {
+            break;
+          }
+
+          if (trimmedDetailLine.match(/^[\*\-]\s/)) {
+            item.bullets.push(trimmedDetailLine.replace(/^[\*\-]\s/, ""));
+            index += 1;
+            continue;
+          }
+
+          item.paragraphs.push(trimmedDetailLine);
+          index += 1;
+        }
+
+        items.push(item);
+
+        while (index < lines.length && !lines[index].trim()) {
+          const nextNonEmpty = getNextNonEmptyLine(lines, index + 1);
+          if (nextNonEmpty?.match(/^\d+\.\s/)) {
+            index += 1;
+            continue;
+          }
+
+          break;
+        }
+      }
+
+      blocks.push(
+        <ol key={`ol-${start}`} className="ml-6 list-decimal space-y-4">
+          {items.map((item, itemIndex) => (
+            <li key={`oli-${start}-${itemIndex}`} className="text-sm leading-relaxed">
+              <p>{renderInlineContent(item.title, `olt-${start}-${itemIndex}`)}</p>
+              {item.paragraphs.map((paragraph, paragraphIndex) => (
+                <p
+                  key={`olp-${start}-${itemIndex}-${paragraphIndex}`}
+                  className="mt-2 text-sm leading-relaxed"
+                >
+                  {renderInlineContent(paragraph, `olp-${start}-${itemIndex}-${paragraphIndex}`)}
+                </p>
+              ))}
+              {item.bullets.length > 0 ? (
+                <ul className="mt-2 ml-5 list-disc space-y-1">
+                  {item.bullets.map((bullet, bulletIndex) => (
+                    <li
+                      key={`olb-${start}-${itemIndex}-${bulletIndex}`}
+                      className="text-sm leading-relaxed"
+                    >
+                      {renderInlineContent(bullet, `olb-${start}-${itemIndex}-${bulletIndex}`)}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </li>
+          ))}
+        </ol>,
+      );
+      continue;
+    }
+
+    if (trimmedLine.match(/^[\*\-]\s/)) {
+      const items: string[] = [];
+      const start = index;
+
+      while (index < lines.length) {
+        const currentLine = lines[index].trim();
+        if (!currentLine) {
+          const nextNonEmpty = getNextNonEmptyLine(lines, index + 1);
+          if (!nextNonEmpty?.match(/^[\*\-]\s/)) {
+            break;
+          }
+
+          index += 1;
+          continue;
+        }
+
+        if (!currentLine.match(/^[\*\-]\s/)) {
+          break;
+        }
+
+        items.push(currentLine.replace(/^[\*\-]\s/, ""));
+        index += 1;
+      }
+
+      blocks.push(
+        <ul key={`ul-${start}`} className="ml-6 list-disc space-y-1">
+          {items.map((item, itemIndex) => (
+            <li key={`uli-${start}-${itemIndex}`} className="text-sm leading-relaxed">
+              {renderInlineContent(item, `uli-${start}-${itemIndex}`)}
+            </li>
+          ))}
+        </ul>,
+      );
+      continue;
+    }
+
+    blocks.push(
+      <p key={`p-${index}`} className="mb-2 text-sm leading-relaxed">
+        {renderInlineContent(line, `p-${index}`)}
+      </p>,
+    );
+    index += 1;
+  }
+
+  return blocks;
 }
 
 export function AIWorkspace({
@@ -166,54 +417,7 @@ export function AIWorkspace({
           <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-primary">
             AI response
           </p>
-          <div className="prose prose-sm max-w-none text-foreground">
-            {answer.split('\n').map((line, idx) => {
-              const trimmedLine = line.trim();
-              if (!trimmedLine) return <br key={idx} />;
-              
-              if (trimmedLine.match(/^#+\s/)) {
-                const level = trimmedLine.match(/^(#+)/)?.[1].length || 1;
-                const text = trimmedLine.replace(/^#+\s/, '');
-                const headingLevel = Math.min(level + 2, 6);
-
-                if (headingLevel === 2) {
-                  return <h2 key={idx} className="font-semibold mt-3 mb-1">{text}</h2>;
-                }
-
-                if (headingLevel === 3) {
-                  return <h3 key={idx} className="font-semibold mt-3 mb-1">{text}</h3>;
-                }
-
-                if (headingLevel === 4) {
-                  return <h4 key={idx} className="font-semibold mt-3 mb-1">{text}</h4>;
-                }
-
-                if (headingLevel === 5) {
-                  return <h5 key={idx} className="font-semibold mt-3 mb-1">{text}</h5>;
-                }
-
-                return <h6 key={idx} className="font-semibold mt-3 mb-1">{text}</h6>;
-              }
-              
-              if (trimmedLine.match(/^[\*\-]\s/)) {
-                return (
-                  <li key={idx} className="ml-4 text-sm leading-relaxed">
-                    {trimmedLine.replace(/^[\*\-]\s/, '')}
-                  </li>
-                );
-              }
-              
-              if (trimmedLine.match(/^\d+\.\s/)) {
-                return (
-                  <li key={idx} className="ml-4 text-sm leading-relaxed list-decimal">
-                    {trimmedLine.replace(/^\d+\.\s/, '')}
-                  </li>
-                );
-              }
-              
-              return <p key={idx} className="text-sm leading-relaxed mb-2">{line}</p>;
-            })}
-          </div>
+          <div className="prose prose-sm max-w-none text-foreground">{renderAnswerBlocks(answer)}</div>
         </div>
       ) : null}
 
