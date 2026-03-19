@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { IntentAudienceBanner } from "@/components/site/intent/IntentAudienceBanner";
+import { UkrSessionBridge } from "@/components/site/intent/UkrSessionBridge";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import { AILeadershipSection } from "@/components/site/home/AILeadershipSection";
 import { ExecutiveHero } from "@/components/site/home/ExecutiveHero";
@@ -32,8 +36,32 @@ import {
   homeWritingSection,
   trustIndicators,
 } from "@/data/site";
+import {
+  buildUkrIntentAiContext,
+  buildUkrScopedMetadata,
+  getIntentRoleSummary,
+  resolveUkrExperience,
+  UKR_COOKIE_NAME,
+} from "@/lib/site/ukrLinks";
 
-export default function HomePage() {
+type PageProps = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export async function generateMetadata({
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  return buildUkrScopedMetadata("/", searchParams);
+}
+
+export default async function HomePage({ searchParams }: PageProps) {
+  const cookieStore = await cookies();
+  const intentState = await resolveUkrExperience({
+    searchParams,
+    cookieCode: cookieStore.get(UKR_COOKIE_NAME)?.value ?? null,
+  });
+  const activeIntent = intentState.activeIntent;
+  const fitTarget = activeIntent ? getIntentRoleSummary(activeIntent) : null;
   const featuredPosts = homeFeaturedWritingSlugs.flatMap((slug) => {
     const post = blogPosts.find((item) => item.slug === slug);
     return post ? [post] : [];
@@ -45,30 +73,52 @@ export default function HomePage() {
     `Credibility: ${homeHero.credibilityLine}`,
     `Why hire themes: ${homeWhyUdit.map((item) => item.title).join(" | ")}`,
     `AI leadership themes: ${homeAILeadership.focusAreas.join(" | ")}`,
+    activeIntent ? buildUkrIntentAiContext(activeIntent) : "",
   ].join("\n");
+  const homeAiHeading = activeIntent
+    ? `Check if I am fit for ${fitTarget}`
+    : "Check if I am fit for a particular role";
+  const homeAiDescription = activeIntent
+    ? `Ask for a quick summary tailored to ${fitTarget}${activeIntent.intentType ? ` and this ${activeIntent.intentType} conversation` : ""}. Get an unbiased and informed opinion.`
+    : "Ask for a quick summary tailored to the role you are hiring for. Get an unbiased and informed opinion.";
+  const homeAiSuggestions = activeIntent
+    ? [
+        `Check fit for ${fitTarget}`,
+        `Which case studies matter most for ${activeIntent.org}?`,
+        `What gaps would a hiring team for ${fitTarget} question?`,
+      ]
+    : [
+        "Summarize Udit's leadership fit in 5 bullets",
+        "What roles is this profile best suited for?",
+        "What makes this relevant for AI transformation?",
+      ];
 
   return (
     <PageLayout>
+      <UkrSessionBridge
+        persistCode={intentState.shouldPersistQueryCode ? activeIntent?.code ?? null : null}
+        clearInvalid={intentState.shouldClearCookie}
+      />
       <ExecutiveHero hero={homeHero} />
+
+      {activeIntent ? (
+        <SectionShell className="pt-0">
+          <IntentAudienceBanner intentLink={activeIntent} />
+        </SectionShell>
+      ) : null}
 
       <SectionShell className="pt-0 bg-gradient-to-b from-[rgba(166,198,234,0.25)] via-[rgba(229,239,251,0.6)] to-transparent">
         <div className="flex justify-center">
           <section className="w-full max-w-4xl rounded-2xl border border-border bg-card p-5 md:p-6">
             <SectionLabel>AI Briefing</SectionLabel>
-            <SectionHeading>Check if I am fit for a particular role</SectionHeading>
-            <SectionDescription>
-              Ask for a quick summary tailored to the role you are hiring for. Get an unbiased and informed opinion.
-            </SectionDescription>
+            <SectionHeading>{homeAiHeading}</SectionHeading>
+            <SectionDescription>{homeAiDescription}</SectionDescription>
             <AIWorkspace
               compact
               className="mt-5"
               page="home"
               context={homeAiContext}
-              suggestions={[
-                "Summarize Udit's leadership fit in 5 bullets",
-                "What roles is this profile best suited for?",
-                "What makes this relevant for AI transformation?",
-              ]}
+              suggestions={homeAiSuggestions}
             />
           </section>
         </div>

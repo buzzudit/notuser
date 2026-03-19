@@ -30,6 +30,7 @@ Required:
 
 Optional:
 - `APP_NAME` (default: `notuser`)
+- `INTENT_LINK_ADMIN_PASSWORD` (required only for `/admin/ukr` management)
 - `OPENAI_API_KEY` (required for `/api/ai`)
 - `OPENAI_MODEL` (default: `gpt-5-mini`)
 - `PORTFOLIO_LINK_ADMIN_PASSWORD` (required for `/api/portfolio-links`)
@@ -116,6 +117,13 @@ Current scripts:
 - `build`: `prisma generate && next build`
 - `start`: `prisma migrate deploy && next start`
 
+## UKR intent links
+
+- Hidden admin route: `/admin/ukr`
+- Public link format: `/?ukr=abc`
+- Valid `ukr` links personalize the current page and persist the context in a 60-day cookie
+- Requests with `ukr` and the admin route are marked non-indexable for search engines
+
 This avoids build-time DB connectivity failures and runs migrations when the service starts in Railway's runtime network.
 
 ## Fast deploy (Windows PowerShell)
@@ -151,4 +159,3 @@ powershell -ExecutionPolicy Bypass -File .\scripts\deploy-fast.ps1 -DryRun
 2. Open `/api/health` and confirm `ok: true`.
 3. Open `/api/db-test` and confirm DB connectivity.
 4. Insert a message from `/` and verify row count/latest message update.
-

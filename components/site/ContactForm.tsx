@@ -6,11 +6,21 @@ import { toast } from "sonner";
 import { api } from "@/lib/site/api";
 import { contactConversationOptions } from "@/data/site";
 
-export function ContactForm() {
+type ContactFormProps = {
+  initialCompany?: string;
+  messagePlaceholder?: string;
+  introText?: string;
+};
+
+export function ContactForm({
+  initialCompany = "",
+  messagePlaceholder = "Share the role, challenge, or context and I will reply with the most relevant next step.",
+  introText = "Use this form for hiring conversations, AI transformation work, portfolio deep dives, or strategy discussions. The more context you share, the more useful my response can be.",
+}: ContactFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [conversationType, setConversationType] = useState("");
-  const [company, setCompany] = useState("");
+  const [company, setCompany] = useState(initialCompany);
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
 
@@ -60,11 +70,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        Use this form for hiring conversations, AI transformation work, portfolio
-        deep dives, or strategy discussions. The more context you share, the more
-        useful my response can be.
-      </p>
+      <p className="text-sm leading-relaxed text-muted-foreground">{introText}</p>
 
       <div className="grid gap-4 md:grid-cols-2">
         <label className="space-y-2 text-sm text-foreground">
@@ -124,7 +130,7 @@ export function ContactForm() {
         <textarea
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          placeholder="Share the role, challenge, or context and I will reply with the most relevant next step."
+          placeholder={messagePlaceholder}
           rows={6}
           required
           className="w-full resize-none rounded-lg border border-border bg-card px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:outline-none"
