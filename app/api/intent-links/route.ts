@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { siteConfig } from "@/lib/site/content";
 import {
   createIntentLink,
   deactivateIntentLink,
@@ -52,11 +53,17 @@ function getConfiguredPassword() {
   return process.env.INTENT_LINK_ADMIN_PASSWORD?.trim() ?? "";
 }
 
-function toResponseLink(link: IntentLinkRecord, origin: string) {
+function getPublicIntentBaseUrl() {
+  return siteConfig.url.replace(/\/+$/, "");
+}
+
+function toResponseLink(link: IntentLinkRecord) {
+  const publicBaseUrl = getPublicIntentBaseUrl();
+
   return {
     code: link.code,
     queryParam: "ukr" as const,
-    url: `${origin}?ukr=${link.code}`,
+    url: `${publicBaseUrl}?ukr=${link.code}`,
     org: link.org,
     positionTitle: link.positionTitle,
     positionUrl: link.positionUrl,
@@ -113,7 +120,6 @@ export async function GET(request: Request) {
   }
 
   const url = new URL(request.url);
-  const origin = url.origin;
   const codeQuery = url.searchParams.get("code");
 
   if (codeQuery) {
@@ -132,14 +138,14 @@ export async function GET(request: Request) {
     const link = await getIntentLinkByCode(code, { activeOnly: false });
     return NextResponse.json({
       ok: true,
-      links: link ? [toResponseLink(link, origin)] : [],
+      links: link ? [toResponseLink(link)] : [],
     });
   }
 
   const links = await listIntentLinks(160);
   return NextResponse.json({
     ok: true,
-    links: links.map((link) => toResponseLink(link, origin)),
+    links: links.map((link) => toResponseLink(link)),
   });
 }
 
@@ -171,8 +177,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const origin = new URL(request.url).origin;
-
   try {
     const created = await createIntentLink({
       org,
@@ -184,7 +188,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       ok: true,
-      link: toResponseLink(created, origin),
+      link: toResponseLink(created),
     });
   } catch (error) {
     if (error instanceof Error) {
@@ -237,13 +241,11 @@ export async function PATCH(request: Request) {
     );
   }
 
-  const origin = new URL(request.url).origin;
-
   try {
     const updated = await deactivateIntentLink(code);
     return NextResponse.json({
       ok: true,
-      link: toResponseLink(updated, origin),
+      link: toResponseLink(updated),
     });
   } catch (error) {
     if (error instanceof Error) {

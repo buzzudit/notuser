@@ -194,6 +194,7 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
 
       <SectionShell id="portfolio-cta">
         <CallToAction
+          eyebrow="Conversations"
           title={ctaTitle}
           description={ctaDescription}
           primaryLabel="Contact me"

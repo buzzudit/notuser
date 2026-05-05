@@ -37,8 +37,14 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-border/40 pt-6 sm:flex-row sm:items-center">
-          <p className="font-mono text-xs text-muted-foreground">
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            <Link
+              href="/about-personalization"
+              className="text-muted-foreground/85 underline-offset-4 transition-colors hover:text-foreground hover:underline"
+            >
+              About personalization
+            </Link>
           </p>
           <Link
             href="/contact"

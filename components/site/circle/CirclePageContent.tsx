@@ -116,6 +116,7 @@ export function CirclePageContent({
 
       <SectionShell>
         <CallToAction
+          eyebrow="Prompt strategy"
           title={ctaTitle}
           description={ctaDescription}
           primaryLabel="Request a session"

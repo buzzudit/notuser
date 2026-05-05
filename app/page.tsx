@@ -9,6 +9,7 @@ import { AILeadershipSection } from "@/components/site/home/AILeadershipSection"
 import { ExecutiveHero } from "@/components/site/home/ExecutiveHero";
 import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies";
 import { SignalCardGrid } from "@/components/site/home/SignalCardGrid";
+import { CallToAction } from "@/components/site/CallToAction";
 import {
   SectionDescription,
   SectionHeading,
@@ -266,31 +267,17 @@ export default async function HomePage({ searchParams }: PageProps) {
       </SectionShell>
 
       <SectionShell>
-        <section className="rounded-2xl border border-border bg-[hsl(217_65%_73%)] p-6 text-white shadow-[0_10px_40px_rgba(30,64,175,0.35)] md:p-8">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-white/80">
-            {homeCallToAction.eyebrow}
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-            {homeCallToAction.title}
-          </h2>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-white/90">
-            {homeCallToAction.description}
-          </p>
-          <div className="mt-6 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <Link
-              href={homeCallToAction.primaryHref}
-              className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-primary transition-opacity hover:bg-white/90"
-            >
-              {homeCallToAction.primaryLabel} <ArrowRight size={14} />
-            </Link>
-            <Link
-              href={homeCallToAction.tertiaryHref}
-              className="inline-flex items-center gap-2 text-sm font-medium text-white underline underline-offset-4 transition-colors hover:text-white/80"
-            >
-              {homeCallToAction.tertiaryLabel}
-            </Link>
-          </div>
-        </section>
+        <CallToAction
+          eyebrow={homeCallToAction.eyebrow}
+          title={homeCallToAction.title}
+          description={homeCallToAction.description}
+          primaryLabel={homeCallToAction.primaryLabel}
+          primaryHref={homeCallToAction.primaryHref}
+          secondaryLabel={homeCallToAction.secondaryLabel}
+          secondaryHref={homeCallToAction.secondaryHref}
+          tertiaryLabel={homeCallToAction.tertiaryLabel}
+          tertiaryHref={homeCallToAction.tertiaryHref}
+        />
       </SectionShell>
     </PageLayout>
   );

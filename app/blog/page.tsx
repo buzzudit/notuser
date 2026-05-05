@@ -192,6 +192,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
 
       <SectionShell>
         <CallToAction
+          eyebrow="Collaboration"
           title={ctaTitle}
           description={ctaDescription}
           primaryLabel="Work together"
