@@ -10,6 +10,21 @@ const nextConfig: NextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.notuser.com",
+          },
+        ],
+        destination: "https://notuser.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
