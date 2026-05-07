@@ -1,4 +1,5 @@
-import { notFound, redirect } from "next/navigation";
+import type { Metadata } from "next";
+import { notFound, permanentRedirect } from "next/navigation";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import { SectionShell } from "@/components/site/SectionShell";
 import { CaseStudyHero } from "@/components/site/CaseStudyHero";
@@ -10,7 +11,15 @@ import { getProjectBySlug, projects, resolveProjectSlug } from "@/data/projects"
 import { BulletList } from "@/components/site/BulletList";
 import { ParagraphStack } from "@/components/site/ParagraphStack";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
-import type { ProjectNarrative } from "@/data/types/project";
+import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
+import type { Project, ProjectNarrative } from "@/data/types/project";
+import {
+  buildNoIndexMetadata,
+  buildSiteMetadata,
+  getCreativeWorkJsonLd,
+  safeJsonLd,
+} from "@/lib/site/metadata";
+import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type CaseStudyPageProps = {
   params: Promise<{ slug: string }>;
@@ -18,6 +27,36 @@ type CaseStudyPageProps = {
 
 export async function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
+}
+
+function getProjectShareImage(project: Project) {
+  const galleryImage = project.gallery.find((item) => item.src)?.src;
+  const image = project.thumbnail || galleryImage || null;
+  return image ? resolveMirroredMediaSrc(image) : null;
+}
+
+export async function generateMetadata({
+  params,
+}: CaseStudyPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const resolvedSlug = resolveProjectSlug(slug);
+  const project = getProjectBySlug(resolvedSlug);
+  if (!project) {
+    notFound();
+  }
+
+  const metadataInput = {
+    title: project.title,
+    description: project.summary,
+    pathname: `/portfolio/${resolvedSlug}`,
+    image: getProjectShareImage(project),
+    imageAlt: project.title,
+    keywords: project.tags,
+  };
+
+  return project.isPrivate
+    ? buildNoIndexMetadata(metadataInput)
+    : buildSiteMetadata(metadataInput);
 }
 
 function NarrativeLayout({ narrative }: { narrative: ProjectNarrative }) {
@@ -161,7 +200,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { slug } = await params;
   const resolvedSlug = resolveProjectSlug(slug);
   if (resolvedSlug !== slug) {
-    redirect(`/portfolio/${resolvedSlug}`);
+    permanentRedirect(`/portfolio/${resolvedSlug}`);
   }
 
   const project = getProjectBySlug(slug);
@@ -201,27 +240,46 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     `Outcomes: ${project.outcome.join(" | ")}`,
     `Lessons: ${project.lessons.join(" | ")}`,
   ].join("\n");
+  const creativeWorkJsonLd = getCreativeWorkJsonLd({
+    title: project.title,
+    description: project.summary,
+    pathname: `/portfolio/${project.slug}`,
+    image: getProjectShareImage(project),
+    organization: project.organization,
+    keywords: project.tags,
+  });
 
   return (
     <PageLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(creativeWorkJsonLd) }}
+      />
       <SectionShell>
         <CaseStudyHero project={project} />
       </SectionShell>
 
       <SectionShell className="pt-0">
         <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
-          <AIWorkspace
-            compact
-            page="portfolio-detail"
-            context={aiContext}
-            helperText="Ask AI to summarize the case, extract leadership signals, or compare this work to other projects."
-            suggestions={[
-              "Summarize this case study",
-              "Extract leadership and strategy signals",
-              "Compare this with enterprise platform projects",
-              "Generate a reusable playbook from this case",
-            ]}
-          />
+          <AIWorkspaceBanner
+            eyebrow="AI Case Guide"
+            title="Interrogate the case study with AI"
+            description="Ask AI to summarize the case, extract leadership signals, or compare this work to other projects."
+          >
+            <AIWorkspace
+              compact
+              page="portfolio-detail"
+              context={aiContext}
+              helperText="Ask AI to summarize the case, extract leadership signals, or compare this work to other projects."
+              suggestions={[
+                "Summarize this case study",
+                "Extract leadership and strategy signals",
+                "Compare this with enterprise platform projects",
+                "Generate a reusable playbook from this case",
+              ]}
+              tone="banner"
+            />
+          </AIWorkspaceBanner>
           <nav className="rounded-lg border border-border bg-card p-4" aria-label="Case study sections">
             <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-primary">
               {project.narrative ? "Story arc" : "Section guide"}

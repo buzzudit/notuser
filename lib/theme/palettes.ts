@@ -3,7 +3,9 @@ export type Palette = {
   name: string;
   light: {
     primary: string;
+    primaryForeground?: string;
     accent: string;
+    accentForeground?: string;
     background: string;
     foreground: string;
     secondary: string;
@@ -11,10 +13,18 @@ export type Palette = {
     border: string;
     selection: string;
     selectionForeground: string;
+    brandBlueStart?: string;
+    brandBlueMid?: string;
+    brandBlueEnd?: string;
+    bannerBlueStart?: string;
+    bannerBlueMid?: string;
+    bannerBlueEnd?: string;
   };
   dark: {
     primary: string;
+    primaryForeground?: string;
     accent: string;
+    accentForeground?: string;
     background: string;
     foreground: string;
     secondary: string;
@@ -22,10 +32,58 @@ export type Palette = {
     border: string;
     selection: string;
     selectionForeground: string;
+    brandBlueStart?: string;
+    brandBlueMid?: string;
+    brandBlueEnd?: string;
+    bannerBlueStart?: string;
+    bannerBlueMid?: string;
+    bannerBlueEnd?: string;
   };
 };
 
 export const palettes: Palette[] = [
+  {
+    id: "notuser-blue",
+    name: "notuser Blue",
+    light: {
+      primary: "215 68% 42%",
+      primaryForeground: "0 0% 100%",
+      accent: "218 70% 33%",
+      accentForeground: "0 0% 100%",
+      background: "0 0% 100%",
+      foreground: "0 0% 5%",
+      secondary: "215 24% 92%",
+      muted: "215 20% 95%",
+      border: "215 18% 88%",
+      selection: "215 68% 42%",
+      selectionForeground: "0 0% 100%",
+      brandBlueStart: "215 68% 42%",
+      brandBlueMid: "218 70% 33%",
+      brandBlueEnd: "223 72% 24%",
+      bannerBlueStart: "215 68% 42%",
+      bannerBlueMid: "218 70% 33%",
+      bannerBlueEnd: "223 72% 24%",
+    },
+    dark: {
+      primary: "215 68% 58%",
+      primaryForeground: "0 0% 6%",
+      accent: "218 70% 48%",
+      accentForeground: "0 0% 6%",
+      background: "220 28% 6%",
+      foreground: "215 18% 92%",
+      secondary: "220 22% 12%",
+      muted: "220 18% 10%",
+      border: "220 18% 16%",
+      selection: "215 68% 58%",
+      selectionForeground: "0 0% 6%",
+      brandBlueStart: "215 68% 42%",
+      brandBlueMid: "218 70% 33%",
+      brandBlueEnd: "223 72% 24%",
+      bannerBlueStart: "222 64% 18%",
+      bannerBlueMid: "224 70% 13%",
+      bannerBlueEnd: "228 76% 9%",
+    },
+  },
   {
     id: "blue-resume",
     name: "Blue Resume",

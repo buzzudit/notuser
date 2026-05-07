@@ -15,7 +15,18 @@ type PageProps = {
 export async function generateMetadata({
   searchParams,
 }: PageProps): Promise<Metadata> {
-  return buildUkrScopedMetadata("/portfolio", searchParams);
+  return buildUkrScopedMetadata("/portfolio", searchParams, {
+    title: "Portfolio and Case Studies",
+    description:
+      "Selected design leadership case studies across AI-first products, enterprise platforms, healthcare workflows, and product transformation.",
+    keywords: [
+      "design leadership portfolio",
+      "UX case studies",
+      "enterprise product design",
+      "AI product strategy",
+      "healthcare UX",
+    ],
+  });
 }
 
 export default async function PortfolioPage({ searchParams }: PageProps) {

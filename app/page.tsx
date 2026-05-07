@@ -10,6 +10,7 @@ import { ExecutiveHero } from "@/components/site/home/ExecutiveHero";
 import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies";
 import { SignalCardGrid } from "@/components/site/home/SignalCardGrid";
 import { CallToAction } from "@/components/site/CallToAction";
+import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
 import {
   SectionDescription,
   SectionHeading,
@@ -52,7 +53,19 @@ type PageProps = {
 export async function generateMetadata({
   searchParams,
 }: PageProps): Promise<Metadata> {
-  return buildUkrScopedMetadata("/", searchParams);
+  return buildUkrScopedMetadata("/", searchParams, {
+    title: "Udit Khandelwal",
+    description: homeHero.subheadline,
+    image: homeHero.imageSrc,
+    imageAlt: homeHero.imageAlt,
+    keywords: [
+      "Udit Khandelwal",
+      "design leadership",
+      "AI-first product strategy",
+      "enterprise platforms",
+      "healthcare UX",
+    ],
+  });
 }
 
 export default async function HomePage({ searchParams }: PageProps) {
@@ -108,21 +121,20 @@ export default async function HomePage({ searchParams }: PageProps) {
         </SectionShell>
       ) : null}
 
-      <SectionShell className="pt-0 bg-gradient-to-b from-[rgba(166,198,234,0.25)] via-[rgba(229,239,251,0.6)] to-transparent">
-        <div className="flex justify-center">
-          <section className="w-full max-w-4xl rounded-2xl border border-border bg-card p-5 md:p-6">
-            <SectionLabel>AI Briefing</SectionLabel>
-            <SectionHeading>{homeAiHeading}</SectionHeading>
-            <SectionDescription>{homeAiDescription}</SectionDescription>
-            <AIWorkspace
-              compact
-              className="mt-5"
-              page="home"
-              context={homeAiContext}
-              suggestions={homeAiSuggestions}
-            />
-          </section>
-        </div>
+      <SectionShell className="blue-section-wash pt-0">
+        <AIWorkspaceBanner
+          eyebrow="AI Briefing"
+          title={homeAiHeading}
+          description={homeAiDescription}
+        >
+          <AIWorkspace
+            compact
+            page="home"
+            context={homeAiContext}
+            suggestions={homeAiSuggestions}
+            tone="banner"
+          />
+        </AIWorkspaceBanner>
       </SectionShell>
 
       <SectionShell className="border-b border-border/50 py-10 md:py-10">
@@ -144,13 +156,13 @@ export default async function HomePage({ searchParams }: PageProps) {
       </SectionShell>
 
       <SectionShell id="why-udit">
-        <SectionLabel>Why Udit</SectionLabel>
+        <SectionLabel>Why me</SectionLabel>
         <SectionHeading>
-          Where I tend to add value in senior design and transformation roles
+          Three concrete reasons to consider me
         </SectionHeading>
         <SectionDescription>
-          I am most effective where leadership, systems thinking, product quality,
-          and organizational change need to move in the same direction.
+          Senior-level design leadership, enterprise platform experience, and
+          technical fluency across complex product work.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeWhyUdit} iconSet="value" iconTreatment="background" />
@@ -159,7 +171,7 @@ export default async function HomePage({ searchParams }: PageProps) {
 
       <SectionShell
         id="ai-leadership"
-        className="border-y border-border/50 bg-gradient-to-b from-[rgba(166,198,234,0.35)] via-[rgba(229,239,251,0.65)] to-transparent"
+        className="blue-section-wash border-y border-border/50"
       >
         <SectionLabel>AI Leadership</SectionLabel>
         <SectionHeading>
@@ -198,17 +210,13 @@ export default async function HomePage({ searchParams }: PageProps) {
         <div className="mt-8">
           <FeaturedCaseStudies previews={homeFeaturedCaseStudies} projects={projects} />
         </div>
-      </SectionShell>
-
-      <SectionShell id="leadership-model">
-        <SectionLabel>Leadership</SectionLabel>
-        <SectionHeading>How I lead design in complex product environments</SectionHeading>
-        <SectionDescription>
-          I focus on clarifying direction, aligning teams, growing designers, and
-          building systems that sustain quality as organizations scale.
-        </SectionDescription>
-        <div className="mt-8">
-          <SignalCardGrid items={homeLeadershipModel} iconSet="leadership" />
+        <div className="mt-6 flex justify-end">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
+          >
+            View full portfolio <ArrowRight size={14} />
+          </Link>
         </div>
       </SectionShell>
 
@@ -216,7 +224,7 @@ export default async function HomePage({ searchParams }: PageProps) {
         <SectionLabel>Career Context</SectionLabel>
         <SectionHeading>Progression across leadership, platforms, and engineering roots</SectionHeading>
         <SectionDescription>
-          The progression matters: director-level leadership at athenahealth,
+          The progression matters: senior-level leadership at athenahealth,
           supported by earlier work across Adobe, Cisco, Kaseya, Zivame, and a
           foundation in software engineering.
         </SectionDescription>
@@ -231,7 +239,19 @@ export default async function HomePage({ searchParams }: PageProps) {
         </div>
       </SectionShell>
 
-      <SectionShell className="bg-gradient-to-b from-[rgba(166,198,234,0.25)] via-[rgba(229,239,251,0.6)] to-transparent">
+      <SectionShell id="leadership-model">
+        <SectionLabel>Leadership</SectionLabel>
+        <SectionHeading>How I lead design in complex product environments</SectionHeading>
+        <SectionDescription>
+          I focus on clarifying direction, aligning teams, growing designers, and
+          building systems that sustain quality as organizations scale.
+        </SectionDescription>
+        <div className="mt-8">
+          <SignalCardGrid items={homeLeadershipModel} iconSet="leadership" />
+        </div>
+      </SectionShell>
+
+      <SectionShell className="blue-section-wash">
         <SectionLabel>Partner Feedback</SectionLabel>
         <SectionHeading>How collaborators describe working with me</SectionHeading>
         <div className="grid gap-4 md:grid-cols-3">

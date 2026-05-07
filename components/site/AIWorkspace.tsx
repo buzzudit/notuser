@@ -18,6 +18,7 @@ interface AIWorkspaceProps {
   helperText?: string;
   autoSubmitOnPrefill?: boolean;
   className?: string;
+  tone?: "default" | "banner";
 }
 
 type OrderedAnswerItem = {
@@ -59,7 +60,7 @@ function renderHeading(level: number, key: string, text: string) {
   return <h6 key={key} className="font-semibold mt-3 mb-1">{text}</h6>;
 }
 
-function renderInlineContent(text: string, keyPrefix: string) {
+function renderInlineContent(text: string, keyPrefix: string, linkClassName: string) {
   const segments: React.ReactNode[] = [];
   const linkPattern = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
   let lastIndex = 0;
@@ -77,7 +78,7 @@ function renderInlineContent(text: string, keyPrefix: string) {
       <Link
         key={`${keyPrefix}-${startIndex}`}
         href={href}
-        className="font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+        className={linkClassName}
       >
         {label}
       </Link>,
@@ -94,7 +95,7 @@ function renderInlineContent(text: string, keyPrefix: string) {
   return segments.length > 0 ? segments : text;
 }
 
-function renderAnswerBlocks(answer: string) {
+function renderAnswerBlocks(answer: string, linkClassName: string) {
   const lines = answer.split("\n");
   const blocks: React.ReactNode[] = [];
   let index = 0;
@@ -195,13 +196,17 @@ function renderAnswerBlocks(answer: string) {
         <ol key={`ol-${start}`} className="ml-6 list-decimal space-y-4">
           {items.map((item, itemIndex) => (
             <li key={`oli-${start}-${itemIndex}`} className="text-sm leading-relaxed">
-              <p>{renderInlineContent(item.title, `olt-${start}-${itemIndex}`)}</p>
+              <p>{renderInlineContent(item.title, `olt-${start}-${itemIndex}`, linkClassName)}</p>
               {item.paragraphs.map((paragraph, paragraphIndex) => (
                 <p
                   key={`olp-${start}-${itemIndex}-${paragraphIndex}`}
                   className="mt-2 text-sm leading-relaxed"
                 >
-                  {renderInlineContent(paragraph, `olp-${start}-${itemIndex}-${paragraphIndex}`)}
+                  {renderInlineContent(
+                    paragraph,
+                    `olp-${start}-${itemIndex}-${paragraphIndex}`,
+                    linkClassName,
+                  )}
                 </p>
               ))}
               {item.bullets.length > 0 ? (
@@ -211,7 +216,11 @@ function renderAnswerBlocks(answer: string) {
                       key={`olb-${start}-${itemIndex}-${bulletIndex}`}
                       className="text-sm leading-relaxed"
                     >
-                      {renderInlineContent(bullet, `olb-${start}-${itemIndex}-${bulletIndex}`)}
+                      {renderInlineContent(
+                        bullet,
+                        `olb-${start}-${itemIndex}-${bulletIndex}`,
+                        linkClassName,
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -251,7 +260,7 @@ function renderAnswerBlocks(answer: string) {
         <ul key={`ul-${start}`} className="ml-6 list-disc space-y-1">
           {items.map((item, itemIndex) => (
             <li key={`uli-${start}-${itemIndex}`} className="text-sm leading-relaxed">
-              {renderInlineContent(item, `uli-${start}-${itemIndex}`)}
+              {renderInlineContent(item, `uli-${start}-${itemIndex}`, linkClassName)}
             </li>
           ))}
         </ul>,
@@ -261,7 +270,7 @@ function renderAnswerBlocks(answer: string) {
 
     blocks.push(
       <p key={`p-${index}`} className="mb-2 text-sm leading-relaxed">
-        {renderInlineContent(line, `p-${index}`)}
+        {renderInlineContent(line, `p-${index}`, linkClassName)}
       </p>,
     );
     index += 1;
@@ -281,6 +290,7 @@ export function AIWorkspace({
   helperText,
   autoSubmitOnPrefill = false,
   className = "",
+  tone = "default",
 }: AIWorkspaceProps) {
   const [input, setInput] = useState("");
   const [answer, setAnswer] = useState("");
@@ -362,24 +372,53 @@ export function AIWorkspace({
     await runPrompt(text);
   };
 
+  const isBannerTone = tone === "banner";
+  const inputContainerClassName = isBannerTone
+    ? "border-white/[0.28] bg-white/[0.13] focus-within:border-white/[0.48] focus-within:shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_14px_40px_rgba(9,30,66,0.18)]"
+    : "border-border bg-card focus-within:border-primary/50 focus-within:glow-shadow";
+  const sparklesClassName = isBannerTone ? "text-white/[0.9]" : "text-primary";
+  const inputClassName = isBannerTone
+    ? "text-white placeholder:text-white/[0.7]"
+    : "text-foreground placeholder:text-muted-foreground";
+  const submitClassName = isBannerTone
+    ? "text-white/[0.84] hover:text-white"
+    : "text-muted-foreground hover:text-primary";
+  const helperTextClassName = isBannerTone ? "text-white/[0.86]" : "text-muted-foreground";
+  const loadingClassName = isBannerTone
+    ? "border-white/[0.24] bg-white/[0.14] text-white/[0.9]"
+    : "border-border bg-card text-muted-foreground";
+  const answerSurfaceClassName = isBannerTone
+    ? "border-white/[0.24] bg-white/[0.15]"
+    : "border-primary/20 bg-primary/[0.04]";
+  const answerLabelClassName = isBannerTone ? "text-white/[0.9]" : "text-primary";
+  const answerTextClassName = isBannerTone ? "text-white" : "text-foreground";
+  const answerLinkClassName = isBannerTone
+    ? "font-medium text-white underline decoration-white/[0.75] underline-offset-4 transition-colors hover:text-white/[0.86] hover:decoration-white"
+    : "font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80";
+  const starterClassName = isBannerTone
+    ? "border-white/[0.24] bg-white/[0.12] text-white/[0.9] hover:border-white/[0.36] hover:bg-white/[0.18] hover:text-white"
+    : "border-border bg-card text-muted-foreground hover:border-primary/30 hover:text-foreground";
+
   return (
     <div className={`w-full ${compact ? "" : "mx-auto max-w-2xl"} ${className}`}>
       <form onSubmit={handleSubmit} className="relative">
-        <div className="flex items-center rounded-lg border border-border bg-card transition-colors focus-within:border-primary/50 focus-within:glow-shadow">
-          <Sparkles size={16} className="ml-4 shrink-0 text-primary" />
+        <div
+          className={`flex items-center rounded-lg border transition-colors backdrop-blur-sm ${inputContainerClassName}`}
+        >
+          <Sparkles size={16} className={`ml-4 shrink-0 ${sparklesClassName}`} />
           <input
             type="text"
             value={input}
             onChange={(event) => setInput(event.target.value)}
             placeholder="Ask anything..."
             aria-label="AI workspace input"
-            className="flex-1 bg-transparent px-3 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
+            className={`flex-1 bg-transparent px-3 py-3.5 text-sm focus:outline-none ${inputClassName}`}
           />
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
             aria-label="Send message"
-            className="mr-2 rounded-md p-2 text-muted-foreground transition-colors hover:text-primary disabled:opacity-40"
+            className={`mr-2 rounded-md p-2 transition-colors disabled:opacity-40 ${submitClassName}`}
           >
             {isLoading ? (
               <Loader2 size={16} className="animate-spin" />
@@ -391,7 +430,7 @@ export function AIWorkspace({
       </form>
 
       {helperText ? (
-        <p className="mt-2 text-[11px] text-muted-foreground">{helperText}</p>
+        <p className={`mt-2 text-[11px] ${helperTextClassName}`}>{helperText}</p>
       ) : null}
 
       {error ? (
@@ -404,8 +443,8 @@ export function AIWorkspace({
       ) : null}
 
       {isLoading ? (
-        <div className="mt-3 rounded-lg border border-border bg-card px-3 py-2.5">
-          <p className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+        <div className={`mt-3 rounded-lg border px-3 py-2.5 ${loadingClassName}`}>
+          <p className="inline-flex items-center gap-1.5 text-sm">
             <Loader2 size={14} className="animate-spin" />
             Generating response...
           </p>
@@ -413,11 +452,13 @@ export function AIWorkspace({
       ) : null}
 
       {answer ? (
-        <div className="mt-3 rounded-lg border border-primary/20 bg-primary/[0.04] p-4">
-          <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-primary">
+        <div className={`mt-3 rounded-lg border p-4 ${answerSurfaceClassName}`}>
+          <p className={`mb-2 font-mono text-[11px] uppercase tracking-widest ${answerLabelClassName}`}>
             AI response
           </p>
-          <div className="prose prose-sm max-w-none text-foreground">{renderAnswerBlocks(answer)}</div>
+          <div className={`prose prose-sm max-w-none ${answerTextClassName}`}>
+            {renderAnswerBlocks(answer, answerLinkClassName)}
+          </div>
         </div>
       ) : null}
 
@@ -431,7 +472,7 @@ export function AIWorkspace({
               onClick={() => {
                 void handleStarter(starter);
               }}
-              className="rounded-md border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/30 hover:text-foreground"
+              className={`rounded-md border px-3 py-1.5 text-sm transition-colors ${starterClassName}`}
               type="button"
             >
               {starter}

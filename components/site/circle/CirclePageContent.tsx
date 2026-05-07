@@ -9,6 +9,7 @@ import {
 import { PromptExamples } from "@/components/site/PromptExamples";
 import { AIWorkflowCards } from "@/components/site/AIWorkflowCards";
 import { CallToAction } from "@/components/site/CallToAction";
+import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
 import { aiWorkflowSteps, circlePrompts } from "@/data/site";
 import { AISuggestionChips } from "@/components/ai/AISuggestionChips";
 import { AIWorkflowHelper } from "@/components/ai/AIWorkflowHelper";
@@ -50,13 +51,20 @@ export function CirclePageContent({
             onSelect={(suggestion) => setSelectedPrompt(suggestion.label)}
           />
           <PromptExamples prompts={circlePrompts} onSelect={setSelectedPrompt} />
-          <AIWorkspace
-            prefill={selectedPrompt}
-            autoSubmitOnPrefill
-            page="circle"
-            context={circleContext}
-            helperText={helperText}
-          />
+          <AIWorkspaceBanner
+            eyebrow="AI Sandbox"
+            title="Run the prompt against the workflow context"
+            description={helperText}
+          >
+            <AIWorkspace
+              prefill={selectedPrompt}
+              autoSubmitOnPrefill
+              page="circle"
+              context={circleContext}
+              helperText={helperText}
+              tone="banner"
+            />
+          </AIWorkspaceBanner>
           <AIWorkflowHelper
             actions={[
               {

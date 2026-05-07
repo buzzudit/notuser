@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { UkrLinkAdmin } from "@/components/site/admin/UkrLinkAdmin";
 import { PageLayout } from "@/components/site/layout/PageLayout";
+import { buildNoIndexMetadata } from "@/lib/site/metadata";
 import {
   SectionDescription,
   SectionHeading,
@@ -9,14 +10,11 @@ import {
 } from "@/components/site/SectionShell";
 
 export const metadata: Metadata = {
-  title: "UKR Admin",
-  alternates: {
-    canonical: "/admin/ukr",
-  },
-  robots: {
-    index: false,
-    follow: false,
-  },
+  ...buildNoIndexMetadata({
+    title: "UKR Admin",
+    pathname: "/admin/ukr",
+    description: "Internal tool for managing personalized hiring-intent links.",
+  }),
 };
 
 export const dynamic = "force-dynamic";

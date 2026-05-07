@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageLayout } from "@/components/site/layout/PageLayout";
+import { buildSiteMetadata } from "@/lib/site/metadata";
 import {
   SectionDescription,
   SectionHeading,
@@ -9,12 +10,18 @@ import {
 } from "@/components/site/SectionShell";
 
 export const metadata: Metadata = {
-  title: "About Personalization",
-  alternates: {
-    canonical: "/about-personalization",
-  },
-  description:
-    "Plain-language explanation of how notuser.com uses ukr links and a first-party cookie for on-site personalization.",
+  ...buildSiteMetadata({
+    title: "About Personalization",
+    pathname: "/about-personalization",
+    description:
+      "Plain-language explanation of how notuser.com uses ukr links and a first-party cookie for on-site personalization.",
+    keywords: [
+      "notuser personalization",
+      "ukr links",
+      "hiring context",
+      "first-party cookie",
+    ],
+  }),
 };
 
 const explanationPoints = [

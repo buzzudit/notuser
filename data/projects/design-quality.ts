@@ -16,7 +16,7 @@ export const project: Project = {
   context:
     "The work grew through 2020-2022 in athenahealth platform environments, with impact across UX, product, and engineering teams. It included both tooling and organizational routines.",
   role:
-    "Director-level design leader with hands-on ownership of quality measurement patterns, collaboration rituals, and adoption coaching across teams.",
+    "Senior-level design leader with hands-on ownership of quality measurement patterns, collaboration rituals, and adoption coaching across teams.",
   process: [
     "Created a Design Quality Tool to track and measure UX outcomes in ways teams could use during planning and execution.",
     "Launched and iterated the CFC survey framework to capture cross-functional signals on efficiency and product-delivery health.",

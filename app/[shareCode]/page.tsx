@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PortfolioPageContent } from "@/components/site/portfolio/PortfolioPageContent";
+import { buildNoIndexMetadata } from "@/lib/site/metadata";
 import {
   getPortfolioShareLinkByCode,
   isValidPortfolioShareCode,
@@ -11,6 +13,15 @@ type SharePortfolioPageProps = {
 };
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = buildNoIndexMetadata({
+  title: "Private Portfolio Selection",
+  pathname: "/portfolio",
+  description:
+    "A private portfolio selection from Udit Khandelwal for design leadership and product conversations.",
+  image: "/images/udit-bw.png",
+  imageAlt: "Black and white portrait of Udit Khandelwal",
+});
 
 export default async function SharePortfolioPage({ params }: SharePortfolioPageProps) {
   const { shareCode } = await params;

@@ -34,7 +34,7 @@ export const homeHero = {
   name: "Udit Khandelwal",
   headline: "Design leader shaping AI-first products, platforms, and teams.",
   subheadline:
-    "Director-level design leader helping product organizations turn complex enterprise workflows into clear, trustworthy experiences.",
+    "Senior-level design leader helping product organizations turn complex enterprise workflows into clear, trustworthy experiences.",
   credibilityLine:
     "18+ years across healthcare, enterprise software, cloud platforms, and commerce, grounded in an engineering foundation.",
   imageSrc: "/images/udit-bw.png",
@@ -60,40 +60,22 @@ export const trustIndicators: HomeMetric[] = [
 
 export const homeWhyUdit: HomeSignalItem[] = [
   {
-    eyebrow: "Leadership",
-    title: "Direction and execution stay connected.",
+    eyebrow: "Current scope",
+    title: "Senior-level design leadership in healthcare.",
     description:
-      "I help teams align around direction, make clearer product decisions, and move from scattered effort to coordinated delivery.",
+      "At athenahealth, I lead design across platform direction, workflow modernization, design quality, and team development in a complex cloud product environment.",
   },
   {
-    eyebrow: "Enterprise",
-    title: "Comfortable with platform complexity.",
+    eyebrow: "Enterprise work",
+    title: "Experience with complex platforms and workflows.",
     description:
-      "My work is strongest where product ecosystems, shared services, technical constraints, and multiple stakeholders all shape the experience.",
-  },
-  {
-    eyebrow: "AI-first",
-    title: "AI thinking starts with workflows.",
-    description:
-      "I focus on how AI changes decision-making, orchestration, trust, and operating models across real product environments.",
-  },
-  {
-    eyebrow: "Influence",
-    title: "Cross-functional alignment as a core practice.",
-    description:
-      "I reduce ambiguity across functions, translate strategy into execution, and help teams make progress without losing quality.",
+      "My portfolio spans healthcare, developer ecosystems, data services, commerce, and mobility products where multiple teams and constraints shape the outcome.",
   },
   {
     eyebrow: "Technical fluency",
-    title: "Technical fluency that supports better decisions.",
+    title: "Engineering roots that make design decisions practical.",
     description:
-      "My engineering foundation helps me partner credibly with technical teams, frame systems-level tradeoffs, and stay grounded in delivery reality.",
-  },
-  {
-    eyebrow: "Transformation",
-    title: "Transformation beyond individual launches.",
-    description:
-      "From platform vision to team development and quality systems, I help organizations evolve how they work, not only what they release.",
+      "I started in software engineering, so I can partner closely with technical teams, understand implementation tradeoffs, and keep product direction realistic.",
   },
 ];
 
@@ -240,7 +222,7 @@ export const homeLeadershipModel: HomeSignalItem[] = [
 export const homeExecutiveProof: HomeSignalItem[] = [
   {
     eyebrow: "Current scope",
-    title: "Director-level scope in a complex healthcare platform context.",
+    title: "Senior-level scope in a complex healthcare platform context.",
     description:
       "At athenahealth, I lead across platform direction, workflow modernization, design maturity, and team leadership in cloud-service environments.",
   },

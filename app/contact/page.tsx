@@ -28,7 +28,19 @@ type PageProps = {
 export async function generateMetadata({
   searchParams,
 }: PageProps): Promise<Metadata> {
-  return buildUkrScopedMetadata("/contact", searchParams);
+  return buildUkrScopedMetadata("/contact", searchParams, {
+    title: "Contact",
+    description:
+      "Contact Udit Khandelwal for design leadership roles, AI-first product strategy, portfolio walkthroughs, and focused advisory conversations.",
+    image: "/images/udit-bw.png",
+    imageAlt: "Black and white portrait of Udit Khandelwal",
+    keywords: [
+      "contact Udit Khandelwal",
+      "design leadership hiring",
+      "AI product strategy",
+      "portfolio walkthrough",
+    ],
+  });
 }
 
 export default async function ContactPage({ searchParams }: PageProps) {

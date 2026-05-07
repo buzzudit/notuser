@@ -12,29 +12,40 @@
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 98%;
     --popover-foreground: 0 0% 0%;
-    --primary: 217 65% 73%;
-    --primary-foreground: 0 0% 0%;
+    --brand-blue-start: 215 68% 42%;
+    --brand-blue-mid: 218 70% 33%;
+    --brand-blue-end: 223 72% 24%;
+    --banner-blue-start: 215 68% 42%;
+    --banner-blue-mid: 218 70% 33%;
+    --banner-blue-end: 223 72% 24%;
+    --primary: var(--brand-blue-start);
+    --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 89%;
     --secondary-foreground: 0 0% 0%;
     --muted: 0 0% 94%;
     --muted-foreground: 0 0% 40%;
-    --accent: 223 47% 71%;
-    --accent-foreground: 0 0% 0%;
+    --accent: var(--brand-blue-mid);
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89%;
     --input: 0 0% 89%;
-    --ring: 217 65% 73%;
+    --ring: var(--brand-blue-start);
     --radius: 0.5rem;
     --surface-elevated: 0 0% 96%;
     --text-tertiary: 0 0% 62%;
-    --link: 217 65% 60%;
-    --link-hover: 217 65% 50%;
-    --link-visited: 223 47% 60%;
-    --gradient-accent: linear-gradient(135deg, hsl(217 65% 73%), hsl(223 47% 71%));
-    --shadow-glow: 0 0 40px -10px hsl(217 65% 73% / 0.15);
-    --selection: 214 74% 76%;
-    --selection-foreground: 0 0% 10%;
+    --link: var(--brand-blue-start);
+    --link-hover: var(--brand-blue-end);
+    --link-visited: var(--brand-blue-mid);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-blue-start)), hsl(var(--brand-blue-end)));
+    --banner-gradient: linear-gradient(135deg, hsl(var(--banner-blue-start)) 0%, hsl(var(--banner-blue-mid)) 48%, hsl(var(--banner-blue-end)) 100%);
+    --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
+    --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+    --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
+    --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.16), hsl(var(--banner-blue-start) / 0.06), transparent);
+    --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
+    --selection: var(--brand-blue-start);
+    --selection-foreground: 0 0% 100%;
   }
 
   :root.dark {
@@ -44,29 +55,40 @@
     --card-foreground: 40 10% 92%;
     --popover: 0 0% 7%;
     --popover-foreground: 40 10% 92%;
-    --primary: 38 92% 50%;
-    --primary-foreground: 0 0% 4%;
+    --brand-blue-start: 215 68% 58%;
+    --brand-blue-mid: 218 70% 48%;
+    --brand-blue-end: 223 72% 36%;
+    --banner-blue-start: 222 64% 18%;
+    --banner-blue-mid: 224 70% 13%;
+    --banner-blue-end: 228 76% 9%;
+    --primary: var(--brand-blue-start);
+    --primary-foreground: 0 0% 6%;
     --secondary: 0 0% 12%;
     --secondary-foreground: 40 10% 80%;
     --muted: 0 0% 10%;
     --muted-foreground: 0 0% 60%;
-    --accent: 38 92% 50%;
-    --accent-foreground: 0 0% 4%;
+    --accent: var(--brand-blue-mid);
+    --accent-foreground: 0 0% 6%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14%;
     --input: 0 0% 14%;
-    --ring: 38 92% 50%;
+    --ring: var(--brand-blue-start);
     --radius: 0.5rem;
     --surface-elevated: 0 0% 9%;
     --text-tertiary: 0 0% 38%;
-    --link: 188 100% 67%;
-    --link-hover: 188 100% 74%;
-    --link-visited: 196 72% 64%;
-    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%), hsl(28 85% 55%));
-    --shadow-glow: 0 0 40px -10px hsl(38 92% 50% / 0.15);
-    --selection: 38 92% 46%;
-    --selection-foreground: 0 0% 6%;
+    --link: var(--brand-blue-start);
+    --link-hover: 215 82% 70%;
+    --link-visited: 218 70% 64%;
+    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-blue-start)), hsl(var(--brand-blue-end)));
+    --banner-gradient: linear-gradient(135deg, hsl(var(--banner-blue-start)) 0%, hsl(var(--banner-blue-mid)) 48%, hsl(var(--banner-blue-end)) 100%);
+    --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
+    --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+    --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
+    --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.2), hsl(var(--banner-blue-start) / 0.1), transparent);
+    --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
+    --selection: var(--brand-blue-start);
+    --selection-foreground: 0 0% 100%;
   }
 
   :root {
@@ -76,29 +98,40 @@
     --card-foreground: 0 0% 0%;
     --popover: 0 0% 98%;
     --popover-foreground: 0 0% 0%;
-    --primary: 217 65% 73%;
-    --primary-foreground: 0 0% 0%;
+    --brand-blue-start: 215 68% 42%;
+    --brand-blue-mid: 218 70% 33%;
+    --brand-blue-end: 223 72% 24%;
+    --banner-blue-start: 215 68% 42%;
+    --banner-blue-mid: 218 70% 33%;
+    --banner-blue-end: 223 72% 24%;
+    --primary: var(--brand-blue-start);
+    --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 89%;
     --secondary-foreground: 0 0% 0%;
     --muted: 0 0% 94%;
     --muted-foreground: 0 0% 40%;
-    --accent: 223 47% 71%;
-    --accent-foreground: 0 0% 0%;
+    --accent: var(--brand-blue-mid);
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89%;
     --input: 0 0% 89%;
-    --ring: 217 65% 73%;
+    --ring: var(--brand-blue-start);
     --radius: 0.5rem;
     --surface-elevated: 0 0% 96%;
     --text-tertiary: 0 0% 62%;
-    --link: 217 65% 60%;
-    --link-hover: 217 65% 50%;
-    --link-visited: 223 47% 60%;
-    --gradient-accent: linear-gradient(135deg, hsl(217 65% 73%), hsl(223 47% 71%));
-    --shadow-glow: 0 0 40px -10px hsl(217 65% 73% / 0.15);
-    --selection: 214 74% 76%;
-    --selection-foreground: 0 0% 10%;
+    --link: var(--brand-blue-start);
+    --link-hover: var(--brand-blue-end);
+    --link-visited: var(--brand-blue-mid);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--brand-blue-start)), hsl(var(--brand-blue-end)));
+    --banner-gradient: linear-gradient(135deg, hsl(var(--banner-blue-start)) 0%, hsl(var(--banner-blue-mid)) 48%, hsl(var(--banner-blue-end)) 100%);
+    --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
+    --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+    --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
+    --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.16), hsl(var(--banner-blue-start) / 0.06), transparent);
+    --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
+    --selection: var(--brand-blue-start);
+    --selection-foreground: 0 0% 100%;
   }
 
   * {
@@ -154,6 +187,61 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+@layer components {
+  .blue-banner {
+    @apply relative overflow-hidden rounded-[1.4rem] border border-white/[0.18] px-6 py-7 text-white md:px-8 md:py-8;
+    background: var(--banner-gradient);
+    box-shadow: var(--banner-shadow);
+  }
+
+  .blue-banner-radial {
+    background: var(--banner-radial-overlay);
+  }
+
+  .blue-banner-grid {
+    background-image: var(--banner-grid-overlay);
+    background-size: 56px 56px;
+    opacity: 0.35;
+    mask-image: linear-gradient(90deg, rgb(0 0 0 / 0.55), transparent 78%);
+  }
+
+  .blue-banner-orb {
+    @apply absolute -right-28 -top-32 h-[24rem] w-[24rem] rounded-full border border-white/[0.16] bg-white/[0.08] shadow-[inset_0_0_80px_rgb(255_255_255_/_0.1)];
+  }
+
+  .blue-banner-device {
+    @apply absolute bottom-7 right-10 hidden h-36 w-36 rotate-[10deg] rounded-[1.6rem] border border-white/[0.2] bg-[linear-gradient(145deg,rgb(255_255_255_/_0.16),rgb(255_255_255_/_0.06))] backdrop-blur-sm lg:block;
+  }
+
+  .blue-banner-device-ring {
+    @apply absolute inset-6 rounded-full border border-white/[0.26];
+  }
+
+  .blue-banner-device-dot {
+    @apply absolute right-5 top-5 h-8 w-8 rounded-full border border-white/[0.3] bg-[rgb(195_241_255_/_0.24)] shadow-[0_0_28px_rgb(195_241_255_/_0.38)];
+  }
+
+  .blue-banner-eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-[0.24em] text-white/[0.92];
+  }
+
+  .blue-banner-dot {
+    @apply h-2 w-2 rounded-full bg-[rgb(195_241_255_/_0.95)] shadow-[0_0_18px_rgb(195_241_255_/_0.9)];
+  }
+
+  .blue-banner-title {
+    @apply mt-4 max-w-4xl text-3xl font-semibold tracking-[-0.055em] text-white md:text-[2.7rem] md:leading-[0.96];
+  }
+
+  .blue-banner-description {
+    @apply mt-4 max-w-2xl text-sm leading-relaxed text-white/[0.92] md:text-base md:leading-7;
+  }
+
+  .blue-section-wash {
+    background: var(--blue-section-wash);
   }
 }
 

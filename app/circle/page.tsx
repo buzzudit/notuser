@@ -25,7 +25,17 @@ type PageProps = {
 export async function generateMetadata({
   searchParams,
 }: PageProps): Promise<Metadata> {
-  return buildUkrScopedMetadata("/circle", searchParams);
+  return buildUkrScopedMetadata("/circle", searchParams, {
+    title: "Circle",
+    description:
+      "Prompt playground for exploring AI-first workflow framing, product thinking, and repeatable execution patterns.",
+    keywords: [
+      "AI workflow prompts",
+      "AI-first product design",
+      "prompt playground",
+      "workflow design",
+    ],
+  });
 }
 
 export default async function CirclePage({ searchParams }: PageProps) {

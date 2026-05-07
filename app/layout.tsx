@@ -2,30 +2,34 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/site/Providers";
 import { siteConfig } from "@/lib/site/content";
+import {
+  buildSiteMetadata,
+  getPersonJsonLd,
+  safeJsonLd,
+} from "@/lib/site/metadata";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
+const rootMetadata = buildSiteMetadata({
+  title: "Udit Khandelwal",
+  description: siteConfig.description,
+  pathname: "/",
+  image: "/images/udit-bw.png",
+  imageAlt: "Black and white portrait of Udit Khandelwal",
+  keywords: [
+    "Udit Khandelwal",
+    "design leadership",
+    "AI-first product strategy",
+    "enterprise UX",
+    "healthcare technology",
+  ],
+});
+
 export const metadata: Metadata = {
+  ...rootMetadata,
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.name,
+    default: "Udit Khandelwal | notuser",
     template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  applicationName: siteConfig.name,
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
   },
 };
 
@@ -37,6 +41,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(getPersonJsonLd()) }}
+        />
         <ThemeProvider>
           <Providers />
           {children}

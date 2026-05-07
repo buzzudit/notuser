@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import { TagList } from "@/components/site/TagList";
 import { CallToAction } from "@/components/site/CallToAction";
 import { blogPosts, getBlogPostBySlug, resolveBlogSlug } from "@/data/blog";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
+import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
 import {
   formatBlogDate,
   getBlogDisplayCategory,
@@ -18,6 +20,11 @@ import {
   getBlogThumbnailSrc,
   getRenderableBlogSections,
 } from "@/lib/site/blogFormatting";
+import {
+  buildSiteMetadata,
+  getArticleJsonLd,
+  safeJsonLd,
+} from "@/lib/site/metadata";
 import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type BlogPostPageProps = {
@@ -26,6 +33,35 @@ type BlogPostPageProps = {
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const resolvedSlug = resolveBlogSlug(slug);
+  const post = getBlogPostBySlug(resolvedSlug);
+  if (!post) {
+    notFound();
+  }
+
+  const description = getBlogExcerpt(post, 240);
+  const tags = getBlogDisplayTags(post);
+
+  return buildSiteMetadata({
+    title: post.title,
+    description,
+    pathname: `/blog/${resolvedSlug}`,
+    image: getBlogThumbnailSrc(post.thumbnail),
+    imageAlt: post.title,
+    openGraphType: "article",
+    publishedTime: post.date,
+    modifiedTime: post.updatedAt,
+    authors: [post.author],
+    section: getBlogDisplayCategory(post),
+    tags,
+    keywords: tags,
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -62,9 +98,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   ]
     .filter(Boolean)
     .join("\n");
+  const articleJsonLd = getArticleJsonLd({
+    title: post.title,
+    description: displayExcerpt,
+    pathname: `/blog/${post.slug}`,
+    image: thumbnailSrc,
+    author: post.author,
+    datePublished: post.date,
+    dateModified: post.updatedAt,
+    keywords: displayTags,
+  });
 
   return (
     <PageLayout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(articleJsonLd) }}
+      />
       <ReadingProgressBar />
       <SectionShell>
         <article className="rounded-xl border border-border bg-card p-6 md:p-10">
@@ -100,19 +150,27 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </p>
           <TagList tags={displayTags} className="mt-4" />
 
-          <AIWorkspace
-            className="mt-6"
-            compact
-            page="blog-detail"
-            context={aiContext}
-            helperText="Ask AI to summarize this article, extract takeaways, or map ideas to your context."
-            suggestions={[
-              "Summarize this article",
-              "Extract key takeaways",
-              "Find related posts by theme",
-              "Suggest one experiment from this article",
-            ]}
-          />
+          <div className="mt-6">
+            <AIWorkspaceBanner
+              eyebrow="AI Article Guide"
+              title="Work the article into a decision"
+              description="Ask AI to summarize this article, extract takeaways, or map ideas to your context."
+            >
+              <AIWorkspace
+                compact
+                page="blog-detail"
+                context={aiContext}
+                helperText="Ask AI to summarize this article, extract takeaways, or map ideas to your context."
+                suggestions={[
+                  "Summarize this article",
+                  "Extract key takeaways",
+                  "Find related posts by theme",
+                  "Suggest one experiment from this article",
+                ]}
+                tone="banner"
+              />
+            </AIWorkspaceBanner>
+          </div>
 
           <div className="mt-6 rounded-lg border border-border/70 bg-secondary/25 p-4">
             <p className="font-mono text-[11px] uppercase tracking-widest text-primary">

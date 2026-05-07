@@ -8,6 +8,7 @@ import {
 import { ProjectGrid } from "@/components/site/ProjectGrid";
 import { CallToAction } from "@/components/site/CallToAction";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
+import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
 import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies";
 import { projects } from "@/data/projects";
 import { homeFeaturedCaseStudies } from "@/data/site";
@@ -169,15 +170,21 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
       </SectionShell>
 
       <SectionShell className="pt-0" id="portfolio-ai">
-        <AIWorkspace
-          compact
-          className="rounded-xl border border-border bg-card p-4"
-          page="portfolio"
-          shareCode={audienceProfile?.code}
-          context={portfolioAiContext}
-          helperText="Ask about technology choices, chronology, outcomes, and tradeoffs across projects."
-          suggestions={portfolioSuggestions}
-        />
+        <AIWorkspaceBanner
+          eyebrow="AI Portfolio Guide"
+          title="Interrogate the portfolio at leadership depth"
+          description="Ask about technology choices, chronology, outcomes, and tradeoffs across projects."
+        >
+          <AIWorkspace
+            compact
+            page="portfolio"
+            shareCode={audienceProfile?.code}
+            context={portfolioAiContext}
+            helperText="Ask about technology choices, chronology, outcomes, and tradeoffs across projects."
+            suggestions={portfolioSuggestions}
+            tone="banner"
+          />
+        </AIWorkspaceBanner>
       </SectionShell>
 
       <SectionShell className="pt-0" id="project-grid">

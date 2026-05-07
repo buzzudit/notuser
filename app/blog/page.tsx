@@ -12,6 +12,7 @@ import {
 import { BlogGrid } from "@/components/site/BlogGrid";
 import { BlogList } from "@/components/site/BlogList";
 import { CallToAction } from "@/components/site/CallToAction";
+import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { blogPosts } from "@/data/blog";
 import { homeFeaturedWritingSlugs } from "@/data/site";
@@ -54,7 +55,18 @@ type PageProps = {
 export async function generateMetadata({
   searchParams,
 }: PageProps): Promise<Metadata> {
-  return buildUkrScopedMetadata("/blog", searchParams);
+  return buildUkrScopedMetadata("/blog", searchParams, {
+    title: "Writing on Design Leadership, Systems, and AI",
+    description:
+      "Practical writing from Udit Khandelwal on design leadership, systems thinking, product strategy, and AI-first execution.",
+    keywords: [
+      "design leadership writing",
+      "AI-first execution",
+      "systems thinking",
+      "product strategy",
+      "enterprise UX",
+    ],
+  });
 }
 
 export default async function BlogPage({ searchParams }: PageProps) {
@@ -134,14 +146,22 @@ export default async function BlogPage({ searchParams }: PageProps) {
           </div>
         ) : null}
 
-        <AIWorkspace
-          compact
-          className="mt-6"
-          page="blog"
-          context={blogAiContext}
-          helperText={blogHelperText}
-          suggestions={blogSuggestions}
-        />
+        <div className="mt-6">
+          <AIWorkspaceBanner
+            eyebrow="AI Guide"
+            title="Use AI to navigate the writing"
+            description={blogHelperText}
+          >
+            <AIWorkspace
+              compact
+              page="blog"
+              context={blogAiContext}
+              helperText={blogHelperText}
+              suggestions={blogSuggestions}
+              tone="banner"
+            />
+          </AIWorkspaceBanner>
+        </div>
       </SectionShell>
 
       <SectionShell className="pt-0">

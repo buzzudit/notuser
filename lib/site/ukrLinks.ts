@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { randomInt } from "crypto";
 import prisma from "@/lib/prisma";
+import {
+  buildSiteMetadata,
+  type BuildSiteMetadataInput,
+} from "@/lib/site/metadata";
 
 const UKR_CODE_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 const UKR_CODE_REGEX = /^[a-z]{3}$/;
@@ -143,22 +147,21 @@ export function buildUkrIntentAiContext(intentLink: IntentLinkRecord) {
 export async function buildUkrScopedMetadata(
   pathname: string,
   searchParamsInput?: SearchParamsRecord | Promise<SearchParamsRecord>,
+  metadataInput?: Omit<BuildSiteMetadataInput, "pathname" | "robots">,
 ): Promise<Metadata> {
   const searchParams = searchParamsInput ? await Promise.resolve(searchParamsInput) : {};
   const hasUkrQuery = Boolean(getSearchParamValue(searchParams, UKR_QUERY_PARAM));
+  const metadata = buildSiteMetadata({
+    ...metadataInput,
+    pathname,
+  });
 
   if (!hasUkrQuery) {
-    return {
-      alternates: {
-        canonical: pathname,
-      },
-    };
+    return metadata;
   }
 
   return {
-    alternates: {
-      canonical: pathname,
-    },
+    ...metadata,
     robots: {
       index: false,
       follow: false,

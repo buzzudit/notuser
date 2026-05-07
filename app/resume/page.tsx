@@ -14,6 +14,7 @@ import { ExperienceTimeline } from "@/components/site/ExperienceTimeline";
 import { ImpactStats } from "@/components/site/ImpactStats";
 import { DownloadButton } from "@/components/site/DownloadButton";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
+import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
 import { TestimonialCard } from "@/components/site/TestimonialCard";
 import {
   achievements,
@@ -39,7 +40,18 @@ type PageProps = {
 export async function generateMetadata({
   searchParams,
 }: PageProps): Promise<Metadata> {
-  return buildUkrScopedMetadata("/resume", searchParams);
+  return buildUkrScopedMetadata("/resume", searchParams, {
+    title: "Resume",
+    description: profile.summary,
+    image: "/images/udit-bw.png",
+    imageAlt: "Black and white portrait of Udit Khandelwal",
+    keywords: [
+      "Udit Khandelwal resume",
+      "design director",
+      "AI-first product leadership",
+      "enterprise UX leadership",
+    ],
+  });
 }
 
 export default async function ResumePage({ searchParams }: PageProps) {
@@ -214,7 +226,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
         </div>
       </SectionShell>
 
-      <SectionShell className="bg-gradient-to-b from-[rgba(166,198,234,0.25)] via-[rgba(229,239,251,0.6)] to-transparent">
+      <SectionShell className="blue-section-wash">
         <SectionLabel>Testimonials</SectionLabel>
         <SectionHeading>What collaborators say</SectionHeading>
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -234,18 +246,20 @@ export default async function ResumePage({ searchParams }: PageProps) {
         <div className="mb-4 flex justify-center">
           <DownloadButton href="/resume.pdf" />
         </div>
-        <div className="mx-auto w-full max-w-4xl rounded-2xl border border-border bg-card p-5 md:p-6">
-          <p className="text-center font-mono text-[11px] uppercase tracking-widest text-primary">
-            AI resume helper
-          </p>
+        <AIWorkspaceBanner
+          eyebrow="AI Resume Helper"
+          title="Pressure-test the resume against a role"
+          description={resumeHelperText}
+          className="mx-auto w-full max-w-4xl"
+        >
           <AIWorkspace
-            className="mt-4"
             page="resume"
             context={resumeAiContext}
             helperText={resumeHelperText}
             suggestions={resumeSuggestions}
+            tone="banner"
           />
-        </div>
+        </AIWorkspaceBanner>
       </SectionShell>
     </PageLayout>
   );

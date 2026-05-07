@@ -35,9 +35,9 @@ export type ResumeTestimonial = {
 export const profile = {
   name: "Udit Khandelwal",
   title:
-    "Director-level design leader with engineering roots, shaping AI-first enterprise platforms and complex product transformation work.",
+    "Senior-level design leader with engineering roots, shaping AI-first enterprise platforms and complex product transformation work.",
   summary:
-    "Director-level design leader with engineering roots, shaping AI-first enterprise platforms and complex product transformation work.",
+    "Senior-level design leader with engineering roots, shaping AI-first enterprise platforms and complex product transformation work.",
 };
 
 export const resumeSignals: ResumeSignal[] = [
@@ -202,7 +202,7 @@ export const achievements = [
   "Translated ambiguous, cross-zone problem spaces into shared narratives that product, engineering, and design teams could align around and execute.",
   "Led AI transformation in design operations through practical frameworks, hands-on enablement, and broad adoption across teams.",
   "Built durable design quality and collaboration practices that improved execution consistency across platform, partner, and workflow surfaces.",
-  "Progressed from software engineering to director-level design leadership while retaining technical fluency and delivery depth.",
+  "Progressed from software engineering to senior-level design leadership while retaining technical fluency and delivery depth.",
   "Delivered sustained outcomes across healthcare, enterprise platforms, cloud products, and commerce through systems thinking and operational leadership.",
 ];
 
