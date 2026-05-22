@@ -121,7 +121,7 @@ export default async function HomePage({ searchParams }: PageProps) {
         </SectionShell>
       ) : null}
 
-      <SectionShell className="blue-section-wash pt-0">
+      <SectionShell className="blue-section-wash pt-10 md:pt-0">
         <AIWorkspaceBanner
           eyebrow="AI Briefing"
           title={homeAiHeading}

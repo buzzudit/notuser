@@ -171,7 +171,7 @@ export function UkrLinkAdmin() {
               void loadLinks();
             }}
             disabled={isLoading}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
+            className="primary-cta inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
           >
             {isLoading ? "Loading..." : "Unlock manager"}
           </button>
@@ -272,7 +272,7 @@ export function UkrLinkAdmin() {
               <button
                 type="submit"
                 disabled={isCreating}
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
+                className="primary-cta inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
               >
                 <Plus size={14} />
                 {isCreating ? "Creating..." : "Create ukr link"}

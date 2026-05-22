@@ -58,7 +58,7 @@ export function Header() {
           </button>
           <Link
             href="/contact"
-            className="rounded-lg bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+            className="primary-cta rounded-lg bg-primary px-3.5 py-1.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Get in touch
           </Link>

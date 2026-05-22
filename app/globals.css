@@ -243,6 +243,11 @@
   .blue-section-wash {
     background: var(--blue-section-wash);
   }
+
+  .dark .primary-cta {
+    background-color: hsl(var(--banner-blue-start));
+    color: hsl(0 0% 100%);
+  }
 }
 
 @layer utilities {

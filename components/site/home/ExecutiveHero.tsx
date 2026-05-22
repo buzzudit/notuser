@@ -20,21 +20,21 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-border/50">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.16),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.08),transparent_28%)]" />
-      <div className="container relative pt-12 md:pt-20">
+      <div className="container relative pt-12 pb-12 md:pt-20 md:pb-0">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <p className="font-mono text-lg uppercase tracking-[0.16em] text-muted-foreground md:text-2xl">
               {hero.name}
             </p>
 
-            <div className="relative mx-auto mt-4 h-[220px] w-full max-w-[220px] lg:hidden">
+            <div className="relative mx-auto mt-4 h-[360px] w-full max-w-[360px] sm:h-[420px] sm:max-w-[420px] md:h-[460px] md:max-w-[460px] lg:hidden">
               <Image
                 src={hero.imageSrc}
                 alt={hero.imageAlt}
                 fill
                 className="object-contain object-bottom"
                 priority
-                sizes="220px"
+                sizes="(max-width: 640px) 360px, (max-width: 1024px) 460px, 420px"
               />
             </div>
 
@@ -51,7 +51,7 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link
                 href="#case-studies"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                className="primary-cta inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
                 View leadership work <ArrowRight size={14} />
               </Link>
