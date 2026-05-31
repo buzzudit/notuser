@@ -12,6 +12,8 @@ import { BulletList } from "@/components/site/BulletList";
 import { ParagraphStack } from "@/components/site/ParagraphStack";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
+import { ProjectPeopleStrip } from "@/components/site/people/ProjectPeopleStrip";
+import { getPeopleForProject } from "@/data/people";
 import type { Project, ProjectNarrative } from "@/data/types/project";
 import {
   buildNoIndexMetadata,
@@ -248,6 +250,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     organization: project.organization,
     keywords: project.tags,
   });
+  const connectedPeople = getPeopleForProject(project.id);
 
   return (
     <PageLayout>
@@ -299,6 +302,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </nav>
         </div>
       </SectionShell>
+
+      {connectedPeople.length > 0 ? (
+        <SectionShell className="pt-0">
+          <ProjectPeopleStrip people={connectedPeople} />
+        </SectionShell>
+      ) : null}
 
       <SectionShell className="pt-0">
         {project.narrative ? (

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Repository album illustration</title>
+  <desc id="desc">A project album holding multiple saved snapshots.</desc>
+  <rect width="1600" height="900" fill="#fbfaf7"/>
+  <rect x="210" y="150" width="1180" height="620" rx="42" fill="#f4efe4" stroke="#d8c9aa" stroke-width="8"/>
+  <rect x="280" y="220" width="1040" height="480" rx="28" fill="#fffdf8" stroke="#e4d7bd" stroke-width="5"/>
+  <text x="800" y="115" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700" fill="#16294a">The Repository Is the Album</text>
+  <text x="800" y="185" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#5b6475">The project plus all the snapshots Git remembers.</text>
+  <g transform="translate(340 290)">
+    <rect width="220" height="270" rx="14" fill="#fff" stroke="#b6c4d4" stroke-width="5"/>
+    <rect x="28" y="34" width="164" height="128" rx="10" fill="#dff2ff"/>
+    <path d="M45 145 L96 92 L132 124 L160 104 L192 145 Z" fill="#70b36a"/>
+    <circle cx="148" cy="72" r="18" fill="#f6c763"/>
+    <text x="110" y="216" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#4b3c82">Commit 1</text>
+  </g>
+  <g transform="translate(610 290)">
+    <rect width="220" height="270" rx="14" fill="#fff" stroke="#b6c4d4" stroke-width="5"/>
+    <rect x="28" y="34" width="164" height="128" rx="10" fill="#dff2ff"/>
+    <path d="M45 145 L96 92 L132 124 L160 104 L192 145 Z" fill="#70b36a"/>
+    <rect x="80" y="112" width="52" height="50" rx="6" fill="#d95241"/>
+    <text x="110" y="216" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#4b3c82">Commit 2</text>
+  </g>
+  <g transform="translate(880 290)">
+    <rect width="220" height="270" rx="14" fill="#fff" stroke="#b6c4d4" stroke-width="5"/>
+    <rect x="28" y="34" width="164" height="128" rx="10" fill="#dff2ff"/>
+    <path d="M45 145 L96 92 L132 124 L160 104 L192 145 Z" fill="#70b36a"/>
+    <rect x="80" y="112" width="52" height="50" rx="6" fill="#d95241"/>
+    <circle cx="160" cy="126" r="20" fill="#8bbf62"/>
+    <text x="110" y="216" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#4b3c82">Commit 3</text>
+  </g>
+  <path d="M450 625 C560 680 760 690 930 650 C1030 626 1120 610 1215 640" fill="none" stroke="#8057b8" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="450" cy="625" r="16" fill="#fff" stroke="#8057b8" stroke-width="8"/>
+  <circle cx="730" cy="675" r="16" fill="#fff" stroke="#8057b8" stroke-width="8"/>
+  <circle cx="990" cy="635" r="16" fill="#fff" stroke="#8057b8" stroke-width="8"/>
+  <text x="800" y="745" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#2f3b52">A repo is not just the latest file. It is the album of saved moments.</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Merge conflict human decision illustration</title>
+  <desc id="desc">Two overlapping branch changes require a human decision before becoming one final version.</desc>
+  <rect width="1600" height="900" fill="#fbfaf7"/>
+  <text x="800" y="115" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700" fill="#16294a">Conflicts Need a Human Decision</text>
+  <text x="800" y="177" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#5b6475">Git can find overlap. It cannot always know intent.</text>
+  <g transform="translate(150 260)">
+    <rect width="430" height="310" rx="28" fill="#edf6ff" stroke="#9fc0df" stroke-width="6"/>
+    <text x="215" y="58" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1b4f91">Branch A</text>
+    <rect x="80" y="105" width="270" height="120" rx="18" fill="#ffffff" stroke="#b6c4d4" stroke-width="5"/>
+    <text x="215" y="155" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#26334d">Forgot password</text>
+    <text x="215" y="195" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#657080">below login</text>
+  </g>
+  <g transform="translate(1020 260)">
+    <rect width="430" height="310" rx="28" fill="#fff3e8" stroke="#e6b582" stroke-width="6"/>
+    <text x="215" y="58" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#a4561d">Branch B</text>
+    <rect x="80" y="105" width="270" height="120" rx="18" fill="#ffffff" stroke="#b6c4d4" stroke-width="5"/>
+    <text x="215" y="155" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#26334d">FAQ link</text>
+    <text x="215" y="195" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#657080">same area</text>
+  </g>
+  <path d="M590 415 C675 415 695 415 745 415" fill="none" stroke="#4f77c7" stroke-width="10" stroke-linecap="round"/>
+  <path d="M1010 415 C925 415 905 415 855 415" fill="none" stroke="#d68637" stroke-width="10" stroke-linecap="round"/>
+  <g transform="translate(690 300)">
+    <rect width="220" height="230" rx="32" fill="#ffffff" stroke="#d8c9aa" stroke-width="7"/>
+    <circle cx="110" cy="80" r="42" fill="#f5c15c"/>
+    <path d="M110 130 L110 186" stroke="#16294a" stroke-width="12" stroke-linecap="round"/>
+    <path d="M78 158 L142 158" stroke="#16294a" stroke-width="12" stroke-linecap="round"/>
+    <text x="110" y="222" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" fill="#16294a">Decide</text>
+  </g>
+  <path d="M800 545 L800 625" stroke="#53a86a" stroke-width="10" stroke-linecap="round"/>
+  <path d="M760 595 L800 635 L840 595" fill="none" stroke="#53a86a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="500" y="650" width="600" height="120" rx="26" fill="#eef8ef" stroke="#9ed4a8" stroke-width="6"/>
+  <text x="800" y="704" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#27613a">Final merged version</text>
+  <text x="800" y="748" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#4d5b66">Keep both, move one, rewrite copy, or remove one.</text>
+</svg>

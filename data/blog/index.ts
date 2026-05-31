@@ -4,6 +4,7 @@ import { legacyBlogSlugMap } from "../legacy-slug-maps";
 export type { BlogPost };
 
 import { post as how_i_almost_failed_at_modding } from "./how-i-almost-failed-at-modding";
+import { post as lets_git_together_non_developers_guide_to_git } from "./lets-git-together-non-developers-guide-to-git";
 import { post as growth_a_designer_s_journey } from "./growth-a-designer-s-journey";
 import { post as how_i_groom_my_designers_at_athenahealth } from "./how-i-groom-my-designers-at-athenahealth";
 import { post as framework_first_design_a_scalable_approach_to_problem_solving } from "./framework-first-design-a-scalable-approach-to-problem-solving";
@@ -29,6 +30,7 @@ import { post as paradox_of_choice } from "./paradox-of-choice";
 import { post as a_serene_world_based_on_balance } from "./a-serene-world-based-on-balance";
 
 export const blogPosts: BlogPost[] = [
+  lets_git_together_non_developers_guide_to_git,
   how_i_almost_failed_at_modding,
   growth_a_designer_s_journey,
   how_i_groom_my_designers_at_athenahealth,

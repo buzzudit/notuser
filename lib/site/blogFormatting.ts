@@ -221,6 +221,75 @@ const SYSTEMS_FIGURES = {
   },
 } satisfies Record<string, BlogFigureSeed>;
 
+const LETS_GIT_TOGETHER_FIGURES = {
+  photographer: {
+    src: "/images/blog/lets-git-together/photographer-taking-snapshots.jpeg",
+    alt: "A photographer taking a photo to explain Git snapshots",
+    caption: "Start here: Git is easier to understand when you think like a photographer.",
+    aspectRatio: "16 / 9",
+  },
+  choosingFrame: {
+    src: "/images/blog/lets-git-together/choosing-the-frame.jpeg",
+    alt: "A dotted outline scene before items are selected for a snapshot",
+    caption: "Before a snapshot, there is a scene being prepared.",
+    aspectRatio: "16 / 9",
+  },
+  projectScene: {
+    src: "/images/blog/lets-git-together/project-scene.jpeg",
+    alt: "A completed scene with a plant, toy car, and teddy bear",
+    caption: "Your project is the scene you keep changing over time.",
+    aspectRatio: "16 / 9",
+  },
+  snapshotsOverview: {
+    src: "/images/blog/lets-git-together/git-snapshots-overview.jpeg",
+    alt: "Git shown as taking snapshots of a project over time",
+    caption: "The core analogy: Git captures meaningful moments in a project's history.",
+    aspectRatio: "16 / 9",
+  },
+  commitMoment: {
+    src: "/images/blog/lets-git-together/commit-captures-moment.jpeg",
+    alt: "A commit shown as a photo that captures a project moment",
+    caption: "A commit is a chosen snapshot, not every unfinished change on your desk.",
+    aspectRatio: "16 / 9",
+  },
+  historyTimeMachine: {
+    src: "/images/blog/lets-git-together/git-history-time-machine.jpeg",
+    alt: "Git history shown as a time machine for project snapshots",
+    caption: "Git history lets you inspect, compare, and recover earlier project states.",
+    aspectRatio: "16 / 9",
+  },
+  branchTimelines: {
+    src: "/images/blog/lets-git-together/branches-alternate-timelines.jpeg",
+    alt: "Git branches shown as alternate timelines that later merge",
+    caption: "Branches let you explore safely before bringing the work back together.",
+    aspectRatio: "16 / 9",
+  },
+  repositoryAlbum: {
+    src: "/images/blog/lets-git-together/repository-album.svg",
+    alt: "A repository shown as an album of project snapshots",
+    caption: "The repo holds the project and the saved snapshots.",
+    aspectRatio: "16 / 9",
+  },
+  mergeConflict: {
+    src: "/images/blog/lets-git-together/merge-conflict-human-decision.svg",
+    alt: "A merge conflict shown as overlapping branch changes that need a human decision",
+    caption: "Conflicts are normal overlap points that need judgment.",
+    aspectRatio: "16 / 9",
+  },
+  repositoriesSync: {
+    src: "/images/blog/lets-git-together/repositories-stay-in-sync.jpeg",
+    alt: "Local and remote Git repositories staying in sync through clone push and pull request",
+    caption: "Pull requests create a reviewable path into the shared branch.",
+    aspectRatio: "16 / 9",
+  },
+  basicsAtGlance: {
+    src: "/images/blog/lets-git-together/git-basics-at-a-glance.jpeg",
+    alt: "Git basics at a glance with common command meanings",
+    caption: "The handful of Git terms worth recognizing.",
+    aspectRatio: "16 / 9",
+  },
+} satisfies Record<string, BlogFigureSeed>;
+
 function applyMojibakeFixes(input: string) {
   return Object.entries(MOJIBAKE_REPLACEMENTS).reduce(
     (text, [from, to]) => text.split(from).join(to),
@@ -803,6 +872,113 @@ function buildSystemsThinkingSections(post: BlogPost): BlogRenderSection[] {
   ];
 }
 
+function buildLetsGitTogetherSections(post: BlogPost): BlogRenderSection[] {
+  const photographer = getSectionParagraphs(post, "Think Like a Photographer");
+  const project = getSectionParagraphs(post, "Your Project Is the Scene");
+  const commit = getSectionParagraphs(post, "A Commit Is Pressing the Camera Button");
+  const gitAdd = getSectionParagraphs(post, "git add Chooses What Goes in the Frame");
+  const repo = getSectionParagraphs(post, "The Repository Is the Album");
+  const history = getSectionParagraphs(post, "History Is the Timeline");
+  const branch = getSectionParagraphs(post, "A Branch Is Your Own World");
+  const merge = getSectionParagraphs(post, "A Merge Brings Worlds Together");
+  const conflicts = getSectionParagraphs(post, "Conflicts Mean Git Needs a Human");
+  const pullRequest = getSectionParagraphs(post, "A Pull Request Is a Reviewed Merge");
+  const commands = getSectionParagraphs(post, "A Few Commands Are Enough to Start");
+  const wholePicture = getSectionParagraphs(post, "The Whole Picture");
+
+  return [
+    {
+      heading: "Think Like a Photographer",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.photographer),
+        ...photographer.map((text, index) => paragraph(text, index === 0 ? "lead" : "body")),
+      ],
+    },
+    {
+      heading: "Your Project Is the Scene",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.choosingFrame),
+        figure(LETS_GIT_TOGETHER_FIGURES.projectScene),
+        ...project.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "A Commit Is Pressing the Camera Button",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.commitMoment),
+        ...commit.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "git add Chooses What Goes in the Frame",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.commitMoment),
+        ...gitAdd.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "The Repository Is the Album",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.repositoryAlbum),
+        ...repo.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "History Is the Timeline",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.historyTimeMachine),
+        ...history.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "A Branch Is Your Own World",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.branchTimelines),
+        ...branch.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "A Merge Brings Worlds Together",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.branchTimelines),
+        ...merge.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "Conflicts Mean Git Needs a Human",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.mergeConflict),
+        ...conflicts.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "A Pull Request Is a Reviewed Merge",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.repositoriesSync),
+        ...pullRequest.map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "A Few Commands Are Enough to Start",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.basicsAtGlance),
+        {
+          type: "list",
+          items: commands.slice(0, 7),
+        },
+        ...commands.slice(7).map((text) => paragraph(text)),
+      ],
+    },
+    {
+      heading: "The Whole Picture",
+      blocks: [
+        figure(LETS_GIT_TOGETHER_FIGURES.snapshotsOverview),
+        ...wholePicture.map((text) => paragraph(text)),
+      ],
+    },
+  ];
+}
+
 function getRichBlogSections(post: BlogPost): BlogRenderSection[] | null {
   if (post.slug === "framework-first-design-a-scalable-approach-to-problem-solving") {
     return buildFrameworkFirstSections(post);
@@ -814,6 +990,10 @@ function getRichBlogSections(post: BlogPost): BlogRenderSection[] | null {
 
   if (post.slug === "consistency-at-scale-with-systems-thinking") {
     return buildSystemsThinkingSections(post);
+  }
+
+  if (post.slug === "lets-git-together-non-developers-guide-to-git") {
+    return buildLetsGitTogetherSections(post);
   }
 
   return null;
