@@ -157,8 +157,8 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
       </SectionShell>
 
       <SectionShell className="pt-0" id="flagship-case-studies">
-        <SectionLabel>Flagship Case Studies</SectionLabel>
-        <SectionHeading>Higher-context work for leadership and transformation conversations</SectionHeading>
+        <SectionLabel>Flagship Work</SectionLabel>
+        <SectionHeading>Deeper stories for leadership and transformation conversations</SectionHeading>
         <SectionDescription>
           These case studies provide stronger detail on problem space, leadership
           scope, and why the work mattered. They are intended as the first review
@@ -172,7 +172,7 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
       <SectionShell className="pt-0" id="portfolio-ai">
         <AIWorkspaceBanner
           eyebrow="AI Portfolio Guide"
-          title="Interrogate the portfolio at leadership depth"
+          title="Explore the portfolio from a leadership lens"
           description="Ask about technology choices, chronology, outcomes, and tradeoffs across projects."
         >
           <AIWorkspace

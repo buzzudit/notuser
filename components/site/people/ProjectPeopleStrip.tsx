@@ -17,7 +17,7 @@ export function ProjectPeopleStrip({ people }: ProjectPeopleStripProps) {
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-            People connected to this work
+            People behind this work
           </p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
             Collaborators and partners from the project network

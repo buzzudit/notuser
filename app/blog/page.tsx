@@ -149,7 +149,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
         <div className="mt-6">
           <AIWorkspaceBanner
             eyebrow="AI Guide"
-            title="Use AI to navigate the writing"
+            title="Find the right writing for your question"
             description={blogHelperText}
           >
             <AIWorkspace
@@ -179,7 +179,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
       <SectionShell className="pt-0">
         <section className="rounded-xl border border-border/70 bg-card p-5 md:p-6">
           <SectionLabel>Archive</SectionLabel>
-          <SectionHeading>Additional writing and legacy posts</SectionHeading>
+          <SectionHeading>More essays from the archive</SectionHeading>
           <SectionDescription>
             Earlier writing remains available for context and breadth, with lower
             priority than the featured leadership and AI-focused pieces above.

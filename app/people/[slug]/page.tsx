@@ -38,6 +38,18 @@ function getPersonDescription(person: NonNullable<ReturnType<typeof getPersonByS
   return `${person.name} is part of Udit Khandelwal's ${category} collaborator network, connected through portfolio work and shared product execution.`;
 }
 
+function getConnectionLabel(person: NonNullable<ReturnType<typeof getPersonBySlug>>) {
+  if (person.strength === "High") {
+    return "Close connection";
+  }
+
+  if (person.strength === "Med") {
+    return "Project connection";
+  }
+
+  return "Wider circle";
+}
+
 export async function generateMetadata({ params }: PersonPageProps): Promise<Metadata> {
   const { slug } = await params;
   const person = getPersonBySlug(slug);
@@ -123,10 +135,10 @@ export default async function PersonPage({ params }: PersonPageProps) {
               ) : null}
               <div className="mt-5 flex flex-wrap gap-2">
                 <span className="rounded-full bg-primary/10 px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-primary">
-                  {person.strength} connection
+                  {getConnectionLabel(person)}
                 </span>
                 <span className="rounded-full bg-secondary px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                  {relatedProjects.length} linked projects
+                  {relatedProjects.length} shared projects
                 </span>
               </div>
               <a
@@ -166,7 +178,7 @@ export default async function PersonPage({ params }: PersonPageProps) {
 
       <SectionShell className={person.testimonial ? "pt-0" : undefined}>
         <SectionLabel>Connected Work</SectionLabel>
-        <SectionHeading>Projects linked to {person.firstName}</SectionHeading>
+        <SectionHeading>My projects with {person.firstName}</SectionHeading>
         <SectionDescription>
           Current portfolio pages connected through the archived collaborator
           relationship data.

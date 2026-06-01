@@ -79,7 +79,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
     `Education: ${education
       .map((item) => `${item.degree}, ${item.institution} (${item.year})`)
       .join(" | ")}`,
-    `Training and certifications: ${trainingAndCertifications
+    `Professional development: ${trainingAndCertifications
       .map((item) => `${item.year}: ${item.title} - ${item.provider}. ${item.summary}`)
       .join(" ")}`,
     activeIntent ? buildUkrIntentAiContext(activeIntent) : "",
@@ -128,7 +128,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
 
       <SectionShell className="py-4 md:py-6">
         <SectionLabel>Impact</SectionLabel>
-        <SectionHeading>Career signals</SectionHeading>
+        <SectionHeading>Career Highlights</SectionHeading>
         <ImpactStats />
       </SectionShell>
 
@@ -140,7 +140,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
 
       <SectionShell>
         <SectionLabel>Leadership Context</SectionLabel>
-        <SectionHeading>Background and operating context</SectionHeading>
+        <SectionHeading>How the background translates into leadership</SectionHeading>
         <SectionDescription>
           Beyond tenure, this reflects a combination of platform leadership,
           systems thinking, cross-functional influence, and technical depth.
@@ -209,7 +209,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
 
         <div className="mt-8">
           <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-            Training and certification
+            Professional development
           </p>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
             {trainingAndCertifications.map((item) => (

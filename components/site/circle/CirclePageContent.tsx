@@ -53,7 +53,7 @@ export function CirclePageContent({
           <PromptExamples prompts={circlePrompts} onSelect={setSelectedPrompt} />
           <AIWorkspaceBanner
             eyebrow="AI Sandbox"
-            title="Run the prompt against the workflow context"
+            title="Try the prompt in a workflow"
             description={helperText}
           >
             <AIWorkspace

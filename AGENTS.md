@@ -7,6 +7,8 @@
 - Start from a clear story spec before implementation.
 - Keep scope, acceptance criteria, and definition of done explicit for each meaningful change.
 - Use the Linear "SDD Story Template" for every new or updated story: https://linear.app/buzzudit/document/sdd-story-template-2d5b4fa02ad7
+- Use Linear as the source of truth for SDD story management. Create, update, merge, and close stories in Linear; do not create or maintain local story specs such as `docs/stories/*.md`.
+- If local story specs are found, check current Linear stories first, merge intelligently to avoid duplicates, and migrate the local content into Linear before implementation continues.
 - Prefer tightening the spec first when a request is ambiguous, especially for homepage messaging, portfolio positioning, blog presentation, and release work.
 - Implement against the agreed spec rather than improvising net-new product direction.
 - Preserve the existing visual language unless a spec explicitly calls for broader design change.
