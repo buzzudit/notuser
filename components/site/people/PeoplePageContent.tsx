@@ -53,7 +53,7 @@ const networkSections: NetworkSection[] = [
   {
     strength: "Low",
     title: "Wider circle",
-    description: "Additional collaborators and peers preserved from the archived project network.",
+    description: "Additional collaborators and peers connected to earlier work.",
     shellClassName: "border-border/80 bg-secondary/20",
     cardClassName: "border-border/80 bg-background/75 p-3 hover:border-primary/25",
     metaClassName: "bg-background text-muted-foreground",

@@ -12,14 +12,17 @@ import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 type ProjectCardProps = {
   project: Project;
   className?: string;
+  fullCardLink?: boolean;
 };
 
-export function ProjectCard({ project, className = "" }: ProjectCardProps) {
-  return (
-    <motion.article
-      whileHover={{ y: -3 }}
-      className={`group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:shadow-[0_0_20px_-8px_hsl(38_92%_50%/0.2)] ${className}`}
-    >
+export function ProjectCard({
+  project,
+  className = "",
+  fullCardLink = false,
+}: ProjectCardProps) {
+  const projectHref = `/portfolio/${project.slug}`;
+  const cardContent = (
+    <>
       {project.thumbnail ? (
         <div className="relative mb-4 h-44 overflow-hidden rounded-lg border border-border/70 bg-secondary/40">
           <Image
@@ -47,12 +50,18 @@ export function ProjectCard({ project, className = "" }: ProjectCardProps) {
             Private
           </span>
         ) : null}
-        <Link
-          href={`/portfolio/${project.slug}`}
-          className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors group-hover:text-primary"
-        >
-          Case study <ArrowUpRight size={14} />
-        </Link>
+        {fullCardLink ? (
+          <span className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors group-hover:text-primary">
+            Case study <ArrowUpRight size={14} />
+          </span>
+        ) : (
+          <Link
+            href={projectHref}
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors group-hover:text-primary"
+          >
+            Case study <ArrowUpRight size={14} />
+          </Link>
+        )}
       </div>
 
       <h3 className="text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
@@ -69,6 +78,21 @@ export function ProjectCard({ project, className = "" }: ProjectCardProps) {
       <div className="mt-4">
         <MetricsStrip metrics={project.metrics} compact />
       </div>
+    </>
+  );
+
+  return (
+    <motion.article
+      whileHover={{ y: -3 }}
+      className={`group rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/40 hover:shadow-[0_0_20px_-8px_hsl(38_92%_50%/0.2)] ${className}`}
+    >
+      {fullCardLink ? (
+        <Link href={projectHref} className="block">
+          {cardContent}
+        </Link>
+      ) : (
+        cardContent
+      )}
     </motion.article>
   );
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { resolveMirroredMediaSrc } from "@/lib/wixMedia";
 
 type TestimonialCardProps = {
@@ -6,9 +7,16 @@ type TestimonialCardProps = {
   author: string;
   role: string;
   photoSrc?: string;
+  authorHref?: string;
 };
 
-export function TestimonialCard({ quote, author, role, photoSrc }: TestimonialCardProps) {
+export function TestimonialCard({
+  quote,
+  author,
+  role,
+  photoSrc,
+  authorHref,
+}: TestimonialCardProps) {
   return (
     <article className="relative flex flex-col overflow-hidden rounded-xl bg-card px-5 pb-5 pt-10">
       <span
@@ -31,7 +39,16 @@ export function TestimonialCard({ quote, author, role, photoSrc }: TestimonialCa
             />
           </div>
         ) : null}
-        <p className="text-sm font-medium text-foreground">{author}</p>
+        {authorHref ? (
+          <Link
+            href={authorHref}
+            className="text-sm font-medium text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+          >
+            {author}
+          </Link>
+        ) : (
+          <p className="text-sm font-medium text-foreground">{author}</p>
+        )}
         {role ? (
           <p className="mt-0.5 font-mono text-[11px] uppercase tracking-wide text-muted-foreground">
             {role}

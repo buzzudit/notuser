@@ -7,6 +7,7 @@ import {
   SectionLabel,
   SectionShell,
 } from "@/components/site/SectionShell";
+import { CallToAction } from "@/components/site/CallToAction";
 import { PeoplePageContent } from "@/components/site/people/PeoplePageContent";
 import { getPeopleCategory, people, peopleCategories } from "@/data/people";
 import { projects } from "@/data/projects";
@@ -130,9 +131,8 @@ function PeopleMasthead() {
               The people who shaped the work
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              A curated view of the leaders, designers, product partners, and engineers behind
-              the portfolio story: the people who shaped decisions, raised quality, and helped
-              the work ship.
+              Collaborators, leaders, designers, product partners, and engineers
+              connected to the projects and teams in this portfolio.
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -237,6 +237,18 @@ export default function PeoplePage() {
           projects={projects}
           aiContext={peopleAiContext}
           aiSuggestions={peopleAiSuggestions}
+        />
+      </SectionShell>
+
+      <SectionShell>
+        <CallToAction
+          eyebrow="Collaborate"
+          title="Want to get featured here?"
+          description="The people on this page are part of the work, decisions, and outcomes behind my portfolio. If you want to build something meaningful together, start a conversation or browse the work first."
+          primaryLabel="Contact me"
+          primaryHref="/contact"
+          secondaryLabel="Browse my work"
+          secondaryHref="/portfolio"
         />
       </SectionShell>
     </PageLayout>

@@ -168,8 +168,8 @@ export default async function BlogPage({ searchParams }: PageProps) {
         <SectionLabel>Featured</SectionLabel>
         <SectionHeading>Thinking on leadership, product systems, and AI-first execution</SectionHeading>
         <SectionDescription>
-          Priority reading for hiring managers and product leaders evaluating how I
-          approach strategy, organizational design, and execution quality.
+          Essays on product strategy, organizational design, systems thinking,
+          and execution quality.
         </SectionDescription>
         <div className="mt-8">
           <BlogGrid posts={featured} />
@@ -181,8 +181,8 @@ export default async function BlogPage({ searchParams }: PageProps) {
           <SectionLabel>Archive</SectionLabel>
           <SectionHeading>More essays from the archive</SectionHeading>
           <SectionDescription>
-            Earlier writing remains available for context and breadth, with lower
-            priority than the featured leadership and AI-focused pieces above.
+            Additional essays from across design, product, technology, and
+            leadership work.
           </SectionDescription>
           <div className="mt-8">
             <BlogList posts={archive} />

@@ -121,7 +121,7 @@ export default async function HomePage({ searchParams }: PageProps) {
         </SectionShell>
       ) : null}
 
-      <SectionShell className="blue-section-wash pt-10 md:pt-0">
+      <SectionShell className="blue-section-wash pt-10 md:pt-12">
         <AIWorkspaceBanner
           eyebrow="AI Briefing"
           title={homeAiHeading}
@@ -196,8 +196,8 @@ export default async function HomePage({ searchParams }: PageProps) {
             <SectionLabel>Selected Work</SectionLabel>
             <SectionHeading>Case studies with business and leadership context</SectionHeading>
             <SectionDescription>
-              These previews focus on problem context, the leadership I brought,
-              and why the work mattered in enterprise environments.
+              These previews cover problem context, leadership contribution, and
+              business or workflow outcomes in enterprise environments.
             </SectionDescription>
           </div>
           <Link
@@ -224,9 +224,9 @@ export default async function HomePage({ searchParams }: PageProps) {
         <SectionLabel>Career Context</SectionLabel>
         <SectionHeading>Progression across leadership, platforms, and engineering roots</SectionHeading>
         <SectionDescription>
-          The progression matters: senior-level leadership at athenahealth,
-          supported by earlier work across Adobe, Cisco, Kaseya, Zivame, and a
-          foundation in software engineering.
+          My path combines senior-level leadership at athenahealth, earlier roles
+          across Adobe, Cisco, Kaseya, and Zivame, and a foundation in software
+          engineering.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeExecutiveProof} iconSet="proof" iconTreatment="none" />

@@ -25,6 +25,7 @@ import {
   resumeSignals,
   trainingAndCertifications,
 } from "@/data/experience";
+import { people } from "@/data/people";
 import {
   buildUkrIntentAiContext,
   buildUkrScopedMetadata,
@@ -98,6 +99,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
   const resumeHelperText = activeIntent
     ? `Ask AI for a role-fit summary for ${fitTarget}, interview briefing, or leadership talking points.`
     : "Ask AI for a role-fit summary, interview briefing, or leadership talking points.";
+  const peopleByName = new Map(people.map((person) => [person.name, person]));
 
   return (
     <PageLayout>
@@ -230,15 +232,20 @@ export default async function ResumePage({ searchParams }: PageProps) {
         <SectionLabel>Testimonials</SectionLabel>
         <SectionHeading>What collaborators say</SectionHeading>
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {resumeTestimonials.map((testimonial) => (
-            <TestimonialCard
-              key={`${testimonial.author}-${testimonial.photoSrc}`}
-              quote={testimonial.quote}
-              author={testimonial.author}
-              role={testimonial.role}
-              photoSrc={testimonial.photoSrc}
-            />
-          ))}
+          {resumeTestimonials.map((testimonial) => {
+            const person = peopleByName.get(testimonial.author);
+
+            return (
+              <TestimonialCard
+                key={`${testimonial.author}-${testimonial.photoSrc}`}
+                quote={testimonial.quote}
+                author={testimonial.author}
+                role={testimonial.role}
+                photoSrc={testimonial.photoSrc}
+                authorHref={person ? `/people/${person.slug}` : undefined}
+              />
+            );
+          })}
         </div>
       </SectionShell>
 

@@ -150,7 +150,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
         <SectionDescription>
           {activeIntent
             ? `This page is tuned for a closer conversation about ${fitTarget}, including leadership, transformation, and how I operate across complex product work.`
-            : "This page is most useful when the conversation involves leadership, transformation, or a closer read of how I operate across complex product work."}
+            : "Use this page for leadership roles, AI transformation discussions, portfolio walkthroughs, and focused advisory requests."}
         </SectionDescription>
         <div className="mt-8">
           <ContactReasons reasons={contactReasons} />
