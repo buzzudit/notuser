@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Linkedin, MessageSquareQuote } from "lucide-react";
@@ -98,6 +99,7 @@ export default async function PersonPage({ params }: PersonPageProps) {
 
   const relatedProjects = getRelatedProjects(person.relatedProjectIds);
   const personJsonLd = getPersonJsonLd(person, relatedProjects);
+  const hasPersonalStory = Boolean(person.relationship || person.fondMemory);
 
   return (
     <PageLayout>
@@ -137,9 +139,11 @@ export default async function PersonPage({ params }: PersonPageProps) {
                 <span className="rounded-full bg-primary/10 px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-primary">
                   {getConnectionLabel(person)}
                 </span>
-                <span className="rounded-full bg-secondary px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-                  {relatedProjects.length} shared projects
-                </span>
+                {relatedProjects.length > 0 ? (
+                  <span className="rounded-full bg-secondary px-3 py-1.5 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                    {relatedProjects.length} shared projects
+                  </span>
+                ) : null}
               </div>
               <a
                 href={person.linkedIn}
@@ -157,16 +161,19 @@ export default async function PersonPage({ params }: PersonPageProps) {
 
       {person.testimonial ? (
         <SectionShell className="pt-0">
-          <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-            <div className="flex items-start gap-4">
-              <MessageSquareQuote className="mt-1 shrink-0 text-primary" size={22} />
-              <div>
+          <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-card p-6 shadow-sm md:p-8">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-[hsl(var(--banner-blue-end))] to-primary" />
+            <div className="relative flex items-start gap-4">
+              <span className="mt-1 flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <MessageSquareQuote size={20} />
+              </span>
+              <div className="min-w-0">
                 <SectionLabel>Testimonial</SectionLabel>
-                <blockquote className="mt-3 max-w-4xl text-xl font-medium leading-relaxed text-foreground md:text-2xl">
-                  &ldquo;{person.testimonial}&rdquo;
+                <blockquote className="mt-4 max-w-4xl font-serif text-2xl font-medium italic leading-relaxed text-foreground md:text-3xl">
+                  {person.testimonial}
                 </blockquote>
                 {person.concurrentDesignation ? (
-                  <p className="mt-4 text-sm text-muted-foreground">
+                  <p className="mt-5 border-l-2 border-primary/25 pl-4 text-sm text-muted-foreground">
                     {person.concurrentDesignation}
                   </p>
                 ) : null}
@@ -176,24 +183,86 @@ export default async function PersonPage({ params }: PersonPageProps) {
         </SectionShell>
       ) : null}
 
-      <SectionShell className={person.testimonial ? "pt-0" : undefined}>
-        <SectionLabel>Connected Work</SectionLabel>
-        <SectionHeading>My projects with {person.firstName}</SectionHeading>
-        <SectionDescription>
-          Current portfolio pages connected through the archived collaborator
-          relationship data.
-        </SectionDescription>
-        <div className="mt-8">
-          {relatedProjects.length > 0 ? (
+      {hasPersonalStory ? (
+        <SectionShell className="pt-0">
+          <SectionLabel>Personal Story</SectionLabel>
+          <SectionHeading>Working with {person.firstName}</SectionHeading>
+          <div className="mt-8 grid gap-4">
+            {person.fondMemory ? (
+              <article className="relative overflow-hidden rounded-2xl border border-primary/35 bg-primary/5 p-6 shadow-sm md:p-8">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-[hsl(var(--banner-blue-end))] to-primary" />
+                <div className="flex items-center gap-3">
+                  <span className="flex size-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <MessageSquareQuote size={18} />
+                  </span>
+                  <h2 className="text-xl font-semibold text-foreground">Fond memory</h2>
+                </div>
+                <p className="mt-5 whitespace-pre-line text-base leading-8 text-foreground md:text-lg">
+                  {person.fondMemory}
+                </p>
+              </article>
+            ) : null}
+            {person.relationship ? (
+              <article className="rounded-2xl border border-border bg-card p-6 md:p-7">
+                <h2 className="text-base font-semibold text-foreground">Relationship</h2>
+                <p className="mt-3 whitespace-pre-line text-sm leading-7 text-muted-foreground">
+                  {person.relationship}
+                </p>
+              </article>
+            ) : null}
+          </div>
+        </SectionShell>
+      ) : null}
+
+      {person.gallery.length > 0 ? (
+        <SectionShell className="pt-0">
+          <SectionLabel>Gallery</SectionLabel>
+          <SectionHeading>Shared moments with {person.firstName}</SectionHeading>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {person.gallery.map((item, index) => (
+              <figure
+                key={`${item.src}-${index}`}
+                className="overflow-hidden rounded-2xl border border-border bg-card"
+              >
+                <div className="relative aspect-[4/3] bg-secondary">
+                  <Image
+                    src={resolveMirroredMediaSrc(item.src)}
+                    alt={item.alt ?? `${person.name} gallery image ${index + 1}`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                {item.title || item.description ? (
+                  <figcaption className="p-4">
+                    {item.title ? (
+                      <p className="text-sm font-medium text-foreground">{item.title}</p>
+                    ) : null}
+                    {item.description ? (
+                      <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                        {item.description}
+                      </p>
+                    ) : null}
+                  </figcaption>
+                ) : null}
+              </figure>
+            ))}
+          </div>
+        </SectionShell>
+      ) : null}
+
+      {relatedProjects.length > 0 ? (
+        <SectionShell className="pt-0">
+          <SectionLabel>Connected Work</SectionLabel>
+          <SectionHeading>My projects with {person.firstName}</SectionHeading>
+          <SectionDescription>
+            Projects where our paths crossed and the work is part of this portfolio.
+          </SectionDescription>
+          <div className="mt-8">
             <ProjectGrid projects={relatedProjects} />
-          ) : (
-            <div className="rounded-2xl border border-border bg-card p-6 text-sm text-muted-foreground">
-              No current public portfolio project is linked to this archived
-              collaborator record yet.
-            </div>
-          )}
-        </div>
-      </SectionShell>
+          </div>
+        </SectionShell>
+      ) : null}
     </PageLayout>
   );
 }

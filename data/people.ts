@@ -2,6 +2,13 @@
 
 export type PeopleCategory = "Leadership" | "Product" | "Design" | "Engineering" | "Other";
 
+export type PersonGalleryItem = {
+  src: string;
+  title: string | null;
+  description: string | null;
+  alt: string | null;
+};
+
 export type Person = {
   id: string;
   slug: string;
@@ -12,6 +19,9 @@ export type Person = {
   image: string | null;
   strength: PersonStrength;
   relationshipText: string | null;
+  relationship: string | null;
+  fondMemory: string | null;
+  gallery: PersonGalleryItem[];
   testimonial: string | null;
   concurrentDesignation: string | null;
   relatedProjectIds: string[];
@@ -29,6 +39,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_7da0eae4726e4fdaa4907a913cb5fd92~mv2.jpeg/nikki.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Nikki through our time together at:",
+        "relationship":  "My relationship with Nikki is built on deep mutual respect and collaboration. I recognized her multiple times for her dedication, enthusiasm, and ability to tackle complex challenges with grace and determination. Her work on ecosystem IA and OOUX was exceptional, and I always appreciated her commitment to quality and team support. She consistently went above and beyond, contributing valuable insights and fostering a collaborative environment.\n\nNikki’s recognitions for me reflects her appreciation for the partnership we shared. She valued the guidance and feedback I provided, which helped her navigate challenging projects and grow as a professional. Our relationship is based on a strong foundation of trust, support, and a shared drive to push boundaries and achieve excellence together. It is always a pleasure working with someone as dedicated and passionate as Nikki.",
+        "fondMemory":  "One fond memory I have with Nikki is when we collaborated on revitalizing the Ecosystem Hub Navigation. She brought a fresh perspective and innovative ideas, which transformed a challenging project into a successful and rewarding experience. Watching her take ownership of the project and seeing her hard work come to fruition was incredibly fulfilling. It highlighted her determination and passion for her work, making it a memorable moment in our collaboration.",
+        "gallery":  [],
         "testimonial":  "Udit, thank you for your unwavering support and guidance. Your design knowledge and business understanding have been invaluable to me. I always knew I could count on you for insightful feedback and honest advice, which helped me grow as a professional. It was a pleasure working with you!",
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -49,10 +62,45 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_88b32f7fe2a94393bdd598a82a10b68c~mv2.jpg/vignesh.jpg#originWidth=413\u0026originHeight=413",
         "strength":  "High",
         "relationshipText":  "I met Vignesh through our time together at:",
+        "relationship":  "Vignesh has been a consistent collaborator, demonstrating leadership and commitment across various projects. I have recognized him multiple times for his significant contributions, particularly in achieving \"love it\" moments from leadership on key initiatives like Referrals 360X and athenaConnect. His work has been instrumental in driving UX maturity and engagement within our zones, showcasing his depth and dedication to delivering impactful solutions.\n\nVignesh's recognitions for me reflect a mutual respect and appreciation for mentorship and support. He values the guidance and encouragement I provide, which has helped him grow as a designer and a person. He often acknowledges how my feedback and motivation have been pivotal in his professional development. Our relationship is built on a foundation of trust, collaboration, and a shared commitment to excellence, making our partnership highly productive and fulfilling.",
+        "fondMemory":  "One fond memory I have of Vignesh is when we worked together to achieve \"love it\" moments from leadership on the Referrals 360X project. Seeing the impact of our collaboration and the positive recognition from leadership made it a rewarding experience. It highlighted the synergy we share and our ability to deliver high-quality outcomes as a team.",
+        "gallery":  [
+            {
+              "src":  "wix:image://v1/bc4f65_3a102075410840f18ce7a9c9cb9485ca~mv2.jpeg/_.jpeg#originWidth=1800&originHeight=1350",
+              "title":  null,
+              "description":  null,
+              "alt":  null
+            },
+            {
+              "src":  "wix:image://v1/bc4f65_503fd433c7f34386bdf1cab99d58db09~mv2.jpeg/_.jpeg#originWidth=1350&originHeight=1800",
+              "title":  null,
+              "description":  null,
+              "alt":  null
+            },
+            {
+              "src":  "wix:image://v1/bc4f65_55699d781c1843dea37f862874f267b4~mv2.jpeg/_.jpeg#originWidth=1800&originHeight=1350",
+              "title":  null,
+              "description":  null,
+              "alt":  null
+            },
+            {
+              "src":  "wix:image://v1/bc4f65_effba45ab37248f0a7c737856a3cba39~mv2.jpeg/_.jpeg#originWidth=1800&originHeight=1350",
+              "title":  null,
+              "description":  null,
+              "alt":  null
+            },
+            {
+              "src":  "wix:image://v1/bc4f65_22d51feb7aab4a53b5b1f085e79eacd2~mv2.jpeg/_.jpeg#originWidth=1800&originHeight=1350",
+              "title":  null,
+              "description":  null,
+              "alt":  null
+            }
+          ],
         "testimonial":  "It feels like a dream to have accomplished so much in the last five days; none of it would have been possible without your mentoring, support, and encouragement, from planning zone meetings to driving impactful outcomes together.",
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
-                                  "1eb75715-5fef-4dcd-87b7-5a38c04cfd95"
+                                  "1eb75715-5fef-4dcd-87b7-5a38c04cfd95",
+                                  "42a706b1-4fba-4324-80eb-eff13fb70394"
                               ],
         "relatedPostSlugs":  [
                                  "framework-first-design-a-scalable-approach-to-problem-solving"
@@ -68,6 +116,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_0acf8ecdeaa54e038781133c2d3bc81a~mv2.jpeg/amanda.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Amanda through our time together at:",
+        "relationship":  "Amanda has been my manager at athena for about 4 years. I am very fond of her and share a special bond with her. I admire her leadership skills and have learnt a lot from her, and have grown under her (Senior Manager to Director).",
+        "fondMemory":  "Amanda, my manager, really gets what motivates her team. I went through a period where I just wasn't feeling as driven. Instead of overlooking it, Amanda realized I needed a bigger challenge. Knowing how I thrive, she gave me a meaningful task: creating a vision story for our whole subdivision, the Platform. At first, I was a bit unsure, but this project got me back on track. I'm grateful for Amanda's understanding and her ongoing support in my growth.",
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -87,6 +138,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_0c5e467c22ef4d1792814306123d0126~mv2.jpeg/guru.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Guru through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "Udit is not just excellent at design but also understands the nuances of requirements from the viewpoint of a product manager / business person.",
         "concurrentDesignation":  "Director Engineering, Zivame",
         "relatedProjectIds":  [
@@ -109,6 +163,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_779e339e01b142fcb2be2a120b06d80f~mv2.jpeg/christie.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Christie through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "Quick turn around. Very happy with his creative work. He manages the process as well which makes things very easy for me.",
         "concurrentDesignation":  "VP Corp Mktg, Kaseya",
         "relatedProjectIds":  [
@@ -128,6 +185,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_032bb53ebf4d4f04a61248fd5cf866d5~mv2.jpeg/leah.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Leah through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "What an incredible impact you have! With every new team I\u0027ve taken on, you have been essential to its success.",
         "concurrentDesignation":  "Director Product Mgmt, athenahealth",
         "relatedProjectIds":  [
@@ -147,6 +207,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_961c45ccb592446ba1b8631b5c01d173~mv2.jpeg/Nambi.jpeg#originWidth=100\u0026originHeight=100",
         "strength":  "High",
         "relationshipText":  "I met Nambi through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -166,6 +229,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_515c68520c684703a040064ccd0e3488~mv2.jpeg/scott.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Scott through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -185,10 +251,14 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_33ef7e4a6e4344098dab6ff1637c38f3~mv2.jpg/haraneesh.jpg#originWidth=585\u0026originHeight=585",
         "strength":  "High",
         "relationshipText":  "I met Haraneesh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
-                                  "1eb75715-5fef-4dcd-87b7-5a38c04cfd95"
+                                  "1eb75715-5fef-4dcd-87b7-5a38c04cfd95",
+                                  "42a706b1-4fba-4324-80eb-eff13fb70394"
                               ],
         "relatedPostSlugs":  [
 
@@ -204,6 +274,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_7449d38acf914a4b8bc2bcd4a94dc096~mv2.jpeg/rajeev.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Rajeev through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -228,6 +301,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_59c67c86151f47ba82997114b2993c50~mv2.jpg/chris.jpg#originWidth=200\u0026originHeight=200",
         "strength":  "High",
         "relationshipText":  "I met Chris through our time together at:",
+        "relationship":  null,
+        "fondMemory":  "Chris and I share a bond formed through common interests and countless interactions. Our conversations would meander from daily life to his passion for gardening, a hobby that intrigued me. When he invited me to his community plot in Cambridge, it wasn’t just about tomatoes. It was an insight into a part of his life he held dear. That day, as I picked tomatoes under his perceptive guidance, I realized that friendships aren't just built on big moments, but also in these quiet, shared experiences. Later, enjoying the fruits of our day in a fresh salad, I was reminded of the simplicity and depth of our connection.",
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -247,6 +323,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_e19b3d2faa4343018f33ff2581b0e068~mv2.jpeg/Satish%20Kumar.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Satish through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "Udit is a key player in the team. His work is on the forefront of all our Team\u0027s showcases.",
         "concurrentDesignation":  "Senior Visualizer, Cisco",
         "relatedProjectIds":  [
@@ -271,6 +350,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_6c7e1d2a03d04650a42feb5b8b7e9db6~mv2.jpeg/ren.jpeg#originWidth=397\u0026originHeight=397",
         "strength":  "High",
         "relationshipText":  "I met Ren through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -290,6 +372,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_d30fe141a45b4a4185de58d7db370273~mv2.jpeg/lizd.jpeg#originWidth=400\u0026originHeight=399",
         "strength":  "High",
         "relationshipText":  "I met Liz through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "Udit is clear in his presentation, able to pivot as circumstances change, open to feedback, collaborative in his approach, thoughtful and considerate with his colleagues, empathetic and positive",
         "concurrentDesignation":  "Director Product Mgmt, athenahealth",
         "relatedProjectIds":  [
@@ -310,6 +395,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_dcc4b253efee4468baae51f9af62c924~mv2.jpeg/shruti.jpeg#originWidth=387\u0026originHeight=387",
         "strength":  "High",
         "relationshipText":  "I met Shruti through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -330,6 +418,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_5aee29e4ce7c4da2a1d8b47adda258c1~mv2.jpeg/mp.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Michael through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -350,6 +441,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_5c937d81ba934d669411b4c8410f72d0~mv2.jpeg/shalom.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Shalom through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -371,6 +465,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_d3de6f1d1e424287abee8e53d86342ca~mv2.jpeg/jen%20magathan.jpeg#originWidth=100\u0026originHeight=100",
         "strength":  "High",
         "relationshipText":  "I met Jen through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -390,6 +487,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_6db684a14d904584b4aafc442d85acad~mv2.jpeg/gogul.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Gogul through our time together at:",
+        "relationship":  "My relationship with Gogul is built on strong collaboration and mutual respect. I’ve recognized him many times for his outstanding contributions, particularly in the areas of UX leadership and innovation. He’s stepped up in challenging situations, such as driving the UX maturity of the Foundational Platform and creatively working with constraints to deliver high-impact results. His work on Launch Darkly workflows and user journey mapping has set a high bar for the team, and I always appreciate his dedication and depth of thought.\n\nGogul’s recognitions for me highlight his appreciation for the support and guidance I provide. He acknowledges how I’ve helped streamline processes, improve team collaboration, and elevate the quality of our work. His feedback often reflects gratitude for the partnership we share, where we challenge and inspire each other to achieve more. Overall, our relationship is marked by a shared commitment to pushing boundaries, nurturing a culture of excellence, and driving meaningful impact together.",
+        "fondMemory":  "One of my fond memories with Gogul is when he took on the challenge of advancing UX maturity within the Foundational Platform zone. Despite the constraints, he managed to redefine the approach and deliver impactful results. His creativity and perseverance in navigating tough situations were truly inspiring. It was a moment that showcased our strong partnership and shared commitment to pushing boundaries and delivering exceptional outcomes together.",
+        "gallery":  [],
         "testimonial":  "Thanks Udit for your great support and motivation in my work. There have been a lot of learnings from you! It\u0027s been a wonderful experience working with you, and I look forward to continuing this collaboration.",
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -409,6 +509,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_7baf6e1989904f629a6a9e00632ab18c~mv2.jpeg/richa.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "High",
         "relationshipText":  "I met Richa through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -430,6 +533,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_d7bbb9a7c2c04ae4b9e7bfbf919f478e~mv2.jpg/vishrut.jpg#originWidth=200\u0026originHeight=200",
         "strength":  "High",
         "relationshipText":  "I met Vishrut through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -452,6 +558,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_3cf53e9d764e46898720a3215d9edfe6~mv2.jpeg/uday.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Uday through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -472,6 +581,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_a266696fbb454b789cefb5c79c99e202~mv2.jpeg/mike.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Mike through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -491,6 +603,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_e65995fa20da452fbf493fc963a8c294~mv2.jpeg/bridget.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Bridget through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -510,6 +625,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_be803b3eb6364c75bf4165e66f9976ab~mv2.jpeg/neha.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Neha through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -529,6 +647,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_01a6f57d04dd4bbbad64916a9c48156e~mv2.jpeg/riddhi.jpeg#originWidth=351\u0026originHeight=351",
         "strength":  "Med",
         "relationshipText":  "I met Riddhi through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -551,6 +672,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_3a7b8e899b6844a7bbf4d2566be117a3~mv2.jpeg/george.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met George through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -570,6 +694,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_cfcd7bcd96eb4719a82414f42cbb1430~mv2.jpeg/ishira.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Ishira through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -590,6 +717,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_e663ab42ed0b4bb4926c535d79d6b41c~mv2.jpg/barkha.jpg#originWidth=323\u0026originHeight=323",
         "strength":  "Med",
         "relationshipText":  "I met Barkha through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -609,6 +739,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_5d3bfd2bf5c947dc9e09e70b0a197c79~mv2.jpg/bharath.jpg#originWidth=516\u0026originHeight=516",
         "strength":  "Med",
         "relationshipText":  "I met Bharath through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -629,6 +762,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_f93f4f8e200545fca620420a14d8e299~mv2.jpeg/naman.jpeg#originWidth=345\u0026originHeight=345",
         "strength":  "Med",
         "relationshipText":  "I met Naman through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -649,6 +785,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_22030d6b4af0470a905b6f8eb13e1a97~mv2.jpg/brian%20murphy%20-%20kaseya.jpg#originWidth=200\u0026originHeight=200",
         "strength":  "Med",
         "relationshipText":  "I met Brian through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "Udit\u0027s attention to detail is excellent, his intuitiveness is incredible and his skills are extremely excellent.",
         "concurrentDesignation":  "CSO, Kaseya",
         "relatedProjectIds":  [
@@ -668,6 +807,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_7c2c0799118a4048bd90228451139bf6~mv2.jpeg/lizk.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Elizabeth through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -687,6 +829,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_4ebde9157a6b4e5a9f0528803c97bd15~mv2.jpeg/Loren.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Loren through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -707,6 +852,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_4f5faef707394d4bab3c918a8268e023~mv2.jpeg/kim.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Kim through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -726,6 +874,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_93f86a270f9d436ba288ffcb976cc70a~mv2.jpeg/Anna.jpeg#originWidth=389\u0026originHeight=389",
         "strength":  "Med",
         "relationshipText":  "I met Anna through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -745,6 +896,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_14b33762e90a4e84900680770e3e607f~mv2.jpeg/micah.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Micah through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -764,6 +918,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_a5db77d502dd46b1868f9ee426fdcd68~mv2.jpg/anirudh.jpg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Anirudh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -783,6 +940,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_c773fad166ea4df09f65c3535d7daba7~mv2.jpeg/mary.jpeg#originWidth=248\u0026originHeight=248",
         "strength":  "Med",
         "relationshipText":  "I met Mary through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -802,6 +962,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_44a9d99c8bff47aabff5385ddaa07411~mv2.jpeg/tom.jpeg#originWidth=299\u0026originHeight=299",
         "strength":  "Med",
         "relationshipText":  "I met Tom through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "Udit\u0027s work was on time and of the highest quality. He offered excellent insight on the task, \u0026 was a pleasure to work with.",
         "concurrentDesignation":  "VP Product Mktg, Kaseya",
         "relatedProjectIds":  [
@@ -821,6 +984,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_4fcd631fe5744a919a91fbb3543aef78~mv2.jpeg/shaleen.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Med",
         "relationshipText":  "I met Shaleen through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -842,6 +1008,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Tamali through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -861,6 +1030,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Sachin through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -880,6 +1052,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_64d0d50100c24e01a2f5b9da7153923e~mv2.jpeg/jyothish.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Jyothish through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -899,6 +1074,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_878358db3efc4900b3e31c1e47c2d736~mv2.jpeg/dani.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Dani through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -918,6 +1096,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_95aef35f953849d38bdce741afe079c0~mv2.jpeg/yogesh.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Yogesh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -937,6 +1118,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_532050b61199472f9aa4c098a1e9d30c~mv2.jpeg/sofya.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Sofya through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -956,6 +1140,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Prabhjot through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -975,6 +1162,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Sujini through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -994,6 +1184,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_ae6bb60b24b5415c82722877c9cfa5ef~mv2.jpeg/sandesh.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Sandesh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1013,6 +1206,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Mukundan through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1032,6 +1228,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_efd102852d714b15badcf79ad9c7da93~mv2.jpeg/ratnesh.jpeg#originWidth=182\u0026originHeight=182",
         "strength":  "Low",
         "relationshipText":  "I met Ratnesh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1051,6 +1250,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_a7e977e711df467dabec6a27cfc82671~mv2.jpeg/julia.jpeg#originWidth=285\u0026originHeight=285",
         "strength":  "Low",
         "relationshipText":  "I met Julia through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1070,6 +1272,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_39e80e8550704acd93fc5a1cbd041af8~mv2.jpeg/stefan%20maryniak.jpeg#originWidth=337\u0026originHeight=337",
         "strength":  "Low",
         "relationshipText":  "I met Stefan through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1089,6 +1294,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_00d44b4d8dce4115929f54317a923aa1~mv2.jpeg/brian.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Brian through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1108,6 +1316,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_f41e47aa2f874eb38a2bfaaea02dd715~mv2.jpeg/denise.jpeg#originWidth=329\u0026originHeight=329",
         "strength":  "Low",
         "relationshipText":  "I met Denise through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1127,6 +1338,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Rajadurai through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1146,6 +1360,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Juhee through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1165,6 +1382,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Manoj through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1184,6 +1404,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Shyam through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1203,6 +1426,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_679b4a9038d34db5a5c90ec0941c2a11~mv2.jpeg/vamsi.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Vamsi through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1222,6 +1448,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_f09ad15e82ff48e494da18188b53736c~mv2.jpeg/kenny.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Kenny through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1241,6 +1470,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_d86ec4c1955e4bbcacd36832aeb825ce~mv2.jpeg/vijayr.jpeg#originWidth=202\u0026originHeight=202",
         "strength":  "Low",
         "relationshipText":  "I met Vijay through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1260,6 +1492,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_9b93f7330636412188909398c3ef7e9e~mv2.jpeg/nitesh.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Nitesh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1279,6 +1514,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_cad529619c5f4f968f0e5b7634b3e180~mv2.jpeg/kristina.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Kristina through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1298,6 +1536,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Roderick through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1317,6 +1558,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_4a204e53f15d42cda4b7ca7f5b9565f7~mv2.jpeg/matt.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Matthew through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1336,6 +1580,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_de4ed73a37904982b9f5d2d1e70fdd13~mv2.jpeg/len.jpeg#originWidth=160\u0026originHeight=160",
         "strength":  "Low",
         "relationshipText":  "I met Leonard through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1355,6 +1602,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_c31406b694a348698403ee108842ab92~mv2.jpeg/lana.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Lana through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1374,6 +1624,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Karthik through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1393,6 +1646,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_609fcd4540f9479c887c2145532f722b~mv2.jpeg/meagan.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Meagan through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1412,6 +1668,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_933cbb8f0f31457c913f01be6aa90250~mv2.jpeg/suresh.jpeg#originWidth=339\u0026originHeight=339",
         "strength":  "Low",
         "relationshipText":  "I met Suresh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1431,6 +1690,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_4408417358ce4117acfdbd4325476a6b~mv2.jpeg/komal.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Komal through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1450,6 +1712,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_c441498d484a43f1b48fa890b6218de5~mv2.jpeg/patrick.jpeg#originWidth=151\u0026originHeight=151",
         "strength":  "Low",
         "relationshipText":  "I met Patrick through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1469,6 +1734,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_26aa1572436f41478bfddb0886bb2e72~mv2.jpg/jamie%20simpson%20-%20adobe.jpg#originWidth=200\u0026originHeight=200",
         "strength":  "Low",
         "relationshipText":  "I met Jamie through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "Udit is a very committed individual. I can always count on Udit to go that extra mile to ensure customer satisfaction.",
         "concurrentDesignation":  "Sr Manager, Adobe",
         "relatedProjectIds":  [
@@ -1488,6 +1756,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Aly through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1507,6 +1778,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_85cbe430d3f845c98328dcd6f3911b9b~mv2.jpg/amandaq.JPG#originWidth=200\u0026originHeight=200",
         "strength":  "Low",
         "relationshipText":  "I met Amanda Q through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1526,6 +1800,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Meeta through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1545,6 +1822,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Vijay through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1564,6 +1844,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_91990be592b543f09e4e54a03ca5dba9~mv2.jpeg/sundar.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Sundar through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1584,6 +1867,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Santosh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1603,6 +1889,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_f1a5e97b05514408b78efc1c7af23f34~mv2.jpeg/aishwaryaj.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Aishwarya through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1622,6 +1911,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Samit through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1641,6 +1933,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_c9b1d0f68e3c4ef498f54b24b2aee4ba~mv2.jpeg/chandra.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Chandra through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1660,6 +1955,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_91d7186c86e1462c9b60d71beb47ba21~mv2.jpeg/barathan.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Barathan through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1679,6 +1977,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_bcc024d268424643bd3a680bfe57f5a5~mv2.jpeg/sivaprasad.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Sivaprasad through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1698,6 +1999,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_040029b20c5e4afd93dadfce894c96eb~mv2.jpeg/kc.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met K.C. through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1717,6 +2021,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Vaishakh through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1736,6 +2043,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_3d2e627fe2bb45529b5050bffad4e324~mv2.jpeg/vidya.jpeg#originWidth=324\u0026originHeight=324",
         "strength":  "Low",
         "relationshipText":  "I met Vidya through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1755,6 +2065,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Sara through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1774,6 +2087,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_3c2e9b298f2241c7b79b2204e2cc65c7~mv2.jpeg/gabi.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Gabi through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1793,6 +2109,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_7db899d9511e42edbc6b9dfcd21d11bc~mv2.jpeg/deepak.jpeg#originWidth=191\u0026originHeight=191",
         "strength":  "Low",
         "relationshipText":  "I met Deepak through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1812,10 +2131,13 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_606ab6d5677f467baee71d5d2979ad07~mv2.jpeg/mohideen.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Mohideen through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
-
+                                  "42a706b1-4fba-4324-80eb-eff13fb70394"
                               ],
         "relatedPostSlugs":  [
 
@@ -1831,6 +2153,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Teena through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1850,6 +2175,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_2d20870b83794f54a96fd6d95f6ee610~mv2.jpeg/siva.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Siva through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1869,6 +2197,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_6942d951aa7b487a9ca0f49b996df7e0~mv2.jpeg/mariya.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Mariya through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1888,6 +2219,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Chandra through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1907,6 +2241,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_7f72eaffcf8e4b59acf45e5e92d7d3dc~mv2.jpeg/prakash.jpeg#originWidth=135\u0026originHeight=135",
         "strength":  "Low",
         "relationshipText":  "I met Prakash through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1926,6 +2263,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_137366605d76475d936c78f41a3a5620~mv2.png/joe%20hunstock%20-%20athenahealth.png#originWidth=200\u0026originHeight=200",
         "strength":  "Low",
         "relationshipText":  "I met Joe through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  "Udit has been fantastic. He has a lot of great ideas and is very open to feedback. Everything Udit delivers is polished and incorporates all best practices.",
         "concurrentDesignation":  "Product Manager, athenahealth",
         "relatedProjectIds":  [
@@ -1945,6 +2285,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_7388992eac25410eba608d3db5465704~mv2.jpeg/nora.jpeg#originWidth=125\u0026originHeight=125",
         "strength":  "Low",
         "relationshipText":  "I met Nora through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1964,6 +2307,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_49d3d333bd654cab985af49ed6061c6d~mv2.jpeg/meenakshis.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Meenakshi through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -1983,6 +2329,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_c04d3c9882f14752832e31688d3ec531~mv2.jpeg/cathy.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Catherine through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2002,6 +2351,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_0760cb21023a4d80bb031f3552969114~mv2.jpeg/ari.jpeg#originWidth=170\u0026originHeight=170",
         "strength":  "Low",
         "relationshipText":  "I met Ari through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2021,6 +2373,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Kanchen through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2040,6 +2395,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_a5f76cce991a421a9e316d96c3e1a879~mv2.jpeg/anu.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Anu through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2059,6 +2417,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_770157b0d6e2435497be20c1be919b01~mv2.jpeg/rachana.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Rachana through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2078,6 +2439,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Nemika through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2097,6 +2461,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_5fc320cc8369458a96aa40995429afec~mv2.jpg/melissa_edited.jpg#originWidth=486\u0026originHeight=486",
         "strength":  "Low",
         "relationshipText":  "I met Melissa through our time together at:",
+        "relationship":  "My relationship with Melissa is one of strong partnership and mutual respect. I often recognized her for her exceptional mentorship and leadership, especially in guiding her team members to achieve their goals. Her ability to create a supportive and inclusive environment allowed her team to thrive and deliver exceptional results. I admire how she always provides a safe space for open dialogue and collaboration, which makes a significant impact on the team's overall success.\n\nMelissa’s feedback for me highlighted her appreciation for the support and collaboration we shared. She values the partnership and the strategic direction I provide, which helped us navigate complex projects together. Our relationship is built on trust, open communication, and a shared commitment to excellence. Working with Melissa was always a rewarding experience, as her dedication and passion are truly inspiring.",
+        "fondMemory":  "One fond memory I have with Melissa is when we worked closely on mentoring Mary and Meenakshi. She was not only a mentor but also a pillar of support, creating a nurturing environment that allowed them to grow and excel. Witnessing her genuine care and dedication to their development was truly inspiring. It was a moment that reinforced the impact of effective leadership and collaboration, and I felt proud to be part of that journey with her.",
+        "gallery":  [],
         "testimonial":  "Udit, thank you for your exceptional guidance and support. Your strategic direction and partnership have been invaluable in helping me mentor and guide my team. I truly appreciate the positive impact you\u0027ve made on our collaboration.",
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2116,6 +2483,9 @@ export const people: Person[] = [
         "image":  "wix:image://v1/bc4f65_1542d25d59fa4105a02fa4eb8f86b50c~mv2.jpeg/regina.jpeg#originWidth=400\u0026originHeight=400",
         "strength":  "Low",
         "relationshipText":  "I met Regina through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2135,6 +2505,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Sangeeta through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
@@ -2154,6 +2527,9 @@ export const people: Person[] = [
         "image":  null,
         "strength":  "Low",
         "relationshipText":  "I met Michael through our time together at:",
+        "relationship":  null,
+        "fondMemory":  null,
+        "gallery":  [],
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
