@@ -19,22 +19,39 @@ type PageProps = {
 
 function LabLearningGraphic({ trial }: { trial: Trial }) {
   const learningPoints = [
-    { label: "Need", value: trial.metrics[0]?.value ?? trial.entityLabel },
-    { label: "Bridge", value: trial.metrics[2]?.value ?? trial.medium },
-    { label: "Pressure", value: "Platform pace" },
-    { label: "Learning", value: "What lasted" },
+    {
+      label: "Need",
+      value: trial.metrics[0]?.value ?? trial.entityLabel,
+      className: "sm:ml-0",
+    },
+    {
+      label: "Bridge",
+      value: trial.metrics[2]?.value ?? trial.medium,
+      className: "sm:ml-[10%]",
+    },
+    {
+      label: "Pressure",
+      value: "Platform pace",
+      className: "sm:ml-[20%]",
+    },
+    {
+      label: "Learning",
+      value: "What lasted",
+      className: "sm:ml-[30%]",
+    },
   ];
 
   return (
-    <div className="relative min-h-[320px] overflow-hidden rounded-lg border border-white/15 bg-[#111827] p-5 text-white shadow-2xl shadow-primary/10">
+    <div className="blue-banner min-h-[320px] p-5 md:p-6">
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(251,191,36,0.28),transparent_30%),radial-gradient(circle_at_80%_80%,rgba(20,184,166,0.24),transparent_32%)]"
+        className="blue-banner-radial absolute inset-0"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-x-8 top-1/2 h-px bg-gradient-to-r from-white/10 via-primary/80 to-white/10"
+        className="blue-banner-grid absolute inset-0"
       />
+      <div aria-hidden="true" className="blue-banner-orb" />
       <div className="relative flex h-full min-h-[280px] flex-col justify-between">
         <div>
           <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 bg-white/10">
@@ -44,16 +61,16 @@ function LabLearningGraphic({ trial }: { trial: Trial }) {
             {trial.learningSignal}
           </p>
         </div>
-        <div className="grid gap-3 sm:grid-cols-4">
+        <div className="mt-10 flex flex-col gap-3 sm:mt-12">
           {learningPoints.map((point, index) => (
             <div
               key={point.label}
-              className="rounded-lg border border-white/15 bg-white/[0.08] p-3 backdrop-blur"
+              className={`w-full rounded-lg border border-white/20 bg-white/[0.12] p-4 backdrop-blur sm:w-[68%] ${point.className}`}
             >
-              <p className="font-mono text-[10px] uppercase tracking-widest text-primary">
+              <p className="font-mono text-[10px] uppercase tracking-widest text-white/65">
                 {String(index + 1).padStart(2, "0")} / {point.label}
               </p>
-              <p className="mt-2 text-sm font-medium leading-snug text-white">{point.value}</p>
+              <p className="mt-2 text-base font-medium leading-snug text-white">{point.value}</p>
             </div>
           ))}
         </div>
@@ -92,7 +109,7 @@ function LabFlowGraphic({ trial }: { trial: Trial }) {
         <div className="grid gap-3">
           {flowItems.map((item, index) => (
             <div key={item.label} className="grid grid-cols-[40px_1fr] items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-950 text-sm font-semibold text-white">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary/25 bg-primary/10 text-sm font-semibold text-primary shadow-sm">
                 {index + 1}
               </div>
               <div className="rounded-lg border border-slate-200 bg-white p-3 shadow-sm">
@@ -249,7 +266,7 @@ export default async function LabTrialPage({ params }: PageProps) {
       <SectionShell className="pt-0">
         <div className="grid gap-8">
           <section id="learning" className="scroll-mt-24">
-            <div className="grid gap-5 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+            <div className="grid gap-5 lg:grid-cols-[1fr_2fr] lg:items-stretch">
               <div className="flex flex-col justify-center rounded-lg border border-primary/35 bg-primary/[0.07] p-6 md:p-8">
                 <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Sparkles size={19} />
@@ -265,7 +282,31 @@ export default async function LabTrialPage({ params }: PageProps) {
             </div>
           </section>
 
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
+            <section id="shape" className="blue-banner scroll-mt-24 p-6 md:p-7">
+              <div
+                aria-hidden="true"
+                className="blue-banner-radial absolute inset-0"
+              />
+              <div
+                aria-hidden="true"
+                className="blue-banner-grid absolute inset-0"
+              />
+              <div aria-hidden="true" className="blue-banner-orb" />
+              <div className="relative">
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white">
+                  <Lightbulb size={18} />
+                </div>
+                <p className="blue-banner-eyebrow">
+                  <span className="blue-banner-dot" />
+                  How the idea behaved
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-white/[0.92] md:text-lg md:leading-8">
+                  {trial.experimentFrame}
+                </p>
+              </div>
+            </section>
+
             <section id="why" className="scroll-mt-24 rounded-lg border border-border bg-card p-6 md:p-7">
               <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-secondary text-primary">
                 <Compass size={18} />
@@ -275,18 +316,6 @@ export default async function LabTrialPage({ params }: PageProps) {
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {trial.context}
-              </p>
-            </section>
-
-            <section id="shape" className="scroll-mt-24 rounded-lg border border-border bg-foreground p-6 text-background md:p-7">
-              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg border border-background/20 bg-background/10 text-background">
-                <Lightbulb size={18} />
-              </div>
-              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                How the idea behaved
-              </p>
-              <p className="mt-3 text-base leading-relaxed text-background/80">
-                {trial.experimentFrame}
               </p>
             </section>
           </div>
