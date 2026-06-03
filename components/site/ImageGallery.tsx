@@ -12,16 +12,23 @@ export function ImageGallery({ items }: ImageGalleryProps) {
       {items.map((item) => (
         <div
           key={`${item.label}-${item.src ?? "placeholder"}`}
-          className="overflow-hidden rounded-lg border border-border bg-secondary/40"
+          className={`overflow-hidden rounded-lg border border-border bg-secondary/40 ${
+            item.span === "wide" ? "sm:col-span-2 lg:col-span-3" : ""
+          }`}
         >
           {item.src ? (
-            <div className="relative h-40 w-full">
+            <div className={`relative w-full ${item.span === "wide" ? "h-72 md:h-[28rem]" : "h-40"}`}>
               <Image
                 src={resolveMirroredMediaSrc(item.src)}
                 alt={item.alt || item.label}
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                unoptimized={item.src.endsWith(".svg")}
+                className={item.fit === "contain" ? "object-contain p-3" : "object-cover"}
+                sizes={
+                  item.span === "wide"
+                    ? "100vw"
+                    : "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                }
               />
             </div>
           ) : (

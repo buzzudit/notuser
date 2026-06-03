@@ -13,6 +13,7 @@ export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const desktopNavItems = mainNavItems.filter((item) => item.href !== "/contact");
 
   return (
     <header
@@ -32,7 +33,7 @@ export function Header() {
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">
-          {mainNavItems.map((item) => (
+          {desktopNavItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}

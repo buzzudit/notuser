@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Speclite cover</title>
+  <desc id="desc">A conceptual lightweight planning board showing a story, test level, and done evidence for AI-assisted builds.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#312e81"/>
+      <stop offset="0.58" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#854d0e"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#f8fafc" stop-opacity="0.92"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#020617" flood-opacity="0.34"/>
+    </filter>
+    <style>
+      .ui { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .small { font: 700 19px Inter, ui-sans-serif, system-ui, sans-serif; letter-spacing: 1.6px; text-transform: uppercase; }
+      .title { font: 850 54px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .label { font: 750 22px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .muted { font: 550 18px Inter, ui-sans-serif, system-ui, sans-serif; }
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <circle cx="1015" cy="135" r="200" fill="#fef3c7" opacity="0.18"/>
+  <circle cx="120" cy="620" r="250" fill="#c4b5fd" opacity="0.16"/>
+  <path d="M114 238 C270 410 420 162 590 330 C730 468 850 226 1080 410" fill="none" stroke="#ddd6fe" stroke-width="4" opacity="0.28"/>
+
+  <g filter="url(#shadow)">
+    <rect x="126" y="116" width="952" height="504" rx="34" fill="url(#panel)"/>
+    <rect x="126" y="116" width="952" height="62" rx="34" fill="#0f172a"/>
+    <circle cx="168" cy="147" r="9" fill="#fb7185"/>
+    <circle cx="200" cy="147" r="9" fill="#fbbf24"/>
+    <circle cx="232" cy="147" r="9" fill="#34d399"/>
+    <text x="275" y="156" fill="#e2e8f0" class="ui small">Just enough planning</text>
+
+    <rect x="168" y="224" width="286" height="352" rx="24" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="206" y="268" fill="#0f172a" class="ui label">Story</text>
+    <rect x="206" y="312" width="178" height="18" rx="9" fill="#c4b5fd"/>
+    <rect x="206" y="352" width="220" height="18" rx="9" fill="#e2e8f0"/>
+    <rect x="206" y="392" width="188" height="18" rx="9" fill="#e2e8f0"/>
+    <rect x="206" y="464" width="128" height="54" rx="18" fill="#ddd6fe"/>
+    <text x="232" y="499" fill="#5b21b6" class="ui label">Doing</text>
+
+    <rect x="512" y="224" width="176" height="352" rx="24" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="552" y="268" fill="#0f172a" class="ui label">Risk</text>
+    <circle cx="600" cy="366" r="68" fill="#ccfbf1"/>
+    <text x="572" y="378" fill="#0f766e" class="ui title">L2</text>
+    <text x="548" y="500" fill="#475569" class="ui muted">Test level</text>
+
+    <rect x="746" y="224" width="286" height="352" rx="24" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="786" y="268" fill="#0f172a" class="ui label">Evidence</text>
+    <rect x="786" y="314" width="182" height="42" rx="14" fill="#dcfce7"/>
+    <text x="812" y="342" fill="#166534" class="ui muted">lint passed</text>
+    <rect x="786" y="376" width="188" height="42" rx="14" fill="#dbeafe"/>
+    <text x="812" y="404" fill="#1d4ed8" class="ui muted">build passed</text>
+    <rect x="786" y="438" width="154" height="42" rx="14" fill="#fef3c7"/>
+    <text x="812" y="466" fill="#92400e" class="ui muted">risk noted</text>
+  </g>
+
+  <text x="92" y="84" fill="#ddd6fe" class="ui small">Lab trial</text>
+  <text x="92" y="680" fill="#ffffff" class="ui title">Story first, process light</text>
+</svg>

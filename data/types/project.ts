@@ -7,6 +7,8 @@ export type ProjectGalleryItem = {
   label: string;
   src?: string;
   alt?: string;
+  fit?: "cover" | "contain";
+  span?: "default" | "wide";
 };
 
 export type NarrativeCallout = {

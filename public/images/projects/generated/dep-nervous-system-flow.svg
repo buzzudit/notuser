@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">DEP Nervous System delivery flow</title>
+  <desc id="desc">A flow diagram showing DEP Brain, setup and sync, team DEP Spine workspaces, delivery workflow, connected systems, and resulting benefits.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fbfa"/>
+      <stop offset="0.52" stop-color="#eef7f4"/>
+      <stop offset="1" stop-color="#f5f7fb"/>
+    </linearGradient>
+    <linearGradient id="brain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="spine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .label { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .eyebrow { font: 700 18px Inter, ui-sans-serif, system-ui, sans-serif; letter-spacing: 2px; text-transform: uppercase; fill: #0f766e; }
+      .title { font: 800 38px Inter, ui-sans-serif, system-ui, sans-serif; fill: #0f172a; }
+      .subtitle { font: 500 22px Inter, ui-sans-serif, system-ui, sans-serif; fill: #475569; }
+      .card-title { font: 800 27px Inter, ui-sans-serif, system-ui, sans-serif; fill: #0f172a; }
+      .card-copy { font: 500 19px Inter, ui-sans-serif, system-ui, sans-serif; fill: #475569; }
+      .pill-text { font: 700 18px Inter, ui-sans-serif, system-ui, sans-serif; fill: #0f172a; }
+      .benefit { font: 800 20px Inter, ui-sans-serif, system-ui, sans-serif; fill: #0f172a; }
+      .benefit-copy { font: 500 16px Inter, ui-sans-serif, system-ui, sans-serif; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1340" cy="160" r="180" fill="#dbeafe" opacity="0.45"/>
+  <circle cx="140" cy="760" r="210" fill="#ccfbf1" opacity="0.55"/>
+
+  <text x="80" y="86" class="eyebrow">DEP Nervous System</text>
+  <text x="80" y="136" class="title">From intent to governed AI-assisted delivery</text>
+  <text x="80" y="178" class="subtitle">A shared brain keeps standards current. Team spines keep product work local, traceable, and shippable.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="245" width="330" height="280" rx="26" fill="#ffffff"/>
+    <rect x="105" y="270" width="92" height="92" rx="24" fill="url(#brain)"/>
+    <path d="M149 292c-18 0-30 12-30 28 0 15 11 27 27 28h6v-56h-3zm8 0v56h7c16-1 27-13 27-28 0-16-12-28-30-28h-4z" fill="#ecfeff" opacity="0.9"/>
+    <text x="105" y="405" class="card-title">DEP Brain</text>
+    <text x="105" y="440" class="card-copy">Shared framework</text>
+    <text x="105" y="474" class="card-copy">Commands, skills,</text>
+    <text x="105" y="506" class="card-copy">schemas, gates, guardrails</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="505" y="255" width="300" height="260" rx="26" fill="#ffffff"/>
+    <rect x="535" y="285" width="240" height="54" rx="27" fill="#ecfeff" stroke="#99f6e4"/>
+    <text x="565" y="320" class="pill-text">/setup</text>
+    <rect x="535" y="360" width="240" height="54" rx="27" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="565" y="395" class="pill-text">/go</text>
+    <rect x="535" y="435" width="240" height="54" rx="27" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="565" y="470" class="pill-text">sync updates</text>
+    <text x="535" y="540" class="card-copy">Guided start + daily routing</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="930" y="245" width="490" height="280" rx="26" fill="#ffffff"/>
+    <text x="965" y="300" class="card-title">DEP Spine workspaces</text>
+    <text x="965" y="338" class="card-copy">Team-owned product context</text>
+    <g>
+      <rect x="965" y="380" width="170" height="58" rx="18" fill="#f0fdfa" stroke="#5eead4"/>
+      <text x="997" y="416" class="pill-text">Product docs</text>
+      <rect x="1155" y="380" width="180" height="58" rx="18" fill="#eff6ff" stroke="#93c5fd"/>
+      <text x="1182" y="416" class="pill-text">Architecture</text>
+      <rect x="965" y="458" width="170" height="58" rx="18" fill="#f5f3ff" stroke="#c4b5fd"/>
+      <text x="1001" y="494" class="pill-text">Feature specs</text>
+      <rect x="1155" y="458" width="180" height="58" rx="18" fill="#f8fafc" stroke="#cbd5e1"/>
+      <text x="1190" y="494" class="pill-text">Metrics + KRs</text>
+    </g>
+  </g>
+
+  <path d="M410 385 C465 385 470 385 505 385" fill="none" stroke="url(#spine)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M805 385 C875 385 875 385 930 385" fill="none" stroke="url(#spine)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="452" cy="385" r="12" fill="#14b8a6"/>
+  <circle cx="865" cy="385" r="12" fill="#7c3aed"/>
+
+  <g filter="url(#shadow)">
+    <rect x="170" y="610" width="1260" height="134" rx="28" fill="#ffffff"/>
+    <text x="205" y="660" class="card-title">Delivery workflow</text>
+    <g>
+      <rect x="455" y="628" width="126" height="52" rx="18" fill="#ecfeff" stroke="#99f6e4"/>
+      <text x="479" y="662" class="pill-text">Discover</text>
+      <path d="M586 654h42" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+      <path d="M628 654l-12-8v16z" fill="#94a3b8"/>
+      <rect x="640" y="628" width="126" height="52" rx="18" fill="#eff6ff" stroke="#93c5fd"/>
+      <text x="676" y="662" class="pill-text">Propose</text>
+      <path d="M772 654h42" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+      <path d="M814 654l-12-8v16z" fill="#94a3b8"/>
+      <rect x="826" y="628" width="126" height="52" rx="18" fill="#f5f3ff" stroke="#c4b5fd"/>
+      <text x="867" y="662" class="pill-text">Plan</text>
+      <path d="M958 654h42" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+      <path d="M1000 654l-12-8v16z" fill="#94a3b8"/>
+      <rect x="1012" y="628" width="126" height="52" rx="18" fill="#f0fdfa" stroke="#5eead4"/>
+      <text x="1048" y="662" class="pill-text">Build</text>
+      <path d="M1144 654h42" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+      <path d="M1186 654l-12-8v16z" fill="#94a3b8"/>
+      <rect x="1198" y="628" width="126" height="52" rx="18" fill="#fff7ed" stroke="#fdba74"/>
+      <text x="1228" y="662" class="pill-text">Verify</text>
+      <text x="455" y="716" class="card-copy">Proposal, specs, design, tasks, reviews, traceability, audit log</text>
+    </g>
+  </g>
+
+  <g>
+    <text x="80" y="805" class="eyebrow">Benefits</text>
+    <g>
+      <rect x="80" y="830" width="250" height="70" rx="20" fill="#ffffff" stroke="#dbeafe"/>
+      <text x="110" y="858" class="benefit">Faster starts</text>
+      <text x="110" y="884" class="benefit-copy">One guided entry point</text>
+    </g>
+    <g>
+      <rect x="355" y="830" width="250" height="70" rx="20" fill="#ffffff" stroke="#ccfbf1"/>
+      <text x="385" y="858" class="benefit">Safer governance</text>
+      <text x="385" y="884" class="benefit-copy">Artifact gates + reviews</text>
+    </g>
+    <g>
+      <rect x="630" y="830" width="250" height="70" rx="20" fill="#ffffff" stroke="#ddd6fe"/>
+      <text x="660" y="858" class="benefit">Traceable work</text>
+      <text x="660" y="884" class="benefit-copy">Specs to tests to close-out</text>
+    </g>
+    <g>
+      <rect x="905" y="830" width="250" height="70" rx="20" fill="#ffffff" stroke="#fde68a"/>
+      <text x="935" y="858" class="benefit">Reusable improvements</text>
+      <text x="935" y="884" class="benefit-copy">Contribute back to brain</text>
+    </g>
+    <g>
+      <rect x="1180" y="830" width="250" height="70" rx="20" fill="#ffffff" stroke="#fecdd3"/>
+      <text x="1210" y="858" class="benefit">Leadership visibility</text>
+      <text x="1210" y="884" class="benefit-copy">Progress, rollups, KRs</text>
+    </g>
+  </g>
+</svg>

@@ -213,7 +213,8 @@ export const people: Person[] = [
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
-                                  "1eb75715-5fef-4dcd-87b7-5a38c04cfd95"
+                                  "1eb75715-5fef-4dcd-87b7-5a38c04cfd95",
+                                  "a3dfe746-9c4d-4e49-9389-98d410181854"
                               ],
         "relatedPostSlugs":  [
 
@@ -813,7 +814,8 @@ export const people: Person[] = [
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
-                                  "c5ca3d13-5ed8-4eaf-81c7-9c439bce11a6"
+                                  "c5ca3d13-5ed8-4eaf-81c7-9c439bce11a6",
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1"
                               ],
         "relatedPostSlugs":  [
 
@@ -2093,7 +2095,7 @@ export const people: Person[] = [
         "testimonial":  null,
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
-
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1"
                               ],
         "relatedPostSlugs":  [
 
@@ -2534,6 +2536,207 @@ export const people: Person[] = [
         "concurrentDesignation":  null,
         "relatedProjectIds":  [
 
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "635ca237-86da-4f0c-a79e-28507effc0c6",
+        "slug":  "mariam-chahine",
+        "name":  "Mariam Chahine",
+        "firstName":  "Mariam",
+        "role":  "Lead Experience Designer",
+        "linkedIn":  "https://www.linkedin.com/in/mariamchahine",
+        "image":  "/images/people/mariam-chahine.jpg",
+        "strength":  "Med",
+        "relationshipText":  "I met Mariam through our time together at:",
+        "relationship":  "Mariam and I have been collaborating around current Data and Ecosystem Platform experience work, especially where interoperability, AI, and clinical workflows need to feel more cohesive. I appreciate the way she brings human-centered design judgment into ambiguous problem spaces and helps translate broad strategy into practical experience decisions.\n\nOur work together is still taking shape, but the signal is already clear: Mariam is the kind of collaborator who can hold complexity without losing sight of the people who need the experience to work.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  null,
+        "relatedProjectIds":  [
+
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "51813423-0644-48ea-b421-1203b4451c13",
+        "slug":  "hunter-johnstone",
+        "name":  "Hunter Johnstone",
+        "firstName":  "Hunter",
+        "role":  "Product Management",
+        "linkedIn":  "https://www.linkedin.com/in/hunter-johnstone-2a6053113",
+        "image":  "/images/people/hunter-johnstone.jpg",
+        "strength":  "Med",
+        "relationshipText":  "I met Hunter through our time together at:",
+        "relationship":  "Hunter and I have worked together through AI Spine and Data and Ecosystem Platform collaboration, where product judgment, technical systems, and operating-model decisions all meet. I value the way he stays connected to both the strategic intent and the concrete steps needed to make new capabilities real.\n\nThat kind of partnership matters in AI-enabled product work: the best outcomes come from people who can move between vision, delivery, and adoption without treating any one of them as someone else's problem.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  null,
+        "relatedProjectIds":  [
+                                  "eebb6b68-b920-42c7-b34a-386ce2ed67bd",
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1"
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "f6f4bc53-b611-40d5-b8e2-1917fd828613",
+        "slug":  "kat-chiluiza",
+        "name":  "Kat Chiluiza",
+        "firstName":  "Kat",
+        "role":  "UX Research",
+        "linkedIn":  "https://www.linkedin.com/in/kat-chiluiza",
+        "image":  "/images/people/kat-chiluiza.png",
+        "strength":  "Med",
+        "relationshipText":  "I met Kat through our time together at:",
+        "relationship":  "Kat and I have been connected through AI Spine and UX research collaboration, where the work depends on pairing strong product instincts with careful learning from users and teams. Her research perspective helps keep fast-moving AI work grounded in evidence, context, and adoption realities.\n\nI appreciate collaborators like Kat because they make the work sharper without making it heavier: questions become clearer, assumptions become visible, and the product direction gets more honest.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  null,
+        "relatedProjectIds":  [
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1"
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "1d1287a7-76b6-4d34-960a-e67ec0ee4f6c",
+        "slug":  "jessy-kurien",
+        "name":  "Jessy Kurien",
+        "firstName":  "Jessy",
+        "role":  "Leader, Engineering",
+        "linkedIn":  "https://www.linkedin.com/in/jessy-kurien-7b593bb",
+        "image":  "/images/people/jessy-kurien.jpg",
+        "strength":  "Med",
+        "relationshipText":  "I met Jessy through our time together at:",
+        "relationship":  "Jessy and I have collaborated through Claude enablement and engineering adoption work, where the challenge is not just introducing a new tool but helping teams understand how it changes their day-to-day practice. I value the way Jessy brings engineering leadership, operational clarity, and a practical read on what teams need to move with confidence.\n\nOur collaboration is a good example of the kind of cross-functional partnership AI work needs: design and product can shape the experience, but engineering leadership turns that intent into durable behavior across teams.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  null,
+        "relatedProjectIds":  [
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1"
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "1702ae90-8850-4e70-9b67-ce19a41e6022",
+        "slug":  "supraja-sampath",
+        "name":  "Supraja Sampath",
+        "firstName":  "Supraja",
+        "role":  "Engineering",
+        "linkedIn":  "https://www.linkedin.com/in/suprajasampath42",
+        "image":  "/images/people/supraja-sampath.jpg",
+        "strength":  "Med",
+        "relationshipText":  "I met Supraja through our time together at:",
+        "relationship":  "Supraja and I have crossed paths through Claude training and AI enablement work, especially in the moments where new practices need to become understandable, repeatable, and useful for teams. I appreciate her steady engineering perspective and her willingness to help make emerging ways of working real for a broader group.\n\nThe collaboration stands out because enablement only works when it is grounded in the people who will actually use the tools. Supraja helps bring that grounding into the work.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  null,
+        "relatedProjectIds":  [
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1"
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "d77749ef-ab71-412f-b5d8-01c430c9732e",
+        "slug":  "jaanhavi-sp",
+        "name":  "Jaanhavi SP",
+        "firstName":  "Jaanhavi",
+        "role":  "UX Design",
+        "linkedIn":  "https://in.linkedin.com/in/jaanhavi-subhapanneer-2a60a8163",
+        "image":  "/images/people/jaanhavi-sp.png",
+        "strength":  "Med",
+        "relationshipText":  "I met Jaanhavi through our time together at:",
+        "relationship":  "Jaanhavi and I have collaborated around AI setup and experience-design enablement, where newer workflows need both design craft and practical onboarding support. I appreciate the way she brings interaction-design thinking into conversations that can otherwise become mostly about tooling.\n\nThat balance matters: the goal is not just to get people set up, but to help them see how better workflows can change the quality and pace of the work itself.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  null,
+        "relatedProjectIds":  [
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1"
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "47f0f217-91f0-4468-b527-03ad5b27c13d",
+        "slug":  "malavika-ng",
+        "name":  "Malavika NG",
+        "firstName":  "Malavika",
+        "role":  "Lead Experience Designer",
+        "linkedIn":  "https://in.linkedin.com/in/malavika-ng-27bb7a222",
+        "image":  "/images/people/malavika-ng.png",
+        "strength":  "Med",
+        "relationshipText":  "I met Malavika through our time together at:",
+        "relationship":  "Malavika and I have collaborated around integration, AI setup, and Data and Ecosystem Platform experience work. Her design perspective sits in a space I care deeply about: making complicated healthcare workflows feel coherent enough that people can make progress without carrying the system in their heads.\n\nI value that kind of collaboration because it connects craft to consequence. The work is not only about a cleaner interface; it is about giving teams and clinicians more confidence in the moments that matter.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  null,
+        "relatedProjectIds":  [
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1",
+                                  "a3dfe746-9c4d-4e49-9389-98d410181854"
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "e2c6b570-ee36-4652-b6b0-231656529cdd",
+        "slug":  "sam-lambson",
+        "name":  "Sam Lambson",
+        "firstName":  "Sam",
+        "role":  "Senior Leader, Product Management",
+        "linkedIn":  "https://www.linkedin.com/in/samlambson",
+        "image":  "/images/people/sam-lambson.png",
+        "strength":  "Med",
+        "relationshipText":  "I met Sam through our time together at:",
+        "relationship":  "Sam and I have worked through Data and Ecosystem Platform leadership conversations where interoperability, data strategy, product direction, and AI-readiness all connect. I appreciate the way he frames healthcare technology as an ecosystem problem rather than a single-feature problem.\n\nThat perspective has shaped how I think about the work: the strongest product experiences are not isolated screens, but connected systems that make care delivery easier, more trustworthy, and more humane.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  "Vice President, Product Management, Data and Ecosystem, athenahealth",
+        "relatedProjectIds":  [
+
+                              ],
+        "relatedPostSlugs":  [
+
+                             ]
+    },
+    {
+        "id":  "a1ec2a8d-d3ea-4555-b26f-0b1c98925a3d",
+        "slug":  "senthil-rajamanickam",
+        "name":  "Senthil Rajamanickam",
+        "firstName":  "Senthil",
+        "role":  "Engineering",
+        "linkedIn":  "https://in.linkedin.com/in/senthil-rajamanickam-156249173",
+        "image":  "/images/people/senthil-rajamanickam.jpg",
+        "strength":  "Med",
+        "relationshipText":  "I met Senthil through our time together at:",
+        "relationship":  "Senthil and I have been connected through AI Spine and DEP Nervous System work, where engineering leadership, contribution models, and responsible AI adoption all need to come together. I appreciate the way he helps keep the system grounded in how teams actually build, contribute, and support shared capabilities.\n\nThat kind of collaboration matters because AI enablement only works when it becomes practical operating behavior: clear source-of-truth choices, useful workflows, and enough structure for teams to move quickly without losing accountability.",
+        "fondMemory":  null,
+        "gallery":  [],
+        "testimonial":  null,
+        "concurrentDesignation":  null,
+        "relatedProjectIds":  [
+                                  "eebb6b68-b920-42c7-b34a-386ce2ed67bd",
+                                  "4ace0bd2-8b5f-49da-bc47-51adca3eb9d1"
                               ],
         "relatedPostSlugs":  [
 

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blog";
 import { people } from "@/data/people";
 import { projects } from "@/data/projects";
+import { trials } from "@/data/trials";
 import { absoluteUrl } from "@/lib/site/metadata";
 
 type SitemapEntry = MetadataRoute.Sitemap[number];
@@ -26,6 +27,11 @@ const staticRoutes: SitemapEntry[] = [
     url: absoluteUrl("/blog"),
     changeFrequency: "monthly",
     priority: 0.85,
+  },
+  {
+    url: absoluteUrl("/lab"),
+    changeFrequency: "monthly",
+    priority: 0.75,
   },
   {
     url: absoluteUrl("/resume"),
@@ -71,5 +77,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticRoutes, ...projectRoutes, ...peopleRoutes, ...blogRoutes];
+  const trialRoutes: SitemapEntry[] = trials.map((trial) => ({
+    url: absoluteUrl(`/lab/${trial.slug}`),
+    changeFrequency: "yearly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...projectRoutes, ...peopleRoutes, ...blogRoutes, ...trialRoutes];
 }

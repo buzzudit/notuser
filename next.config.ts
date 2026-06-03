@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "video.wixstatic.com" },
       { protocol: "https", hostname: "filesusr.com" },
       { protocol: "https", hostname: "www.notuser.com" },
+      { protocol: "https", hostname: "intranet.athenahealth.com" },
     ],
     formats: ["image/avif", "image/webp"],
   },

@@ -3,14 +3,17 @@ import { Project, ProjectMetric, ProjectGalleryItem } from "../types/project";
 export type { Project, ProjectMetric, ProjectGalleryItem };
 
 import { project as _360x_closed_loop_referrals } from "./360x-closed-loop-referrals";
+import { project as ai_enablement } from "./ai-enablement";
 import { project as data_exports } from "./data-exports";
 import { project as data_imports_self_service } from "./data-imports-self-service";
 import { project as insights_and_reporting } from "./insights-and-reporting";
+import { project as interface_self_service } from "./interface-self-service";
 import { project as payer_solutions } from "./payer-solutions";
 import { project as unified_rollout_flags } from "./unified-rollout-flags";
 import { project as user_journey_framework } from "./user-journey-framework";
 import { project as vision_platform_and_data_services } from "./vision-platform-and-data-services";
 import { project as design_quality } from "./design-quality";
+import { project as dep_nervous_system } from "./dep-nervous-system";
 import { project as data_migration_mapping_self_service } from "./data-migration-mapping-self-service";
 import { project as developer_portal } from "./developer-portal";
 import { project as marketplace } from "./marketplace";
@@ -40,15 +43,18 @@ import { project as smart_beds_and_spaces_with_built_in_decor } from "./smart-be
 import { legacyProjectSlugMap } from "../legacy-slug-maps";
 
 export const projects: Project[] = [
+  ai_enablement,
   _360x_closed_loop_referrals,
   data_exports,
   data_imports_self_service,
+  interface_self_service,
   insights_and_reporting,
   payer_solutions,
   unified_rollout_flags,
   user_journey_framework,
   vision_platform_and_data_services,
   design_quality,
+  dep_nervous_system,
   data_migration_mapping_self_service,
   developer_portal,
   marketplace,

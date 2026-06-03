@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Automat cover</title>
+  <desc id="desc">A conceptual dashboard showing product signals becoming approved enhancements and implementation evidence.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14532d"/>
+      <stop offset="0.52" stop-color="#155e75"/>
+      <stop offset="1" stop-color="#7c2d12"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#f0fdf4" stop-opacity="0.92"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#020617" flood-opacity="0.34"/>
+    </filter>
+    <style>
+      .ui { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .small { font: 700 19px Inter, ui-sans-serif, system-ui, sans-serif; letter-spacing: 1.6px; text-transform: uppercase; }
+      .title { font: 850 54px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .label { font: 750 22px Inter, ui-sans-serif, system-ui, sans-serif; }
+      .muted { font: 550 18px Inter, ui-sans-serif, system-ui, sans-serif; }
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <circle cx="1015" cy="145" r="210" fill="#bbf7d0" opacity="0.18"/>
+  <circle cx="135" cy="610" r="250" fill="#fed7aa" opacity="0.16"/>
+  <path d="M130 512 C260 340 410 430 520 304 C670 132 830 230 1010 166" fill="none" stroke="#dcfce7" stroke-width="4" opacity="0.3"/>
+
+  <g filter="url(#shadow)">
+    <rect x="126" y="116" width="952" height="504" rx="34" fill="url(#panel)"/>
+    <rect x="126" y="116" width="952" height="62" rx="34" fill="#0f172a"/>
+    <circle cx="168" cy="147" r="9" fill="#fb7185"/>
+    <circle cx="200" cy="147" r="9" fill="#fbbf24"/>
+    <circle cx="232" cy="147" r="9" fill="#34d399"/>
+    <text x="275" y="156" fill="#e2e8f0" class="ui small">Self-improving loop</text>
+
+    <rect x="170" y="224" width="250" height="352" rx="24" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="204" y="268" fill="#0f172a" class="ui label">Signals</text>
+    <rect x="204" y="312" width="150" height="18" rx="9" fill="#86efac"/>
+    <rect x="204" y="352" width="186" height="18" rx="9" fill="#bae6fd"/>
+    <rect x="204" y="392" width="122" height="18" rx="9" fill="#fed7aa"/>
+    <rect x="204" y="452" width="150" height="76" rx="18" fill="#dcfce7"/>
+    <text x="228" y="500" fill="#166534" class="ui label">Data</text>
+
+    <path d="M442 400 H522" stroke="#0f766e" stroke-width="10" stroke-linecap="round"/>
+    <path d="M508 374 L538 400 L508 426" fill="none" stroke="#0f766e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="548" y="224" width="250" height="352" rx="24" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="588" y="268" fill="#0f172a" class="ui label">PRD</text>
+    <rect x="588" y="312" width="154" height="18" rx="9" fill="#cbd5e1"/>
+    <rect x="588" y="350" width="132" height="18" rx="9" fill="#e2e8f0"/>
+    <rect x="588" y="388" width="168" height="18" rx="9" fill="#e2e8f0"/>
+    <rect x="588" y="454" width="156" height="54" rx="18" fill="#fef3c7"/>
+    <text x="616" y="489" fill="#92400e" class="ui label">Approved</text>
+
+    <rect x="846" y="224" width="188" height="352" rx="24" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="886" y="268" fill="#0f172a" class="ui label">Ship</text>
+    <circle cx="940" cy="380" r="64" fill="#ccfbf1"/>
+    <path d="M906 380 l24 24 l50 -60" fill="none" stroke="#0f766e" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="890" y="502" fill="#475569" class="ui muted">Evidence</text>
+  </g>
+
+  <text x="92" y="84" fill="#bbf7d0" class="ui small">Lab trial</text>
+  <text x="92" y="680" fill="#ffffff" class="ui title">From signal to shipped improvement</text>
+</svg>
