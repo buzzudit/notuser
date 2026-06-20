@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { Providers } from "@/components/site/Providers";
 import { siteConfig } from "@/lib/site/content";
@@ -44,6 +45,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WD28MR31GL"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WD28MR31GL');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: safeJsonLd(getPersonJsonLd()) }}
