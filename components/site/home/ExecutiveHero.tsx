@@ -19,8 +19,15 @@ type ExecutiveHeroProps = {
 export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-border/50">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.16),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.08),transparent_28%)]" />
-      <div className="container relative pt-12 pb-12 md:pt-20 md:pb-0">
+      <div className="hero-bg-wash" />
+      <div className="hero-motion-bg" aria-hidden="true">
+        <span className="hero-motion-shape" />
+        <span className="hero-motion-shape" />
+        <span className="hero-motion-shape" />
+        <span className="hero-motion-shape" />
+        <span className="hero-motion-shape" />
+      </div>
+      <div className="container relative z-10 pt-12 pb-12 md:pt-20 md:pb-0">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <p className="font-mono text-lg uppercase tracking-[0.16em] text-muted-foreground md:text-2xl">
@@ -53,13 +60,13 @@ export function ExecutiveHero({ hero }: ExecutiveHeroProps) {
                 href="#case-studies"
                 className="primary-cta inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
               >
-                View leadership work <ArrowRight size={14} />
+                View selected work <ArrowRight size={14} />
               </Link>
               <Link
                 href="/portfolio"
                 className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground md:ml-6"
               >
-                Explore case studies
+                Explore full portfolio
               </Link>
             </div>
           </div>

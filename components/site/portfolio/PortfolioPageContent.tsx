@@ -173,18 +173,18 @@ function PortfolioMasthead({
             <div className="flex items-center justify-between gap-3">
               <div className="min-w-0">
                 <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                  Find Your Way In
+                  Start Here
                 </p>
                 <h2 className="mt-2 break-words text-xl font-semibold tracking-tight text-foreground">
-                  Choose a starting point for the work
+                  Pick the strongest entry point
                 </h2>
               </div>
               <MessageCircleQuestion size={22} className="shrink-0 text-primary" />
             </div>
 
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              The portfolio is organized around deeper flagship stories first,
-              with the AI guide available for targeted comparisons.
+              Start with deeper case studies, then use the AI guide for targeted
+              comparisons across the archive.
             </p>
 
             <div className="mt-6 space-y-3">
@@ -243,10 +243,10 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
     : null;
   const portfolioHeading = audienceProfile
     ? `Case studies and evidence for ${portfolioRoleSummary}`
-    : "Case studies and successes";
+    : "Case studies for design leadership and platform work";
   const portfolioDescription = audienceProfile
     ? `Explore detailed case studies and the broader project catalog with ${portfolioRoleSummary} in mind.`
-    : "Explore detailed case studies first, then browse the broader project catalog across healthcare, enterprise platforms, commerce, and personal build work.";
+    : "Start with deeper case studies, then browse the broader archive across healthcare, enterprise platforms, commerce, and independent build work.";
   const portfolioSuggestions = audienceProfile
     ? [
         `Which case studies matter most for ${portfolioRoleSummary}?`,
@@ -260,10 +260,10 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
       ];
   const ctaTitle = audienceProfile
     ? `Need this level of depth for ${audienceProfile.company}?`
-    : "Need this level of depth on your product?";
+    : "Need design leadership for a platform or AI product?";
   const ctaDescription = audienceProfile
-    ? `I can help connect product, design, and AI workflow strategy in a way that is relevant to ${portfolioRoleSummary}.`
-    : "I can help map your AI roadmap to real workflow impact.";
+    ? `I can help connect product, design, and AI workflow strategy for ${portfolioRoleSummary}.`
+    : "I can help connect product direction, design quality, and workflow strategy.";
 
   const portfolioAiContext = [
     "Portfolio landing page with flagship and full project coverage.",
@@ -299,10 +299,10 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
 
       <SectionShell className="pt-0" id="flagship-case-studies">
         <SectionLabel>Flagship Work</SectionLabel>
-        <SectionHeading>Deeper stories for leadership and transformation conversations</SectionHeading>
+        <SectionHeading>Flagship case studies with business context</SectionHeading>
         <SectionDescription>
-          These case studies cover problem context, leadership scope, decision
-          tradeoffs, and outcomes in complex product environments.
+          These examples show problem context, leadership scope, decision
+          tradeoffs, and outcomes.
         </SectionDescription>
         <div className="mt-8">
           <FeaturedCaseStudies previews={featuredPreviews} projects={projects} />
@@ -312,15 +312,15 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
       <SectionShell className="pt-0" id="portfolio-ai">
         <AIWorkspaceBanner
           eyebrow="AI Portfolio Guide"
-          title="Explore the portfolio from a leadership lens"
-          description="Ask about technology choices, chronology, outcomes, and tradeoffs across projects."
+          title="Ask about the portfolio"
+          description="Compare projects by role, domain, chronology, outcomes, and tradeoffs."
         >
           <AIWorkspace
             compact
             page="portfolio"
             shareCode={audienceProfile?.code}
             context={portfolioAiContext}
-            helperText="Ask about technology choices, chronology, outcomes, and tradeoffs across projects."
+            helperText="Ask about role, domain, chronology, outcomes, and tradeoffs across projects."
             suggestions={portfolioSuggestions}
             tone="banner"
           />
@@ -329,9 +329,9 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
 
       <SectionShell className="pt-0" id="project-grid">
         <SectionLabel>Full Project Set</SectionLabel>
-        <SectionHeading>Additional projects that show breadth across domains and roles</SectionHeading>
+        <SectionHeading>More projects across domains and roles</SectionHeading>
         <SectionDescription>
-          Browse additional projects across healthcare, enterprise platforms,
+          Browse additional work across healthcare, enterprise platforms,
           commerce, devices, and independent builds.
         </SectionDescription>
         <div className="mt-8">
@@ -344,7 +344,7 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
           eyebrow="Conversations"
           title={ctaTitle}
           description={ctaDescription}
-          primaryLabel="Contact me"
+          primaryLabel="Start a conversation"
           primaryHref="/contact"
           secondaryLabel="Read the blog"
           secondaryHref="/blog"

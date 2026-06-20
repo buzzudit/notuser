@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "About Personalization",
     pathname: "/about-personalization",
     description:
-      "Plain-language explanation of how notuser.com uses ukr links and a first-party cookie for on-site personalization.",
+      "How notuser.com uses ukr links and a first-party cookie for on-site personalization.",
     keywords: [
       "notuser personalization",
       "ukr links",
@@ -28,12 +28,12 @@ const explanationPoints = [
   {
     title: "How `ukr` links work",
     body:
-      "Some links to this site include a short code like `?ukr=abc`. That code points to context about a hiring conversation, such as the organization, role title, and the general intent behind the visit.",
+      "Some links include a short code like `?ukr=abc`. That code points to hiring context such as organization, role title, and visit intent.",
   },
   {
     title: "What cookie gets set",
     body:
-      "When a valid `ukr` link is used, the site stores a first-party cookie so the same context can carry across pages without asking you to use the link again on every click.",
+      "When a valid `ukr` link is used, the site stores a first-party cookie so the same context can carry across pages.",
   },
   {
     title: "What information is stored",
@@ -43,12 +43,12 @@ const explanationPoints = [
   {
     title: "How long it lasts",
     body:
-      "The personalization cookie lasts for up to 60 days unless it is replaced by a newer valid `ukr` visit or removed from your browser earlier.",
+      "The cookie lasts up to 60 days unless a newer valid `ukr` visit replaces it or you remove it earlier.",
   },
   {
     title: "Why it exists",
     body:
-      "Its only purpose is to tailor on-site messaging and AI prompts so the site can be more relevant to a specific hiring conversation or role context.",
+      "Its purpose is to tailor on-site messaging and AI prompts to a specific hiring conversation or role context.",
   },
   {
     title: "What it does not do",
@@ -79,8 +79,8 @@ export default function AboutPersonalizationPage() {
         <SectionLabel>Transparency</SectionLabel>
         <SectionHeading>About personalization</SectionHeading>
         <SectionDescription>
-          This site may tailor some content when you arrive through a `ukr` link tied to a
-          hiring conversation. This page explains what that means in plain language.
+          This site may tailor some content when you arrive through a `ukr` link
+          tied to a hiring conversation. Here is what that means.
         </SectionDescription>
 
         <div className="mt-8 grid gap-4 md:grid-cols-2">
@@ -103,8 +103,8 @@ export default function AboutPersonalizationPage() {
               What the site may remember
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              A valid `ukr` visit can map to structured role context so the site can stay relevant
-              as you move between pages.
+              A valid `ukr` visit can map to role context so the site stays
+              relevant as you move between pages.
             </p>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
               {storedData.map((item) => (

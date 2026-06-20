@@ -35,11 +35,11 @@ export function CirclePageContent({
     .join("\n\n");
   const helperText = fitTarget
     ? `Select a prompt starter or write your own to generate a response for the ${fitTarget} conversation.`
-    : "Select a prompt starter or write your own to generate a response.";
-  const ctaTitle = org ? `Want custom prompts for ${org}?` : "Want custom prompts for your team?";
+    : "Select a prompt starter or write your own.";
+  const ctaTitle = org ? `Need workflow prompts for ${org}?` : "Need workflow prompts for your team?";
   const ctaDescription = fitTarget
-    ? `I can help design a workflow-specific prompt system and operating playbook relevant to ${fitTarget}.`
-    : "I can help design a workflow-specific prompt system and operating playbook.";
+    ? `I can help design prompt patterns and operating routines relevant to ${fitTarget}.`
+    : "I can help design prompt patterns and operating routines for real product work.";
 
   return (
     <>
@@ -53,7 +53,7 @@ export function CirclePageContent({
           <PromptExamples prompts={circlePrompts} onSelect={setSelectedPrompt} />
           <AIWorkspaceBanner
             eyebrow="AI Sandbox"
-            title="Try the prompt in a workflow"
+            title="Try a prompt in context"
             description={helperText}
           >
             <AIWorkspace
@@ -127,7 +127,7 @@ export function CirclePageContent({
           eyebrow="Prompt strategy"
           title={ctaTitle}
           description={ctaDescription}
-          primaryLabel="Request a session"
+          primaryLabel="Start a conversation"
           primaryHref="/contact"
           secondaryLabel="View portfolio"
           secondaryHref="/portfolio"

@@ -35,9 +35,9 @@ export type ResumeTestimonial = {
 export const profile = {
   name: "Udit Khandelwal",
   title:
-    "Senior-level design leader with engineering roots, shaping AI-first enterprise platforms and complex product transformation work.",
+    "Design leader with engineering roots, focused on AI-first products, enterprise platforms, and trustworthy workflows.",
   summary:
-    "Senior-level design leader with engineering roots, shaping AI-first enterprise platforms and complex product transformation work.",
+    "Design leader with engineering roots, focused on AI-first products, enterprise platforms, and trustworthy workflows.",
 };
 
 export const resumeSignals: ResumeSignal[] = [
@@ -45,19 +45,19 @@ export const resumeSignals: ResumeSignal[] = [
     label: "Current role",
     title: "Director, Experience Design at athenahealth",
     description:
-      "Leading experience direction across platform and cloud-service environments where complexity, scale, and operational trust are central.",
+      "Leading experience direction across platform and cloud-service work where scale, clarity, and trust matter.",
   },
   {
     label: "Leadership approach",
     title: "Strategy, systems thinking, and hands-on product judgment",
     description:
-      "I work at the intersection of design leadership, product direction, organizational clarity, and execution quality.",
+      "I connect product direction, design leadership, organizational clarity, and execution quality.",
   },
   {
     label: "Where I add value",
-    title: "Bridging strategy, systems, and delivery in AI-era products",
+    title: "Bridging strategy, systems, and delivery",
     description:
-      "My background spans workflow design, enterprise ecosystems, cross-functional influence, and the technical fluency needed for modern AI product environments.",
+      "My background spans workflow design, enterprise ecosystems, cross-functional influence, and technical fluency.",
   },
 ];
 
@@ -199,11 +199,11 @@ export const trainingAndCertifications: TrainingCertificationItem[] = [
 
 export const achievements = [
   "Set direction for platform and data-services vision work at athenahealth across a broad ecosystem spanning 70+ products.",
-  "Translated ambiguous, cross-zone problem spaces into shared narratives that product, engineering, and design teams could align around and execute.",
+  "Turned ambiguous cross-zone problems into shared narratives that product, engineering, and design teams could act on.",
   "Led AI transformation in design operations through practical frameworks, hands-on enablement, and broad adoption across teams.",
   "Built durable design quality and collaboration practices that improved execution consistency across platform, partner, and workflow surfaces.",
   "Progressed from software engineering to senior-level design leadership while retaining technical fluency and delivery depth.",
-  "Delivered sustained outcomes across healthcare, enterprise platforms, cloud products, and commerce through systems thinking and operational leadership.",
+  "Delivered across healthcare, enterprise platforms, cloud products, and commerce through systems thinking and operational leadership.",
 ];
 
 export const resumeTestimonials: ResumeTestimonial[] = [

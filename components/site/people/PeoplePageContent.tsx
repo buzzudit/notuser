@@ -34,7 +34,7 @@ const networkSections: NetworkSection[] = [
   {
     strength: "High",
     title: "Close collaborators",
-    description: "The people most directly connected to the work, mentoring, and shared delivery.",
+    description: "People most directly connected to the work, mentoring, and shared delivery.",
     shellClassName: "border-primary/25 bg-primary/5",
     cardClassName:
       "border-primary/35 bg-gradient-to-br from-background via-primary/5 to-background p-5 shadow-sm hover:border-primary/60 hover:shadow-lg md:p-6",
@@ -44,7 +44,7 @@ const networkSections: NetworkSection[] = [
   {
     strength: "Med",
     title: "Project partners",
-    description: "Collaborators connected through focused product, design, and execution moments.",
+    description: "Collaborators connected through focused product, design, and delivery moments.",
     shellClassName: "border-border bg-background",
     cardClassName: "border-border bg-card p-4 hover:border-primary/35",
     metaClassName: "bg-secondary text-muted-foreground",
@@ -53,7 +53,7 @@ const networkSections: NetworkSection[] = [
   {
     strength: "Low",
     title: "Wider circle",
-    description: "Additional collaborators and peers connected to earlier work.",
+    description: "Additional collaborators and peers from earlier work.",
     shellClassName: "border-border/80 bg-secondary/20",
     cardClassName: "border-border/80 bg-background/75 p-3 hover:border-primary/25",
     metaClassName: "bg-background text-muted-foreground",
@@ -193,7 +193,7 @@ export function PeoplePageContent({
                           <div className="flex items-start justify-between gap-3">
                             <div>
                               <Link
-                                href={`/people/${person.slug}`}
+                                href={`/circle/${person.slug}`}
                                 className={`font-semibold text-foreground transition-colors group-hover:text-primary ${
                                   isCloseCollaborator
                                     ? "text-lg"
@@ -241,7 +241,7 @@ export function PeoplePageContent({
                       {!isWiderCircle ? (
                         <div className="mt-5 flex items-center justify-between gap-3">
                           <Link
-                            href={`/people/${person.slug}`}
+                            href={`/circle/${person.slug}`}
                             className="inline-flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
                           >
                             View profile <ArrowUpRight size={13} />
@@ -266,13 +266,13 @@ export function PeoplePageContent({
               <AIWorkspaceBanner
                 eyebrow="Ask AI"
                 title="Ask about the collaborator network"
-                description="Use AI to find relevant collaborators, understand project connections, or summarize the network for a hiring conversation."
+                description="Find relevant collaborators, project connections, or a hiring-panel summary."
                 className="mx-auto w-full max-w-5xl"
               >
                 <AIWorkspace
-                  page="people"
+                  page="circle"
                   context={aiContext}
-                  helperText="Ask AI to summarize collaborator patterns, surface project connections, or prepare a people-focused portfolio briefing."
+                  helperText="Ask AI to summarize collaborator patterns, surface project connections, or prepare a people-focused briefing."
                   suggestions={aiSuggestions}
                   tone="banner"
                 />

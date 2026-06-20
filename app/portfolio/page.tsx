@@ -18,7 +18,7 @@ export async function generateMetadata({
   return buildUkrScopedMetadata("/portfolio", searchParams, {
     title: "Portfolio and Case Studies",
     description:
-      "Selected design leadership case studies across AI-first products, enterprise platforms, healthcare workflows, and product transformation.",
+      "Design leadership case studies across AI-first products, enterprise platforms, healthcare workflows, and product transformation.",
     keywords: [
       "design leadership portfolio",
       "UX case studies",

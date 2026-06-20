@@ -24,11 +24,6 @@ const nextConfig: NextConfig = {
         destination: "https://notuser.com/:path*",
         permanent: true,
       },
-      {
-        source: "/circle/:slug",
-        destination: "/people/:slug",
-        permanent: true,
-      },
     ];
   },
   async headers() {

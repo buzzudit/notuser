@@ -17,17 +17,17 @@ export function ProjectPeopleStrip({ people }: ProjectPeopleStripProps) {
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-            People behind this work
+            Circle behind this work
           </p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
             Collaborators and partners from the project network
           </h2>
         </div>
         <Link
-          href="/people"
+          href="/circle"
           className="inline-flex items-center gap-1 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
         >
-          View all people <ArrowRight size={14} />
+          View full circle <ArrowRight size={14} />
         </Link>
       </div>
 
@@ -35,7 +35,7 @@ export function ProjectPeopleStrip({ people }: ProjectPeopleStripProps) {
         {people.slice(0, 9).map((person) => (
           <Link
             key={person.id}
-            href={`/people/${person.slug}`}
+            href={`/circle/${person.slug}`}
             className="group flex items-center gap-3 rounded-xl border border-border bg-background p-3 transition-colors hover:border-primary/35"
           >
             <PersonAvatar person={person} size="sm" />

@@ -130,22 +130,22 @@ export default async function ResumePage({ searchParams }: PageProps) {
 
       <SectionShell className="py-4 md:py-6">
         <SectionLabel>Impact</SectionLabel>
-        <SectionHeading>Career Highlights</SectionHeading>
+        <SectionHeading>Impact at a glance</SectionHeading>
         <ImpactStats />
       </SectionShell>
 
       <SectionShell>
         <SectionLabel>Experience</SectionLabel>
-        <SectionHeading>Career progression from engineering roots to design leadership</SectionHeading>
+        <SectionHeading>From engineering roots to design leadership</SectionHeading>
         <ExperienceTimeline />
       </SectionShell>
 
       <SectionShell>
         <SectionLabel>Leadership Context</SectionLabel>
-        <SectionHeading>How the background translates into leadership</SectionHeading>
+        <SectionHeading>What the background brings to leadership</SectionHeading>
         <SectionDescription>
-          Beyond tenure, this reflects a combination of platform leadership,
-          systems thinking, cross-functional influence, and technical depth.
+          Platform leadership, systems thinking, cross-functional influence, and
+          technical depth in one career arc.
         </SectionDescription>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {resumeSignals.map((signal) => (
@@ -166,7 +166,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
 
       <SectionShell>
         <SectionLabel>Selected Outcomes</SectionLabel>
-        <SectionHeading>Leadership scope and progression</SectionHeading>
+        <SectionHeading>Leadership outcomes worth scanning</SectionHeading>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           {achievements.map((achievement) => (
             <li
@@ -242,7 +242,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
                 author={testimonial.author}
                 role={testimonial.role}
                 photoSrc={testimonial.photoSrc}
-                authorHref={person ? `/people/${person.slug}` : undefined}
+                authorHref={person ? `/circle/${person.slug}` : undefined}
               />
             );
           })}
@@ -255,7 +255,7 @@ export default async function ResumePage({ searchParams }: PageProps) {
         </div>
         <AIWorkspaceBanner
           eyebrow="AI Resume Helper"
-          title="Pressure-test the resume against a role"
+          title="Review the resume against a role"
           description={resumeHelperText}
           className="mx-auto w-full max-w-4xl"
         >

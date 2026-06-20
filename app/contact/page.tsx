@@ -52,17 +52,17 @@ export default async function ContactPage({ searchParams }: PageProps) {
   const activeIntent = intentState.activeIntent;
   const fitTarget = activeIntent ? getIntentRoleSummary(activeIntent) : null;
   const contactHeading = activeIntent
-    ? `The fastest path for the ${fitTarget} conversation`
-    : "The fastest path for hiring and leadership conversations";
+    ? `Start the ${fitTarget} conversation`
+    : "Start the right conversation";
   const contactDescription = activeIntent
-    ? `Share what matters for ${fitTarget}, and I will respond with the most relevant next step, whether that is a conversation, a resume review, or a focused portfolio walkthrough.`
-    : "Share the role, team, or problem space and I'll respond with the most relevant next step, whether that is a conversation, a resume review, or a focused portfolio walkthrough.";
+    ? `Share what matters for ${fitTarget}, and I will respond with the most useful next step.`
+    : "Share the role, team, or problem space, and I will respond with the most useful next step.";
   const messagePlaceholder = activeIntent
     ? `Share what matters for ${fitTarget}, the team context, or the challenge and I will reply with the most relevant next step.`
-    : "Share the role, challenge, or context and I will reply with the most relevant next step.";
+    : "Share the role, challenge, or context and I will reply with a useful next step.";
   const introText = activeIntent
-    ? `This form is already tuned for ${fitTarget}. The more context you share about the role, team, and decision criteria, the more useful my response will be.`
-    : "Use this form for hiring conversations, AI transformation work, portfolio deep dives, or strategy discussions. The more context you share, the more useful my response can be.";
+    ? `This form is tuned for ${fitTarget}. Context about the role, team, and decision criteria will make the response better.`
+    : "Use this form for hiring conversations, AI product strategy, portfolio walkthroughs, or focused advisory discussions.";
 
   return (
     <PageLayout>
@@ -145,12 +145,12 @@ export default async function ContactPage({ searchParams }: PageProps) {
         <SectionHeading>
           {activeIntent
             ? `Conversations likely to matter for ${activeIntent.org}`
-            : "Conversations that are likely to be most relevant"}
+            : "The conversations that fit best"}
         </SectionHeading>
         <SectionDescription>
           {activeIntent
-            ? `This page is tuned for a closer conversation about ${fitTarget}, including leadership, transformation, and how I operate across complex product work.`
-            : "Use this page for leadership roles, AI transformation discussions, portfolio walkthroughs, and focused advisory requests."}
+            ? `This page is tuned for ${fitTarget}, including leadership, transformation, and operating fit.`
+            : "Use this page for leadership roles, AI product strategy, portfolio walkthroughs, and focused advisory requests."}
         </SectionDescription>
         <div className="mt-8">
           <ContactReasons reasons={contactReasons} />

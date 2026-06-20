@@ -90,11 +90,11 @@ export default async function HomePage({ searchParams }: PageProps) {
     activeIntent ? buildUkrIntentAiContext(activeIntent) : "",
   ].join("\n");
   const homeAiHeading = activeIntent
-    ? `Check if I am fit for ${fitTarget}`
-    : "Check if I am fit for a particular role";
+    ? `Check Udit's fit for ${fitTarget}`
+    : "Check Udit's fit for a role";
   const homeAiDescription = activeIntent
-    ? `Ask for a quick summary tailored to ${fitTarget}${activeIntent.intentType ? ` and this ${activeIntent.intentType} conversation` : ""}. Get an unbiased and informed opinion.`
-    : "Ask for a quick summary tailored to the role you are hiring for. Get an unbiased and informed opinion.";
+    ? `Get a role-specific read on strengths, relevant work, and likely questions for ${fitTarget}${activeIntent.intentType ? ` in this ${activeIntent.intentType} conversation` : ""}.`
+    : "Get a role-specific read on strengths, relevant work, and likely questions for the role you are hiring for.";
   const homeAiSuggestions = activeIntent
     ? [
         `Check fit for ${fitTarget}`,
@@ -102,9 +102,9 @@ export default async function HomePage({ searchParams }: PageProps) {
         `What gaps would a hiring team for ${fitTarget} question?`,
       ]
     : [
-        "Summarize Udit's leadership fit in 5 bullets",
-        "What roles is this profile best suited for?",
-        "What makes this relevant for AI transformation?",
+        "Summarize Udit's leadership fit",
+        "Which roles does this profile fit best?",
+        "What is relevant for AI transformation?",
       ];
 
   return (
@@ -157,12 +157,10 @@ export default async function HomePage({ searchParams }: PageProps) {
 
       <SectionShell id="why-udit">
         <SectionLabel>Why me</SectionLabel>
-        <SectionHeading>
-          Three concrete reasons to consider me
-        </SectionHeading>
+        <SectionHeading>Why consider Udit</SectionHeading>
         <SectionDescription>
-          Senior-level design leadership, enterprise platform experience, and
-          technical fluency across complex product work.
+          Healthcare leadership, platform depth, and technical fluency in one
+          design profile.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeWhyUdit} iconSet="value" iconTreatment="background" />
@@ -175,11 +173,11 @@ export default async function HomePage({ searchParams }: PageProps) {
       >
         <SectionLabel>AI Leadership</SectionLabel>
         <SectionHeading>
-          AI-first product thinking grounded in workflows and operating reality
+          AI product strategy that holds up in real workflows
         </SectionHeading>
         <SectionDescription>
-          For me, AI work is less about novelty and more about decision support,
-          orchestration, trust, and how product organizations operate.
+          I focus on where AI improves decisions, coordination, trust, and
+          service quality.
         </SectionDescription>
         <div className="mt-10 flex justify-center">
           <AILeadershipSection
@@ -194,10 +192,10 @@ export default async function HomePage({ searchParams }: PageProps) {
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <SectionLabel>Selected Work</SectionLabel>
-            <SectionHeading>Case studies with business and leadership context</SectionHeading>
+            <SectionHeading>Selected work that shows scope and judgment</SectionHeading>
             <SectionDescription>
-              These previews cover problem context, leadership contribution, and
-              business or workflow outcomes in enterprise environments.
+              Four examples across platform strategy, healthcare workflows,
+              developer ecosystems, and commerce growth.
             </SectionDescription>
           </div>
           <Link
@@ -222,11 +220,10 @@ export default async function HomePage({ searchParams }: PageProps) {
 
       <SectionShell id="career-proof" className="border-y border-border/50">
         <SectionLabel>Career Context</SectionLabel>
-        <SectionHeading>Progression across leadership, platforms, and engineering roots</SectionHeading>
+        <SectionHeading>Proof across leadership, platforms, and engineering</SectionHeading>
         <SectionDescription>
-          My path combines senior-level leadership at athenahealth, earlier roles
-          across Adobe, Cisco, Kaseya, and Zivame, and a foundation in software
-          engineering.
+          A career path from software engineering to senior design leadership
+          across athenahealth, Adobe, Cisco, Kaseya, and Zivame.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeExecutiveProof} iconSet="proof" iconTreatment="none" />
@@ -241,10 +238,10 @@ export default async function HomePage({ searchParams }: PageProps) {
 
       <SectionShell id="leadership-model">
         <SectionLabel>Leadership</SectionLabel>
-        <SectionHeading>How I lead design in complex product environments</SectionHeading>
+        <SectionHeading>How I lead teams through complex product work</SectionHeading>
         <SectionDescription>
-          I focus on clarifying direction, aligning teams, growing designers, and
-          building systems that sustain quality as organizations scale.
+          I create direction, align partners, coach designers, and install
+          practices that keep quality consistent.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeLeadershipModel} iconSet="leadership" />
@@ -253,7 +250,7 @@ export default async function HomePage({ searchParams }: PageProps) {
 
       <SectionShell className="blue-section-wash">
         <SectionLabel>Partner Feedback</SectionLabel>
-        <SectionHeading>How collaborators describe working with me</SectionHeading>
+        <SectionHeading>What collaborators notice</SectionHeading>
         <div className="grid gap-4 md:grid-cols-3">
           {homeTestimonials.map((item) => (
             <TestimonialCard

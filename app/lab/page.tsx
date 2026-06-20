@@ -8,7 +8,7 @@ import { buildSiteMetadata } from "@/lib/site/metadata";
 export const metadata: Metadata = buildSiteMetadata({
   title: "Lab",
   description:
-    "Ideas, prototypes, and product bets from Udit Khandelwal's product and AI workflow practice.",
+    "Product ideas, prototypes, and AI workflow experiments from Udit Khandelwal.",
   pathname: "/lab",
   keywords: ["product ideas", "AI workflow prototypes", "UX lab", "Bitbucket workflow"],
 });
@@ -18,10 +18,10 @@ export default function LabPage() {
     <PageLayout>
       <SectionShell>
         <SectionLabel>Lab</SectionLabel>
-        <SectionHeading>Ideas that got far enough to teach something</SectionHeading>
+        <SectionHeading>Product ideas and AI workflow experiments</SectionHeading>
         <SectionDescription>
-          Some ideas become products. Some get overtaken by the market. The useful ones leave
-          behind a sharper understanding of what people actually needed.
+          Some ideas become products. Some get overtaken by the market. The useful
+          ones leave behind a sharper read on what people needed.
         </SectionDescription>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-2">

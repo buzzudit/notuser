@@ -32,11 +32,11 @@ export type ContactConversationOption = {
 export const homeHero = {
   eyebrow: "Executive Portfolio",
   name: "Udit Khandelwal",
-  headline: "Design leader shaping AI-first products, platforms, and teams.",
+  headline: "Design leader for AI-first products and enterprise platforms",
   subheadline:
-    "Senior-level design leader helping product organizations turn complex enterprise workflows into clear, trustworthy experiences.",
+    "I help product organizations turn messy workflows into clear product direction, stronger teams, and experiences people can trust.",
   credibilityLine:
-    "18+ years across healthcare, enterprise software, cloud platforms, and commerce, grounded in an engineering foundation.",
+    "18+ years across healthcare, enterprise software, cloud platforms, and commerce, with an engineering foundation.",
   imageSrc: "/images/udit-bw.png",
   imageAlt: "Black and white portrait of Udit Khandelwal",
   quickSignals: [
@@ -61,59 +61,59 @@ export const trustIndicators: HomeMetric[] = [
 export const homeWhyUdit: HomeSignalItem[] = [
   {
     eyebrow: "Current scope",
-    title: "Senior-level design leadership in healthcare.",
+    title: "Healthcare design leadership at scale.",
     description:
-      "At athenahealth, I lead design across platform direction, workflow modernization, design quality, and team development in a complex cloud product environment.",
+      "At athenahealth, I lead platform direction, workflow modernization, design quality, and team growth in a cloud product environment.",
   },
   {
     eyebrow: "Enterprise work",
-    title: "Experience with complex platforms and workflows.",
+    title: "Depth in platforms and workflows.",
     description:
-      "My portfolio spans healthcare, developer ecosystems, data services, commerce, and mobility products where multiple teams and constraints shape the outcome.",
+      "My work spans healthcare, developer ecosystems, data services, commerce, and mobility products where constraints are real and alignment matters.",
   },
   {
     eyebrow: "Technical fluency",
-    title: "Engineering roots that make design decisions practical.",
+    title: "Engineering roots behind practical design.",
     description:
-      "I started in software engineering, so I can partner closely with technical teams, understand implementation tradeoffs, and keep product direction realistic.",
+      "I started in software engineering, so I can work closely with technical teams, read tradeoffs clearly, and keep direction realistic.",
   },
 ];
 
 export const homeAILeadership = {
   intro:
-    "I treat AI less as an interface feature and more as a workflow, systems, and operating-model design challenge.",
+    "I treat AI as a workflow, systems, and operating-model challenge, not just an interface feature.",
   focusAreas: [
-    "Identify where AI can meaningfully improve judgment, speed, coordination, or service quality in complex workflows.",
-    "Design human plus AI systems with review, escalation, intervention, and clear operator control.",
-    "Shape agentic and orchestration patterns across tools, people, and data instead of isolating AI inside a single surface.",
-    "Help design teams adopt AI-enabled ways of working while maintaining product quality, trust, and accountability.",
+    "Find where AI can improve judgment, speed, coordination, or service quality.",
+    "Design human plus AI systems with review, escalation, and clear operator control.",
+    "Shape orchestration across tools, people, and data instead of isolating AI in one surface.",
+    "Help teams adopt AI-enabled practices without lowering standards for trust or quality.",
   ],
 };
 
 export const homeAILeadershipPillars: HomeSignalItem[] = [
   {
     eyebrow: "AI-first product strategy",
-    title: "Clarify where AI adds durable product value.",
+    title: "Find durable product value.",
     description:
-      "I focus on where AI truly changes workflow value, not where it simply adds novelty to the interface.",
+      "I focus on where AI changes workflow value, not where it only adds novelty.",
   },
   {
     eyebrow: "Human + AI workflows",
-    title: "Design strong human and AI collaboration patterns.",
+    title: "Design clear collaboration patterns.",
     description:
-      "That means review loops, fallback paths, clear responsibility, and strong interaction patterns around decision support.",
+      "That means review loops, fallback paths, clear responsibility, and strong decision support.",
   },
   {
     eyebrow: "Trust and control",
-    title: "Build trust through control, transparency, and governance.",
+    title: "Build trust through control.",
     description:
-      "Explainability, confidence, intervention, and governance matter more in enterprise settings than polished prompts alone.",
+      "Explainability, confidence, intervention, and governance matter more than polished prompts alone.",
   },
   {
     eyebrow: "Team transformation",
-    title: "Help teams evolve how they work with AI.",
+    title: "Help teams change how they work.",
     description:
-      "I care about the operating model too: how design, product, and engineering use AI to move faster without lowering standards.",
+      "I care about how design, product, and engineering use AI to move faster without lowering standards.",
   },
 ];
 
@@ -122,11 +122,11 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     slug: "vision-platform-and-data-services",
     eyebrow: "Enterprise platform strategy",
     problemSpace:
-      "Platform and data-service work across 70+ products needed a clearer shared direction, not disconnected local wins.",
+      "Platform and data-service work across 70+ products needed one shared direction instead of disconnected local wins.",
     leadership:
-      "Led cross-zone vision synthesis at director level, aligned VP stakeholders, and turned fragmented discussions into one narrative teams could execute against.",
+      "Led cross-zone vision synthesis, aligned VP stakeholders, and turned fragmented discussions into a narrative teams could act on.",
     impact:
-      "Created strategic clarity for roadmap decisions and strengthened UX maturity in platform zones where alignment had historically been inconsistent.",
+      "Created clearer roadmap direction and strengthened UX maturity in platform zones where alignment had been inconsistent.",
     metrics: [
       { label: "Scope", value: "70+ products" },
       { label: "Role", value: "Director and project lead" },
@@ -137,11 +137,11 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     slug: "360x-closed-loop-referrals",
     eyebrow: "Healthcare workflow leadership",
     problemSpace:
-      "Referral workflows were breaking continuity of care because sender and receiver systems lacked reliable closed-loop status flow.",
+      "Referral workflows were weakening continuity of care because sender and receiver systems lacked reliable closed-loop status.",
     leadership:
-      "Set zone-level direction, aligned cross-functional teams on architecture and workflow priorities, and framed decisions around care coordination reality.",
+      "Set zone-level direction, aligned architecture and workflow priorities, and framed decisions around care coordination reality.",
     impact:
-      "Delivered a stronger interoperability foundation and reduced manual coordination burden in a high-stakes healthcare experience.",
+      "Created a stronger interoperability foundation and reduced manual coordination burden in a high-stakes healthcare experience.",
     metrics: [
       { label: "Role", value: "Zone lead" },
       { label: "Environment", value: "Healthcare cloud product" },
@@ -154,7 +154,7 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     problemSpace:
       "Developers and partners needed a clearer path through documentation, integration surfaces, and contribution workflows.",
     leadership:
-      "Led UX strategy across multiple teams and shaped the portal into a coherent ecosystem entry point instead of a set of disconnected tools.",
+      "Led UX strategy across teams and shaped the portal into a coherent ecosystem entry point instead of disconnected tools.",
     impact:
       "Improved platform adoption readiness by making key technical journeys easier to discover, understand, and execute.",
     metrics: [
@@ -167,11 +167,11 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     slug: "content-led-commerce-at-zivame",
     eyebrow: "Cross-functional business impact",
     problemSpace:
-      "Commerce growth needed a model that improved discovery and conversion while still fitting publishing and merchandising workflows.",
+      "Commerce growth needed a model that improved discovery and conversion while fitting publishing and merchandising workflows.",
     leadership:
-      "Owned strategy and implementation direction across product, content, and business teams to operationalize a content-led model.",
+      "Owned strategy and implementation direction across product, content, and business teams.",
     impact:
-      "Drove measurable commercial outcomes through an integrated content-commerce system, including 1.9x higher conversion performance.",
+      "Drove measurable commercial outcomes through an integrated content-commerce system, including 1.9x higher conversion.",
     metrics: [
       { label: "Role", value: "UX Director and project lead" },
       { label: "Impact", value: "1.9x higher conversions" },
@@ -183,68 +183,68 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
 export const homeLeadershipModel: HomeSignalItem[] = [
   {
     eyebrow: "Direction",
-    title: "Clarity in ambiguous problem spaces.",
+    title: "Clarity in ambiguous work.",
     description:
-      "I help teams move from vague opportunity spaces to sharper priorities, clearer frameworks, and better product bets.",
+      "I help teams move from vague opportunities to sharper priorities, clearer frameworks, and better product bets.",
   },
   {
     eyebrow: "Alignment",
-    title: "Alignment across product, design, and engineering.",
+    title: "Alignment across functions.",
     description:
-      "I make collaboration concrete by clarifying goals, decisions, dependencies, and the path from strategy to delivery.",
+      "I make collaboration concrete by clarifying goals, decisions, dependencies, and the path to delivery.",
   },
   {
     eyebrow: "Team growth",
-    title: "Team growth through coaching and context.",
+    title: "Team growth through coaching.",
     description:
       "Coaching, feedback, context-setting, and stretch opportunities are central to how I build stronger teams over time.",
   },
   {
     eyebrow: "Quality",
-    title: "Quality through repeatable systems.",
+    title: "Quality through repeatable habits.",
     description:
-      "I use frameworks, design principles, and repeatable review habits to keep product quality from becoming inconsistent at scale.",
+      "I use frameworks, principles, and review rhythms to keep product quality from becoming inconsistent at scale.",
   },
   {
     eyebrow: "Scale",
-    title: "Scalable practices beyond a single launch.",
+    title: "Practices that outlast launches.",
     description:
       "That includes design systems, decision frameworks, operating rhythms, and ways of working that make future execution stronger.",
   },
   {
     eyebrow: "Hands-on credibility",
-    title: "Hands-on judgment where needed.",
+    title: "Hands-on judgment when needed.",
     description:
-      "I am strategic, but I stay grounded in the product, the workflow, and the delivery reality so decisions remain practical.",
+      "I stay close enough to the product, workflow, and delivery reality to keep decisions practical.",
   },
 ];
 
 export const homeExecutiveProof: HomeSignalItem[] = [
   {
     eyebrow: "Current scope",
-    title: "Senior-level scope in a complex healthcare platform context.",
+    title: "Senior-level scope in healthcare platforms.",
     description:
-      "At athenahealth, I lead across platform direction, workflow modernization, design maturity, and team leadership in cloud-service environments.",
+      "At athenahealth, I lead platform direction, workflow modernization, design maturity, and team leadership in cloud-service environments.",
   },
   {
     eyebrow: "Career arc",
-    title: "Progression from engineering roots to design leadership.",
+    title: "From engineering roots to design leadership.",
     description:
-      "The arc from engineering to design leadership is reflected in sustained delivery across strategy, systems thinking, and cross-functional execution.",
+      "That arc shows up in strategy, systems thinking, and cross-functional execution across the portfolio.",
   },
   {
     eyebrow: "Breadth",
-    title: "Breadth across healthcare, enterprise software, commerce, and devices.",
+    title: "Breadth across high-constraint domains.",
     description:
-      "That breadth helps me lead in roles where strategic direction and hands-on delivery judgment both matter.",
+      "Healthcare, enterprise software, commerce, and devices shaped how I balance strategy with delivery judgment.",
   },
 ];
 
 export const homeWritingSection = {
   label: "Thinking",
-  heading: "Thinking on design, AI, and transformation",
+  heading: "Writing on design, leadership, and AI",
   description:
-    "Writing that captures how I think about systems, leadership, product quality, and AI-first ways of working.",
+    "Selected essays on systems thinking, product quality, design leadership, and AI-enabled ways of working.",
 };
 
 export const homeFeaturedWritingSlugs = [
@@ -282,9 +282,9 @@ export const homeTestimonials = [
 
 export const homeCallToAction = {
   eyebrow: "Conversations",
-  title: "Open to design leadership and AI transformation conversations",
+  title: "Looking for design leadership or AI product strategy?",
   description:
-    "If you are hiring for design leadership, AI-first product strategy, or platform modernization, I am happy to share relevant work and discuss fit.",
+    "If the role involves design leadership, AI-first product strategy, or platform modernization, I can share relevant work and talk through fit.",
   primaryLabel: "Start a conversation",
   primaryHref: "/contact",
   secondaryLabel: "Explore case studies",
@@ -315,17 +315,17 @@ export const aiWorkflowSteps = [
   {
     title: "Set direction",
     description:
-      "Align product strategy, design intent, and measurable outcomes with leadership and delivery teams.",
+      "Align product strategy, design intent, and outcomes with leadership and delivery teams.",
   },
   {
     title: "Scale collaboration",
     description:
-      "Run a tight operating rhythm across design, product, and engineering to reduce ambiguity and speed decisions.",
+      "Run a clear operating rhythm across design, product, and engineering.",
   },
   {
     title: "Ship quality",
     description:
-      "Drive high standards in interaction quality, systems thinking, and execution detail through every release.",
+      "Keep interaction quality, systems thinking, and execution detail visible through release.",
   },
 ];
 
@@ -334,13 +334,13 @@ export const contactReasons: ContactReason[] = [
     label: "Hiring",
     title: "Senior design leadership searches",
     description:
-      "For teams hiring a design leader who can create clarity, align product and engineering, and raise quality across complex enterprise work.",
+      "For teams hiring a design leader who can create clarity, align partners, and raise product quality.",
   },
   {
     label: "AI",
-    title: "AI-first product and workflow transformation",
+    title: "AI product and workflow strategy",
     description:
-      "For organizations rethinking product strategy, operating models, and human-plus-AI workflows in ways that can actually ship and scale.",
+      "For organizations rethinking product strategy, operating models, and human-plus-AI workflows.",
   },
   {
     label: "Portfolio",
@@ -352,7 +352,7 @@ export const contactReasons: ContactReason[] = [
     label: "Advisory",
     title: "Focused advisory conversations",
     description:
-      "For targeted discussions on platform thinking, design systems, product direction, or improving quality and clarity at scale.",
+      "For targeted discussions on platform thinking, design systems, product direction, or quality at scale.",
   },
 ];
 
@@ -371,7 +371,7 @@ export const directContact = {
     "https://www.google.com/maps/place/Boston+Metropolitan+Area/@42.3122307,-71.308966,10.08z/data=!4m6!3m5!1s0x89e30b92b7c5e443:0x78ad15d3851547d6!8m2!3d42.3600709!4d-71.0588305!16zL20vMDNreHpt?entry=ttu",
   linkedinHref: "https://www.linkedin.com/in/khandelwaludit/",
   availability:
-    "Open to conversations about design leadership roles, AI-first product transformation, and relevant portfolio walkthroughs.",
+    "Open to conversations about design leadership roles, AI product strategy, and relevant portfolio walkthroughs.",
 };
 
 export const socialLinks = [

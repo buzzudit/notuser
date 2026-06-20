@@ -27,6 +27,9 @@ const rootMetadata = buildSiteMetadata({
 export const metadata: Metadata = {
   ...rootMetadata,
   metadataBase: new URL(siteConfig.url),
+  verification: {
+    google: "_ZRpXlJOip2gmGVNGKG-IhUDKDL7axiMt0RffO7JvM8",
+  },
   title: {
     default: "Udit Khandelwal | notuser",
     template: `%s | ${siteConfig.name}`,

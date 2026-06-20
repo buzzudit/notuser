@@ -19,11 +19,6 @@ const staticRoutes: SitemapEntry[] = [
     priority: 0.9,
   },
   {
-    url: absoluteUrl("/people"),
-    changeFrequency: "monthly",
-    priority: 0.75,
-  },
-  {
     url: absoluteUrl("/blog"),
     changeFrequency: "monthly",
     priority: 0.85,
@@ -45,8 +40,8 @@ const staticRoutes: SitemapEntry[] = [
   },
   {
     url: absoluteUrl("/circle"),
-    changeFrequency: "yearly",
-    priority: 0.55,
+    changeFrequency: "monthly",
+    priority: 0.75,
   },
   {
     url: absoluteUrl("/about-personalization"),
@@ -72,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const peopleRoutes: SitemapEntry[] = people.map((person) => ({
-    url: absoluteUrl(`/people/${person.slug}`),
+    url: absoluteUrl(`/circle/${person.slug}`),
     changeFrequency: "yearly",
     priority: 0.5,
   }));

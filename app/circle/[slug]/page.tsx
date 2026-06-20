@@ -59,9 +59,9 @@ export async function generateMetadata({ params }: PersonPageProps): Promise<Met
   }
 
   return buildSiteMetadata({
-    title: `${person.name} | People`,
+    title: `${person.name} | Circle`,
     description: getPersonDescription(person),
-    pathname: `/people/${person.slug}`,
+    pathname: `/circle/${person.slug}`,
     image: person.image ? resolveMirroredMediaSrc(person.image) : null,
     imageAlt: person.name,
     keywords: [person.name, person.role, "Udit Khandelwal collaborator"],
@@ -76,7 +76,7 @@ function getPersonJsonLd(
     "@context": "https://schema.org",
     "@type": "Person",
     name: person.name,
-    url: absoluteUrl(`/people/${person.slug}`),
+    url: absoluteUrl(`/circle/${person.slug}`),
     image: person.image ? absoluteUrl(resolveMirroredMediaSrc(person.image)) : undefined,
     jobTitle: person.role,
     description: getPersonDescription(person),
@@ -109,11 +109,11 @@ export default async function PersonPage({ params }: PersonPageProps) {
       />
       <SectionShell>
         <Link
-          href="/people"
+          href="/circle"
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
         >
           <ArrowLeft size={14} />
-          Back to people
+          Back to circle
         </Link>
 
         <div className="overflow-hidden rounded-2xl border border-border bg-card">

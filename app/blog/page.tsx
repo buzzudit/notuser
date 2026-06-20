@@ -56,9 +56,9 @@ export async function generateMetadata({
   searchParams,
 }: PageProps): Promise<Metadata> {
   return buildUkrScopedMetadata("/blog", searchParams, {
-    title: "Writing on Design Leadership, Systems, and AI",
+    title: "Writing on Design, Leadership, and AI",
     description:
-      "Practical writing from Udit Khandelwal on design leadership, systems thinking, product strategy, and AI-first execution.",
+      "Practical writing from Udit Khandelwal on design, leadership, product systems, and AI.",
     keywords: [
       "design leadership writing",
       "AI-first execution",
@@ -109,23 +109,23 @@ export default async function BlogPage({ searchParams }: PageProps) {
         `Which posts are most relevant for ${fitTarget}?`,
         `What writing would resonate with ${activeIntent.org}?`,
         `Which posts best demonstrate leadership fit?`,
-        "Extract weekly action items",
+        "Extract useful action items",
       ]
     : [
-        "Summarize all posts",
+        "Summarize the writing themes",
         "Find workflow patterns",
         "What should I read first?",
-        "Extract weekly action items",
+        "Extract useful action items",
       ];
   const blogHelperText = activeIntent
     ? `Ask AI to surface writing that best supports ${fitTarget} and this conversation.`
     : "Ask AI to summarize themes, compare posts, or suggest a next read.";
   const ctaTitle = activeIntent
-    ? `Need help shipping outcomes for ${activeIntent.org}?`
-    : "Need help turning ideas into shipped outcomes?";
+    ? `Need sharper product direction for ${activeIntent.org}?`
+    : "Need sharper product direction?";
   const ctaDescription = activeIntent
-    ? `I work with teams to translate strategy into AI-native products with the kind of leadership depth relevant to ${fitTarget}.`
-    : "I work with teams to translate strategy into AI-native products.";
+    ? `I help teams connect strategy, design, and AI workflow decisions in ways relevant to ${fitTarget}.`
+    : "I help teams connect strategy, design, and AI workflow decisions.";
 
   return (
     <PageLayout>
@@ -135,10 +135,10 @@ export default async function BlogPage({ searchParams }: PageProps) {
       />
       <SectionShell>
         <SectionLabel>Blog</SectionLabel>
-        <SectionHeading>Writing on design leadership, systems, and AI-first execution</SectionHeading>
+        <SectionHeading>Writing on design, leadership, and AI</SectionHeading>
         <SectionDescription>
-          Practical writing on product strategy, systems thinking, leadership, and
-          the operating questions behind modern AI and platform work.
+          Practical essays on product strategy, systems thinking, leadership, and
+          the operating questions behind AI and platform work.
         </SectionDescription>
         {activeIntent ? (
           <div className="mt-6">
@@ -149,7 +149,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
         <div className="mt-6">
           <AIWorkspaceBanner
             eyebrow="AI Guide"
-            title="Find the right writing for your question"
+            title="Find the most relevant writing"
             description={blogHelperText}
           >
             <AIWorkspace
@@ -166,10 +166,10 @@ export default async function BlogPage({ searchParams }: PageProps) {
 
       <SectionShell className="pt-0">
         <SectionLabel>Featured</SectionLabel>
-        <SectionHeading>Thinking on leadership, product systems, and AI-first execution</SectionHeading>
+        <SectionHeading>Start with these essays</SectionHeading>
         <SectionDescription>
-          Essays on product strategy, organizational design, systems thinking,
-          and execution quality.
+          A focused set on product strategy, organizational design, systems
+          thinking, and execution quality.
         </SectionDescription>
         <div className="mt-8">
           <BlogGrid posts={featured} />
@@ -179,10 +179,9 @@ export default async function BlogPage({ searchParams }: PageProps) {
       <SectionShell className="pt-0">
         <section className="rounded-xl border border-border/70 bg-card p-5 md:p-6">
           <SectionLabel>Archive</SectionLabel>
-          <SectionHeading>More essays from the archive</SectionHeading>
+          <SectionHeading>More writing from the archive</SectionHeading>
           <SectionDescription>
-            Additional essays from across design, product, technology, and
-            leadership work.
+            Older essays across design, product, technology, and leadership.
           </SectionDescription>
           <div className="mt-8">
             <BlogList posts={archive} />
@@ -192,7 +191,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
 
       <SectionShell>
         <SectionLabel>Think Tank</SectionLabel>
-        <SectionHeading>Questions to pressure-test your thinking</SectionHeading>
+        <SectionHeading>Questions to sharpen your thinking</SectionHeading>
         <ol className="mt-6 divide-y divide-border/70 rounded-xl border border-border/70 bg-card">
           {blogThinkingPrompts.map((prompt, index) => (
             <li key={prompt.question} className="grid gap-3 px-4 py-4 md:grid-cols-[40px_1fr] md:px-5">
@@ -215,7 +214,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
           eyebrow="Collaboration"
           title={ctaTitle}
           description={ctaDescription}
-          primaryLabel="Work together"
+          primaryLabel="Start a conversation"
           primaryHref="/contact"
           secondaryLabel="View portfolio"
           secondaryHref="/portfolio"
