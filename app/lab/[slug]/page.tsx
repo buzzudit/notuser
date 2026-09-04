@@ -414,14 +414,16 @@ export default async function LabTrialPage({ params }: PageProps) {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <a
-              href={trial.sourceUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-            >
-              View source <ArrowUpRight size={14} />
-            </a>
+            {trial.sourceUrl ? (
+              <a
+                href={trial.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+              >
+                View source <ArrowUpRight size={14} />
+              </a>
+            ) : null}
             <Link
               href="/lab"
               className="inline-flex items-center rounded-lg border border-border bg-secondary/40 px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"

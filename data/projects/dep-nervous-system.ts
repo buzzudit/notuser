@@ -16,7 +16,7 @@ export const project: Project = {
   context:
     "AISPINE/dep-brain is the source template for team-owned dep-spine workspaces. The repo distributes commands, skills, OpenSpec schemas, scripts, and guardrails while keeping product docs, architecture, metrics, feature specs, and implementation artifacts owned by each team's dep-spine repo. Teams channels such as DEP Nervous System (Brain + Spine), AI Spine Zone Huddle, AI Spine + IDP, and Weekly AI Spine + UXR Meetup showed the cross-functional adoption surface.",
   role:
-    "Experience and product strategy partner translating DEP Brain's technical framework into a portfolio-ready capability story: what teams can do with it, why it matters, and how it improves AI-assisted product delivery.",
+    "Director, Experience Design and UX leader for the AI Spine team. I set the direction for how UX discovery, research, artifacts, reviews, and acceptance evidence enter a specification-driven delivery workflow, and I contributed working changes to the framework itself rather than commenting on it from outside. Framework architecture, product rollout, and division-level adoption strategy were owned by partners; I was not the overall DRI, and the decisions below are the ones that were mine.",
   process: [
     "Created a guided setup path: non-developers can start with /setup, while developers can run init.sh to configure product name, Jira keys, Bitbucket project, Confluence URLs, upstream remotes, dependencies, and seeded OpenSpec docs.",
     "Established /go as the daily entry point that pulls workspace updates, inspects the current feature state, routes the agent to the right workflow, and keeps changes committed and pushed.",
@@ -70,6 +70,6 @@ export const project: Project = {
     },
   ],
   thumbnail: "/images/projects/generated/dep-nervous-system.png",
-  sourceUrl: "https://bitbucket.athenahealth.com/projects/AISPINE/repos/dep-brain/browse",
+  sourceUrl: "https://www.notuser.com/portfolio/dep-nervous-system",
   isPrivate: true,
 };

@@ -149,18 +149,18 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     ],
   },
   {
-    slug: "developer-portal",
-    eyebrow: "Technical ecosystem design",
+    slug: "spine-triage",
+    eyebrow: "Human + AI product leadership",
     problemSpace:
-      "Developers and partners needed a clearer path through documentation, integration surfaces, and contribution workflows.",
+      "An AI triage agent could investigate defects competently, but engineers could not see what it had done, what evidence it used, or what it intended next.",
     leadership:
-      "Led UX strategy across teams and shaped the portal into a coherent ecosystem entry point instead of disconnected tools.",
+      "Set the experience direction and stayed close enough to implement it, reorganising the product around inspectable runs and explicit human approval rather than a chat transcript.",
     impact:
-      "Improved platform adoption readiness by making key technical journeys easier to discover, understand, and execute.",
+      "Reached production in September 2026 with feature parity intact, establishing a trust model where the system proposes and a developer decides.",
     metrics: [
-      { label: "Role", value: "Senior Manager UX and project lead" },
-      { label: "Audience", value: "Developers and partners" },
-      { label: "Focus", value: "Platform adoption" },
+      { label: "Role", value: "Experience direction and delivery" },
+      { label: "Delivery", value: "Production, September 2026" },
+      { label: "Control model", value: "No autonomous merge or submit" },
     ],
   },
   {

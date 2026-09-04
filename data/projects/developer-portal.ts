@@ -63,32 +63,32 @@ export const project: Project = {
         "alt": "Developer Portal"
       },
       {
-        "label": "bc4f65_fff263152d524304bf2c9d0b4ccab7f2~mv2.jpg",
+        "label": "Parameter tables paired with copyable request examples, so reading and implementing happen without a context switch",
         "src": "https://static.wixstatic.com/media/bc4f65_fff263152d524304bf2c9d0b4ccab7f2~mv2.jpg",
         "alt": "Developer Portal"
       },
       {
-        "label": "bc4f65_fd58b487aafa40c2834ed53dd6a38c9c~mv2.jpg",
+        "label": "Ecosystem entry point: one orientation page that sorts athenaOne, FHIR, and certified APIs before a developer has to choose",
         "src": "https://static.wixstatic.com/media/bc4f65_fd58b487aafa40c2834ed53dd6a38c9c~mv2.jpg",
         "alt": "Developer Portal"
       },
       {
-        "label": "bc4f65_d5982f81bd3f40a3be8a33f40865ec30~mv2.jpg",
+        "label": "Reference pages anchored to a real task, with endpoints and runnable examples in the same view",
         "src": "https://static.wixstatic.com/media/bc4f65_d5982f81bd3f40a3be8a33f40865ec30~mv2.jpg",
         "alt": "Developer Portal"
       },
       {
-        "label": "bc4f65_020bbfaf193747bdbd3dc630b30e03b6~mv2.jpg",
+        "label": "Interactive sandbox: search an endpoint, inspect its parameters, and try a live call from inside the documentation",
         "src": "https://static.wixstatic.com/media/bc4f65_020bbfaf193747bdbd3dc630b30e03b6~mv2.jpg",
         "alt": "Developer Portal"
       },
       {
-        "label": "bc4f65_faa70b940631481ebf1cfccf0f788f1f~mv2.jpg",
+        "label": "Workflow guides sequence the calls for a complete task: patient check-in as four ordered steps, not four separate reference entries",
         "src": "https://static.wixstatic.com/media/bc4f65_faa70b940631481ebf1cfccf0f788f1f~mv2.jpg",
         "alt": "Developer Portal"
       },
       {
-        "label": "bc4f65_27510c656d974c668848b509983e6ce9~mv2.jpg",
+        "label": "Reference panel opens beside the sandbox so developers keep their place while looking an endpoint up",
         "src": "https://static.wixstatic.com/media/bc4f65_27510c656d974c668848b509983e6ce9~mv2.jpg",
         "alt": "Developer Portal"
       }

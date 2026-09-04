@@ -9,7 +9,20 @@ type CaseStudyHeroProps = {
   project: Project;
 };
 
+// Records migrated from the legacy site carry a sourceUrl pointing at the original
+// published page. Records authored here point sourceUrl at their own canonical path,
+// where an "Original source" link would just be a self-reference.
+function isSelfReferencingSource(project: Project) {
+  try {
+    return new URL(project.sourceUrl).pathname === `/portfolio/${project.slug}`;
+  } catch {
+    return false;
+  }
+}
+
 export function CaseStudyHero({ project }: CaseStudyHeroProps) {
+  const showOriginalSource = !isSelfReferencingSource(project);
+
   return (
     <header className="rounded-2xl border border-border bg-card p-6 md:p-8">
       {project.thumbnail ? (
@@ -61,14 +74,16 @@ export function CaseStudyHero({ project }: CaseStudyHeroProps) {
             Live demo
           </Link>
         ) : null}
-        <Link
-          href={project.sourceUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-md border border-border bg-secondary/40 px-3 py-1.5 text-muted-foreground hover:text-foreground"
-        >
-          Original source
-        </Link>
+        {showOriginalSource ? (
+          <Link
+            href={project.sourceUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-md border border-border bg-secondary/40 px-3 py-1.5 text-muted-foreground hover:text-foreground"
+          >
+            Original source
+          </Link>
+        ) : null}
       </div>
     </header>
   );

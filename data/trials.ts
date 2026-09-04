@@ -24,7 +24,8 @@ export type Trial = {
   nextQuestions: string[];
   metrics: TrialMetric[];
   tags: string[];
-  sourceUrl: string;
+  /** Omitted when the only source is internal and must not be linked publicly. */
+  sourceUrl?: string;
   thumbnail: string;
 };
 
@@ -85,7 +86,6 @@ export const trials: Trial[] = [
       { label: "Status", value: "MVP" },
     ],
     tags: ["Bitbucket", "No-Git UX", "Desktop App", "Repository Workflow", "Experiment"],
-    sourceUrl: "https://bitbucket.athenahealth.com/users/ukhandelwal/repos/bithub/browse",
     thumbnail: "/images/lab/bithub.svg",
   },
   {
@@ -144,7 +144,6 @@ export const trials: Trial[] = [
       { label: "Status", value: "Portable method" },
     ],
     tags: ["AI-DLC", "Assistant Workflow", "Product Methodology", "Markdown Framework", "Experiment"],
-    sourceUrl: "https://bitbucket.athenahealth.com/scm/~nmalavika/ai-dlc-navigator.git",
     thumbnail: "/images/lab/ai-dlc-navigator.svg",
   },
   {
