@@ -45,6 +45,15 @@ export type ProjectNarrative = {
   };
 };
 
+export type CaseStudySectionId =
+  | "problem"
+  | "context"
+  | "role"
+  | "process"
+  | "decisions"
+  | "outcome"
+  | "lessons";
+
 export type Project = {
   id: string;
   slug: string;
@@ -74,5 +83,11 @@ export type Project = {
   demoUrl?: string;
   sourceUrl: string;
   isPrivate?: boolean;
+  /**
+   * Per-section subtitles for the case study's section guide. Each key overrides the
+   * generic default, so a project can describe what is actually in its own Process or
+   * Decisions section instead of restating what those words mean.
+   */
+  sectionGuide?: Partial<Record<CaseStudySectionId, string>>;
   narrative?: ProjectNarrative;
 };

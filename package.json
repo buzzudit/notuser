@@ -15,12 +15,14 @@
     "pdf:extract": "node scripts/extract-pdf-text.mjs",
     "media:scan": "node scripts/mirror-wix-media.mjs --dry-run",
     "media:mirror": "node scripts/mirror-wix-media.mjs",
-    "deploy:fast": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-fast.ps1"
+    "deploy:fast": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy-fast.ps1",
+    "resume:docx": "tsx scripts/build-resume-docx.ts"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",
     "@prisma/client": "^7.3.0",
     "autoprefixer": "^10.4.27",
+    "docx": "^9.7.1",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.36.0",
     "lucide-react": "^0.462.0",

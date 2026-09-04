@@ -3,20 +3,20 @@ import { Project } from "../types/project";
 export const project: Project = {
   id: "eebb6b68-b920-42c7-b34a-386ce2ed67bd",
   slug: "dep-nervous-system",
-  title: "DEP Nervous System",
-  category: "AI Enablement, Product Strategy & Developer Experience",
+  title: "AI Spine",
+  category: "AI Delivery Platform",
   year: "2026",
   organization: "athenahealth",
   platform: "Internal AI Platform",
-  scope: "AI Spine, DEP Brain, DEP Spine, SDD Governance",
+  scope: "Experience direction and framework contribution",
   summary:
-    "Created a shared AI delivery workspace system that gives DEP teams one guided front door for setup, specification, implementation, quality checks, contribution, and leadership visibility.",
+    "A shared framework that gives AI coding assistants the product, architecture, and standards context they otherwise lack, delivered as a working workspace each team actually opens rather than a standards document nobody reads.",
   challenge:
-    "DEP teams were adopting AI-assisted delivery unevenly. Product, UX, engineering, and leadership needed a repeatable way to start work, preserve governance, connect Jira and Bitbucket, maintain Confluence documentation, and keep team-specific artifacts separate from shared framework updates.",
+    "Engineers were adopting AI coding tools faster than anyone could agree on how to use them. Nothing was failing yet, which was exactly the difficulty: there was no incident to point at, no budget line to defend, and every week of waiting added another team with its own conventions to unwind later.",
   context:
-    "AISPINE/dep-brain is the source template for team-owned dep-spine workspaces. The repo distributes commands, skills, OpenSpec schemas, scripts, and guardrails while keeping product docs, architecture, metrics, feature specs, and implementation artifacts owned by each team's dep-spine repo. Teams channels such as DEP Nervous System (Brain + Spine), AI Spine Zone Huddle, AI Spine + IDP, and Weekly AI Spine + UXR Meetup showed the cross-functional adoption surface.",
+    "Nothing was broken when this started. That was the point. AI-assisted delivery was spreading fast, and left alone a hundred teams would each invent their own way of working — most of it dead inside a year.\n\nThe framework grew by accretion rather than decree. Governance came first, then a six-step workflow, then the organization's real reporting hierarchy, so work rolled up the way the business already worked.\n\nTeams already running their own methods were never asked to abandon them. An adapter offered a clean migration or a live bridge that kept their own repo in sync, and externally owned skills stayed with their maintainers rather than being copied in. Absorption beat replacement, and that is why leaders with existing investments came along.\n\nTrust had to be earned mechanically. Prose rules became automated checks: locked planning artifacts, acceptance-criteria coverage, a scan for exposed patient data. One guardrail was rolled back after contact with real use.\n\nUX arrived late and changed shape doing it. Research reorganized around the topic under investigation, not the method that produced it, and discovery folded into the same change record as delivery instead of a parallel tree to reconcile later.\n\nEventually it began maintaining itself.",
   role:
-    "Director, Experience Design and UX leader for the AI Spine team. I set the direction for how UX discovery, research, artifacts, reviews, and acceptance evidence enter a specification-driven delivery workflow, and I contributed working changes to the framework itself rather than commenting on it from outside. Framework architecture, product rollout, and division-level adoption strategy were owned by partners; I was not the overall DRI, and the decisions below are the ones that were mine.",
+    "Director, Experience Design, and UX lead on the AI Spine team. I shaped how research, design evidence, and quality gates enter an AI-assisted delivery workflow, and I shipped those changes into the framework myself rather than specifying them for someone else to build. Framework architecture and division-wide rollout were owned by partners; I was not the overall DRI.",
   process: [
     "Created a guided setup path: non-developers can start with /setup, while developers can run init.sh to configure product name, Jira keys, Bitbucket project, Confluence URLs, upstream remotes, dependencies, and seeded OpenSpec docs.",
     "Established /go as the daily entry point that pulls workspace updates, inspects the current feature state, routes the agent to the right workflow, and keeps changes committed and pushed.",
@@ -55,14 +55,13 @@ export const project: Project = {
     "athenahealth",
   ],
   metrics: [
-    { label: "Primary commands", value: "setup, go, progress, contribute, feedback, kr" },
-    { label: "Workflow gates", value: "6 SDD steps with artifact checks" },
-    { label: "Core artifacts", value: "Proposal, specs, design, tasks, RTM, audit log" },
-    { label: "Source systems", value: "Bitbucket, Jira, Confluence, Teams" },
+    { label: "Contribution", value: "Onboarding trust, stage gates, UX workspaces" },
+    { label: "Adoption model", value: "Absorb rival frameworks, never mandate" },
+    { label: "Enforcement", value: "Prose rules became automated checks" },
   ],
   gallery: [
     {
-      label: "DEP Nervous System flow",
+      label: "How the shared framework reaches each team workspace",
       src: "/images/projects/generated/dep-nervous-system-flow.svg",
       alt: "Flow diagram showing DEP Brain feeding setup, sync, team DEP Spine workspaces, delivery workflow, and benefits.",
       fit: "contain",
@@ -72,4 +71,13 @@ export const project: Project = {
   thumbnail: "/images/projects/generated/dep-nervous-system.png",
   sourceUrl: "https://www.notuser.com/portfolio/dep-nervous-system",
   isPrivate: true,
+  sectionGuide: {
+    problem: "Why moving early was the hard part",
+    context: "From governance to a system that runs itself",
+    role: "What was mine, and what partners owned",
+    process: "Guided setup, a daily entry point, safe contribution",
+    decisions: "Brain and spine, one command, governance without jargon",
+    outcome: "What teams and leaders can do now",
+    lessons: "What transfers to any shared framework",
+  },
 };

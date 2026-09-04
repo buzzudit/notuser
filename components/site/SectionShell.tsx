@@ -3,10 +3,23 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
+/**
+ * `default` suits marketing pages, where sections are meant to read as separate
+ * screens. `tight` is for document-like pages such as /resume, which are scanned
+ * top to bottom and where the full rhythm leaves ~192px of dead space between blocks.
+ */
+export type SectionSpacing = "default" | "tight";
+
+const SECTION_SPACING: Record<SectionSpacing, string> = {
+  default: "py-16 md:py-24",
+  tight: "py-8 md:py-12",
+};
+
 interface SectionShellProps {
   children: ReactNode;
   className?: string;
   id?: string;
+  spacing?: SectionSpacing;
 }
 
 const sectionVariants = {
@@ -18,7 +31,12 @@ const sectionVariants = {
   },
 };
 
-export function SectionShell({ children, className = "", id }: SectionShellProps) {
+export function SectionShell({
+  children,
+  className = "",
+  id,
+  spacing = "default",
+}: SectionShellProps) {
   return (
     <motion.section
       id={id}
@@ -26,7 +44,10 @@ export function SectionShell({ children, className = "", id }: SectionShellProps
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionVariants}
-      className={`py-16 md:py-24 ${className}`}
+      // Spacing is swapped, not appended: an appended py-* utility loses to the one
+      // Tailwind emits later in the stylesheet, so overriding via className silently
+      // does nothing.
+      className={`${SECTION_SPACING[spacing]} ${className}`}
     >
       <div className="container">{children}</div>
     </motion.section>

@@ -1,5 +1,6 @@
 import { experienceTimeline } from "@/data/experience";
 import { Timeline, TimelineItem } from "@/components/site/Timeline";
+import { CompanyLogo } from "@/components/site/CompanyLogo";
 
 export function ExperienceTimeline() {
   return (
@@ -10,6 +11,7 @@ export function ExperienceTimeline() {
           period={item.period}
           title={item.role}
           subtitle={`${item.company} - ${item.location}`}
+          mark={<CompanyLogo company={item.company} logo={item.logo} />}
         >
           <ul className="space-y-1.5">
             {item.highlights.map((highlight) => (

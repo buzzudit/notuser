@@ -73,7 +73,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound();
   }
 
-  const navItems = [
+  // Defaults describe what each section means in general. A project can override any of
+  // them via `sectionGuide` to say what is actually in its own section, which is what
+  // makes the guide useful for navigation rather than a restatement of the labels.
+  const navDefaults = [
     { id: "problem", label: "Problem", description: "What challenge needed solving" },
     { id: "context", label: "Context", description: "Background and constraints" },
     { id: "role", label: "Role", description: "Scope and ownership" },
@@ -81,7 +84,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     { id: "decisions", label: "Decisions", description: "Critical choices and tradeoffs" },
     { id: "outcome", label: "Outcome", description: "Results and impact" },
     { id: "lessons", label: "Lessons", description: "What transferred to future work" },
-  ];
+  ] as const;
+
+  const navItems = navDefaults.map((item) => ({
+    ...item,
+    description: project.sectionGuide?.[item.id] ?? item.description,
+  }));
 
   const aiContext = [
     `Project title: ${project.title}`,
