@@ -99,13 +99,15 @@ export function ClaimToast({ citations }: ClaimToastProps) {
           </p>
           <p className="mt-3 text-sm leading-relaxed text-white/90">{citation.evidence.note}</p>
 
-          <Link
-            href={`#${citation.evidence.anchorId}`}
-            onClick={hide}
-            className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white underline-offset-4 hover:underline"
-          >
-            Read {citation.evidence.anchorLabel} →
-          </Link>
+          {citation.evidence.anchorId ? (
+            <Link
+              href={`#${citation.evidence.anchorId}`}
+              onClick={hide}
+              className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white underline-offset-4 hover:underline"
+            >
+              Read {citation.evidence.anchorLabel} →
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

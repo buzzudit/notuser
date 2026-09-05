@@ -1,10 +1,12 @@
 export type ClaimEvidence = {
-  /** Case study this claim is grounded in. */
-  projectSlug: string;
-  /** Section id on that case study's page that actually proves the claim. */
-  anchorId: string;
+  /** Case study this claim is grounded in. Omitted when the evidence is a post. */
+  projectSlug?: string;
+  /** Blog post this claim is grounded in. Omitted when the evidence is a case study. */
+  postSlug?: string;
+  /** Section id that proves the claim. Posts have no section anchors, so it is optional. */
+  anchorId?: string;
   /** How that anchor reads in a sentence, e.g. "the decisions". */
-  anchorLabel: string;
+  anchorLabel?: string;
   /** One line, specific to this project, on how it proves the claim. Not the card copy. */
   note: string;
   /** Optional seed for the page's AI banner, framed around this claim. */
@@ -24,7 +26,15 @@ export const claims: Claim[] = [
     id: "alignment-is-not-agreement",
     eyebrow: "Direction",
     title: "Alignment is not agreement.",
-    evidence: [],
+    evidence: [
+      {
+        projectSlug: "vision-platform-and-data-services",
+        anchorId: "decisions",
+        anchorLabel: "the decisions",
+        note: "The vision only counted once teams used it to sequence roadmap work. Treating it as an operating tool rather than a deck is what moved zones from lagging to strong.",
+        suggestion: "How did the vision change what teams actually prioritised?",
+      },
+    ],
   },
   {
     id: "hard-part-between-teams",
@@ -44,7 +54,12 @@ export const claims: Claim[] = [
     id: "coaching-is-a-schedule",
     eyebrow: "Growing people",
     title: "Coaching is a schedule, not a sentiment.",
-    evidence: [],
+    evidence: [
+      {
+        postSlug: "how-i-groom-my-designers-at-athenahealth",
+        note: "Written down because a practice that lives only in my head stops happening the week I get busy. Growth plans, the trust it takes, and what I deliberately hand over.",
+      },
+    ],
   },
   {
     id: "cannot-review-your-way-to-quality",
@@ -100,6 +115,18 @@ export function getClaimsForProject(slug: string): ClaimCitation[] {
   const citations: ClaimCitation[] = [];
   for (const claim of claims) {
     const evidence = claim.evidence.find((item) => item.projectSlug === slug);
+    if (evidence) {
+      citations.push({ claim, evidence });
+    }
+  }
+  return citations;
+}
+
+/** Claims that cite this post, strongest first. */
+export function getClaimsForPost(slug: string): ClaimCitation[] {
+  const citations: ClaimCitation[] = [];
+  for (const claim of claims) {
+    const evidence = claim.evidence.find((item) => item.postSlug === slug);
     if (evidence) {
       citations.push({ claim, evidence });
     }
