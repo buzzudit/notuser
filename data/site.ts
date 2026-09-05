@@ -1,3 +1,5 @@
+import { getClaimById } from "./claims";
+
 export type HomeMetric = {
   label: string;
   value: string;
@@ -187,55 +189,58 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
   },
 ];
 
+/**
+ * Eyebrow and title come from the claims registry rather than being retyped here, so the
+ * homepage card and the case study's ClaimStrip can never drift into saying related-but-
+ * different things about the same claim.
+ */
+function leadershipCard(
+  claimId: string,
+  description: string,
+  href: string,
+  hrefLabel: string,
+): HomeSignalItem {
+  const claim = getClaimById(claimId);
+  return { eyebrow: claim.eyebrow, title: claim.title, description, href, hrefLabel };
+}
+
 export const homeLeadershipModel: HomeSignalItem[] = [
-  {
-    eyebrow: "Direction",
-    title: "Alignment is not agreement.",
-    description:
-      "Platform teams were shipping perfectly well. What was missing was a direction they could sequence against, so I built the vision as something teams used in roadmap calls rather than a deck they were shown once.",
-    href: "/portfolio/vision-platform-and-data-services",
-    hrefLabel: "Platform and data services",
-  },
-  {
-    eyebrow: "Cross-org work",
-    title: "The hard part sits between the teams.",
-    description:
-      "Closing the referral loop was never one product's problem. It needed sender and receiver systems to agree on status, which meant settling architecture and workflow questions neither side owned alone.",
-    href: "/portfolio/360x-closed-loop-referrals",
-    hrefLabel: "360X Closed Loop Referrals",
-  },
-  {
-    eyebrow: "Growing people",
-    title: "Coaching is a schedule, not a sentiment.",
-    description:
-      "Everyone says they develop their team. What made it real was writing down how I do it — growth plans, the trust it takes, and what I hand over — so it survived me being busy.",
-    href: "/blog/how-i-groom-my-designers-at-athenahealth",
-    hrefLabel: "How I grow designers",
-  },
-  {
-    eyebrow: "Quality",
-    title: "You cannot review your way to quality at scale.",
-    description:
-      "Design review does not survive contact with dozens of teams. Making quality a measured, visible signal did — the first survey cycle came back at 100% response, and maturity stopped being an opinion.",
-    href: "/portfolio/design-quality",
-    hrefLabel: "Design Quality",
-  },
-  {
-    eyebrow: "Scale",
-    title: "A shared vocabulary beats a shared document.",
-    description:
-      "Teams did not need another template. They needed the same words for the same decisions, so the framework gave product, engineering, and design one language for journeys instead of three.",
-    href: "/portfolio/user-journey-framework",
-    hrefLabel: "User Journey Framework",
-  },
-  {
-    eyebrow: "Hands-on",
-    title: "I stay close enough to be wrong in public.",
-    description:
-      "On the commerce model at Zivame I owned the strategy and then stayed in the integration patterns themselves, because the decisions that mattered only showed up once content and product had to work as one system.",
-    href: "/portfolio/content-led-commerce-at-zivame",
-    hrefLabel: "Content-led commerce",
-  },
+  leadershipCard(
+    "alignment-is-not-agreement",
+    "Platform teams were shipping perfectly well. What was missing was a direction they could sequence against, so I built the vision as something teams used in roadmap calls rather than a deck they were shown once.",
+    "/portfolio/vision-platform-and-data-services",
+    "Platform and data services",
+  ),
+  leadershipCard(
+    "hard-part-between-teams",
+    "Closing the referral loop was never one product's problem. It needed sender and receiver systems to agree on status, which meant settling architecture and workflow questions neither side owned alone.",
+    "/portfolio/360x-closed-loop-referrals",
+    "360X Closed Loop Referrals",
+  ),
+  leadershipCard(
+    "coaching-is-a-schedule",
+    "Everyone says they develop their team. What made it real was writing down how I do it — growth plans, the trust it takes, and what I hand over — so it survived me being busy.",
+    "/blog/how-i-groom-my-designers-at-athenahealth",
+    "How I grow designers",
+  ),
+  leadershipCard(
+    "cannot-review-your-way-to-quality",
+    "Design review does not survive contact with dozens of teams. Making quality a measured, visible signal did — the first survey cycle came back at 100% response, and maturity stopped being an opinion.",
+    "/portfolio/design-quality",
+    "Design Quality",
+  ),
+  leadershipCard(
+    "shared-vocabulary-beats-shared-document",
+    "Teams did not need another template. They needed the same words for the same decisions, so the framework gave product, engineering, and design one language for journeys instead of three.",
+    "/portfolio/user-journey-framework",
+    "User Journey Framework",
+  ),
+  leadershipCard(
+    "stay-close-enough-to-be-wrong",
+    "On the commerce model at Zivame I owned the strategy and then stayed in the integration patterns themselves, because the decisions that mattered only showed up once content and product had to work as one system.",
+    "/portfolio/content-led-commerce-at-zivame",
+    "Content-led commerce",
+  ),
 ];
 
 export const homeExecutiveProof: HomeSignalItem[] = [

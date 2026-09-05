@@ -4,10 +4,12 @@ import { PageLayout } from "@/components/site/layout/PageLayout";
 import { SectionShell } from "@/components/site/SectionShell";
 import { CaseStudyHero } from "@/components/site/CaseStudyHero";
 import { CaseStudySection } from "@/components/site/CaseStudySection";
+import { ClaimStrip } from "@/components/site/ClaimStrip";
 import { QuoteBlock } from "@/components/site/QuoteBlock";
 import { ImageGallery } from "@/components/site/ImageGallery";
 import { CallToAction } from "@/components/site/CallToAction";
 import { getProjectBySlug, projects, resolveProjectSlug } from "@/data/projects";
+import { getClaimsForProject } from "@/data/claims";
 import {
   CaseStudyBanner,
   CaseStudyCards,
@@ -93,10 +95,28 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     { id: "lessons", label: "Lessons", description: "What transferred to future work" },
   ] as const;
 
+  const claimCitations = getClaimsForProject(project.slug);
+  const [primaryCitation, ...otherCitations] = claimCitations;
+
   const navItems = navDefaults.map((item) => ({
     ...item,
     description: project.sectionGuide?.[item.id] ?? item.description,
+    cited: item.id === primaryCitation?.evidence.anchorId,
   }));
+
+  const aiSuggestions = primaryCitation?.evidence.suggestion
+    ? [
+        primaryCitation.evidence.suggestion,
+        "Summarize this case study",
+        "Extract leadership and strategy signals",
+        "Compare this with enterprise platform projects",
+      ]
+    : [
+        "Summarize this case study",
+        "Extract leadership and strategy signals",
+        "Compare this with enterprise platform projects",
+        "Generate a reusable playbook from this case",
+      ];
 
   const aiContext = [
     `Project title: ${project.title}`,
@@ -129,6 +149,12 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <CaseStudyHero project={project} />
       </SectionShell>
 
+      {primaryCitation ? (
+        <SectionShell flushTop>
+          <ClaimStrip primary={primaryCitation} others={otherCitations} />
+        </SectionShell>
+      ) : null}
+
       <SectionShell flushTop>
         <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
           <AIWorkspaceBanner
@@ -141,12 +167,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               page="portfolio-detail"
               context={aiContext}
               helperText="Ask AI to summarize the case, extract leadership signals, or compare this work to other projects."
-              suggestions={[
-                "Summarize this case study",
-                "Extract leadership and strategy signals",
-                "Compare this with enterprise platform projects",
-                "Generate a reusable playbook from this case",
-              ]}
+              suggestions={aiSuggestions}
               tone="banner"
             />
           </AIWorkspaceBanner>
@@ -159,7 +180,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
                 <a
                   key={step.id}
                   href={`#${step.id}`}
-                  className="block rounded-md px-3 py-2 transition-colors hover:bg-secondary"
+                  className={`block rounded-md px-3 py-2 transition-colors hover:bg-secondary ${
+                    step.cited ? "bg-primary/[0.06]" : ""
+                  }`}
                 >
                   <p className="text-xs font-medium text-foreground">{step.label}</p>
                   <p className="text-[11px] text-muted-foreground">{step.description}</p>
