@@ -42,10 +42,8 @@
     --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
     --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
     --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
-    --signal-gradient-1: linear-gradient(135deg, hsl(215 68% 42%) 0%, hsl(218 70% 33%) 48%, hsl(223 72% 24%) 100%);
-    --signal-gradient-2: linear-gradient(135deg, hsl(252 52% 46%) 0%, hsl(256 58% 36%) 48%, hsl(262 62% 27%) 100%);
-    --signal-gradient-3: linear-gradient(135deg, hsl(190 64% 36%) 0%, hsl(194 70% 28%) 48%, hsl(199 76% 21%) 100%);
-    --signal-shadow: 0 14px 34px rgb(20 56 130 / 0.22), 0 1px 4px rgb(15 23 42 / 0.08);
+    --case-banner-gradient: linear-gradient(135deg, hsl(215 68% 42%) 0%, hsl(218 70% 33%) 48%, hsl(223 72% 24%) 100%);
+    --case-banner-shadow: 0 14px 34px rgb(20 56 130 / 0.22), 0 1px 4px rgb(15 23 42 / 0.08);
     --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.16), hsl(var(--banner-blue-start) / 0.06), transparent);
     --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
     --selection: var(--brand-blue-start);
@@ -93,10 +91,8 @@
     --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
     --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
     --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
-    --signal-gradient-1: linear-gradient(135deg, hsl(222 64% 18%) 0%, hsl(224 70% 13%) 48%, hsl(228 76% 9%) 100%);
-    --signal-gradient-2: linear-gradient(135deg, hsl(258 52% 20%) 0%, hsl(261 58% 15%) 48%, hsl(265 64% 10%) 100%);
-    --signal-gradient-3: linear-gradient(135deg, hsl(194 60% 16%) 0%, hsl(197 66% 12%) 48%, hsl(201 72% 8%) 100%);
-    --signal-shadow: 0 14px 34px rgb(0 0 0 / 0.45), 0 1px 4px rgb(0 0 0 / 0.3);
+    --case-banner-gradient: linear-gradient(135deg, hsl(222 64% 18%) 0%, hsl(224 70% 13%) 48%, hsl(228 76% 9%) 100%);
+    --case-banner-shadow: 0 14px 34px rgb(0 0 0 / 0.45), 0 1px 4px rgb(0 0 0 / 0.3);
     --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.2), hsl(var(--banner-blue-start) / 0.1), transparent);
     --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
     --selection: var(--brand-blue-start);
@@ -144,10 +140,8 @@
     --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
     --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
     --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
-    --signal-gradient-1: linear-gradient(135deg, hsl(215 68% 42%) 0%, hsl(218 70% 33%) 48%, hsl(223 72% 24%) 100%);
-    --signal-gradient-2: linear-gradient(135deg, hsl(252 52% 46%) 0%, hsl(256 58% 36%) 48%, hsl(262 62% 27%) 100%);
-    --signal-gradient-3: linear-gradient(135deg, hsl(190 64% 36%) 0%, hsl(194 70% 28%) 48%, hsl(199 76% 21%) 100%);
-    --signal-shadow: 0 14px 34px rgb(20 56 130 / 0.22), 0 1px 4px rgb(15 23 42 / 0.08);
+    --case-banner-gradient: linear-gradient(135deg, hsl(215 68% 42%) 0%, hsl(218 70% 33%) 48%, hsl(223 72% 24%) 100%);
+    --case-banner-shadow: 0 14px 34px rgb(20 56 130 / 0.22), 0 1px 4px rgb(15 23 42 / 0.08);
     --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.16), hsl(var(--banner-blue-start) / 0.06), transparent);
     --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
     --selection: var(--brand-blue-start);
@@ -307,29 +301,15 @@
     background: var(--banner-radial-overlay);
   }
 
-  /* Leadership-context tiles. Same gradient language as .blue-banner — 135deg ramp,
-     white type, one soft highlight — but a card, not a hero: lighter shadow and none
-     of the banner's grid, orb, or device furniture. Hue is the only thing that varies
-     between the three; saturation and lightness stops stay identical so they read as
-     one family rather than three unrelated colours. */
-  .signal-card {
-    @apply relative overflow-hidden rounded-xl border border-white/[0.16] px-5 py-6 text-white;
-    box-shadow: var(--signal-shadow);
+  /* Full-width gradient panel for a case study's Role section. Same family as
+     .blue-banner, sized for a page-width block of prose. */
+  .case-banner {
+    @apply relative overflow-hidden rounded-2xl border border-white/[0.16] px-6 py-8 text-white md:px-10 md:py-10;
+    background: var(--case-banner-gradient);
+    box-shadow: var(--case-banner-shadow);
   }
 
-  .signal-card-1 {
-    background: var(--signal-gradient-1);
-  }
-
-  .signal-card-2 {
-    background: var(--signal-gradient-2);
-  }
-
-  .signal-card-3 {
-    background: var(--signal-gradient-3);
-  }
-
-  .signal-card-sheen {
+  .case-banner-sheen {
     background: radial-gradient(circle at 14% 0%, rgb(255 255 255 / 0.16), transparent 42%);
   }
 

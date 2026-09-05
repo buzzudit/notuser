@@ -8,8 +8,15 @@ import { QuoteBlock } from "@/components/site/QuoteBlock";
 import { ImageGallery } from "@/components/site/ImageGallery";
 import { CallToAction } from "@/components/site/CallToAction";
 import { getProjectBySlug, projects, resolveProjectSlug } from "@/data/projects";
-import { BulletList } from "@/components/site/BulletList";
-import { ParagraphStack } from "@/components/site/ParagraphStack";
+import {
+  CaseStudyBanner,
+  CaseStudyCards,
+  CaseStudyLessons,
+  CaseStudyOpener,
+  CaseStudyOutcomes,
+  CaseStudyProse,
+  CaseStudySteps,
+} from "@/components/site/portfolio/CaseStudyBlocks";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
 import { ProjectPeopleStrip } from "@/components/site/people/ProjectPeopleStrip";
@@ -122,7 +129,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <CaseStudyHero project={project} />
       </SectionShell>
 
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
           <AIWorkspaceBanner
             eyebrow="AI Case Guide"
@@ -164,48 +171,29 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
       </SectionShell>
 
       {connectedPeople.length > 0 ? (
-        <SectionShell className="pt-0">
+        <SectionShell flushTop>
           <ProjectPeopleStrip people={connectedPeople} />
         </SectionShell>
       ) : null}
 
-      <SectionShell className="pt-0">
-        <div className="grid gap-4">
-          <CaseStudySection title="Problem" id="problem">
-            <ParagraphStack paragraphs={[project.challenge]} />
-            <div className="mt-4 rounded-lg border border-border/70 bg-secondary/25 p-4">
-              <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                Impact signal
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-foreground">
-                {project.outcome[0] ?? "Outcome documented in case study."}
-              </p>
-            </div>
-          </CaseStudySection>
+      <SectionShell flushTop>
+        {/* Each section gets the treatment its content shape calls for, so the body
+            reads as an article rather than seven identical cards. Applies to every
+            case study. */}
+        <div className="grid gap-12 md:gap-16">
+          <CaseStudyOpener id="problem" label="Problem" text={project.challenge} />
 
-          <CaseStudySection title="Context" id="context">
-            <ParagraphStack paragraphs={[project.context]} />
-          </CaseStudySection>
+          <CaseStudyProse id="context" label="Context" text={project.context} />
 
-          <CaseStudySection title="Role" id="role">
-            <ParagraphStack paragraphs={[project.role]} />
-          </CaseStudySection>
+          <CaseStudyBanner id="role" label="Role" text={project.role} />
 
-          <CaseStudySection title="Process" id="process">
-            <BulletList items={project.process} />
-          </CaseStudySection>
+          <CaseStudySteps id="process" label="Process" items={project.process} />
 
-          <CaseStudySection title="Key Decisions" id="decisions">
-            <BulletList items={project.keyDecisions} />
-          </CaseStudySection>
+          <CaseStudyCards id="decisions" label="Key Decisions" items={project.keyDecisions} />
 
-          <CaseStudySection title="Outcome" id="outcome">
-            <BulletList items={project.outcome} />
-          </CaseStudySection>
+          <CaseStudyOutcomes id="outcome" label="Outcome" items={project.outcome} />
 
-          <CaseStudySection title="Lessons" id="lessons">
-            <BulletList items={project.lessons} />
-          </CaseStudySection>
+          <CaseStudyLessons id="lessons" label="Lessons" items={project.lessons} />
 
           {project.gallery.length > 0 ? (
             <CaseStudySection title="Gallery">
