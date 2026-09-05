@@ -35,9 +35,7 @@ import {
   homeLeadershipModel,
   homeTestimonials,
   homeWhyUdit,
-  homeWritingSection,
-  trustIndicators,
-} from "@/data/site";
+  homeWritingSection,} from "@/data/site";
 import {
   buildUkrIntentAiContext,
   buildUkrScopedMetadata,
@@ -86,7 +84,7 @@ export default async function HomePage({ searchParams }: PageProps) {
     `Positioning: ${homeHero.subheadline}`,
     `Credibility: ${homeHero.credibilityLine}`,
     `Why hire themes: ${homeWhyUdit.map((item) => item.title).join(" | ")}`,
-    `AI leadership themes: ${homeAILeadership.focusAreas.join(" | ")}`,
+    `AI leadership themes: ${homeAILeadershipPillars.map((item) => item.title).join(" | ")}`,
     activeIntent ? buildUkrIntentAiContext(activeIntent) : "",
   ].join("\n");
   const homeAiHeading = activeIntent
@@ -137,30 +135,12 @@ export default async function HomePage({ searchParams }: PageProps) {
         </AIWorkspaceBanner>
       </SectionShell>
 
-      <SectionShell className="border-b border-border/50 py-10 md:py-10">
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {trustIndicators.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-xl border border-border bg-card px-4 py-5 transition-colors hover:border-primary/25"
-            >
-              <p className="text-3xl font-semibold tracking-tight text-foreground">
-                {item.value}
-              </p>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                {item.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </SectionShell>
-
       <SectionShell id="why-udit">
         <SectionLabel>Why me</SectionLabel>
-        <SectionHeading>Why consider Udit</SectionHeading>
+        <SectionHeading>What I bring</SectionHeading>
         <SectionDescription>
-          Healthcare leadership, platform depth, and technical fluency in one
-          design profile.
+          I have led design in healthcare at scale, worked deep in enterprise
+          platforms, and started out writing code.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeWhyUdit} iconSet="value" iconTreatment="background" />
@@ -169,33 +149,31 @@ export default async function HomePage({ searchParams }: PageProps) {
 
       <SectionShell
         id="ai-leadership"
-        className="blue-section-wash border-y border-border/50"
-      >
-        <SectionLabel>AI Leadership</SectionLabel>
-        <SectionHeading>
-          AI product strategy that holds up in real workflows
-        </SectionHeading>
-        <SectionDescription>
-          I focus on where AI improves decisions, coordination, trust, and
-          service quality.
-        </SectionDescription>
-        <div className="mt-10 flex justify-center">
-          <AILeadershipSection
-            intro={homeAILeadership.intro}
-            focusAreas={homeAILeadership.focusAreas}
-            pillars={homeAILeadershipPillars}
-          />
-        </div>
+        className="relative overflow-hidden blue-section-wash border-y border-border/50"
+        backdrop={
+          <div aria-hidden="true" className="section-shape-field">
+            <span className="section-shape section-shape-a" />
+            <span className="section-shape section-shape-b" />
+          </div>
+        }
+        >
+        <AILeadershipSection
+          label="AI Leadership"
+          heading="I build AI products that hold up in real workflows"
+          intro={homeAILeadership.intro}
+          ctaLabel={homeAILeadership.ctaLabel}
+          ctaHref={homeAILeadership.ctaHref}
+          pillars={homeAILeadershipPillars}
+        />
       </SectionShell>
 
       <SectionShell id="case-studies">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionLabel>Selected Work</SectionLabel>
-            <SectionHeading>Selected work that shows scope and judgment</SectionHeading>
+            <SectionLabel>Best Work</SectionLabel>
+            <SectionHeading>The work I would want you to judge me on</SectionHeading>
             <SectionDescription>
-              Four examples across platform strategy, healthcare workflows,
-              developer ecosystems, and commerce growth.
+              The hardest problems I have been handed, and what I decided.
             </SectionDescription>
           </div>
           <Link
@@ -219,11 +197,11 @@ export default async function HomePage({ searchParams }: PageProps) {
       </SectionShell>
 
       <SectionShell id="career-proof" className="border-y border-border/50">
-        <SectionLabel>Career Context</SectionLabel>
-        <SectionHeading>Proof across leadership, platforms, and engineering</SectionHeading>
+        <SectionLabel>Experience</SectionLabel>
+        <SectionHeading>From engineering roots to design leadership</SectionHeading>
         <SectionDescription>
-          A career path from software engineering to senior design leadership
-          across athenahealth, Adobe, Cisco, Kaseya, and Zivame.
+          I started in software engineering and moved into design leadership,
+          across athenahealth, Zivame, Kaseya, Cisco, and Adobe.
         </SectionDescription>
         <div className="mt-8">
           <SignalCardGrid items={homeExecutiveProof} iconSet="proof" iconTreatment="none" />
@@ -238,19 +216,15 @@ export default async function HomePage({ searchParams }: PageProps) {
 
       <SectionShell id="leadership-model">
         <SectionLabel>Leadership</SectionLabel>
-        <SectionHeading>How I lead teams through complex product work</SectionHeading>
-        <SectionDescription>
-          I create direction, align partners, coach designers, and install
-          practices that keep quality consistent.
-        </SectionDescription>
+        <SectionHeading>How I lead</SectionHeading>
         <div className="mt-8">
           <SignalCardGrid items={homeLeadershipModel} iconSet="leadership" />
         </div>
       </SectionShell>
 
       <SectionShell className="blue-section-wash">
-        <SectionLabel>Partner Feedback</SectionLabel>
-        <SectionHeading>What collaborators notice</SectionHeading>
+        <SectionLabel>Testimonials</SectionLabel>
+        <SectionHeading>What the people I worked with say</SectionHeading>
         <div className="grid gap-4 md:grid-cols-3">
           {homeTestimonials.map((item) => (
             <TestimonialCard

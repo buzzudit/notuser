@@ -28,6 +28,8 @@ interface SectionShellProps {
   spacing?: SectionSpacing;
   /** Removes top padding so this section sits directly under the previous one. */
   flushTop?: boolean;
+  /** Decorative layer rendered behind the content, spanning the full section width. */
+  backdrop?: ReactNode;
 }
 
 const sectionVariants = {
@@ -45,6 +47,7 @@ export function SectionShell({
   id,
   spacing = "default",
   flushTop = false,
+  backdrop,
 }: SectionShellProps) {
   const padding = SECTION_PADDING[spacing];
 
@@ -57,7 +60,8 @@ export function SectionShell({
       variants={sectionVariants}
       className={`${flushTop ? "pt-0" : padding.top} ${padding.bottom} ${className}`}
     >
-      <div className="container">{children}</div>
+      {backdrop}
+      <div className="relative container">{children}</div>
     </motion.section>
   );
 }

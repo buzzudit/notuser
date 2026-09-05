@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import {
   Bot,
   Braces,
@@ -76,6 +78,15 @@ export function SignalCardGrid({
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               {item.description}
             </p>
+            {item.href ? (
+              <Link
+                href={item.href}
+                className="relative mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+              >
+                {item.hrefLabel}
+                <ArrowUpRight size={13} aria-hidden="true" />
+              </Link>
+            ) : null}
           </article>
         );
       })}

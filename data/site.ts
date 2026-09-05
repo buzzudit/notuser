@@ -7,6 +7,9 @@ export type HomeSignalItem = {
   eyebrow: string;
   title: string;
   description: string;
+  /** Case study backing the claim, so a reader can check it rather than take it. */
+  href?: string;
+  hrefLabel?: string;
 };
 
 export type HomeCaseStudyPreview = {
@@ -81,39 +84,43 @@ export const homeWhyUdit: HomeSignalItem[] = [
 
 export const homeAILeadership = {
   intro:
-    "I treat AI as a workflow, systems, and operating-model challenge, not just an interface feature.",
-  focusAreas: [
-    "Find where AI can improve judgment, speed, coordination, or service quality.",
-    "Design human plus AI systems with review, escalation, and clear operator control.",
-    "Shape orchestration across tools, people, and data instead of isolating AI in one surface.",
-    "Help teams adopt AI-enabled practices without lowering standards for trust or quality.",
-  ],
+    "The hard part is never the model. It is deciding what a person still has to be responsible for.",
+  ctaLabel: "See how this worked in production",
+  ctaHref: "/portfolio/spine-triage",
 };
 
 export const homeAILeadershipPillars: HomeSignalItem[] = [
   {
-    eyebrow: "AI-first product strategy",
-    title: "Find durable product value.",
+    eyebrow: "Where AI earns its place",
+    title: "Not every workflow needs an agent.",
     description:
-      "I focus on where AI changes workflow value, not where it only adds novelty.",
+      "On an internal enablement product, the win was never automation. It was helping people find the few resources that actually applied to their job.",
+    href: "/portfolio/ai-resource-hub",
+    hrefLabel: "AI Resource Hub",
   },
   {
-    eyebrow: "Human + AI workflows",
-    title: "Design clear collaboration patterns.",
+    eyebrow: "Human in the loop",
+    title: "The system proposes, a person decides.",
     description:
-      "That means review loops, fallback paths, clear responsibility, and strong decision support.",
+      "Spine Triage can read the logs, trace the code, and draft the fix. The hard part was never the investigation. It was making sure a person still had to say yes before anything reached the codebase.",
+    href: "/portfolio/spine-triage",
+    hrefLabel: "Spine Triage",
   },
   {
     eyebrow: "Trust and control",
-    title: "Build trust through control.",
+    title: "Capability without supervision is a demo.",
     description:
-      "Explainability, confidence, intervention, and governance matter more than polished prompts alone.",
+      "Engineers did not hold back because the answers were wrong. They held back because they could not see how the system got there, or refuse it once it had.",
+    href: "/portfolio/spine-triage",
+    hrefLabel: "Spine Triage",
   },
   {
-    eyebrow: "Team transformation",
-    title: "Help teams change how they work.",
+    eyebrow: "Adoption",
+    title: "Rules become checks, or they get ignored.",
     description:
-      "I care about how design, product, and engineering use AI to move faster without lowering standards.",
+      "On a division-wide delivery framework, guidance written in prose only changed behaviour once it became an automated gate.",
+    href: "/portfolio/dep-nervous-system",
+    hrefLabel: "AI Spine",
   },
 ];
 
@@ -183,39 +190,51 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
 export const homeLeadershipModel: HomeSignalItem[] = [
   {
     eyebrow: "Direction",
-    title: "Clarity in ambiguous work.",
+    title: "Alignment is not agreement.",
     description:
-      "I help teams move from vague opportunities to sharper priorities, clearer frameworks, and better product bets.",
+      "Platform teams were shipping perfectly well. What was missing was a direction they could sequence against, so I built the vision as something teams used in roadmap calls rather than a deck they were shown once.",
+    href: "/portfolio/vision-platform-and-data-services",
+    hrefLabel: "Platform and data services",
   },
   {
-    eyebrow: "Alignment",
-    title: "Alignment across functions.",
+    eyebrow: "Cross-org work",
+    title: "The hard part sits between the teams.",
     description:
-      "I make collaboration concrete by clarifying goals, decisions, dependencies, and the path to delivery.",
+      "Closing the referral loop was never one product's problem. It needed sender and receiver systems to agree on status, which meant settling architecture and workflow questions neither side owned alone.",
+    href: "/portfolio/360x-closed-loop-referrals",
+    hrefLabel: "360X Closed Loop Referrals",
   },
   {
-    eyebrow: "Team growth",
-    title: "Team growth through coaching.",
+    eyebrow: "Growing people",
+    title: "Coaching is a schedule, not a sentiment.",
     description:
-      "Coaching, feedback, context-setting, and stretch opportunities are central to how I build stronger teams over time.",
+      "Everyone says they develop their team. What made it real was writing down how I do it — growth plans, the trust it takes, and what I hand over — so it survived me being busy.",
+    href: "/blog/how-i-groom-my-designers-at-athenahealth",
+    hrefLabel: "How I grow designers",
   },
   {
     eyebrow: "Quality",
-    title: "Quality through repeatable habits.",
+    title: "You cannot review your way to quality at scale.",
     description:
-      "I use frameworks, principles, and review rhythms to keep product quality from becoming inconsistent at scale.",
+      "Design review does not survive contact with dozens of teams. Making quality a measured, visible signal did — the first survey cycle came back at 100% response, and maturity stopped being an opinion.",
+    href: "/portfolio/design-quality",
+    hrefLabel: "Design Quality",
   },
   {
     eyebrow: "Scale",
-    title: "Practices that outlast launches.",
+    title: "A shared vocabulary beats a shared document.",
     description:
-      "That includes design systems, decision frameworks, operating rhythms, and ways of working that make future execution stronger.",
+      "Teams did not need another template. They needed the same words for the same decisions, so the framework gave product, engineering, and design one language for journeys instead of three.",
+    href: "/portfolio/user-journey-framework",
+    hrefLabel: "User Journey Framework",
   },
   {
-    eyebrow: "Hands-on credibility",
-    title: "Hands-on judgment when needed.",
+    eyebrow: "Hands-on",
+    title: "I stay close enough to be wrong in public.",
     description:
-      "I stay close enough to the product, workflow, and delivery reality to keep decisions practical.",
+      "On the commerce model at Zivame I owned the strategy and then stayed in the integration patterns themselves, because the decisions that mattered only showed up once content and product had to work as one system.",
+    href: "/portfolio/content-led-commerce-at-zivame",
+    hrefLabel: "Content-led commerce",
   },
 ];
 
@@ -241,10 +260,10 @@ export const homeExecutiveProof: HomeSignalItem[] = [
 ];
 
 export const homeWritingSection = {
-  label: "Thinking",
-  heading: "Writing on design, leadership, and AI",
+  label: "Writing",
+  heading: "What I write about",
   description:
-    "Selected essays on systems thinking, product quality, design leadership, and AI-enabled ways of working.",
+    "Systems thinking, product quality, design leadership, and how teams actually adopt AI.",
 };
 
 export const homeFeaturedWritingSlugs = [
@@ -282,9 +301,9 @@ export const homeTestimonials = [
 
 export const homeCallToAction = {
   eyebrow: "Conversations",
-  title: "Looking for design leadership or AI product strategy?",
+  title: "I am open to the right conversation",
   description:
-    "If the role involves design leadership, AI-first product strategy, or platform modernization, I can share relevant work and talk through fit.",
+    "If you are hiring for design leadership, AI product strategy, or platform modernization, I am happy to walk through the work and talk honestly about fit.",
   primaryLabel: "Start a conversation",
   primaryHref: "/contact",
   secondaryLabel: "Explore case studies",

@@ -76,6 +76,49 @@ export const resumeSignals: ResumeSignal[] = [
   },
 ];
 
+/**
+ * Short orientation for each employer, shown when someone hovers the timeline mark.
+ * A hiring reader knows athenahealth and Adobe; Kaseya and Applied Materials need a
+ * line explaining what kind of company they are and who they sell to.
+ */
+export type CompanyProfile = {
+  sector: string;
+  about: string;
+};
+
+export const companyProfiles: Record<string, CompanyProfile> = {
+  athenahealth: {
+    sector: "Healthcare technology",
+    about:
+      "Cloud software for electronic health records, revenue cycle, and patient engagement, used by medical practices and hospital systems across the US.",
+  },
+  Zivame: {
+    sector: "Direct-to-consumer commerce",
+    about:
+      "One of India's largest online lingerie retailers, selling across web, mobile apps, and its own physical stores.",
+  },
+  Kaseya: {
+    sector: "Enterprise IT software",
+    about:
+      "IT and security management software for managed service providers and internal IT teams running distributed infrastructure.",
+  },
+  Cisco: {
+    sector: "Networking and video",
+    about:
+      "Global networking company. This work sat in its service-provider video group, building set-top box software for cable operators.",
+  },
+  Adobe: {
+    sector: "Creative software",
+    about:
+      "Creative and document software company. This work was on the Flash runtime as it was ported to mobile phones and embedded devices.",
+  },
+  "Applied Materials": {
+    sector: "Semiconductor equipment",
+    about:
+      "Maker of the manufacturing equipment chip fabs use to produce wafers, sold to semiconductor manufacturers worldwide.",
+  },
+};
+
 export const experienceTimeline: ExperienceItem[] = [
   {
     period: "2021 - Present",

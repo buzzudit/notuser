@@ -1,6 +1,7 @@
-import { experienceTimeline } from "@/data/experience";
+import { companyProfiles, experienceTimeline } from "@/data/experience";
 import { Timeline, TimelineItem } from "@/components/site/Timeline";
 import { CompanyLogo } from "@/components/site/CompanyLogo";
+import { CompanyHoverCard } from "@/components/site/CompanyHoverCard";
 
 export function ExperienceTimeline() {
   return (
@@ -10,8 +11,31 @@ export function ExperienceTimeline() {
           key={`${item.company}-${item.period}`}
           period={item.period}
           title={item.role}
-          subtitle={`${item.company} - ${item.location}`}
-          mark={<CompanyLogo company={item.company} logo={item.logo} />}
+          subtitle={
+            <>
+              <CompanyHoverCard
+                company={item.company}
+                profile={companyProfiles[item.company]}
+                logo={item.logo}
+                align="start"
+              >
+                <span className="underline decoration-dotted decoration-border underline-offset-4 transition-colors hover:text-foreground">
+                  {item.company}
+                </span>
+              </CompanyHoverCard>
+              {` - ${item.location}`}
+            </>
+          }
+          mark={
+            <CompanyHoverCard
+              company={item.company}
+              profile={companyProfiles[item.company]}
+              logo={item.logo}
+              align="start"
+            >
+              <CompanyLogo company={item.company} logo={item.logo} />
+            </CompanyHoverCard>
+          }
         >
           <ul className="space-y-1.5">
             {item.highlights.map((highlight) => (
