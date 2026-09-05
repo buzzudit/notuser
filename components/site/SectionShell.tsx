@@ -10,9 +10,15 @@ import type { ReactNode } from "react";
  */
 export type SectionSpacing = "default" | "tight";
 
-const SECTION_SPACING: Record<SectionSpacing, string> = {
-  default: "py-16 md:py-24",
-  tight: "py-8 md:py-12",
+/**
+ * Top and bottom are emitted as separate utilities rather than `py-*`, because an
+ * override passed through `className` loses to the shorthand — and a responsive
+ * shorthand like `md:py-24` beats even an unprefixed `pt-0`. Composing explicitly
+ * here means the value you ask for is the value you get.
+ */
+const SECTION_PADDING: Record<SectionSpacing, { top: string; bottom: string }> = {
+  default: { top: "pt-16 md:pt-24", bottom: "pb-16 md:pb-24" },
+  tight: { top: "pt-8 md:pt-12", bottom: "pb-8 md:pb-12" },
 };
 
 interface SectionShellProps {
@@ -20,6 +26,8 @@ interface SectionShellProps {
   className?: string;
   id?: string;
   spacing?: SectionSpacing;
+  /** Removes top padding so this section sits directly under the previous one. */
+  flushTop?: boolean;
 }
 
 const sectionVariants = {
@@ -36,7 +44,10 @@ export function SectionShell({
   className = "",
   id,
   spacing = "default",
+  flushTop = false,
 }: SectionShellProps) {
+  const padding = SECTION_PADDING[spacing];
+
   return (
     <motion.section
       id={id}
@@ -44,10 +55,7 @@ export function SectionShell({
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionVariants}
-      // Spacing is swapped, not appended: an appended py-* utility loses to the one
-      // Tailwind emits later in the stylesheet, so overriding via className silently
-      // does nothing.
-      className={`${SECTION_SPACING[spacing]} ${className}`}
+      className={`${flushTop ? "pt-0" : padding.top} ${padding.bottom} ${className}`}
     >
       <div className="container">{children}</div>
     </motion.section>

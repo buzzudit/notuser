@@ -116,7 +116,7 @@ export default async function HomePage({ searchParams }: PageProps) {
       <ExecutiveHero hero={homeHero} />
 
       {activeIntent ? (
-        <SectionShell className="pt-0">
+        <SectionShell flushTop>
           <IntentAudienceBanner intentLink={activeIntent} />
         </SectionShell>
       ) : null}

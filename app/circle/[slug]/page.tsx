@@ -160,7 +160,7 @@ export default async function PersonPage({ params }: PersonPageProps) {
       </SectionShell>
 
       {person.testimonial ? (
-        <SectionShell className="pt-0">
+        <SectionShell flushTop>
           <div className="relative overflow-hidden rounded-2xl border border-primary/25 bg-card p-6 shadow-sm md:p-8">
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-[hsl(var(--banner-blue-end))] to-primary" />
             <div className="relative flex items-start gap-4">
@@ -184,7 +184,7 @@ export default async function PersonPage({ params }: PersonPageProps) {
       ) : null}
 
       {hasPersonalStory ? (
-        <SectionShell className="pt-0">
+        <SectionShell flushTop>
           <SectionLabel>Personal Story</SectionLabel>
           <SectionHeading>Working with {person.firstName}</SectionHeading>
           <div className="mt-8 grid gap-4">
@@ -215,7 +215,7 @@ export default async function PersonPage({ params }: PersonPageProps) {
       ) : null}
 
       {person.gallery.length > 0 ? (
-        <SectionShell className="pt-0">
+        <SectionShell flushTop>
           <SectionLabel>Gallery</SectionLabel>
           <SectionHeading>Shared moments with {person.firstName}</SectionHeading>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -252,7 +252,7 @@ export default async function PersonPage({ params }: PersonPageProps) {
       ) : null}
 
       {relatedProjects.length > 0 ? (
-        <SectionShell className="pt-0">
+        <SectionShell flushTop>
           <SectionLabel>Connected Work</SectionLabel>
           <SectionHeading>My projects with {person.firstName}</SectionHeading>
           <SectionDescription>

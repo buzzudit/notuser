@@ -93,7 +93,7 @@ export default function AboutPersonalizationPage() {
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,0.9fr)]">
           <section className="rounded-2xl border border-border bg-card p-6 md:p-7">
             <p className="font-mono text-[11px] uppercase tracking-widest text-primary">

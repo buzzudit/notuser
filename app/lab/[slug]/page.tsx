@@ -222,7 +222,7 @@ export default async function LabTrialPage({ params }: PageProps) {
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
           <AIWorkspaceBanner
             eyebrow="AI Idea Guide"
@@ -263,7 +263,7 @@ export default async function LabTrialPage({ params }: PageProps) {
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <div className="grid gap-8">
           <section id="learning" className="scroll-mt-24">
             <div className="grid gap-5 lg:grid-cols-[1fr_2fr] lg:items-stretch">

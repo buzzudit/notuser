@@ -140,7 +140,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <SectionLabel>Best fit conversations</SectionLabel>
         <SectionHeading>
           {activeIntent
