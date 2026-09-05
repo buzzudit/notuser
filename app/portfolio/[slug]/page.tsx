@@ -4,7 +4,7 @@ import { PageLayout } from "@/components/site/layout/PageLayout";
 import { SectionShell } from "@/components/site/SectionShell";
 import { CaseStudyHero } from "@/components/site/CaseStudyHero";
 import { CaseStudySection } from "@/components/site/CaseStudySection";
-import { ClaimStrip } from "@/components/site/ClaimStrip";
+import { ClaimToast } from "@/components/site/ClaimToast";
 import { QuoteBlock } from "@/components/site/QuoteBlock";
 import { ImageGallery } from "@/components/site/ImageGallery";
 import { CallToAction } from "@/components/site/CallToAction";
@@ -96,7 +96,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   ] as const;
 
   const claimCitations = getClaimsForProject(project.slug);
-  const [primaryCitation, ...otherCitations] = claimCitations;
+  const [primaryCitation] = claimCitations;
 
   const navItems = navDefaults.map((item) => ({
     ...item,
@@ -145,15 +145,11 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(creativeWorkJsonLd) }}
       />
+      {claimCitations.length > 0 ? <ClaimToast citations={claimCitations} /> : null}
+
       <SectionShell>
         <CaseStudyHero project={project} />
       </SectionShell>
-
-      {primaryCitation ? (
-        <SectionShell flushTop>
-          <ClaimStrip primary={primaryCitation} others={otherCitations} />
-        </SectionShell>
-      ) : null}
 
       <SectionShell flushTop>
         <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">

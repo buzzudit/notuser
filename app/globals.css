@@ -158,6 +158,9 @@
 
   html {
     scroll-behavior: smooth;
+    /* Keeps an anchor jump (section guide, claim toast) from landing a heading under
+       the fixed header. */
+    scroll-padding-top: 6rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

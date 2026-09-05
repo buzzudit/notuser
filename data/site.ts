@@ -191,8 +191,12 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
 
 /**
  * Eyebrow and title come from the claims registry rather than being retyped here, so the
- * homepage card and the case study's ClaimStrip can never drift into saying related-but-
- * different things about the same claim.
+ * homepage card and the case study's arrival toast can never drift into saying related-
+ * but-different things about the same claim.
+ *
+ * The `?claim=` param is what lets the destination know which card sent the reader —
+ * a client-only read, stripped from the URL on arrival, so it never affects the page's
+ * static content, metadata, or a shared/direct link.
  */
 function leadershipCard(
   claimId: string,
@@ -201,7 +205,14 @@ function leadershipCard(
   hrefLabel: string,
 ): HomeSignalItem {
   const claim = getClaimById(claimId);
-  return { eyebrow: claim.eyebrow, title: claim.title, description, href, hrefLabel };
+  const separator = href.includes("?") ? "&" : "?";
+  return {
+    eyebrow: claim.eyebrow,
+    title: claim.title,
+    description,
+    href: `${href}${separator}claim=${claim.id}`,
+    hrefLabel,
+  };
 }
 
 export const homeLeadershipModel: HomeSignalItem[] = [
