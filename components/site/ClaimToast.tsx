@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { X } from "lucide-react";
 import type { ClaimCitation } from "@/data/claims";
 
@@ -21,6 +22,8 @@ export function ClaimToast({ citations }: ClaimToastProps) {
   const [citation, setCitation] = useState<ClaimCitation | null>(null);
   const [visible, setVisible] = useState(false);
   const dismissTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const claimId = new URLSearchParams(window.location.search).get("claim");
@@ -31,11 +34,6 @@ export function ClaimToast({ citations }: ClaimToastProps) {
 
     setCitation(match);
     const revealTimer = setTimeout(() => setVisible(true), REVEAL_DELAY_MS);
-
-    const url = new URL(window.location.href);
-    url.searchParams.delete("claim");
-    window.history.replaceState({}, "", url.toString());
-
     return () => clearTimeout(revealTimer);
   }, [citations]);
 
@@ -48,7 +46,7 @@ export function ClaimToast({ citations }: ClaimToastProps) {
 
   function startDismissTimer() {
     stopDismissTimer();
-    dismissTimer.current = setTimeout(() => setVisible(false), AUTO_DISMISS_MS);
+    dismissTimer.current = setTimeout(hide, AUTO_DISMISS_MS);
   }
 
   function stopDismissTimer() {
@@ -57,7 +55,15 @@ export function ClaimToast({ citations }: ClaimToastProps) {
 
   if (!citation) return null;
 
-  const dismiss = () => setVisible(false);
+  function hide() {
+    setVisible(false);
+    // Only clean the `?claim=` param once the toast has done its job. Doing this on
+    // mount instead — via router.replace or a raw history.replaceState — either
+    // desyncs the router's URL state for the next soft navigation, or (worse)
+    // triggers a re-render that remounts this component and wipes its own state
+    // before the reveal timer fires. Waiting until dismissal sidesteps both.
+    router.replace(pathname, { scroll: false });
+  }
 
   return (
     <div
@@ -80,7 +86,7 @@ export function ClaimToast({ citations }: ClaimToastProps) {
             </p>
             <button
               type="button"
-              onClick={dismiss}
+              onClick={hide}
               aria-label="Dismiss"
               className="-mr-1 -mt-1 shrink-0 rounded-full p-1 text-white/70 transition-colors hover:text-white"
             >
@@ -95,7 +101,7 @@ export function ClaimToast({ citations }: ClaimToastProps) {
 
           <Link
             href={`#${citation.evidence.anchorId}`}
-            onClick={dismiss}
+            onClick={hide}
             className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-white underline-offset-4 hover:underline"
           >
             Read {citation.evidence.anchorLabel} →
