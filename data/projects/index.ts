@@ -14,6 +14,8 @@ import { project as user_journey_framework } from "./user-journey-framework";
 import { project as vision_platform_and_data_services } from "./vision-platform-and-data-services";
 import { project as design_quality } from "./design-quality";
 import { project as dep_nervous_system } from "./dep-nervous-system";
+import { project as spine_triage } from "./spine-triage";
+import { project as ai_resource_hub } from "./ai-resource-hub";
 import { project as data_migration_mapping_self_service } from "./data-migration-mapping-self-service";
 import { project as developer_portal } from "./developer-portal";
 import { project as marketplace } from "./marketplace";
@@ -43,6 +45,8 @@ import { project as smart_beds_and_spaces_with_built_in_decor } from "./smart-be
 import { legacyProjectSlugMap } from "../legacy-slug-maps";
 
 export const projects: Project[] = [
+  spine_triage,
+  ai_resource_hub,
   ai_enablement,
   _360x_closed_loop_referrals,
   data_exports,

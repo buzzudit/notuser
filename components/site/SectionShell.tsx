@@ -3,10 +3,33 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 
+/**
+ * `default` suits marketing pages, where sections are meant to read as separate
+ * screens. `tight` is for document-like pages such as /resume, which are scanned
+ * top to bottom and where the full rhythm leaves ~192px of dead space between blocks.
+ */
+export type SectionSpacing = "default" | "tight";
+
+/**
+ * Top and bottom are emitted as separate utilities rather than `py-*`, because an
+ * override passed through `className` loses to the shorthand — and a responsive
+ * shorthand like `md:py-24` beats even an unprefixed `pt-0`. Composing explicitly
+ * here means the value you ask for is the value you get.
+ */
+const SECTION_PADDING: Record<SectionSpacing, { top: string; bottom: string }> = {
+  default: { top: "pt-16 md:pt-24", bottom: "pb-16 md:pb-24" },
+  tight: { top: "pt-8 md:pt-12", bottom: "pb-8 md:pb-12" },
+};
+
 interface SectionShellProps {
   children: ReactNode;
   className?: string;
   id?: string;
+  spacing?: SectionSpacing;
+  /** Removes top padding so this section sits directly under the previous one. */
+  flushTop?: boolean;
+  /** Decorative layer rendered behind the content, spanning the full section width. */
+  backdrop?: ReactNode;
 }
 
 const sectionVariants = {
@@ -18,7 +41,16 @@ const sectionVariants = {
   },
 };
 
-export function SectionShell({ children, className = "", id }: SectionShellProps) {
+export function SectionShell({
+  children,
+  className = "",
+  id,
+  spacing = "default",
+  flushTop = false,
+  backdrop,
+}: SectionShellProps) {
+  const padding = SECTION_PADDING[spacing];
+
   return (
     <motion.section
       id={id}
@@ -26,9 +58,10 @@ export function SectionShell({ children, className = "", id }: SectionShellProps
       whileInView="visible"
       viewport={{ once: true, margin: "-80px" }}
       variants={sectionVariants}
-      className={`py-16 md:py-24 ${className}`}
+      className={`${flushTop ? "pt-0" : padding.top} ${padding.bottom} ${className}`}
     >
-      <div className="container">{children}</div>
+      {backdrop}
+      <div className="relative container">{children}</div>
     </motion.section>
   );
 }

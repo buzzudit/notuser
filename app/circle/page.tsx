@@ -231,7 +231,7 @@ export default function CirclePage() {
     <PageLayout>
       <PeopleMasthead />
 
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <PeoplePageContent
           people={people}
           projects={projects}

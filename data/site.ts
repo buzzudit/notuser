@@ -1,3 +1,5 @@
+import { getClaimById } from "./claims";
+
 export type HomeMetric = {
   label: string;
   value: string;
@@ -7,6 +9,9 @@ export type HomeSignalItem = {
   eyebrow: string;
   title: string;
   description: string;
+  /** Case study backing the claim, so a reader can check it rather than take it. */
+  href?: string;
+  hrefLabel?: string;
 };
 
 export type HomeCaseStudyPreview = {
@@ -36,7 +41,7 @@ export const homeHero = {
   subheadline:
     "I help product organizations turn messy workflows into clear product direction, stronger teams, and experiences people can trust.",
   credibilityLine:
-    "18+ years across healthcare, enterprise software, cloud platforms, and commerce, with an engineering foundation.",
+    "19+ years across healthcare, enterprise software, cloud platforms, and commerce, with an engineering foundation.",
   imageSrc: "/images/udit-bw.png",
   imageAlt: "Black and white portrait of Udit Khandelwal",
   quickSignals: [
@@ -52,7 +57,7 @@ export const homeHero = {
 };
 
 export const trustIndicators: HomeMetric[] = [
-  { value: "18+", label: "Years across design and product delivery" },
+  { value: "19+", label: "Years across design and product delivery" },
   { value: "Director", label: "Current leadership scope" },
   { value: "70+", label: "Products influenced in platform vision work" },
   { value: "6", label: "Companies across engineering and design leadership" },
@@ -81,39 +86,43 @@ export const homeWhyUdit: HomeSignalItem[] = [
 
 export const homeAILeadership = {
   intro:
-    "I treat AI as a workflow, systems, and operating-model challenge, not just an interface feature.",
-  focusAreas: [
-    "Find where AI can improve judgment, speed, coordination, or service quality.",
-    "Design human plus AI systems with review, escalation, and clear operator control.",
-    "Shape orchestration across tools, people, and data instead of isolating AI in one surface.",
-    "Help teams adopt AI-enabled practices without lowering standards for trust or quality.",
-  ],
+    "The hard part is never the model. It is deciding what a person still has to be responsible for.",
+  ctaLabel: "See how this worked in production",
+  ctaHref: "/portfolio/spine-triage",
 };
 
 export const homeAILeadershipPillars: HomeSignalItem[] = [
   {
-    eyebrow: "AI-first product strategy",
-    title: "Find durable product value.",
+    eyebrow: "Where AI earns its place",
+    title: "Not every workflow needs an agent.",
     description:
-      "I focus on where AI changes workflow value, not where it only adds novelty.",
+      "On an internal enablement product, the win was never automation. It was helping people find the few resources that actually applied to their job.",
+    href: "/portfolio/ai-resource-hub",
+    hrefLabel: "AI Resource Hub",
   },
   {
-    eyebrow: "Human + AI workflows",
-    title: "Design clear collaboration patterns.",
+    eyebrow: "Human in the loop",
+    title: "The system proposes, a person decides.",
     description:
-      "That means review loops, fallback paths, clear responsibility, and strong decision support.",
+      "Spine Triage can read the logs, trace the code, and draft the fix. The hard part was never the investigation. It was making sure a person still had to say yes before anything reached the codebase.",
+    href: "/portfolio/spine-triage",
+    hrefLabel: "Spine Triage",
   },
   {
     eyebrow: "Trust and control",
-    title: "Build trust through control.",
+    title: "Capability without supervision is a demo.",
     description:
-      "Explainability, confidence, intervention, and governance matter more than polished prompts alone.",
+      "Engineers did not hold back because the answers were wrong. They held back because they could not see how the system got there, or refuse it once it had.",
+    href: "/portfolio/spine-triage",
+    hrefLabel: "Spine Triage",
   },
   {
-    eyebrow: "Team transformation",
-    title: "Help teams change how they work.",
+    eyebrow: "Adoption",
+    title: "Rules become checks, or they get ignored.",
     description:
-      "I care about how design, product, and engineering use AI to move faster without lowering standards.",
+      "On a division-wide delivery framework, guidance written in prose only changed behaviour once it became an automated gate.",
+    href: "/portfolio/dep-nervous-system",
+    hrefLabel: "AI Spine",
   },
 ];
 
@@ -149,18 +158,18 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
     ],
   },
   {
-    slug: "developer-portal",
-    eyebrow: "Technical ecosystem design",
+    slug: "spine-triage",
+    eyebrow: "Human + AI product leadership",
     problemSpace:
-      "Developers and partners needed a clearer path through documentation, integration surfaces, and contribution workflows.",
+      "An AI triage agent could investigate defects competently, but engineers could not see what it had done, what evidence it used, or what it intended next.",
     leadership:
-      "Led UX strategy across teams and shaped the portal into a coherent ecosystem entry point instead of disconnected tools.",
+      "Set the experience direction and stayed close enough to implement it, reorganising the product around inspectable runs and explicit human approval rather than a chat transcript.",
     impact:
-      "Improved platform adoption readiness by making key technical journeys easier to discover, understand, and execute.",
+      "Reached production in September 2026 with feature parity intact, establishing a trust model where the system proposes and a developer decides.",
     metrics: [
-      { label: "Role", value: "Senior Manager UX and project lead" },
-      { label: "Audience", value: "Developers and partners" },
-      { label: "Focus", value: "Platform adoption" },
+      { label: "Role", value: "Experience direction and delivery" },
+      { label: "Delivery", value: "Production, September 2026" },
+      { label: "Control model", value: "No autonomous merge or submit" },
     ],
   },
   {
@@ -180,43 +189,69 @@ export const homeFeaturedCaseStudies: HomeCaseStudyPreview[] = [
   },
 ];
 
+/**
+ * Eyebrow and title come from the claims registry rather than being retyped here, so the
+ * homepage card and the case study's arrival toast can never drift into saying related-
+ * but-different things about the same claim.
+ *
+ * The `?claim=` param is what lets the destination know which card sent the reader —
+ * a client-only read, stripped from the URL on arrival, so it never affects the page's
+ * static content, metadata, or a shared/direct link.
+ */
+function leadershipCard(
+  claimId: string,
+  description: string,
+  href: string,
+  hrefLabel: string,
+): HomeSignalItem {
+  const claim = getClaimById(claimId);
+  const separator = href.includes("?") ? "&" : "?";
+  return {
+    eyebrow: claim.eyebrow,
+    title: claim.title,
+    description,
+    href: `${href}${separator}claim=${claim.id}`,
+    hrefLabel,
+  };
+}
+
 export const homeLeadershipModel: HomeSignalItem[] = [
-  {
-    eyebrow: "Direction",
-    title: "Clarity in ambiguous work.",
-    description:
-      "I help teams move from vague opportunities to sharper priorities, clearer frameworks, and better product bets.",
-  },
-  {
-    eyebrow: "Alignment",
-    title: "Alignment across functions.",
-    description:
-      "I make collaboration concrete by clarifying goals, decisions, dependencies, and the path to delivery.",
-  },
-  {
-    eyebrow: "Team growth",
-    title: "Team growth through coaching.",
-    description:
-      "Coaching, feedback, context-setting, and stretch opportunities are central to how I build stronger teams over time.",
-  },
-  {
-    eyebrow: "Quality",
-    title: "Quality through repeatable habits.",
-    description:
-      "I use frameworks, principles, and review rhythms to keep product quality from becoming inconsistent at scale.",
-  },
-  {
-    eyebrow: "Scale",
-    title: "Practices that outlast launches.",
-    description:
-      "That includes design systems, decision frameworks, operating rhythms, and ways of working that make future execution stronger.",
-  },
-  {
-    eyebrow: "Hands-on credibility",
-    title: "Hands-on judgment when needed.",
-    description:
-      "I stay close enough to the product, workflow, and delivery reality to keep decisions practical.",
-  },
+  leadershipCard(
+    "alignment-is-not-agreement",
+    "Platform teams were shipping perfectly well. What was missing was a direction they could sequence against, so I built the vision as something teams used in roadmap calls rather than a deck they were shown once.",
+    "/portfolio/vision-platform-and-data-services",
+    "Platform and data services",
+  ),
+  leadershipCard(
+    "hard-part-between-teams",
+    "Closing the referral loop was never one product's problem. It needed sender and receiver systems to agree on status, which meant settling architecture and workflow questions neither side owned alone.",
+    "/portfolio/360x-closed-loop-referrals",
+    "360X Closed Loop Referrals",
+  ),
+  leadershipCard(
+    "coaching-is-a-schedule",
+    "Everyone says they develop their team. What made it real was writing down how I do it — growth plans, the trust it takes, and what I hand over — so it survived me being busy.",
+    "/blog/how-i-groom-my-designers-at-athenahealth",
+    "How I grow designers",
+  ),
+  leadershipCard(
+    "cannot-review-your-way-to-quality",
+    "Design review does not survive contact with dozens of teams. Making quality a measured, visible signal did — the first survey cycle came back at 100% response, and maturity stopped being an opinion.",
+    "/portfolio/design-quality",
+    "Design Quality",
+  ),
+  leadershipCard(
+    "shared-vocabulary-beats-shared-document",
+    "Teams did not need another template. They needed the same words for the same decisions, so the framework gave product, engineering, and design one language for journeys instead of three.",
+    "/portfolio/user-journey-framework",
+    "User Journey Framework",
+  ),
+  leadershipCard(
+    "stay-close-enough-to-be-wrong",
+    "On the commerce model at Zivame I owned the strategy and then stayed in the integration patterns themselves, because the decisions that mattered only showed up once content and product had to work as one system.",
+    "/portfolio/content-led-commerce-at-zivame",
+    "Content-led commerce",
+  ),
 ];
 
 export const homeExecutiveProof: HomeSignalItem[] = [
@@ -241,10 +276,10 @@ export const homeExecutiveProof: HomeSignalItem[] = [
 ];
 
 export const homeWritingSection = {
-  label: "Thinking",
-  heading: "Writing on design, leadership, and AI",
+  label: "Writing",
+  heading: "What I write about",
   description:
-    "Selected essays on systems thinking, product quality, design leadership, and AI-enabled ways of working.",
+    "Systems thinking, product quality, design leadership, and how teams actually adopt AI.",
 };
 
 export const homeFeaturedWritingSlugs = [
@@ -282,9 +317,9 @@ export const homeTestimonials = [
 
 export const homeCallToAction = {
   eyebrow: "Conversations",
-  title: "Looking for design leadership or AI product strategy?",
+  title: "I am open to the right conversation",
   description:
-    "If the role involves design leadership, AI-first product strategy, or platform modernization, I can share relevant work and talk through fit.",
+    "If you are hiring for design leadership, AI product strategy, or platform modernization, I am happy to walk through the work and talk honestly about fit.",
   primaryLabel: "Start a conversation",
   primaryHref: "/contact",
   secondaryLabel: "Explore case studies",

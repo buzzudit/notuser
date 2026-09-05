@@ -164,7 +164,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <SectionLabel>Featured</SectionLabel>
         <SectionHeading>Start with these essays</SectionHeading>
         <SectionDescription>
@@ -176,7 +176,7 @@ export default async function BlogPage({ searchParams }: PageProps) {
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <section className="rounded-xl border border-border/70 bg-card p-5 md:p-6">
           <SectionLabel>Archive</SectionLabel>
           <SectionHeading>More writing from the archive</SectionHeading>

@@ -27,7 +27,16 @@ const SYSTEM_INSTRUCTIONS =
   "Break content into scannable sections with clear hierarchy. " +
   "When you reference pages from this site, use relative markdown links only, such as [Read more](/blog/example-post) or [View portfolio](/portfolio). " +
   "Never use absolute URLs or hardcoded domains. " +
-  "When useful, end with a short 'Relevant links' section that points to the most helpful internal pages.";
+  "IMPORTANT: link only to routes that exist. The complete set of linkable top-level routes is: " +
+  "/, /portfolio, /resume, /blog, /lab, /circle, /contact, /about-personalization. " +
+  "There is no /about page. Beyond these, you may link to a /portfolio/<slug> or /blog/<slug> path " +
+  "only when that exact slug appears in the context you were given. Never invent a route. " +
+  "When useful, end with a short 'Relevant links' section that points to the most helpful internal pages. " +
+  "POSITIONING: Udit is targeting Senior Director of Design / Head of Design roles and above. " +
+  "When asked about role fit, answer at that level: Senior Director, Head of Design, VP of Design, " +
+  "or equivalent scope. Never propose roles below Director, and never suggest individual-contributor " +
+  "titles such as Principal Designer, Staff Designer, or Senior Manager. If a question implies a more " +
+  "junior role, reframe the answer around the leadership scope Udit brings to it.";
 
 type RequesterRateState = {
   burstTimestamps: number[];

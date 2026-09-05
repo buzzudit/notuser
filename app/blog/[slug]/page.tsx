@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import { SectionShell } from "@/components/site/SectionShell";
+import { ClaimToast } from "@/components/site/ClaimToast";
+import { getClaimsForPost } from "@/data/claims";
 import { ReadingProgressBar } from "@/components/site/ReadingProgressBar";
 import { TagList } from "@/components/site/TagList";
 import { CallToAction } from "@/components/site/CallToAction";
@@ -111,6 +113,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <PageLayout>
+      <ClaimToast citations={getClaimsForPost(post.slug)} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: safeJsonLd(articleJsonLd) }}

@@ -42,6 +42,8 @@
     --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
     --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
     --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
+    --case-banner-gradient: linear-gradient(135deg, hsl(215 68% 42%) 0%, hsl(218 70% 33%) 48%, hsl(223 72% 24%) 100%);
+    --case-banner-shadow: 0 14px 34px rgb(20 56 130 / 0.22), 0 1px 4px rgb(15 23 42 / 0.08);
     --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.16), hsl(var(--banner-blue-start) / 0.06), transparent);
     --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
     --selection: var(--brand-blue-start);
@@ -89,6 +91,8 @@
     --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
     --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
     --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
+    --case-banner-gradient: linear-gradient(135deg, hsl(222 64% 18%) 0%, hsl(224 70% 13%) 48%, hsl(228 76% 9%) 100%);
+    --case-banner-shadow: 0 14px 34px rgb(0 0 0 / 0.45), 0 1px 4px rgb(0 0 0 / 0.3);
     --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.2), hsl(var(--banner-blue-start) / 0.1), transparent);
     --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
     --selection: var(--brand-blue-start);
@@ -136,6 +140,8 @@
     --banner-radial-overlay: radial-gradient(circle at 12% 0%, rgb(255 255 255 / 0.18), transparent 30%), radial-gradient(circle at 84% 18%, rgb(195 241 255 / 0.2), transparent 32%);
     --banner-grid-overlay: linear-gradient(90deg, rgb(255 255 255 / 0.1) 1px, transparent 1px), linear-gradient(0deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
     --banner-shadow: 0 28px 70px rgb(20 56 130 / 0.36), 0 2px 8px rgb(15 23 42 / 0.1);
+    --case-banner-gradient: linear-gradient(135deg, hsl(215 68% 42%) 0%, hsl(218 70% 33%) 48%, hsl(223 72% 24%) 100%);
+    --case-banner-shadow: 0 14px 34px rgb(20 56 130 / 0.22), 0 1px 4px rgb(15 23 42 / 0.08);
     --blue-section-wash: linear-gradient(to bottom, hsl(var(--banner-blue-start) / 0.16), hsl(var(--banner-blue-start) / 0.06), transparent);
     --shadow-glow: 0 0 40px -10px hsl(var(--brand-blue-start) / 0.22);
     --selection: var(--brand-blue-start);
@@ -152,6 +158,9 @@
 
   html {
     scroll-behavior: smooth;
+    /* Keeps an anchor jump (section guide, claim toast) from landing a heading under
+       the fixed header. */
+    scroll-padding-top: 6rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -285,6 +294,34 @@
     --shape-opacity: calc(var(--hero-shape-opacity) * 0.76);
   }
 
+  /* Ambient blobs behind a section. Same organic shape and hue tokens as
+     .hero-motion-shape, but static and softer: this is atmosphere behind text,
+     not a focal element. */
+  .section-shape-field {
+    @apply pointer-events-none absolute inset-0 overflow-hidden;
+  }
+
+  .section-shape {
+    @apply absolute rounded-[42%_58%_64%_36%/46%_42%_58%_54%] blur-3xl;
+    background:
+      radial-gradient(circle at 38% 34%, hsl(var(--hero-shape-color) / 0.8), transparent 60%),
+      radial-gradient(circle at 70% 68%, hsl(var(--hero-shape-color-soft) / 0.55), transparent 64%);
+    opacity: var(--section-shape-opacity, 0.34);
+  }
+
+  .section-shape-a {
+    @apply h-72 w-[30rem] -rotate-6;
+    left: -7rem;
+    bottom: -4rem;
+  }
+
+  .section-shape-b {
+    @apply h-56 w-80 rotate-12;
+    --section-shape-opacity: 0.2;
+    left: 11rem;
+    bottom: -5rem;
+  }
+
   .blue-banner {
     @apply relative overflow-hidden rounded-[1.4rem] border border-white/[0.18] px-6 py-7 text-white md:px-8 md:py-8;
     background: var(--banner-gradient);
@@ -293,6 +330,18 @@
 
   .blue-banner-radial {
     background: var(--banner-radial-overlay);
+  }
+
+  /* Full-width gradient panel for a case study's Role section. Same family as
+     .blue-banner, sized for a page-width block of prose. */
+  .case-banner {
+    @apply relative overflow-hidden rounded-2xl border border-white/[0.16] px-6 py-8 text-white md:px-10 md:py-10;
+    background: var(--case-banner-gradient);
+    box-shadow: var(--case-banner-shadow);
+  }
+
+  .case-banner-sheen {
+    background: radial-gradient(circle at 14% 0%, rgb(255 255 255 / 0.16), transparent 42%);
   }
 
   .blue-banner-grid {

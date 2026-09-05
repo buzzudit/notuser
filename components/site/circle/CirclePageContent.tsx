@@ -43,7 +43,7 @@ export function CirclePageContent({
 
   return (
     <>
-      <SectionShell className="pt-0">
+      <SectionShell flushTop>
         <SectionLabel>Prompt Examples</SectionLabel>
         <div className="space-y-4">
           <AISuggestionChips

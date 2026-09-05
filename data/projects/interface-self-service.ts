@@ -65,8 +65,7 @@ export const project: Project = {
     },
   ],
   thumbnail: "/images/projects/generated/interface-self-service.png",
-  sourceUrl:
-    "https://bitbucket.athenahealth.com/users/nmalavika/repos/interface-build/browse",
+  sourceUrl: "https://www.notuser.com/portfolio/interface-self-service",
   isPrivate: true,
   narrative: {
     hook:

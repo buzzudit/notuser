@@ -3,6 +3,8 @@ export type ExperienceItem = {
   role: string;
   company: string;
   location: string;
+  /** Path under /public to a brand lockup. Companies without one fall back to a type chip. */
+  logo?: string;
   highlights: string[];
 };
 
@@ -10,18 +12,25 @@ export type EducationItem = {
   institution: string;
   degree: string;
   year: string;
+  /** Path under /public to the institution mark. */
+  logo?: string;
 };
 
 export type ResumeSignal = {
   label: string;
   title: string;
   description: string;
+  /** Case study that substantiates the claim, so each tile can be checked. */
+  href: string;
+  hrefLabel: string;
 };
 
 export type TrainingCertificationItem = {
   year: string;
   title: string;
   provider: string;
+  /** Path under /public to the institution mark. Omitted providers render without one. */
+  logo?: string;
   summary: string;
 };
 
@@ -35,37 +44,87 @@ export type ResumeTestimonial = {
 export const profile = {
   name: "Udit Khandelwal",
   title:
-    "Design leader with engineering roots, focused on AI-first products, enterprise platforms, and trustworthy workflows.",
+    "I have spent 19+ years making complicated systems make sense: clinical workflows, developer platforms, e-commerce and now AI products people can supervise.",
   summary:
-    "Design leader with engineering roots, focused on AI-first products, enterprise platforms, and trustworthy workflows.",
+    "I have spent 19+ years making complicated systems make sense: clinical workflows, developer platforms, e-commerce and now AI products people can supervise.",
 };
 
 export const resumeSignals: ResumeSignal[] = [
   {
-    label: "Current role",
-    title: "Director, Experience Design at athenahealth",
+    label: "Current focus",
+    title: "AI systems people are willing to supervise",
     description:
-      "Leading experience direction across platform and cloud-service work where scale, clarity, and trust matter.",
+      "I lead UX for an AI delivery platform team. The hard problem there is not capability, it is control: making an agent’s evidence and reasoning inspectable enough that an engineer will hand it real work.",
+    href: "/portfolio/spine-triage",
+    hrefLabel: "See it in the work",
   },
   {
     label: "Leadership approach",
     title: "Strategy, systems thinking, and hands-on product judgment",
     description:
       "I connect product direction, design leadership, organizational clarity, and execution quality.",
+    href: "/portfolio/dep-nervous-system",
+    hrefLabel: "See it in the work",
   },
   {
-    label: "Where I add value",
-    title: "Bridging strategy, systems, and delivery",
+    label: "Operating environment",
+    title: "Workflows where a wrong call carries cost",
     description:
-      "My background spans workflow design, enterprise ecosystems, cross-functional influence, and technical fluency.",
+      "Clinical coordination, healthcare integration, and developer infrastructure. In these, quality is not polish. It is whether the workflow still holds when the data is partial and the stakes are real.",
+    href: "/portfolio/360x-closed-loop-referrals",
+    hrefLabel: "See it in the work",
   },
 ];
+
+/**
+ * Short orientation for each employer, shown when someone hovers the timeline mark.
+ * A hiring reader knows athenahealth and Adobe; Kaseya and Applied Materials need a
+ * line explaining what kind of company they are and who they sell to.
+ */
+export type CompanyProfile = {
+  sector: string;
+  about: string;
+};
+
+export const companyProfiles: Record<string, CompanyProfile> = {
+  athenahealth: {
+    sector: "Healthcare technology",
+    about:
+      "Cloud software for electronic health records, revenue cycle, and patient engagement, used by medical practices and hospital systems across the US.",
+  },
+  Zivame: {
+    sector: "Direct-to-consumer commerce",
+    about:
+      "One of India's largest online lingerie retailers, selling across web, mobile apps, and its own physical stores.",
+  },
+  Kaseya: {
+    sector: "Enterprise IT software",
+    about:
+      "IT and security management software for managed service providers and internal IT teams running distributed infrastructure.",
+  },
+  Cisco: {
+    sector: "Networking and video",
+    about:
+      "Global networking company. This work sat in its service-provider video group, building set-top box software for cable operators.",
+  },
+  Adobe: {
+    sector: "Creative software",
+    about:
+      "Creative and document software company. This work was on the Flash runtime as it was ported to mobile phones and embedded devices.",
+  },
+  "Applied Materials": {
+    sector: "Semiconductor equipment",
+    about:
+      "Maker of the manufacturing equipment chip fabs use to produce wafers, sold to semiconductor manufacturers worldwide.",
+  },
+};
 
 export const experienceTimeline: ExperienceItem[] = [
   {
     period: "2021 - Present",
     role: "Director, Experience Design",
     company: "athenahealth",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_ee38f3d04dd44357b5119de9f826806a~mv2.png",
     location: "Boston",
     highlights: [
       "Led subdivision-level vision work across Integration and Foundational zones, helping move UX performance from lagging to strong through alignment and execution.",
@@ -76,6 +135,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "2018 - 2021",
     role: "Senior Manager, UX",
     company: "athenahealth",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_ee38f3d04dd44357b5119de9f826806a~mv2.png",
     location: "Boston",
     highlights: [
       "Shaped platform and partner-ecosystem UX direction, including roadmap and systems alignment across teams during major organizational transitions.",
@@ -86,6 +146,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "2017 - 2018",
     role: "Manager, UX",
     company: "athenahealth",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_ee38f3d04dd44357b5119de9f826806a~mv2.png",
     location: "Bengaluru",
     highlights: [
       "Led AGILE transformation practices in the design workflow and helped establish JIRA-based collaboration patterns as a shared source of truth.",
@@ -96,6 +157,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "2016 - 2017",
     role: "UX Director",
     company: "Zivame",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_ea08172c50104abd8f1403d9709b8cdb~mv2.png",
     location: "Bengaluru",
     highlights: [
       "Defined shopping experience across multiple offline and online properties of Zivame.",
@@ -106,6 +168,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "2014 - 2016",
     role: "Senior UX Designer",
     company: "Kaseya",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_9c3b82a468cd46f88b0e397504b530f4~mv2.png",
     location: "Bengaluru",
     highlights: [
       "Redefined UX for the corporate website, e-commerce portal, and flagship product.",
@@ -116,6 +179,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "2012 - 2014",
     role: "UX Engineer",
     company: "Cisco",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_01e1cdceca534b6bac98eb183a57d71a~mv2.png",
     location: "Bengaluru",
     highlights: [
       "Defined animations and developed high-fidelity interactive prototypes in Flash/AS3.",
@@ -126,6 +190,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "2010 - 2012",
     role: "Mobile and Devices Engineer",
     company: "Adobe",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_2932ab3d76e7403cbfa6492a77df1b4d~mv2.png",
     location: "Bengaluru",
     highlights: [
       "Ported Flash runtimes to mobiles and devices.",
@@ -136,6 +201,7 @@ export const experienceTimeline: ExperienceItem[] = [
     period: "2007 - 2010",
     role: "Software Engineer",
     company: "Applied Materials",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_d3e439455eb84365b573ad9e1da923e0~mv2.png",
     location: "Bengaluru",
     highlights: [
       "Developed upgradable device drivers in C++ for the chip manufacturing tool Endura.",
@@ -149,6 +215,7 @@ export const education: EducationItem[] = [
     institution: "Thapar University",
     degree: "Bachelor of Engineering, Computer Science",
     year: "2003 - 2007",
+    logo: "/media/mirror/static.wixstatic.com/media/bc4f65_22937fe0c48540ddad177269787f03be~mv2.png",
   },
 ];
 
@@ -157,6 +224,7 @@ export const trainingAndCertifications: TrainingCertificationItem[] = [
     year: "2019 - 2020",
     title: "Executive Certificate in Management and Leadership",
     provider: "Massachusetts Institute of Technology",
+    logo: "/images/logos/mit.png",
     summary:
       "Completed MIT executive education programs covering platform strategy, complex business problem solving, finance for technical executives, and managing technical professionals and organizations.",
   },
@@ -164,6 +232,7 @@ export const trainingAndCertifications: TrainingCertificationItem[] = [
     year: "2022",
     title: "Digital Health",
     provider: "Harvard Online",
+    logo: "/images/logos/harvard.png",
     summary:
       "Studied digital transformation in healthcare, including implementation strategy, adoption barriers, and opportunities created by data and digital technologies.",
   },
@@ -171,6 +240,7 @@ export const trainingAndCertifications: TrainingCertificationItem[] = [
     year: "2021",
     title: "Performance Leadership",
     provider: "eCornell",
+    logo: "/images/logos/cornell.png",
     summary:
       "Completed a three-month leadership program focused on coaching, cross-cultural leadership, service quality, innovation, organizational change, and influence.",
   },
@@ -178,6 +248,7 @@ export const trainingAndCertifications: TrainingCertificationItem[] = [
     year: "2015",
     title: "Certified Experience Analyst (CXA)",
     provider: "Human Factors International",
+    logo: "/images/logos/hfi.png",
     summary:
       "Completed PET design, PET architect, innovation strategy, and UX-practice institutionalization training as part of the certification program.",
   },
@@ -185,6 +256,7 @@ export const trainingAndCertifications: TrainingCertificationItem[] = [
     year: "2012",
     title: "Certified Usability Analyst (CUA)",
     provider: "Human Factors International",
+    logo: "/images/logos/hfi.png",
     summary:
       "Completed training in UX foundations, user-centered analysis and conceptual design, application design, and practical usability testing.",
   },
@@ -192,18 +264,74 @@ export const trainingAndCertifications: TrainingCertificationItem[] = [
     year: "2010, 2012",
     title: "Adobe Certified Expert, Flash and Illustrator",
     provider: "Adobe",
+    logo: "/images/logos/adobe.png",
     summary:
       "Completed Adobe certification tracks and proficiency exams for both Flash and Illustrator.",
   },
 ];
 
-export const achievements = [
-  "Set direction for platform and data-services vision work at athenahealth across a broad ecosystem spanning 70+ products.",
-  "Turned ambiguous cross-zone problems into shared narratives that product, engineering, and design teams could act on.",
-  "Led AI transformation in design operations through practical frameworks, hands-on enablement, and broad adoption across teams.",
-  "Built durable design quality and collaboration practices that improved execution consistency across platform, partner, and workflow surfaces.",
-  "Progressed from software engineering to senior-level design leadership while retaining technical fluency and delivery depth.",
-  "Delivered across healthcare, enterprise platforms, cloud products, and commerce through systems thinking and operational leadership.",
+export type Achievement = {
+  text: string;
+  /** Supporting evidence on this site. Outcomes without a single clear source omit it. */
+  href?: string;
+  hrefLabel?: string;
+};
+
+/**
+ * Copy written specifically for the downloadable DOCX.
+ *
+ * The web page persuades; the document gets skimmed by recruiters and parsed by applicant
+ * tracking systems. So this is deliberately plainer prose and is NOT derived from
+ * resumeSignals, whose label/title/description shape reads as marketing in a document.
+ */
+export const resumeDocument = {
+  summary:
+    "Design leader with 19+ years across healthcare, enterprise software, cloud platforms, and commerce, built on a foundation in software engineering. Currently Director of Experience Design at athenahealth, leading UX for an AI delivery platform team and setting experience direction across platform and integration work. Turns ambiguous, cross-organization problems into direction teams can execute, and stays close enough to delivery to keep decisions practical.",
+  competencies: [
+    "Design Leadership",
+    "Team Coaching and Growth",
+    "AI Product Strategy",
+    "Human + AI Workflows",
+    "Platform and Ecosystem UX",
+    "Design Systems and Quality",
+    "Healthcare Workflows",
+    "Developer Experience",
+    "Cross-functional Alignment",
+    "Design Operations",
+  ],
+};
+
+export const achievements: Achievement[] = [
+  {
+    text: "Set direction for platform and data-services vision work at athenahealth across a broad ecosystem spanning 70+ products.",
+    href: "/portfolio/vision-platform-and-data-services",
+    hrefLabel: "Vision: Platform and Data Services",
+  },
+  {
+    text: "Turned ambiguous cross-zone problems into shared narratives that product, engineering, and design teams could act on.",
+    href: "/portfolio/360x-closed-loop-referrals",
+    hrefLabel: "360X Closed Loop Referrals",
+  },
+  {
+    text: "Led AI transformation in design operations through practical frameworks, hands-on enablement, and broad adoption across teams.",
+    href: "/portfolio/ai-resource-hub",
+    hrefLabel: "AI Resource Hub",
+  },
+  {
+    text: "Built durable design quality and collaboration practices that improved execution consistency across platform, partner, and workflow surfaces.",
+    href: "/portfolio/design-quality",
+    hrefLabel: "Design Quality",
+  },
+  {
+    text: "Progressed from software engineering to senior-level design leadership while retaining technical fluency and delivery depth.",
+    href: "/blog/growth-a-designer-s-journey",
+    hrefLabel: "Growth: a designer’s journey",
+  },
+  {
+    text: "Delivered across healthcare, enterprise platforms, cloud products, and commerce through systems thinking and operational leadership.",
+    href: "/portfolio",
+    hrefLabel: "Full portfolio",
+  },
 ];
 
 export const resumeTestimonials: ResumeTestimonial[] = [

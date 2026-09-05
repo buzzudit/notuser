@@ -38,6 +38,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Keep the download out of search results so it cannot outrank /resume itself.
+        source: "/resume.docx",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, follow",
+          },
+        ],
+      },
+      {
         source: "/media/mirror/:path*",
         headers: [
           {
