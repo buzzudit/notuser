@@ -1,10 +1,9 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  BriefcaseBusiness,
+  BookOpen,
   Layers3,
   MessageCircleQuestion,
-  Sparkles,
 } from "lucide-react";
 import { PageLayout } from "@/components/site/layout/PageLayout";
 import {
@@ -18,7 +17,7 @@ import { CallToAction } from "@/components/site/CallToAction";
 import { AIWorkspace } from "@/components/site/AIWorkspace";
 import { AIWorkspaceBanner } from "@/components/site/AIWorkspaceBanner";
 import { FeaturedCaseStudies } from "@/components/site/home/FeaturedCaseStudies";
-import { projects, type Project } from "@/data/projects";
+import { projects } from "@/data/projects";
 import { homeFeaturedCaseStudies, type HomeCaseStudyPreview } from "@/data/site";
 
 type AudienceProfileContext = {
@@ -51,15 +50,10 @@ function getAudienceRoleSummary(profile: AudienceProfileContext) {
   return `a role at ${profile.company}`;
 }
 
-function getProjectCountLabel(count: number) {
-  return count === 1 ? "1 project" : `${count} projects`;
-}
-
 type PortfolioMastheadProps = {
   audienceProfile?: AudienceProfileContext | null;
   heading: string;
   description: string;
-  sortedProjects: Project[];
   featuredPreviews: HomeCaseStudyPreview[];
 };
 
@@ -67,142 +61,104 @@ function PortfolioMasthead({
   audienceProfile,
   heading,
   description,
-  sortedProjects,
-  featuredPreviews,
 }: PortfolioMastheadProps) {
-  const categoryCount = new Set(sortedProjects.map((project) => project.category)).size;
-  const organizationCount = new Set(sortedProjects.map((project) => project.organization)).size;
-  const sectionLinks = [
+  // Three things a reader can do, not three facts about the archive. Each is a verb
+  // with a destination, so the hero moves people into the work instead of describing it.
+  const actions = [
     {
-      href: "#flagship-case-studies",
-      label: "Start with flagship work",
-      count: getProjectCountLabel(featuredPreviews.length),
-      className: "bg-primary/10 text-primary hover:bg-primary/15",
+      href: "#best-work",
+      icon: BookOpen,
+      label: "See my best work",
+      detail: "Hardest problems, biggest consequences",
+    },
+    {
+      href: "#project-grid",
+      icon: Layers3,
+      label: "Browse every project",
+      detail: "Healthcare, platforms, commerce, devices",
     },
     {
       href: "#portfolio-ai",
-      label: "Ask the portfolio guide",
-      count: "AI lens",
-      className: "bg-secondary text-muted-foreground hover:bg-secondary/80",
+      icon: MessageCircleQuestion,
+      label: "Ask which work fits your role",
+      detail: "Compare projects by domain, scope, and outcome",
     },
   ];
 
   return (
-    <SectionShell className="pb-10 md:pb-14">
+    <SectionShell spacing="tight">
       <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-[hsl(var(--banner-blue-end))] to-primary"
         />
-        <div className="grid gap-8 p-6 md:p-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(340px,0.85fr)] lg:p-10">
-          <div className="relative z-10 min-w-0">
-            <SectionLabel>Portfolio</SectionLabel>
-            <h1 className="max-w-3xl break-words text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
-              {heading}
-            </h1>
-            <p className="mt-5 max-w-2xl break-words text-base leading-relaxed text-muted-foreground md:text-lg">
-              {description}
-            </p>
+        <div className="relative z-10 p-6 md:p-8 lg:p-10">
+          <SectionLabel>Portfolio</SectionLabel>
+          <h1 className="max-w-3xl break-words text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+            {heading}
+          </h1>
+          <p className="mt-5 max-w-2xl break-words text-base leading-relaxed text-muted-foreground md:text-lg">
+            {description}
+          </p>
 
-            {audienceProfile ? (
-              <div className="mt-6 rounded-xl border border-primary/30 bg-primary/[0.06] px-4 py-3">
-                <p className="font-mono text-[11px] uppercase text-primary">
-                  Tailored view
+          {audienceProfile ? (
+            <div className="mt-6 max-w-2xl rounded-xl border border-primary/30 bg-primary/[0.06] px-4 py-3">
+              <p className="font-mono text-[11px] uppercase text-primary">
+                Tailored view
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-foreground">
+                This portfolio link is tailored for{" "}
+                <span className="font-semibold text-foreground">
+                  {audienceProfile.company}
+                </span>
+                {audienceProfile.position ? ` (${audienceProfile.position})` : ""}
+                {audienceProfile.intentType
+                  ? ` for a ${audienceProfile.intentType} conversation`
+                  : ""}
+                .
+              </p>
+              {audienceProfile.notes ? (
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Notes: {audienceProfile.notes}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-foreground">
-                  This portfolio link is tailored for{" "}
-                  <span className="font-semibold text-foreground">
-                    {audienceProfile.company}
-                  </span>
-                  {audienceProfile.position ? ` (${audienceProfile.position})` : ""}
-                  {audienceProfile.intentType
-                    ? ` for a ${audienceProfile.intentType} conversation`
-                    : ""}
-                  .
-                </p>
-                {audienceProfile.notes ? (
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    Notes: {audienceProfile.notes}
-                  </p>
-                ) : null}
-                {audienceProfile.positionUrl ? (
-                  <a
-                    href={audienceProfile.positionUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-3 inline-flex text-sm font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
-                  >
-                    View source role
-                  </a>
-                ) : null}
-              </div>
-            ) : null}
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <div className="min-w-0 rounded-2xl border border-border bg-background/80 p-4">
-                <BriefcaseBusiness size={18} className="text-primary" />
-                <p className="mt-3 text-3xl font-semibold tracking-tight text-foreground">
-                  {sortedProjects.length}
-                </p>
-                <p className="mt-1 break-words text-xs uppercase tracking-widest text-muted-foreground">
-                  Projects in the archive
-                </p>
-              </div>
-              <div className="min-w-0 rounded-2xl border border-border bg-background/80 p-4">
-                <Sparkles size={18} className="text-primary" />
-                <p className="mt-3 text-3xl font-semibold tracking-tight text-foreground">
-                  {featuredPreviews.length}
-                </p>
-                <p className="mt-1 break-words text-xs uppercase tracking-widest text-muted-foreground">
-                  Flagship case studies
-                </p>
-              </div>
-              <div className="min-w-0 rounded-2xl border border-border bg-background/80 p-4">
-                <Layers3 size={18} className="text-primary" />
-                <p className="mt-3 text-3xl font-semibold tracking-tight text-foreground">
-                  {categoryCount}
-                </p>
-                <p className="mt-1 break-words text-xs uppercase tracking-widest text-muted-foreground">
-                  Categories across {organizationCount} orgs
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative z-10 min-w-0 rounded-3xl border border-border bg-background/80 p-5 shadow-sm">
-            <div className="flex items-center justify-between gap-3">
-              <div className="min-w-0">
-                <p className="font-mono text-[11px] uppercase tracking-widest text-primary">
-                  Start Here
-                </p>
-                <h2 className="mt-2 break-words text-xl font-semibold tracking-tight text-foreground">
-                  Pick the strongest entry point
-                </h2>
-              </div>
-              <MessageCircleQuestion size={22} className="shrink-0 text-primary" />
-            </div>
-
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Start with deeper case studies, then use the AI guide for targeted
-              comparisons across the archive.
-            </p>
-
-            <div className="mt-6 space-y-3">
-              {sectionLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`flex min-w-0 items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-colors ${item.className}`}
+              ) : null}
+              {audienceProfile.positionUrl ? (
+                <a
+                  href={audienceProfile.positionUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex text-sm font-medium text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
                 >
-                  <span className="min-w-0 break-words text-sm font-medium text-foreground">
-                    {item.label}
+                  View source role
+                </a>
+              ) : null}
+            </div>
+          ) : null}
+
+          <div className="mt-9 grid gap-3 sm:grid-cols-3">
+            {actions.map((action) => {
+              const Icon = action.icon;
+              return (
+                <Link
+                  key={action.href}
+                  href={action.href}
+                  className="group flex min-w-0 flex-col rounded-2xl border border-border bg-background/80 p-5 transition-colors hover:border-primary/40 hover:bg-primary/[0.04]"
+                >
+                  <Icon size={18} className="text-primary" />
+                  <span className="mt-3 flex items-start gap-1.5 text-[15px] font-semibold leading-snug tracking-tight text-foreground">
+                    {action.label}
+                    <ArrowRight
+                      size={14}
+                      aria-hidden="true"
+                      className="mt-1 shrink-0 text-primary transition-transform group-hover:translate-x-0.5"
+                    />
                   </span>
-                  <span className="inline-flex shrink-0 items-center gap-1 font-mono text-xs uppercase tracking-widest">
-                    {item.count} <ArrowRight size={13} />
+                  <span className="mt-1.5 break-words text-sm leading-relaxed text-muted-foreground">
+                    {action.detail}
                   </span>
                 </Link>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -243,10 +199,10 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
     : null;
   const portfolioHeading = audienceProfile
     ? `Case studies and evidence for ${portfolioRoleSummary}`
-    : "Case studies for design leadership and platform work";
+    : "I lead design for platforms people depend on";
   const portfolioDescription = audienceProfile
     ? `Explore detailed case studies and the broader project catalog with ${portfolioRoleSummary} in mind.`
-    : "Start with deeper case studies, then browse the broader archive across healthcare, enterprise platforms, commerce, and independent build work.";
+    : "Healthcare integration, developer tooling, AI systems, and commerce. Pick a way in below, or ask me anything about the work.";
   const portfolioSuggestions = audienceProfile
     ? [
         `Which case studies matter most for ${portfolioRoleSummary}?`,
@@ -266,10 +222,10 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
     : "I can help connect product direction, design quality, and workflow strategy.";
 
   const portfolioAiContext = [
-    "Portfolio landing page with flagship and full project coverage.",
+    "Portfolio landing page covering selected best work and the full project set.",
     `Total projects: ${sortedProjects.length}.`,
     shareContextBlock ?? "",
-    `Flagship projects: ${
+    `Best work: ${
       featuredPreviews.length > 0
         ? featuredPreviews.map((preview) => preview.slug).join(" | ")
         : "none"
@@ -293,23 +249,22 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
         audienceProfile={audienceProfile}
         heading={portfolioHeading}
         description={portfolioDescription}
-        sortedProjects={sortedProjects}
         featuredPreviews={featuredPreviews}
       />
 
-      <SectionShell className="pt-0" id="flagship-case-studies">
-        <SectionLabel>Flagship Work</SectionLabel>
-        <SectionHeading>Flagship case studies with business context</SectionHeading>
+      <SectionShell spacing="tight" flushTop id="best-work">
+        <SectionLabel>Best Work</SectionLabel>
+        <SectionHeading>The work I would want you to judge me on</SectionHeading>
         <SectionDescription>
-          These examples show problem context, leadership scope, decision
-          tradeoffs, and outcomes.
+          The hardest problems I have been handed, the calls I stand behind, and the ones
+          that cost the most to get right.
         </SectionDescription>
         <div className="mt-8">
           <FeaturedCaseStudies previews={featuredPreviews} projects={projects} />
         </div>
       </SectionShell>
 
-      <SectionShell className="pt-0" id="portfolio-ai">
+      <SectionShell spacing="tight" flushTop id="portfolio-ai">
         <AIWorkspaceBanner
           eyebrow="AI Portfolio Guide"
           title="Ask about the portfolio"
@@ -327,7 +282,7 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
         </AIWorkspaceBanner>
       </SectionShell>
 
-      <SectionShell className="pt-0" id="project-grid">
+      <SectionShell spacing="tight" flushTop id="project-grid">
         <SectionLabel>Full Project Set</SectionLabel>
         <SectionHeading>More projects across domains and roles</SectionHeading>
         <SectionDescription>
@@ -339,7 +294,7 @@ export function PortfolioPageContent({ audienceProfile }: PortfolioPageContentPr
         </div>
       </SectionShell>
 
-      <SectionShell id="portfolio-cta">
+      <SectionShell spacing="tight" id="portfolio-cta">
         <CallToAction
           eyebrow="Conversations"
           title={ctaTitle}
