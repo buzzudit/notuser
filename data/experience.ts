@@ -20,6 +20,9 @@ export type ResumeSignal = {
   label: string;
   title: string;
   description: string;
+  /** Case study that substantiates the claim, so each tile can be checked. */
+  href: string;
+  hrefLabel: string;
 };
 
 export type TrainingCertificationItem = {
@@ -41,9 +44,9 @@ export type ResumeTestimonial = {
 export const profile = {
   name: "Udit Khandelwal",
   title:
-    "Design leader with engineering roots, focused on AI-first products, enterprise platforms, and trustworthy workflows.",
+    "I have spent 19+ years making complicated systems make sense: clinical workflows, developer platforms, e-commerce and now AI products people can supervise.",
   summary:
-    "Design leader with engineering roots, focused on AI-first products, enterprise platforms, and trustworthy workflows.",
+    "I have spent 19+ years making complicated systems make sense: clinical workflows, developer platforms, e-commerce and now AI products people can supervise.",
 };
 
 export const resumeSignals: ResumeSignal[] = [
@@ -52,18 +55,24 @@ export const resumeSignals: ResumeSignal[] = [
     title: "AI systems people are willing to supervise",
     description:
       "I lead UX for an AI delivery platform team. The hard problem there is not capability, it is control: making an agent’s evidence and reasoning inspectable enough that an engineer will hand it real work.",
+    href: "/portfolio/spine-triage",
+    hrefLabel: "See it in the work",
   },
   {
     label: "Leadership approach",
     title: "Strategy, systems thinking, and hands-on product judgment",
     description:
       "I connect product direction, design leadership, organizational clarity, and execution quality.",
+    href: "/portfolio/dep-nervous-system",
+    hrefLabel: "See it in the work",
   },
   {
     label: "Operating environment",
     title: "Workflows where a wrong call carries cost",
     description:
       "Clinical coordination, healthcare integration, and developer infrastructure. In these, quality is not polish. It is whether the workflow still holds when the data is partial and the stakes are real.",
+    href: "/portfolio/360x-closed-loop-referrals",
+    hrefLabel: "See it in the work",
   },
 ];
 
@@ -234,7 +243,7 @@ export type Achievement = {
  */
 export const resumeDocument = {
   summary:
-    "Design leader with 18+ years across healthcare, enterprise software, cloud platforms, and commerce, built on a foundation in software engineering. Currently Director of Experience Design at athenahealth, leading UX for an AI delivery platform team and setting experience direction across platform and integration work. Turns ambiguous, cross-organization problems into direction teams can execute, and stays close enough to delivery to keep decisions practical.",
+    "Design leader with 19+ years across healthcare, enterprise software, cloud platforms, and commerce, built on a foundation in software engineering. Currently Director of Experience Design at athenahealth, leading UX for an AI delivery platform team and setting experience direction across platform and integration work. Turns ambiguous, cross-organization problems into direction teams can execute, and stays close enough to delivery to keep decisions practical.",
   competencies: [
     "Design Leadership",
     "Team Coaching and Growth",

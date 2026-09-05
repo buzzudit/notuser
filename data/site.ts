@@ -36,7 +36,7 @@ export const homeHero = {
   subheadline:
     "I help product organizations turn messy workflows into clear product direction, stronger teams, and experiences people can trust.",
   credibilityLine:
-    "18+ years across healthcare, enterprise software, cloud platforms, and commerce, with an engineering foundation.",
+    "19+ years across healthcare, enterprise software, cloud platforms, and commerce, with an engineering foundation.",
   imageSrc: "/images/udit-bw.png",
   imageAlt: "Black and white portrait of Udit Khandelwal",
   quickSignals: [
@@ -52,7 +52,7 @@ export const homeHero = {
 };
 
 export const trustIndicators: HomeMetric[] = [
-  { value: "18+", label: "Years across design and product delivery" },
+  { value: "19+", label: "Years across design and product delivery" },
   { value: "Director", label: "Current leadership scope" },
   { value: "70+", label: "Products influenced in platform vision work" },
   { value: "6", label: "Companies across engineering and design leadership" },
